@@ -777,30 +777,35 @@ function jetpack_likes_more_link() {
 add_action( 'jetpack_learn_more_button_likes', 'jetpack_likes_more_link' );
 // Likes: STOP
 
-// Debug: START
-function jetpack_debug_more_info() { ?>
+// Google+ Profile: START
+function jetpack_gplus_authorship_more_info() { ?>
 
-	<h4><?php esc_html_e( 'Debug' , 'jetpack' ); ?></h4>
+	<div class="jp-info-img">
+		<a href="http://jetpack.me/support/google-plus/">
+			<img class="jp-info-img" src="<?php echo plugins_url( basename( dirname( dirname( __FILE__ ) ) ) . '/_inc/images/screenshots/google-plus.png' ) ?>" alt="<?php esc_attr_e( 'Google+ Profile', 'jetpack' ) ?>" width="350" height="33" />
+		</a>
+	</div>
 
-	<p><?php esc_html_e( "A debugging platform for the Jetpack plugin. Find out why Jetpack isn't working for you and submit a help request direct from your Dashboard.", 'jetpack' ); ?></p>
-	<?php if ( Jetpack::is_module_active( 'debug' ) ) : ?>
-		<p><a href="<?php echo admin_url( 'admin.php?page=jetpack-debugger' ); ?>"><?php esc_html_e( "Click here to start debugging.", 'jetpack' ); ?></a></p>
+	<h4><?php esc_html_e( 'Google+ Profile' , 'jetpack' ); ?></h4>
 
-	<?php endif; ?>
+	<p><?php esc_html_e( 'The Google+ profile module allows you to connect your blog and Google+ accounts.', 'jetpack' ) ?></p>
+	<p><?php esc_html_e( 'Displayed below your posts will be a link back to your Google+ profile and a Google+ follow button. A link will also be added to your Google+ profile.', 'jetpack' ); ?></p>
+
+	<p>&rarr; <a href="http://jetpack.me/support/google-plus/"><?php esc_html_e( 'More information on using Google+ Profile.', 'jetpack' ); ?></a></p>
+
 <?php
 }
+add_action( 'jetpack_module_more_info_gplus-authorship', 'jetpack_gplus_authorship_more_info' );
 
-function jetpack_debug_more_link() {
-	echo '<a class="button-secondary more-info-link" href="http://jetpack.me/support/debug/">' . __( 'Learn More', 'jetpack' ) . '</a>';
+function jetpack_gplus_authorship_more_link() {
+	echo '<a class="button-secondary more-info-link" href="#">' . __( 'Learn More', 'jetpack' ) . '</a>';
 }
-
-add_action( 'jetpack_module_more_info_debug', 'jetpack_debug_more_info' );
-add_action( 'jetpack_module_more_info_connected_debug', 'jetpack_debug_more_info' );
-add_action( 'jetpack_learn_more_button_debug', 'jetpack_debug_more_link' );
-// Debug: STOP
+add_action( 'jetpack_learn_more_button_gplus-authorship', 'jetpack_gplus_authorship_more_link' );
+// Google+ Profile: STOP
 
 // Omnisearch: START
-function jetpack_omnisearch_more_info() { ?>
+function jetpack_omnisearch_more_info() {
+	?>
 
 	<h4><?php esc_html_e( 'Omnisearch' , 'jetpack' ); ?></h4>
 
@@ -812,7 +817,7 @@ function jetpack_omnisearch_more_info() { ?>
 		<?php echo Jetpack_Omnisearch::get_omnisearch_form(); ?>
 	<?php endif; ?>
 
-<?php
+	<?php
 }
 
 function jetpack_omnisearch_more_link() {
@@ -822,3 +827,56 @@ function jetpack_omnisearch_more_link() {
 add_action( 'jetpack_module_more_info_omnisearch',  'jetpack_omnisearch_more_info' );
 add_action( 'jetpack_learn_more_button_omnisearch', 'jetpack_omnisearch_more_link' );
 // Omnisearch: STOP
+
+// Widget Visibility: START
+function jetpack_widget_visibility_more_info() { ?>
+	<h4><?php esc_html_e( 'Widget Visibility', 'jetpack' ); ?></h4>
+
+	<p><?php esc_html_e( 'Control which pages your widgets appear on with Widget Visibility.', 'jetpack' ); ?></p>
+	<p><?php esc_html_e( 'To control visibility, expand the widget and click the Visibility button next to the Save button, and then, choose a set of visibility options.', 'jetpack' ); ?></p>
+	<p><?php esc_html_e( 'For example, if you wanted the Archives widget to only appear on category archives and error pages, choose "Show" from the first dropdown and then add two rules: "Page is 404 Error Page" and "Category is All Category Pages."', 'jetpack' ); ?></p>
+	<p><?php esc_html_e( 'You can also hide widgets based on the current page. For example, if you don\'t want the Archives widget to appear on search results pages, choose "Hide" and "Page is Search results."', 'jetpack' ); ?></p>
+<?php
+}
+
+function jetpack_widget_visibility_more_link() {
+	echo '<a class="button-secondary more-info-link" href="http://jetpack.me/support/widget-visibility/">' . __( 'Learn More', 'jetpack' ) . '</a>';
+}
+
+add_action( 'jetpack_module_more_info_widget-visibility',  'jetpack_widget_visibility_more_info' );
+add_action( 'jetpack_learn_more_button_widget-visibility', 'jetpack_widget_visibility_more_link' );
+// Widget Visibility: STOP
+
+
+// WordPress.com Connect: START
+function jetpack_wpcc_more_info() { ?>
+	<h4><?php esc_html_e( 'WordPress.com Connect' , 'jetpack' ); ?></h4>
+
+	<p><?php esc_html_e( 'With WordPress.com Connect, your users will be able to log into your WordPress admin with the same credentials they use to log into WordPress.com.  It\'s safe and secure.' , 'jetpack' ); ?></p>
+	<p><?php esc_html_e( 'Once enabled, a "Connect with WordPress.com" option will be added to your existing log-in form.' , 'jetpack' ); ?></p>
+
+<?php
+}
+
+function jetpack_wpcc_more_link() {
+	echo '<a class="button-secondary more-info-link" href="http://jetpack.me/support/wpcc/">' . __( 'Learn More', 'jetpack' ) . '</a>';
+}
+
+add_action( 'jetpack_module_more_info_wpcc',  'jetpack_wpcc_more_info' );
+add_action( 'jetpack_learn_more_button_wpcc', 'jetpack_wpcc_more_link' );
+// WordPress.com Connect: STOP
+
+// VideoPress: START
+function jetpack_videopress_more_info() {
+	?>
+	<h4><?php esc_html_e( 'VideoPress', 'jetpack' ); ?></h4>
+	<p><?php _e( 'With the VideoPress module you can easily upload videos to your WordPress site and embed them in your posts and pages. This module requires a WordPress.com account with an active <a href="http://store.wordpress.com/premium-upgrades/videopress/" target="_blank">VideoPress subscription</a>.', 'jetpack' ); ?></p>
+	<?php
+}
+add_action( 'jetpack_module_more_info_videopress', 'jetpack_videopress_more_info' );
+
+function jetpack_videopress_more_link() {
+	echo '<a class="button-secondary more-info-link" href="#">' . __( 'Learn More', 'jetpack' ) . '</a>';
+}
+add_action( 'jetpack_learn_more_button_videopress', 'jetpack_videopress_more_link' );
+// VideoPress: STOP

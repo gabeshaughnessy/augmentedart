@@ -1,4 +1,4 @@
-/* This file was automatically generated on Jun 19 2013 20:38:31 */
+/* This file was automatically generated on Sep 05 2013 19:17:53 */
 
 
 h2.page-title small {
@@ -21,7 +21,7 @@ input.omnisearch {
 	width: 100%;
 }
 
-.admin-color-mp6 input.omnisearch {
+.mp6 input.omnisearch {
 	line-height: 1.35;
 }
 
@@ -42,7 +42,7 @@ button.omnisearch-submit {
 	bottom: 0;
 }
 
-.admin-color-mp6 button.omnisearch-submit {
+.mp6 button.omnisearch-submit {
 	padding: 0.3em 0.5em 0.1em;
 }
 
@@ -115,8 +115,20 @@ button.omnisearch-submit span {
 	width: 15%;
 }
 
-.comments .column-author {
+.wp-list-table.comments .column-author {
 	width: 20%;
+}
+
+.wp-list-table.media th {
+	white-space: nowrap;
+}
+
+.wp-list-table.media .column-parent {
+	width: 15%;
+}
+
+.wp-list-table.media .column-comments span.vers {
+	display: block;
 }
 
 .tablenav {
@@ -126,3 +138,4 @@ button.omnisearch-submit span {
 .omnisearch-results .tablenav.top {
 	margin: 5px 0;
 }
+
