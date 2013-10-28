@@ -167,17 +167,6 @@ function twentythirteen_scripts_styles() {
 
 	// Loads JavaScript file with functionality specific to Twenty Thirteen.
 	wp_enqueue_script( 'twentythirteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-	/* --------- 
-
-	CUSTOM JS
-
-	-----------*/
-	wp_enqueue_script( 'animate-header', get_template_directory_uri() . '/js/animate-header.js', array( 'jquery' ) );
-
-	wp_enqueue_script( 'glow-logo', get_template_directory_uri() . '/js/glow-logo.js', array( 'jquery' ) );
-
-
-
 
 	//END CUSTOM JS
 
