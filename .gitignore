@@ -11,3 +11,37 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
+400.shtml
+	401.shtml
+	403.shtml
+	404.shtml
+	500.php
+	500.shtml
+	default.html
+	error_log
+#	favicon.ico
+	googleffe4acb5e98797d9.html
+	index.php
+	license.txt
+	narrativecorpse/
+	readme.html
+	sxsw/
+#	wp-activate.php
+#	wp-admin/
+	wp-blog-header.php
+	wp-comments-post.php
+	wp-config-sample.php
+	wp-content/
+	wp-cron.php
+	wp-includes/
+	wp-links-opml.php
+	wp-load.php
+	wp-login.php
+	wp-mail.php
+	wp-pass.php
+	wp-register.php
+	wp-settings.php
+	wp-signup.php
+	wp-trackback.php
+	xmlrpc.php
+
