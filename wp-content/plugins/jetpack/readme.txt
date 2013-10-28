@@ -1,9 +1,9 @@
 === Jetpack by WordPress.com ===
-Contributors: automattic, alternatekev, andy, apeatling, azaozz, barry, beaulebens, blobaugh, cfinke, chellycat, danielbachhuber, daniloercoli, designsimply, eoigal, ethitter, gibrown, georgestephanis, hew, hugobaeta, iammattthomas, jblz, jeherve, jkudish, Joen, johnjamesjacoby, jshreve, lancewillett, martinremy, matt, matveb, mdawaffe, migueluy, nickmomrik, pento, stephdau, tmoorewp, Viper007Bond, westi, yoavf
+Contributors: automattic, alternatekev, andy, apeatling, azaozz, barry, beaulebens, blobaugh, cfinke, chellycat, danielbachhuber, daniloercoli, designsimply, eoigal, ethitter, gibrown, georgestephanis, hew, hugobaeta, iammattthomas, jblz, jeherve, jkudish, Joen, johnjamesjacoby, jshreve, lancewillett, martinremy, matt, matveb, mcsf, mdawaffe, migueluy, nickmomrik, pento, stephdau, tmoorewp, Viper007Bond, westi, yoavf
 Tags: WordPress.com, statistics, stats, views, tweets, twitter, widget, gravatar, hovercards, profile, equations, latex, math, maths, youtube, shortcode, archives, audio, blip, bliptv, dailymotion, digg, flickr, googlevideo, google, googlemaps, kyte, kytetv, livevideo, redlasso, rockyou, rss, scribd, slide, slideshare, soundcloud, vimeo, shortlinks, wp.me, subscriptions, notifications, notes, json, api, rest, mosaic, gallery, slideshow
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 2.3.3
+Stable tag: 2.5
 
 Supercharge your WordPress site with powerful features previously only available to WordPress.com users.
 
@@ -25,7 +25,7 @@ Features include:
 * Hovercard popups for your commenters via [Gravatar](http://gravatar.com/).
 * Easily embedded media from popular sites like YouTube, Digg, and Vimeo.
 * The ability to post to your blog from any email client.
-* Integration with and automatic posting to your favorite social networks including Twitter, Facebook, Tumblr, and LinkedIn.
+* Integration with and automatic posting to your favorite social networks including Twitter, Facebook, Tumblr, Path, and LinkedIn.
 * For the Math geeks, a simple way to include beautiful mathematical expressions on your site.
 * A widget for displaying recent tweets.  Previously provided by [Wickett Twitter Widget](http://wordpress.org/extend/plugins/wickett-twitter-widget/)
 * Your readers can easily share your posts via email or their favorite social networks.  Previously provided by the [Sharedaddy](http://wordpress.org/extend/plugins/sharedaddy/) WordPress plugin.
@@ -62,10 +62,13 @@ Once you've installed Jetpack, your stats will be available via the "Site Stats"
 
 = How do I contribute to Jetpack? =
 
-Easy! There are a couple of ways (more coming soon):
+Easy! There are opportunities for developers at all levels to contribute:
 
+* Join our Beta Test group
 * Give us a hand answering questions in our [support forum](http://wordpress.org/support/plugin/jetpack)
 * Report bugs, with reproduction steps, or post patches on our [Trac](http://plugins.trac.wordpress.org/newticket?component=jetpack)
+
+Learn more (and get detailed instructions) in our [contribute guide](http://jetpack.me/contribute/).
 
 == Screenshots ==
 
@@ -79,6 +82,75 @@ Easy! There are a couple of ways (more coming soon):
 8. Mobile Theme
 
 == Changelog ==
+
+= 2.5 =
+* Enhancement: Connect your Google+ profile and WordPress site to prove authorship of posts. 
+* Enhancement: Improved sharing buttons display.
+* Enhancement: Comment on your posts using Google+ to signin.
+* Enhancement: Embed Google+ posts into your posts.
+* Enhancement: Added event logging capabilities for debugging
+* Enhancement: LaTeX is now available in dev mode
+* Enhancement: Introduced gallery widget
+* Enhancement: Added new module: VideoPress
+* Enhancement: Updated identity crisis checker
+* Enhancement: Tiled Gallery widget added
+* Enhancement: Google +1 button changed to Google+ Share button, to avoid confusion
+* Enhancement: Added check to ensure Google+ authorship accounts have disconnected properly
+* Enhancement: Updated identity crisis checker
+* Enhancement: Tiled Gallery widget added
+* Enhancement: Google +1 button changed to Google+ Share button, to avoid confusion
+* Enhancement: Added the ability to embed Facebook posts
+* Bug Fix: Redirect issue with G+ authorship when WordPress is not in the root directory
+* Enhancement: Better security if carousel to prevent self-XSS
+* Enhancement: Better handling of cookies for subsites on multisite installs
+* Bug Fix: Check for post in G+ authorship before accessing it
+
+= 2.4.2 =
+* Enhancement: Converted to module headers to detect Auto-Activating modules.
+* Enhancement: WPCC: Added 'Close' link to deactivate WPCC in the admin nag.
+* Enhancement: JSON API: Add User Nicename to the user data.
+* Bug Fix: Contact Form: Stopped using a short tag.
+* Bug Fix: Changed CSS selector to catch MP6 stylings.
+* Bug Fix: Dropped __FILE__ references in class.jetpack.php in favor of JETPACK__PLUGIN_DIR constant, now code that deactivates the plugin from the connect nag works again.
+* Bug Fix: Random Redirect: Add random-redirect to the plugins overriden list, in case someone is using Matt's Random Redirect plugin.
+* Bug Fix: Tiled Gallery: Revert r757178 relating to tiled gallery defaults.
+* Bug Fix: Return false, not zero, if $GLOBALS['content_width'] isn't defined.
+* Bug Fix: WPCC: Don't call wp_login_url() in the constructor -- if someone is running a custom login page, that can break things if their plugin runs get_permalink as a filter before init.
+* Bug Fix: Tiled Gallery: Add fallback if post_parent == 0 due to infinite_scroll_load_other_plugins_scripts.
+* Bug Fix: Custom CSS: Set the ACE gutter z-index to 1.
+* Bug Fix: Custom Post Types: Switch from wp_redirect() to wp_safe_redirect().
+* Bug Fix: Likes: Set overflow:hidden; on the likes adminbar item.
+* Bug Fix: Mobile Theme: Migrate where/when the custom header stuff is included.
+* Bug Fix: Slideshow Shortcode: Add a height of 410px.
+
+= 2.4.1 =
+* Enhancement: Don't auto-activate WPCC.
+
+= 2.4 =
+* Enhancement: WordPress.com Connect (WPCC): New Module.
+* Enhancement: Widget Visibility: New Module.
+* Enhancement: Shortcode: Addition of new Twitter Timeline shortcode.
+* Enhancement: Shortcode: Addition of new Presentation shortcode.
+* Enhancement: Shortcode: Addition of new Vine shortcode.
+* Enhancement: Custom Post Types: CPTs are available.
+* Enhancement: Subscriptions: Add 'jetpack_is_post_mailable' filter.
+* Enhancement: OpenGraph: Add Twitter Cards meta tags as well.
+* Enhancement: Custom CSS: Update lessc and scssc preprocessors to 0.4.0 and 0.0.7 respectively.
+* Enhancement: Omnisearch: Add Media results.
+* Enhancement: Likes: Use a protocol-agnostic iframe, instead of forced HTTPS.
+* Enhancement: Top Posts: Increase post limit.
+* Enhancement: Publicize: Updated JS and UI.
+* Enhancement: Photon: New filter to let site admins/owners enable photon for HTTPS urls.
+* Enhancement: New jetpack_get_available_modules filter.
+* Enhancement: Subscriptions: Antispam measures.
+* Bug Fix: Add inline style to keep plugins/themes from inadvertently hiding the Connect box.
+* Bug Fix: Custom CSS: Respect the new wp_revisions_to_keep filter.
+* Bug Fix: Photon: Only hook jetpack_photon_url into the filter if the user has Photon active.
+* Bug Fix: Heartbeat: Used wrong object, occasinally fatal-erroring out for the cron.
+* Bug Fix: Add an empty debug.php file to the /modules/ folder, to solve some update issues where it never got deleted.
+
+= 2.3.5 =
+* Enhancement: Added Path support to Publicize.
 
 = 2.3.4 =
 * Bug Fix: Correct when output occurs with CSV export for feedback.
@@ -223,7 +295,7 @@ Easy! There are a couple of ways (more coming soon):
 * Bug Fix: Shortcodes - Slideshow: RTL styling update
 * Bug Fix: Tiled Galleries - Fix IE8 display bug where it doesn't honor inline CSS for width on images
 * Bug Fix: Tiled Galleries - Remove depreacted hover call, use mouseenter mouseleave instead
-* Enhancement: Twitter Timeline Widget: New JavaScript based widget. Old one will discontinue May 7th. 
+* Enhancement: Twitter Timeline Widget: New JavaScript based widget. Old one will discontinue May 7th.
 
 = 2.2.2 =
 * Enhancement: Mobile Theme: Add controls for custom CSS.

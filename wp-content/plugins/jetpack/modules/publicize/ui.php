@@ -77,6 +77,12 @@ class Publicize_UI {
 		</div><?php
 	}
 
+	public static function denied_notice() { ?>
+		<div class='updated'>
+			<p><?php _e ( "You have chosen not to connect your blog. Please click 'accept' when prompted if you wish to connect your accounts.", 'jetpack' ); ?></p>
+		</div><?php
+	}
+
 	/**
 	* Lists the current user's publicized accounts for the blog
 	* looks exactly like Publicize v1 for now, UI and functionality updates will come after the move to keyring
@@ -87,6 +93,12 @@ class Publicize_UI {
 
   		<form action="" id="publicize-form">
 	  		<h3 id="publicize"><?php _e( 'Publicize', 'jetpack' ) ?></h3>
+
+	  		<?php
+	  			if ( !empty( $_GET['action'] ) && 'deny' == $_GET['action'] )
+	  				$this->denied_notice();
+	  		?>
+
 	  		<p>
 	  			<?php esc_html_e( 'Connect your blog to popular social networking sites and automatically share new posts with your friends.', 'jetpack' ) ?>
 	  			<?php esc_html_e( 'You can make a connection for just yourself or for all users on your blog. Shared connections are marked with the (Shared) text.', 'jetpack' ); ?>
@@ -99,7 +111,7 @@ class Publicize_UI {
   				$doc_link = "http://en.support.wordpress.com/publicize/";
   			?>
 
-	  		<p>&rarr; <a href="<?php echo esc_url( $doc_link ); ?>"><?php esc_html_e( 'More information on using Publicize.', 'jetpack' ); ?></a></p>
+	  		<p>&rarr; <a href="<?php echo esc_url( $doc_link ); ?>" target="_blank"><?php esc_html_e( 'More information on using Publicize.', 'jetpack' ); ?></a></p>
 
 	  		<div id="publicize-services-block">
 		  		<?php
@@ -108,7 +120,7 @@ class Publicize_UI {
 		  			?>
 		  			<div class="publicize-service-entry">
 			  			<div id="<?php echo esc_attr( $name ); ?>" class="publicize-service-left">
-			  				<a href="<?php echo esc_url( $connect_url ); ?>"><span class="pub-logos" id="<?php echo esc_attr( $name ); ?>">&nbsp;</span></a>
+			  				<a href="<?php echo esc_url( $connect_url ); ?>" target="_top"><span class="pub-logos" id="<?php echo esc_attr( $name ); ?>">&nbsp;</span></a>
 			  			</div>
 
 			  			<div class="publicize-service-right">
@@ -141,7 +153,7 @@ class Publicize_UI {
 										<li>
 											<?php
 											if ( !empty( $profile_link ) ) : ?>
-												<a class="publicize-profile-link" href="<?php echo esc_url( $profile_link ); ?>">
+												<a class="publicize-profile-link" href="<?php echo esc_url( $profile_link ); ?>" target="_top">
 													<?php echo esc_html( $connection_display ); ?>
 												</a><?php
 											else :
@@ -153,11 +165,11 @@ class Publicize_UI {
 												<small>(<?php esc_html_e( 'Shared', 'jetpack' ); ?>)</small>
 
 												<?php if ( current_user_can( $this->publicize->GLOBAL_CAP ) ) : ?>
-													<a class="pub-disconnect-button" title="<?php esc_html_e( 'Disconnect', 'jetpack' ); ?>" href="<?php echo esc_url( $disconnect_url ); ?>">×</a>
+													<a class="pub-disconnect-button" title="<?php esc_html_e( 'Disconnect', 'jetpack' ); ?>" href="<?php echo esc_url( $disconnect_url ); ?>" target="_top">×</a>
 												<?php endif; ?>
 
 											<?php else : ?>
-												<a class="pub-disconnect-button" title="<?php esc_html_e( 'Disconnect', 'jetpack' ); ?>" href="<?php echo esc_url( $disconnect_url ); ?>">×</a>
+												<a class="pub-disconnect-button" title="<?php esc_html_e( 'Disconnect', 'jetpack' ); ?>" href="<?php echo esc_url( $disconnect_url ); ?>" target="_top">×</a>
 											<?php endif; ?>
 										</li>
 
@@ -166,7 +178,13 @@ class Publicize_UI {
 				  					?>
 				  				</ul>
 				  			<?php endif; ?>
-							<a id="<?php echo esc_attr( $name ); ?>" class="publicize-add-connection" href="<?php echo esc_url( $connect_url); ?>"><?php echo esc_html( sprintf( __( 'Add new %s connection.', 'jetpack' ), $this->publicize->get_service_label( $name ) ) ); ?></a>
+							<a id="<?php echo esc_attr( $name ); ?>" class="publicize-add-connection" href="<?php echo esc_url( $connect_url); ?>" target="_top"><?php echo esc_html( sprintf( __( 'Add new %s connection.', 'jetpack' ), $this->publicize->get_service_label( $name ) ) ); ?></a>
+							<?php
+							$help = apply_filters( 'publicize_help_text_' . $name, false );
+							if ( $help ) {
+								echo ' <a href="javascript:void(0);" title="' . esc_attr( $help ) . '" class="publicize-info">?</a>';
+							}
+							?>
 			  			</div>
 			  		</div>
 				<?php endforeach; ?>
@@ -463,6 +481,10 @@ jQuery( function($) {
 							// Determine the state of the checkbox (on/off) and allow filtering
 							$checked = $skip != 1 || $done;
 							$checked = apply_filters( 'publicize_checkbox_default', $checked, $post->ID, $name, $connection );
+
+							// Force the checkbox to be checked if the post was DONE, regardless of what the filter does
+							if ( $done )
+								$checked = true;
 
 							// This post has been handled, so disable everything
 							if ( $all_done )

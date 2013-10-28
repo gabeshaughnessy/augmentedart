@@ -11,11 +11,13 @@ class Publicize extends Publicize_Base {
 		add_action( 'wp_ajax_publicize_facebook_options_page', array( $this, 'options_page_facebook' ) );
 		add_action( 'wp_ajax_publicize_twitter_options_page', array( $this, 'options_page_twitter' ) );
 		add_action( 'wp_ajax_publicize_linkedin_options_page', array( $this, 'options_page_linkedin' ) );
+		add_action( 'wp_ajax_publicize_path_options_page', array( $this, 'options_page_path' ) );
 
 		add_action( 'wp_ajax_publicize_tumblr_options_save', array( $this, 'options_save_tumblr' ) );
 		add_action( 'wp_ajax_publicize_facebook_options_save', array( $this, 'options_save_facebook' ) );
 		add_action( 'wp_ajax_publicize_twitter_options_save', array( $this, 'options_save_twitter' ) );
 		add_action( 'wp_ajax_publicize_linkedin_options_save', array( $this, 'options_save_linkedin' ) );
+		add_action( 'wp_ajax_publicize_path_options_save', array( $this, 'options_save_path' ) );
 
 		add_action( 'load-settings_page_sharing', array( $this, 'force_user_connection' ) );
 		
@@ -69,7 +71,7 @@ class Publicize extends Publicize_Base {
 	}
 
 	function get_connections( $service_name, $_blog_id = false, $_user_id = false ) {
-		$connections = Jetpack::get_option( 'publicize_connections' );
+		$connections = Jetpack_Options::get_option( 'publicize_connections' );
 		$connections_to_return = array();
 		if ( !empty( $connections ) && is_array( $connections ) ) {
 			if ( !empty( $connections[$service_name] ) ) {
@@ -110,7 +112,7 @@ class Publicize extends Publicize_Base {
 				$verification = Jetpack::create_nonce( 'publicize' );
 
 				$stats_options = get_option( 'stats_options' );
-				$wpcom_blog_id = Jetpack::get_option('id');
+				$wpcom_blog_id = Jetpack_Options::get_option('id');
 				$wpcom_blog_id = !empty( $wpcom_blog_id ) ? $wpcom_blog_id : $stats_options['blog_id'];
 
 				$user = wp_get_current_user();
@@ -137,7 +139,7 @@ class Publicize extends Publicize_Base {
 
 				if ( !$xml->isError() ) {
 					$response = $xml->getResponse();
-					Jetpack::update_option( 'publicize_connections', $response );
+					Jetpack_Options::update_option( 'publicize_connections', $response );
 				}
 				break;
 
@@ -153,7 +155,7 @@ class Publicize extends Publicize_Base {
 
 				if ( !$xml->isError() ) {
 					$response = $xml->getResponse();
-					Jetpack::update_option( 'publicize_connections', $response );
+					Jetpack_Options::update_option( 'publicize_connections', $response );
 				}
 				add_action( 'admin_notices', array( $this, 'display_disconnected' ) );
 				break;
@@ -228,7 +230,7 @@ class Publicize extends Publicize_Base {
 
 			if ( !$xml->isError() ) {
 				$response = $xml->getResponse();
-				Jetpack::update_option( 'publicize_connections', $response );
+				Jetpack_Options::update_option( 'publicize_connections', $response );
 			}
 		}
 	}
@@ -291,6 +293,7 @@ class Publicize extends Publicize_Base {
 				'twitter'  => array(),
 				'linkedin' => array(),
 				'tumblr'   => array(),
+				'path'     => array(),
 		);
 
 		if ( 'all' == $filter ) {
@@ -330,9 +333,9 @@ class Publicize extends Publicize_Base {
 	*/
 
 	function options_page_facebook() {
-		$connected_services = Jetpack::get_option( 'publicize_connections' );
+		$connected_services = Jetpack_Options::get_option( 'publicize_connections' );
 		$connection = $connected_services['facebook'][$_REQUEST['connection']];
-		$options_to_show = $connection['connection_data']['meta']['options_responses'];
+		$options_to_show = ( ! empty( $connection['connection_data']['meta']['options_responses'] ) ? $connection['connection_data']['meta']['options_responses'] : false );
 
 		// Nonce check
 		check_admin_referer( 'options_page_facebook_' . $_REQUEST['connection'] );
@@ -466,7 +469,7 @@ class Publicize extends Publicize_Base {
 
 		if ( !$xml->isError() ) {
 			$response = $xml->getResponse();
-			Jetpack::update_option( 'publicize_connections', $response );
+			Jetpack_Options::update_option( 'publicize_connections', $response );
 		}
 
 		$this->globalization();
@@ -476,7 +479,7 @@ class Publicize extends Publicize_Base {
 		// Nonce check
 		check_admin_referer( 'options_page_tumblr_' . $_REQUEST['connection'] );
 
-		$connected_services = Jetpack::get_option( 'publicize_connections' );
+		$connected_services = Jetpack_Options::get_option( 'publicize_connections' );
 		$connection = $connected_services['tumblr'][$_POST['connection']];
 		$options_to_show = $connection['connection_data']['meta']['options_responses'];
 		$request = $options_to_show[0];
@@ -560,7 +563,7 @@ class Publicize extends Publicize_Base {
 
 		if ( !$xml->isError() ) {
 			$response = $xml->getResponse();
-			Jetpack::update_option( 'publicize_connections', $response );
+			Jetpack_Options::update_option( 'publicize_connections', $response );
 		}
 
 		$this->globalization();
@@ -568,9 +571,11 @@ class Publicize extends Publicize_Base {
 
 	function options_page_twitter() { Publicize_UI::options_page_other( 'twitter' ); }
 	function options_page_linkedin() { Publicize_UI::options_page_other( 'linkedin' ); }
+	function options_page_path() { Publicize_UI::options_page_other( 'path' ); }
 
 	function options_save_twitter() { $this->options_save_other( 'twitter' ); }
 	function options_save_linkedin() { $this->options_save_other( 'linkedin' ); }
+	function options_save_path() { $this->options_save_other( 'path' ); }
 
 	function options_save_other( $service_name ) {
 		// Nonce check
