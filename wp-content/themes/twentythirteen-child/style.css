@@ -9,3 +9,25 @@
 */
 
 @import url("../twentythirteen/style.css");
+
+.page-template-templateslayar-page-php .entry-content{
+	margin: 0;
+	padding: 0;
+
+}
+
+.page-template-templateslayar-page-php .hentry {
+	margin: 0;
+	padding:0;
+}
+
+.page-template-templateslayar-page-php img.alignnone {
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width: 643px) {
+	.page-template-templateslayar-page-php #content .entry-content {
+		padding: 0;
+	}
+}
