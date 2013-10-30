@@ -9,6 +9,10 @@
 */
 
 @import url("../twentythirteen/style.css");
+#wpstats {
+	opacity: 0;
+	position: absolute;
+}
 
 .page-template-templateslayar-page-php .entry-content{
 	margin: 0;
