@@ -9,7 +9,9 @@ Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","update",function
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Into-the-Woods-woman}","click",function(sym,e){sym.play();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){sym.play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3875,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_petal1}","click",function(sym,e){sym.$("Poster").toggle();});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
