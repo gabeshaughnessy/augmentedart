@@ -6,9 +6,7 @@ function animateSprite(sym,e,frames,Fwidth,Fheight,rep,compName){currentFrame=Ma
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Into-the-Woods-woman}","click",function(sym,e){sym.play(4251);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_petal1}","click",function(sym,e){sym.$("Poster").toggle();});
-//Edge binding end
-Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","update",function(sym,e){animateSprite(sym,e,60,300,200,6,'explosion_small');});
+Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","update",function(sym,e){animateSprite(sym,e,60,150,100,6,'explosion_tiny2');});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4173,function(sym,e){sym.stop();});
 //Edge binding end
