@@ -55,6 +55,8 @@ Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(s
 //Edge symbol: 'small-circle'
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Small-Circle2}","click",function(sym,e){sym.play();});
 //Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",731,function(sym,e){sym.getComposition().getStage().getSymbol("large-circle").play(0);});
+//Edge binding end
 })("small-circle");
 //Edge symbol end:'small-circle'
 
@@ -71,7 +73,9 @@ Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(s
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",733,function(sym,e){sym.stop(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",function(sym,e){sym.play(0);sym.getComposition().getStage().getSymbol("small-circle").play();});
+Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",function(sym,e){sym.play(0);});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",301,function(sym,e){sym.getComposition().getStage().getSymbol("spanked").play();});
 //Edge binding end
 })("spanking");
 //Edge symbol end:'spanking'
@@ -79,7 +83,13 @@ Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",fun
 //=========================================================
 
 //Edge symbol: 'spanked'
-(function(symbolName){})("spanked");
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_spanked-woman4}","click",function(sym,e){sym.play(0);});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",400,function(sym,e){sym.stop(0);});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e){sym.getComposition().getStage().getSymbol("small-circle").play(0);});
+//Edge binding end
+})("spanked");
 //Edge symbol end:'spanked'
 
 //=========================================================
