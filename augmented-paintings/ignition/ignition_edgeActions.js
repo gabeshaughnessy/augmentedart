@@ -67,7 +67,11 @@ Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(s
 //=========================================================
 
 //Edge symbol: 'spanking'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Spanking-Woman2}","click",function(sym,e){sym.play();sym.getComposition().getStage().getSymbol("small-circle").play();});
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",733,function(sym,e){sym.stop(0);});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",function(sym,e){sym.play(0);sym.getComposition().getStage().getSymbol("small-circle").play();});
 //Edge binding end
 })("spanking");
 //Edge symbol end:'spanking'
