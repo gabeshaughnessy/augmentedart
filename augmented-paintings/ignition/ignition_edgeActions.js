@@ -31,7 +31,11 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //=========================================================
 
 //Edge symbol: 'background'
-(function(symbolName){})("background");
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_bg}","click",function(sym,e){sym.$('bg').fadeToggle("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Glowball-group}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+})("background");
 //Edge symbol end:'background'
 
 //=========================================================
