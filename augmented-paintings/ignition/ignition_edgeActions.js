@@ -5,6 +5,8 @@
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_spanked}","click",function(sym,e){});
+//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 
@@ -28,20 +30,28 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 
 //=========================================================
 
-//Edge symbol: 'large_circle'
-(function(symbolName){})("large_circle");
-//Edge symbol end:'large_circle'
-
-//=========================================================
-
 //Edge symbol: 'background'
 (function(symbolName){})("background");
 //Edge symbol end:'background'
 
 //=========================================================
 
+//Edge symbol: 'large-circle'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_large-circle2}","click",function(sym,e){sym.play();});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_headdress}","click",function(sym,e){sym.play()});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(sym,e){sym.play()});
+//Edge binding end
+})("large-circle");
+//Edge symbol end:'large-circle'
+
+//=========================================================
+
 //Edge symbol: 'small-circle'
-(function(symbolName){})("small-circle");
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Small-Circle2}","click",function(sym,e){sym.play();});
+//Edge binding end
+})("small-circle");
 //Edge symbol end:'small-circle'
 
 //=========================================================
@@ -53,7 +63,9 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //=========================================================
 
 //Edge symbol: 'spanking'
-(function(symbolName){})("spanking");
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Spanking-Woman2}","click",function(sym,e){sym.play();sym.getComposition().getStage().getSymbol("small-circle").play();});
+//Edge binding end
+})("spanking");
 //Edge symbol end:'spanking'
 
 //=========================================================
@@ -64,7 +76,15 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 
 //=========================================================
 
-//Edge symbol: 'flames'
-(function(symbolName){})("flames");
-//Edge symbol end:'flames'
+//Edge symbol: 'ames'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Flames2}","click",function(sym,e){sym.play();});
+//Edge binding end
+})("ames");
+//Edge symbol end:'ames'
+
+//=========================================================
+
+//Edge symbol: 'headdress'
+(function(symbolName){})("headdress");
+//Edge symbol end:'headdress'
 })(jQuery,AdobeEdge,"EDGE-227757856");
