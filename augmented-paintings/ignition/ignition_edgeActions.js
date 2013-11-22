@@ -55,7 +55,7 @@ Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(s
 //Edge symbol: 'small-circle'
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Small-Circle2}","click",function(sym,e){sym.play();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",731,function(sym,e){sym.getComposition().getStage().getSymbol("large-circle").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",731,function(sym,e){});
 //Edge binding end
 })("small-circle");
 //Edge symbol end:'small-circle'
@@ -87,7 +87,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",301,function(sym,e
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",400,function(sym,e){sym.stop(0);});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e){sym.getComposition().getStage().getSymbol("small-circle").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e){});
 //Edge binding end
 })("spanked");
 //Edge symbol end:'spanked'
@@ -103,6 +103,18 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e
 //=========================================================
 
 //Edge symbol: 'headdress'
-(function(symbolName){})("headdress");
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop(0);});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_headdress2}","click",function(sym,e){sym.play();});
+//Edge binding end
+})("headdress");
 //Edge symbol end:'headdress'
+
+//=========================================================
+
+//Edge symbol: 'triangle'
+(function(symbolName){})("triangle");
+//Edge symbol end:'triangle'
 })(jQuery,AdobeEdge,"EDGE-227757856");
