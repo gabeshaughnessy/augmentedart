@@ -7,6 +7,8 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_spanked}","click",function(sym,e){});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){});
+//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 
