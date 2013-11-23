@@ -99,6 +99,8 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e
 //Edge symbol: 'ames'
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Flames2}","click",function(sym,e){sym.play();});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame_1}","click",function(sym,e){sym.getSymbol("Flame_1").play(0);});
+//Edge binding end
 })("ames");
 //Edge symbol end:'ames'
 
@@ -119,4 +121,12 @@ Symbol.bindElementAction(compId,symbolName,"${_headdress2}","click",function(sym
 //Edge symbol: 'triangle'
 (function(symbolName){})("triangle");
 //Edge symbol end:'triangle'
+
+//=========================================================
+
+//Edge symbol: 'Flame_1'
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1300,function(sym,e){sym.stop(0);});
+//Edge binding end
+})("Flame_1");
+//Edge symbol end:'Flame_1'
 })(jQuery,AdobeEdge,"EDGE-227757856");
