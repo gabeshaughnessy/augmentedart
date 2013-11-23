@@ -1,0 +1,12 @@
+# Layar3DModelConverter 3.0.3
+# Material count: 1
+
+newmtl Layer 2
+Ns 6.062867
+Ka 1.0 1.0 1.0 
+Kd 0.5 0.5 0.5 
+Ks 0.0 0.0 0.0 
+Ni 1.000000
+d 1.0
+illum 2
+
