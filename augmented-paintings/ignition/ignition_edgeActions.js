@@ -111,15 +111,25 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e
 //=========================================================
 
 //Edge symbol: 'ames'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Flame5}","mouseover",function(sym,e){sym.getSymbol("Flame5").play(0);});
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Flame5}","mouseover",function(sym,e){sym.getSymbol("Flame5").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Flame4}","mouseover",function(sym,e){sym.getSymbol("Flame4").play(0);});
+Symbol.bindElementAction(compId,symbolName,"${_Flame4}","mouseover",function(sym,e){sym.getSymbol("Flame4").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Flame3}","mouseover",function(sym,e){sym.getSymbol("Flame3").play(0);});
+Symbol.bindElementAction(compId,symbolName,"${_Flame3}","mouseover",function(sym,e){sym.getSymbol("Flame3").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Flame2}","mouseover",function(sym,e){sym.getSymbol("Flame2").play(0);});
+Symbol.bindElementAction(compId,symbolName,"${_Flame2}","mouseover",function(sym,e){sym.getSymbol("Flame2").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Flame1}","mouseover",function(sym,e){sym.getSymbol("Flame1").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame1}","touchstart",function(sym,e){sym.getSymbol("Flame1").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame2}","touchstart",function(sym,e){sym.getSymbol("Flame2").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame3}","touchstart",function(sym,e){sym.getSymbol("Flame3").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame4}","touchstart",function(sym,e){sym.getSymbol("Flame4").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame5}","touchstart",function(sym,e){sym.getSymbol("Flame5").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
 })("ames");
 //Edge symbol end:'ames'
