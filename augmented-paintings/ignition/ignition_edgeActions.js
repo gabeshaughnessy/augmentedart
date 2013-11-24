@@ -131,6 +131,16 @@ Symbol.bindElementAction(compId,symbolName,"${_Flame4}","touchstart",function(sy
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Flame5}","touchstart",function(sym,e){sym.getSymbol("Flame5").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame5}","touchmove",function(sym,e){sym.getSymbol("Flame5").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame2}","touchmove",function(sym,e){sym.getSymbol("Flame2").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame3}","touchmove",function(sym,e){sym.getSymbol("Flame3").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame1}","touchmove",function(sym,e){sym.getSymbol("Flame1").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Flame4}","touchmove",function(sym,e){sym.getSymbol("Flame4").play(0);sym.getSymbol("flame_bg").stop('faded-out');});
+//Edge binding end
 })("ames");
 //Edge symbol end:'ames'
 
