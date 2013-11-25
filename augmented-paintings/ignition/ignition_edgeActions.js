@@ -1,5 +1,5 @@
 
-(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
+(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;var superSpank=false;
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
 //Edge binding end
@@ -33,9 +33,13 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //=========================================================
 
 //Edge symbol: 'background'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_bg}","click",function(sym,e){sym.$('bg').fadeToggle("fast");});
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_bg}","click",function(sym,e){sym.getSymbol("tracer1").play(0);sym.play(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Glowball-group}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8000,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer1}","click",function(sym,e){sym.getSymbol("tracer1").play(0);});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy7}","click",function(sym,e){});
 //Edge binding end
 })("background");
 //Edge symbol end:'background'
@@ -73,25 +77,36 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",731,function(sym,e
 //Edge symbol: 'spanking'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1233,function(sym,e){sym.getComposition().getStage().getSymbol("small-circle").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2133,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("small-circle").play(0);}});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",function(sym,e){sym.play(0);});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",267,function(sym,e){sym.getComposition().getStage().getSymbol("spanked").play();sym.getComposition().getStage().getSymbol('flames').getSymbol("flame_bg").stop('faded-out');});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1466,function(sym,e){sym.getComposition().getStage().getSymbol("spanked").play();sym.getComposition().getStage().getSymbol('flames').getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",633,function(sym,e){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame1").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1533,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame1").play(0);}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",700,function(sym,e){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame2").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1600,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame2").play(0);}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",766,function(sym,e){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame3").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1666,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame3").play(0);}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",832,function(sym,e){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame4").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1732,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame4").play(0);}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",900,function(sym,e){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame5").play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1800,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("flames").getSymbol("Flame5").play(0);}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",967,function(sym,e){});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3500,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol('flames').getSymbol("flame_bg").stop(0);}
+superSpank=false;sym.stop(0);});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2500,function(sym,e){sym.getComposition().getStage().getSymbol('flames').getSymbol("flame_bg").stop(0);sym.stop(0);});
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchstart",function(sym,e){sym.play(0);});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchend",function(sym,e){sym.play('spank');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mousedown",function(sym,e){sym.play(0);});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mouseup",function(sym,e){sym.play('spank');});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1101,function(sym,e){superSpank=true;});
 //Edge binding end
 })("spanking");
 //Edge symbol end:'spanking'
@@ -219,4 +234,32 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",67,function(sym,e)
 //Edge binding end
 })("flame_bg");
 //Edge symbol end:'flame_bg'
+
+//=========================================================
+
+//Edge symbol: 'tracer-sprite'
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1900,function(sym,e){sym.play('loopStart');});
+//Edge binding end
+})("tracer-sprite");
+//Edge symbol end:'tracer-sprite'
+
+//=========================================================
+
+//Edge symbol: 'tracer1'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_tracer-sprite}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy2}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy3}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy4}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy5}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy6}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
+//Edge binding end
+})("tracer1");
+//Edge symbol end:'tracer1'
 })(jQuery,AdobeEdge,"EDGE-227757856");
