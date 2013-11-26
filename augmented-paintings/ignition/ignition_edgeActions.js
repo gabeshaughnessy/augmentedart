@@ -9,6 +9,8 @@ Symbol.bindElementAction(compId,symbolName,"${_spanked}","click",function(sym,e)
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_background}","click",function(sym,e){var i=1;while(i<6){var tracer="tracer";var tracerName=tracer.concat(i);sym.getSymbol('background').getSymbol(tracerName).play('start');tracerName=tracerName.concat('Copy');sym.getSymbol('background').getSymbol(tracerName).play('start');i++;}});
+//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 
@@ -33,13 +35,13 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //=========================================================
 
 //Edge symbol: 'background'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_bg}","click",function(sym,e){sym.getSymbol("tracer1").play(0);sym.play(0);});
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8000,function(sym,e){sym.stop();});
+Symbol.bindElementAction(compId,symbolName,"${_tracer5}","click",function(sym,e){sym.getSymbol("tracer1").play('start');sym.getSymbol("tracer2").play('start');sym.getSymbol("tracer3").play('start');sym.getSymbol("tracer4").play('start');sym.getSymbol("tracer5").play('start');});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_tracer1}","click",function(sym,e){sym.getSymbol("tracer1").play(0);});
+Symbol.bindElementAction(compId,symbolName,"${_tracer4Copy}","click",function(sym,e){sym.getSymbol("tracer1").play('start');sym.getSymbol("tracer2").play('start');sym.getSymbol("tracer3").play('start');sym.getSymbol("tracer4").play('start');sym.getSymbol("tracer5").play('start');});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy7}","click",function(sym,e){});
+Symbol.bindElementAction(compId,symbolName,"${_tracer5Copy}","click",function(sym,e){sym.getSymbol("tracer1").play('start');sym.getSymbol("tracer2").play('start');sym.getSymbol("tracer3").play('start');sym.getSymbol("tracer4").play('start');sym.getSymbol("tracer5").play('start');});
 //Edge binding end
 })("background");
 //Edge symbol end:'background'
@@ -260,6 +262,120 @@ Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy5}","click",func
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_tracer-spriteCopy6}","click",function(sym,e){sym.$('bg').fadeIn("fast");});
 //Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop('wait');});
+//Edge binding end
 })("tracer1");
 //Edge symbol end:'tracer1'
+
+//=========================================================
+
+//Edge symbol: 'tracer2'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_tracer_2}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy3}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy5}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy6}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy7}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy8}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy9}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy10}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer2Copy11}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,e){sym.stop('wait');});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
+//Edge binding end
+})("tracer2");
+//Edge symbol end:'tracer2'
+
+//=========================================================
+
+//Edge symbol: 'tracer3'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_tracer_3}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_3Copy}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_3Copy5}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_3Copy6}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_3Copy7}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_3Copy8}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_3Copy9}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop('wait');});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
+//Edge binding end
+})("tracer3");
+//Edge symbol end:'tracer3'
+
+//=========================================================
+
+//Edge symbol: 'tracer4'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_tracer_4}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy4}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy5}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy6}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy7}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy8}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy9}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy10}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_4Copy11}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop('wait');});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
+//Edge binding end
+})("tracer4");
+//Edge symbol end:'tracer4'
+
+//=========================================================
+
+//Edge symbol: 'tracer5'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_tracer_5}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy2}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy3}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy4}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy5}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy6}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy7}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy8}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_5Copy9}","click",function(sym,e){});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3533,function(sym,e){sym.stop('wait');});
+//Edge binding end
+})("tracer5");
+//Edge symbol end:'tracer5'
 })(jQuery,AdobeEdge,"EDGE-227757856");
