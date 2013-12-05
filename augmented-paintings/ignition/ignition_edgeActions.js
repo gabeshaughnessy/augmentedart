@@ -49,6 +49,8 @@ Symbol.bindElementAction(compId,symbolName,"${_headdress}","click",function(sym,
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(sym,e){sym.play()});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_large-circle-blur2}","click",function(sym,e){sym.play();});
+//Edge binding end
 })("large-circle");
 //Edge symbol end:'large-circle'
 
@@ -57,7 +59,9 @@ Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(s
 //Edge symbol: 'small-circle'
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_Small-Circle2}","click",function(sym,e){sym.play();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",731,function(sym,e){});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_Small-Circle-Blur2}","click",function(sym,e){sym.play();});
 //Edge binding end
 })("small-circle");
 //Edge symbol end:'small-circle'
@@ -73,7 +77,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",731,function(sym,e
 //Edge symbol: 'spanking'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2133,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol("small-circle").play(0);}});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2133,function(sym,e){if(superSpank==true){}});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",function(sym,e){sym.play('spank');});
 //Edge binding end
@@ -110,9 +114,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1101,function(sym,
 //=========================================================
 
 //Edge symbol: 'spanked'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_spanked-woman4}","click",function(sym,e){sym.play(0);});
-//Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",400,function(sym,e){sym.stop(0);});
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",600,function(sym,e){sym.stop(0);});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e){});
 //Edge binding end
