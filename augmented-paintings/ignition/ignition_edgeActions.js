@@ -7,10 +7,6 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_spanked}","click",function(sym,e){});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_background}","click",function(sym,e){var i=1;while(i<6){var tracer="tracer";var tracerName=tracer.concat(i);sym.getSymbol('background').getSymbol(tracerName).play('start');i++;}});
-//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 
@@ -36,6 +32,12 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 
 //Edge symbol: 'background'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8000,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer-sprite-sheet-desat}","click",function(sym,e){sym.play('left-tracer');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_right-tracer-desat}","click",function(sym,e){sym.play('right-tracer');});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.stop();});
 //Edge binding end
 })("background");
 //Edge symbol end:'background'
@@ -96,17 +98,17 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1800,function(sym,
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3500,function(sym,e){if(superSpank==true){sym.getComposition().getStage().getSymbol('flames').getSymbol("flame_bg").stop(0);}
 superSpank=false;sym.stop(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","click",function(sym,e){});
-//Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchstart",function(sym,e){sym.play(0);});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchend",function(sym,e){sym.play('spank');});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mousedown",function(sym,e){sym.play(0);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mouseup",function(sym,e){sym.play('spank');});
-//Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1101,function(sym,e){superSpank=true;});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mouseup",function(sym,e){if(superSpank==true){}
+else{sym.play('spank');}});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchend",function(sym,e){if(superSpank==true){}
+else{sym.play('spank');}});
 //Edge binding end
 })("spanking");
 //Edge symbol end:'spanking'
