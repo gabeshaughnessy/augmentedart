@@ -120,6 +120,8 @@ else{sym.play('spank');}});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e){});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet3}","click",function(sym,e){sym.play(0);});
+//Edge binding end
 })("spanked");
 //Edge symbol end:'spanked'
 
