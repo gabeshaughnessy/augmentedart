@@ -1,0 +1,68 @@
+/*
+Spotlight
+*/
+#spotlight {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0px;
+    left: 0px;
+    
+    z-index:199;
+}
+
+#spotlight .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.88);
+    cursor: pointer;
+}
+
+#spotlight .close-button {
+    z-index: 999;
+    position: absolute; 
+    width: 30px; 
+    height: 30px;
+    left: 50%;
+    top: 45%;    
+    background: url(images/spotlight/closeButton.png);
+    cursor: pointer;
+    display: none;
+}
+
+#spotlight .base {
+    position: absolute;
+
+    /*width: 400px;*/
+    /*height: 400px;*/    
+
+    left: 50%;
+    top: 45%;
+    
+    /*margin-left: -200px;*/ /* 0.5 * width */
+    /*margin-top: -200px;*/  /* 0.5 * height */
+
+    background-color: white;
+    
+    overflow: hidden;
+    
+    border: solid;
+    
+    cursor: default;
+}
+
+#spotlight .content {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#spotlight .fader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
