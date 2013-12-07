@@ -110,9 +110,6 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1101,function(sym,
 Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mouseup",function(sym,e){if(superSpank==true){}
 else{sym.play('spank');}});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchend",function(sym,e){if(superSpank==true){}
-else{sym.play('spank');}});
-//Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1201,function(sym,e){EC.Sound.stop('spank');EC.Sound.play('spank');});
 //Edge binding end
 })("spanking");
