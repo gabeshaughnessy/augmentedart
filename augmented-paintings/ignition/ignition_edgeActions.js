@@ -1,5 +1,5 @@
 
-(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;var superSpank=false;
+yepnope({load:["scripts/EdgeCommons.Core.js","scripts/EdgeCommons.Sound.js","scripts/EdgeCommon.style.css",],complete:function(){var assetsPath="audio/";EC.Sound.setup([{src:assetsPath+"bass.mp3",id:"bassdrum"},{src:assetsPath+"spank.mp3",id:"spank"},],function(){});}});(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;var superSpank=false;
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
 //Edge binding end
@@ -38,6 +38,9 @@ Symbol.bindElementAction(compId,symbolName,"${_tracer-sprite-sheet-desat}","clic
 Symbol.bindElementAction(compId,symbolName,"${_right-tracer-desat}","click",function(sym,e){sym.play('right-tracer');});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",33,function(sym,e){EC.Sound.stop("bassdrum")
+EC.Sound.play("bassdrum");});
 //Edge binding end
 })("background");
 //Edge symbol end:'background'
@@ -109,6 +112,8 @@ else{sym.play('spank');}});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchend",function(sym,e){if(superSpank==true){}
 else{sym.play('spank');}});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1201,function(sym,e){EC.Sound.stop('spank');EC.Sound.play('spank');});
 //Edge binding end
 })("spanking");
 //Edge symbol end:'spanking'
