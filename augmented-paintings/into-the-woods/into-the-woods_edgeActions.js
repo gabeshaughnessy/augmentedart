@@ -21,7 +21,7 @@ Symbol.bindElementAction(compId,symbolName,"${_head}","click",function(sym,e){se
 //=========================================================
 
 //Edge symbol: 'torch'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_torch-sprite-short-desat}","click",function(sym,e){sym.play();});
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_torch-sprite-short-desat}","click",function(sym,e){sym.play(0);});
 //Edge binding end
 })("torch");
 //Edge symbol end:'torch'
@@ -39,4 +39,12 @@ Symbol.bindElementAction(compId,symbolName,"${_head}","click",function(sym,e){se
 //Edge binding end
 })("crown-flame-1");
 //Edge symbol end:'crown-flame-1'
+
+//=========================================================
+
+//Edge symbol: 'horned-god'
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_horned-god-sprite-sheet4}","click",function(sym,e){sym.play(0);});
+//Edge binding end
+})("horned-god");
+//Edge symbol end:'horned-god'
 })(jQuery,AdobeEdge,"into-the-woods");
