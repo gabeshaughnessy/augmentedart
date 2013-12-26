@@ -1,5 +1,5 @@
 
-(function($,Edge,compId){function animateSpriteSheet(sym,spriteSheetName,spriteWidth,spriteHeight,spriteFrames){var currentPos=parseInt(sym.$(spriteSheetName).css('backgroundPositionX'),10);var newPos=currentPos-spriteWidth;if(newPos>=-1*(spriteWidth*spriteFrames)){sym.$(spriteSheetName).css('backgroundPositionX',newPos);}}
+(function($,Edge,compId){function animateSpriteSheet(sym,spriteSheetName,spriteWidth,spriteHeight,spriteFrames){var currentPos=parseInt(sym.$(spriteSheetName).css('backgroundPositionX'),10);var newPos=currentPos-spriteWidth;if(newPos>=-1*(spriteWidth*spriteFrames)){setTimeout(function(){sym.$(spriteSheetName).css('backgroundPositionX',newPos);},15);}}
 var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_petals}","click",function(sym,e){sym.getComposition().getStage().getSymbol('petals').play(0);});

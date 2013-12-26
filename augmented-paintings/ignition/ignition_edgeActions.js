@@ -1,11 +1,13 @@
 
-yepnope({load:["scripts/EdgeCommons.Core.js","scripts/EdgeCommons.Sound.js","scripts/EdgeCommon.style.css",],complete:function(){var assetsPath="audio/";EC.Sound.setup([{src:assetsPath+"bass.mp3",id:"bassdrum"},{src:assetsPath+"spank.mp3",id:"spank"},],function(){});}});(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;var superSpank=false;
+yepnope({load:["scripts/EdgeCommons.Core.js","scripts/EdgeCommons.Sound.js","scripts/EdgeCommon.style.css",],complete:function(){var assetsPath="audio/";EC.Sound.setup([{src:assetsPath+"spank.mp3",id:"spank"},],function(){});}});(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;var superSpank=false;
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_spanked}","click",function(sym,e){});
+Symbol.bindElementAction(compId,symbolName,"${_tracer_trigger_1}","click",function(sym,e){sym.getSymbol('background').play('left-tracer');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_tracer_trigger_2}","click",function(sym,e){sym.getSymbol('background').play('right-tracer');});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
@@ -33,14 +35,9 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //Edge symbol: 'background'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_tracer-sprite-sheet-desat}","click",function(sym,e){sym.play('left-tracer');});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_right-tracer-desat}","click",function(sym,e){sym.play('right-tracer');});
-//Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",33,function(sym,e){EC.Sound.stop("bassdrum")
-EC.Sound.play("bassdrum");});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",33,function(sym,e){});
 //Edge binding end
 })("background");
 //Edge symbol end:'background'
@@ -56,6 +53,8 @@ Symbol.bindElementAction(compId,symbolName,"${_small-circle}","click",function(s
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_large-circle-blur2}","click",function(sym,e){sym.play();});
 //Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1765,function(sym,e){sym.getComposition().getStage().getSymbol('background').play('left-tracer');});
+//Edge binding end
 })("large-circle");
 //Edge symbol end:'large-circle'
 
@@ -67,6 +66,8 @@ Symbol.bindElementAction(compId,symbolName,"${_large-circle-blur2}","click",func
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Small-Circle-Blur2}","click",function(sym,e){sym.play();});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",763,function(sym,e){sym.getComposition().getStage().getSymbol('background').play('right-tracer');});
 //Edge binding end
 })("small-circle");
 //Edge symbol end:'small-circle'
@@ -83,8 +84,6 @@ Symbol.bindElementAction(compId,symbolName,"${_Small-Circle-Blur2}","click",func
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2133,function(sym,e){if(superSpank==true){}});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet2}","click",function(sym,e){sym.play('spank');});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1466,function(sym,e){sym.getComposition().getStage().getSymbol("spanked").play();sym.getComposition().getStage().getSymbol('flames').getSymbol("flame_bg").stop('faded-out');});
 //Edge binding end
@@ -110,7 +109,12 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1101,function(sym,
 Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","mouseup",function(sym,e){if(superSpank==true){}
 else{sym.play('spank');}});
 //Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_handblast_small}","touchend",function(sym,e){if(superSpank==true){}
+else{sym.play('spank');}});
+//Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1201,function(sym,e){EC.Sound.stop('spank');EC.Sound.play('spank');});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_small-circle-trigger-area}","click",function(sym,e){sym.getComposition().getStage().getSymbol('small-circle').play(0);});
 //Edge binding end
 })("spanking");
 //Edge symbol end:'spanking'
@@ -122,7 +126,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1201,function(sym,
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",200,function(sym,e){});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet3}","click",function(sym,e){sym.play(0);});
+Symbol.bindElementAction(compId,symbolName,"${_spank_sprite_sheet3}","click",function(sym,e){});
 //Edge binding end
 })("spanked");
 //Edge symbol end:'spanked'
