@@ -10,6 +10,9 @@ sitemap.xml
 *.log
 wp-content/cache/
 wp-content/backups/
+wp-content/plugins/jetpack/
+wp-content/plugins/post-type-switcher/
+wp-content/themes/twentyfourteen/
 sitemap.xml.gz
 400.shtml
 401.shtml
