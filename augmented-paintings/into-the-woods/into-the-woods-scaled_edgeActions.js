@@ -68,7 +68,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //=========================================================
 
 //Edge symbol: 'tree'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){sym.stop(0);});
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,e){sym.stop(0);});
 //Edge binding end
 })("tree");
 //Edge symbol end:'tree'
