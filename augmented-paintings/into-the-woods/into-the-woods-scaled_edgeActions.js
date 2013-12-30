@@ -150,7 +150,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){sym.getComposition().getStage().getSymbol('triad-sprite-2').play(0);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
 //Edge binding end
 })("triad-sprite");
 //Edge symbol end:'triad-sprite'
@@ -180,4 +180,14 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,
 //Edge symbol: 'horned-god-symbol'
 (function(symbolName){})("horned-god-symbol");
 //Edge symbol end:'horned-god-symbol'
+
+//=========================================================
+
+//Edge symbol: 'first-triad-sprite'
+(function(symbolName){Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","update",function(sym,e){animateSpriteSheet(sym,'first-triad-sprite-sheet_small',100,100,60);});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop(0);});
+//Edge binding end
+})("first-triad-sprite");
+//Edge symbol end:'first-triad-sprite'
 })(jQuery,AdobeEdge,"into-the-woods");
