@@ -30,7 +30,7 @@
 	<?php wp_head(); ?>
 	<script type="text/javascript">
 		function openPopUp(url, windowName, width, height, windowPosX, windowPosY){
-		window.open(url, windowName, 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600');
+		theWindow = window.open(url, windowName, 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600');
 		theWindow.moveTo(windowPosX, windowPosY);
 		}
 
