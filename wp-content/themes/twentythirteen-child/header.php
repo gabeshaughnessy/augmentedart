@@ -29,8 +29,8 @@
 	<![endif]-->
 	<?php wp_head(); ?>
 	<script type="text/javascript">
-		function openPopUp(url, windowName, width, height, windowPosX, windowPosY){
-		theWindow = window.open(url, windowName, 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width='.width.',height='.height.');
+		function openPopUp(url, windowName, windowWidth, windowHeight, windowPosX, windowPosY){
+		theWindow = window.open(url, windowName, "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width='.windowWidth.',height='.windowHeight.'");
 		theWindow.moveTo(windowPosX, windowPosY);
 		}
 
