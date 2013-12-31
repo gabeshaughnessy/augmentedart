@@ -28,7 +28,33 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+	<script type="text/javascript">
+		function openPopUp(url, windowName, width, height, windowPosX, windowPosY){
+		window.open(url, windowName, 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600');
+		theWindow.moveTo(windowPosX, windowPosY);
+		}
+
+		jQuery(document).ready(function($){
+
+
+		var i = 0;
+
+		jQuery('.pop-link').click(function(e){
+			
+			i++;
+			
+			openPopUp(jQuery(this).attr('href'), window+i, jQuery(this).attr('data-link-width'), jQuery(this).attr('data-link-height'), jQuery(this).attr('data-window-x'), jQuery(this).attr('data-window-y'));
+			
+			e.preventDefault();
+
+		});
+
+
+		});
+
+	</script>
 </head>
+
 
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
