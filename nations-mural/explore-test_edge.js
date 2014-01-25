@@ -51,7 +51,7 @@ var symbols = {
    states: {
       "Base State": {
          "${_Stage}": [
-            ["color", "background-color", 'rgba(255,255,255,1)'],
+            ["color", "background-color", 'rgba(255,255,255,0.00)'],
             ["style", "width", '600px'],
             ["style", "height", '400px'],
             ["style", "overflow", 'hidden']
@@ -66,10 +66,10 @@ var symbols = {
       "Default Timeline": {
          fromState: "Base State",
          toState: "",
-         duration: 0,
+         duration: 1500,
          autoPlay: true,
          timeline: [
-         ]
+            { id: "eid24", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,1)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 1347, duration: 153 }         ]
       }
    }
 },

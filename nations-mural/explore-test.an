@@ -100,9 +100,10 @@
 		"element_${_Stage}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
+			"animationEnabled":"true",
 			"timelineColor":"0xeedf79"},
 		"defaultStageParentHeight":"400px"},
-	"TransitionIdCounter":"23",
+	"TransitionIdCounter":"25",
 	"CompZoomFactor":"100",
 	"viewStartY":"0",
 	"pixelsPerMs":"0.2",

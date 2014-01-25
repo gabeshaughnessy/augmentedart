@@ -34,7 +34,7 @@ var symbols = {
    states: {
       "Base State": {
          "${_Stage}": [
-            ["color", "background-color", 'rgba(255,255,255,1)'],
+            ["color", "background-color", 'rgba(255,255,255,0.00)'],
             ["style", "width", '344px'],
             ["style", "height", '99px'],
             ["style", "overflow", 'hidden']
