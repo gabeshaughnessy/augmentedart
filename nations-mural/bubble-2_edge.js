@@ -76,7 +76,7 @@ var symbols = {
             ["style", "top", '0px']
          ],
          "${_Stage}": [
-            ["color", "background-color", 'rgba(255,255,255,1)'],
+            ["color", "background-color", 'rgba(255,255,255,0.00)'],
             ["style", "width", '235px'],
             ["style", "height", '110px'],
             ["style", "overflow", 'hidden']
@@ -119,6 +119,8 @@ var symbols = {
             "begin": 2000
          },
          timeline: [
+            { id: "eid11", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 0, duration: 0 },
+            { id: "eid10", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 12500, duration: 0 },
             { id: "eid2", tween: [ "style", "${_Text}", "opacity", '1', { fromValue: '0.000000'}], position: 2000, duration: 500 },
             { id: "eid4", tween: [ "style", "${_Text}", "opacity", '0', { fromValue: '1'}], position: 6000, duration: 500 },
             { id: "eid9", tween: [ "style", "${_tweet23}", "opacity", '1', { fromValue: '0.000000'}], position: 9000, duration: 500 },

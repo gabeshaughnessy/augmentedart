@@ -17,17 +17,18 @@
    }}\
 }",
 	"pref__general__FilterNonAnimatedElements":"false",
-	"viewStartMs":"5966.01953125",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"viewStartMs":"-45.950293312358",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"SnapToGuides":"false",
-	"TransitionIdCounter":"10",
+	"TransitionIdCounter":"12",
 	"CompZoomFactor":"100",
 	"viewStartY":"0",
 	"pixelsPerMs":"0.10881323359595",
+	"pref__general__GenerateSmoothTransitions":"false",
 	"ShowGuides":"false",
 	"usedBOM":"false",
 	"nextElementColorIndex":"9",
-	"stage-Default Timeline_playhead_ms":"12500",
+	"stage-Default Timeline_playhead_ms":"0",
 	"ShowRulers":"false",
 	"symbol_stage":{
 		"dummyStageParentWidth":"235px",
@@ -66,6 +67,7 @@
 		"element_${_Stage}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
+			"animationEnabled":"true",
 			"timelineColor":"0xeedf79"},
 		"element_${_tweetCopy}":{
 			"timelineColor2":"0x1aa38f",
