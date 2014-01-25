@@ -20,12 +20,37 @@
    \"timelines\": {\
       \"Default Timeline\": {\
       }\
+   }},\
+\"Zepellin\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
    }}\
 }",
+	"symbol_Zepellin":{
+		"element_${_zepellin}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"timelineColor":"0x008dc8",
+			"animationEnabled":"true",
+			"usingMotionPaths":"true"}},
 	"pref__general__FilterNonAnimatedElements":"false",
 	"viewStartMs":"5665",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"symbol_Boat":{
+		"element_${_boats}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4",
+			"timelineTreeOpened":"true",
+			"animationEnabled":"true",
+			"usingMotionPaths":"true"}},
 	"symbol_stage":{
+		"element_${_Zepellin}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"animationEnabled":"true",
+			"timelineColor":"0xfb657a"},
 		"dummyStageParentWidth":"600px",
 		"element_${_bubble1}":{
 			"timelineColor2":"0x168c84",
@@ -63,11 +88,10 @@
 			"animationEnabled":"false",
 			"timelineColor3":"0x29647e"},
 		"element_${_zepellin}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"timelineColor":"0x008dc8",
-			"animationEnabled":"true",
-			"usingMotionPaths":"true"},
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"animationEnabled":"false",
+			"timelineColor":"0xdb619d"},
 		"defaultStageParentWidth":"600px",
 		"element_${_bg}":{
 			"timelineColor2":"0x326a96",
@@ -83,16 +107,9 @@
 	"viewStartY":"0",
 	"pixelsPerMs":"0.2",
 	"Boat-Default Timeline_playhead_ms":"0",
-	"symbol_Boat":{
-		"element_${_boats}":{
-			"timelineColor2":"0x1aa38f",
-			"timelineColor3":"0x2a6a61",
-			"timelineColor":"0x00bda4",
-			"timelineTreeOpened":"false",
-			"animationEnabled":"true",
-			"usingMotionPaths":"true"}},
+	"Zepellin-Default Timeline_playhead_ms":"0",
 	"usedBOM":"false",
-	"nextElementColorIndex":"11",
+	"nextElementColorIndex":"13",
 	"stage-Default Timeline_playhead_ms":"1347",
 	"stage-Default Timeline_mark_ms":"1500",
 	"StageZoomFactor":"100",

@@ -33,12 +33,15 @@ var symbols = {
             rect:['451','32','auto','auto','auto','auto']
          },
          {
-            id:'zepellin',
-            type:'image',
-            rect:['44px','53px','44px','29px','auto','auto'],
-            fill:["rgba(0,0,0,0)",im+"zepellin.png",'0px','0px']
+            id:'Zepellin',
+            type:'rect',
+            rect:['44','53','auto','auto','auto','auto']
          }],
          symbolInstances: [
+         {
+            id:'Zepellin',
+            symbolName:'Zepellin'
+         },
          {
             id:'Boat',
             symbolName:'Boat'
@@ -53,10 +56,6 @@ var symbols = {
             ["style", "height", '400px'],
             ["style", "overflow", 'hidden']
          ],
-         "${_zepellin}": [
-            ["motion", "location", '66px 67.5px'],
-            ["style", "opacity", '1']
-         ],
          "${_bg}": [
             ["style", "left", '13px'],
             ["style", "top", '38px']
@@ -67,13 +66,10 @@ var symbols = {
       "Default Timeline": {
          fromState: "Base State",
          toState: "",
-         duration: 9000,
+         duration: 0,
          autoPlay: true,
          timeline: [
-            { id: "eid14", tween: [ "style", "${_zepellin}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
-            { id: "eid19", tween: [ "style", "${_zepellin}", "opacity", '1', { fromValue: '0'}], position: 1250, duration: 250 },
-            { id: "eid13", tween: [ "motion", "${_zepellin}", [[66,67.5,0,0],[30.48,42.43,0,0]]], position: 0, duration: 1000 },
-            { id: "eid22", tween: [ "motion", "${_zepellin}", [[267.19,299.24,-129.57,-148.67],[66.1,68.5,0,0]]], position: 1250, duration: 7750, easing: "easeInQuad" }         ]
+         ]
       }
    }
 },
@@ -120,6 +116,51 @@ var symbols = {
             { id: "eid10", tween: [ "motion", "${_boats}", [[-56.99,17.5,0,0],[44.35,18.5,0,0]]], position: 1387, duration: 2613 },
             { id: "eid2", tween: [ "style", "${_boats}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
             { id: "eid8", tween: [ "style", "${_boats}", "opacity", '1', { fromValue: '0'}], position: 1387, duration: 363 }         ]
+      }
+   }
+},
+"Zepellin": {
+   version: "2.0.1",
+   minimumCompatibleVersion: "2.0.0",
+   build: "2.0.1.268",
+   baseState: "Base State",
+   initialState: "Base State",
+   gpuAccelerate: false,
+   resizeInstances: false,
+   content: {
+   dom: [
+   {
+      id: 'zepellin',
+      type: 'image',
+      rect: ['0px','0px','44px','29px','auto','auto'],
+      fill: ['rgba(0,0,0,0)','images/zepellin.png','0px','0px']
+   }],
+   symbolInstances: [
+   ]
+   },
+   states: {
+      "Base State": {
+         "${_zepellin}": [
+            ["motion", "location", '22px 14.5px'],
+            ["style", "opacity", '1']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '29px'],
+            ["style", "width", '44px']
+         ]
+      }
+   },
+   timelines: {
+      "Default Timeline": {
+         fromState: "Base State",
+         toState: "",
+         duration: 9000,
+         autoPlay: true,
+         timeline: [
+            { id: "eid13", tween: [ "motion", "${_zepellin}", [[22,14.5,0,0],[-13.52,-10.57,0,0]]], position: 0, duration: 1000 },
+            { id: "eid22", tween: [ "motion", "${_zepellin}", [[223.19,246.24,-129.57,-148.67],[22.1,15.5,0,0]]], position: 1250, duration: 7750, easing: "easeInQuad" },
+            { id: "eid14", tween: [ "style", "${_zepellin}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
+            { id: "eid19", tween: [ "style", "${_zepellin}", "opacity", '1', { fromValue: '0'}], position: 1250, duration: 250 }         ]
       }
    }
 }
