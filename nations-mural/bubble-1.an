@@ -23,15 +23,16 @@
    }}\
 }",
 	"pref__general__FilterNonAnimatedElements":"false",
-	"viewStartMs":"12893.201001411",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"viewStartMs":"-174.23245239258",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"symbol_stage":{
 		"dummyStageParentWidth":"118px",
 		"element_${_instagramslide}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
-			"animationEnabled":"true",
-			"timelineColor":"0xeedf79"},
+			"timelineColor":"0xeedf79",
+			"timelineTreeOpened":"true",
+			"animationEnabled":"true"},
 		"dummyStageParentHeight":"103px",
 		"element_${_instagram3}":{
 			"timelineColor2":"0x1aa38f",
@@ -99,7 +100,7 @@
 			"timelineColor":"0x50bd82",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"}},
-	"TransitionIdCounter":"95",
+	"TransitionIdCounter":"97",
 	"CompZoomFactor":"100",
 	"viewStartY":"0",
 	"pixelsPerMs":"0.028697295571478",
@@ -107,7 +108,7 @@
 	"pref__general__GenerateSmoothTransitions":"true",
 	"usedBOM":"false",
 	"nextElementColorIndex":"12",
-	"stage-Default Timeline_playhead_ms":"0",
+	"stage-Default Timeline_playhead_ms":"5000",
 	"stage-Default Timeline_mark_ms":"-1",
 	"StageZoomFactor":"200",
 	"symbol_instagramslide":{

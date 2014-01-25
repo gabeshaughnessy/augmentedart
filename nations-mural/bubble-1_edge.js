@@ -85,7 +85,9 @@ var symbols = {
             { id: "eid1", tween: [ "style", "${_Text}", "opacity", '0', { fromValue: '0'}], position: 0, duration: 0 },
             { id: "eid3", tween: [ "style", "${_Text}", "opacity", '1', { fromValue: '0.000000'}], position: 500, duration: 500 },
             { id: "eid7", tween: [ "style", "${_Text}", "opacity", '0', { fromValue: '1'}], position: 4000, duration: 500 },
-            { id: "eid9", tween: [ "style", "${_Text}", "top", '49px', { fromValue: '44px'}], position: 4156, duration: 844 }         ]
+            { id: "eid9", tween: [ "style", "${_Text}", "top", '49px', { fromValue: '44px'}], position: 4156, duration: 844 },
+            { id: "eid95", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_instagramslide}', [] ], ""], position: 0 },
+            { id: "eid96", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_instagramslide}', [0] ], ""], position: 5000 }         ]
       }
    }
 },
@@ -101,73 +103,63 @@ var symbols = {
    dom: [
    {
       rect: ['14px','45px','46px','47px','auto','auto'],
-      stroke: [0,'rgba(0,0,0,1)','none'],
       id: 'Rectangle',
-      opacity: 0,
+      stroke: [0,'rgba(0,0,0,1)','none'],
       type: 'rect',
       fill: ['rgba(192,192,192,1)']
    },
    {
-      rect: ['0px','-1px','50px','50px','auto','auto'],
       id: 'instagram9',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','50px','50px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram9.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','50px','51px','auto','auto'],
       id: 'instagram8',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','50px','51px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram8.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','52px','52px','auto','auto'],
       id: 'instagram7',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','52px','52px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram7.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','50px','50px','auto','auto'],
       id: 'instagram6',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','50px','50px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram6.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','50px','49px','auto','auto'],
       id: 'instagram5',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','50px','49px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram5.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','50px','50px','auto','auto'],
       id: 'instagram4',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','50px','50px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram4.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','52px','51px','auto','auto'],
       id: 'instagram3',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','52px','51px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram3.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','51px','50px','auto','auto'],
       id: 'instagram2',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','51px','50px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram2.jpg','0px','0px']
    },
    {
-      rect: ['0px','-1px','52px','50px','auto','auto'],
       id: 'instagram1',
-      opacity: 0,
       type: 'image',
+      rect: ['0px','-1px','52px','50px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/instagram1.jpg','0px','0px']
    }],
    symbolInstances: [
