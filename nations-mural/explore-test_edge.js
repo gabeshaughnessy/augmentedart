@@ -28,28 +28,9 @@ var symbols = {
             fill:["rgba(0,0,0,0)",im+"bg.png",'0px','0px']
          },
          {
-            id:'banner',
-            type:'image',
-            rect:['3px','-40px','344px','99px','auto','auto'],
-            fill:["rgba(0,0,0,0)",im+"banner.png",'0px','0px']
-         },
-         {
-            id:'boats',
-            type:'image',
-            rect:['451px','32px','86px','37px','auto','auto'],
-            fill:["rgba(0,0,0,0)",im+"boats.png",'0px','0px']
-         },
-         {
-            id:'bubble1',
-            type:'image',
-            rect:['13px','297px','118px','103px','auto','auto'],
-            fill:["rgba(0,0,0,0)",im+"bubble1.png",'0px','0px']
-         },
-         {
-            id:'bubble2',
-            type:'image',
-            rect:['352px','-45px','235px','110px','auto','auto'],
-            fill:["rgba(0,0,0,0)",im+"bubble2.png",'0px','0px']
+            id:'Boat',
+            type:'rect',
+            rect:['451','32','auto','auto','auto','auto']
          },
          {
             id:'zepellin',
@@ -58,40 +39,27 @@ var symbols = {
             fill:["rgba(0,0,0,0)",im+"zepellin.png",'0px','0px']
          }],
          symbolInstances: [
-
+         {
+            id:'Boat',
+            symbolName:'Boat'
+         }
          ]
       },
    states: {
       "Base State": {
-         "${_bg}": [
-            ["style", "left", '13px'],
-            ["style", "top", '38px']
-         ],
-         "${_zepellin}": [
-            ["style", "top", '53px'],
-            ["style", "left", '44px']
-         ],
-         "${_bubble1}": [
-            ["style", "left", '13px'],
-            ["style", "top", '297px']
-         ],
-         "${_bubble2}": [
-            ["style", "left", '352px'],
-            ["style", "top", '-45px']
-         ],
          "${_Stage}": [
             ["color", "background-color", 'rgba(255,255,255,1)'],
             ["style", "width", '600px'],
             ["style", "height", '400px'],
             ["style", "overflow", 'hidden']
          ],
-         "${_boats}": [
-            ["style", "left", '451px'],
-            ["style", "top", '32px']
+         "${_zepellin}": [
+            ["motion", "location", '66px 67.5px'],
+            ["style", "opacity", '1']
          ],
-         "${_banner}": [
-            ["style", "top", '-40px'],
-            ["style", "left", '3px']
+         "${_bg}": [
+            ["style", "left", '13px'],
+            ["style", "top", '38px']
          ]
       }
    },
@@ -99,10 +67,59 @@ var symbols = {
       "Default Timeline": {
          fromState: "Base State",
          toState: "",
-         duration: 0,
+         duration: 9000,
          autoPlay: true,
          timeline: [
+            { id: "eid14", tween: [ "style", "${_zepellin}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
+            { id: "eid19", tween: [ "style", "${_zepellin}", "opacity", '1', { fromValue: '0'}], position: 1250, duration: 250 },
+            { id: "eid13", tween: [ "motion", "${_zepellin}", [[66,67.5,0,0],[30.48,42.43,0,0]]], position: 0, duration: 1000 },
+            { id: "eid22", tween: [ "motion", "${_zepellin}", [[267.19,299.24,-129.57,-148.67],[66.1,68.5,0,0]]], position: 1250, duration: 7750, easing: "easeInQuad" }         ]
+      }
+   }
+},
+"Boat": {
+   version: "2.0.1",
+   minimumCompatibleVersion: "2.0.0",
+   build: "2.0.1.268",
+   baseState: "Base State",
+   initialState: "Base State",
+   gpuAccelerate: false,
+   resizeInstances: false,
+   content: {
+   dom: [
+   {
+      id: 'boats',
+      type: 'image',
+      rect: ['0px','0px','86px','37px','auto','auto'],
+      fill: ['rgba(0,0,0,0)','images/boats.png','0px','0px']
+   }],
+   symbolInstances: [
+   ]
+   },
+   states: {
+      "Base State": {
+         "${_boats}": [
+            ["motion", "location", '43px 18.5px'],
+            ["style", "opacity", '1']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '37px'],
+            ["style", "width", '86px']
          ]
+      }
+   },
+   timelines: {
+      "Default Timeline": {
+         fromState: "Base State",
+         toState: "",
+         duration: 4000,
+         autoPlay: true,
+         timeline: [
+            { id: "eid1", tween: [ "motion", "${_boats}", [[43,18.5,0,0],[106,18.5,0,0]]], position: 0, duration: 1000 },
+            { id: "eid5", tween: [ "motion", "${_boats}", [[106,17.5,0,0],[-56.99,17.5,0,0]]], position: 1250, duration: 0 },
+            { id: "eid10", tween: [ "motion", "${_boats}", [[-56.99,17.5,0,0],[44.35,18.5,0,0]]], position: 1387, duration: 2613 },
+            { id: "eid2", tween: [ "style", "${_boats}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
+            { id: "eid8", tween: [ "style", "${_boats}", "opacity", '1', { fromValue: '0'}], position: 1387, duration: 363 }         ]
       }
    }
 }
