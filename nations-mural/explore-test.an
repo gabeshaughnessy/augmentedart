@@ -35,7 +35,7 @@
 			"animationEnabled":"true",
 			"usingMotionPaths":"true"}},
 	"pref__general__FilterNonAnimatedElements":"false",
-	"viewStartMs":"5665",
+	"viewStartMs":"-25",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"symbol_Boat":{
 		"element_${_boats}":{
@@ -111,7 +111,7 @@
 	"Zepellin-Default Timeline_playhead_ms":"0",
 	"usedBOM":"false",
 	"nextElementColorIndex":"13",
-	"stage-Default Timeline_playhead_ms":"1347",
+	"stage-Default Timeline_playhead_ms":"0",
 	"stage-Default Timeline_mark_ms":"1500",
 	"StageZoomFactor":"100",
 	"pref__general__GenerateSmoothTransitions":"true"}
