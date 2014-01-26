@@ -14,8 +14,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "${_clear-cookies}", "click", function(sym, e) {
-         jQuery.cookie('explore_cookie', 'false', { expires: 3, path: '/' });
-         // insert code for mouse click here
+         
 
       });
       //Edge binding end
@@ -34,6 +33,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          //initialise your variables and Edge comp here
          }// insert code to be run when the composition is fully loaded here
          // insert code to be run when the composition is fully loaded here
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_clear-cookies}", "mousedown", function(sym, e) {
+         jQuery.cookie('explore_cookie', 'false', { expires: 3, path: '/' });
+         // insert code for mouse click here
+         // insert code to be run when the mouse button is down
 
       });
       //Edge binding end
