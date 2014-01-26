@@ -36,9 +36,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          );
          //when yepnope has loaded everything execute init();
          function init (){
-         
-         sym.$('cookie-value').append('<p>Explore cookie? : ' + jQuery.cookie('explore_cookie')+'</p>');
-         
          if(jQuery.cookie('explore_cookie') == 'true'){
          sym.play();
          }

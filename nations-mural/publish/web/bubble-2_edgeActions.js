@@ -5,10 +5,10 @@
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12500,function(sym,e){sym.play('begin');});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){yepnope({nope:['jquery.cookie.js'],complete:init});function init(){}});
+Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){yepnope({nope:['jquery.cookie.js'],complete:init});function init(){if(jQuery.cookie('explore_cookie')=='true'){sym.play();}
+else{sym.play('no-cookie');}}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.$('cookie-value').append('<p>Explore cookie? : '+jQuery.cookie('explore_cookie')+'</p>');if(jQuery.cookie('explore_cookie')=='true'){sym.play();}
-else{sym.play('no-cookie');}});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",17750,function(sym,e){sym.play('no-cookie');});
 //Edge binding end

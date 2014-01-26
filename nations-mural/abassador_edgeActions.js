@@ -44,13 +44,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 4000, function(sym, e) {
-         sym.$('Congratulations').append('<p>'+jQuery.cookie('explore_cookie')+'</p>');
-         // insert code here
-
-      });
-      //Edge binding end
-
    })("stage");
    //Edge symbol end:'stage'
 

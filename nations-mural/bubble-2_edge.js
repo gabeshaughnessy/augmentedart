@@ -69,14 +69,6 @@ var symbols = {
             rect:['13px','29px','202px','38px','auto','auto'],
             fill:["rgba(0,0,0,0)",im+"tweet2.png",'0px','0px'],
             transform:[[],['-4'],[],[],['0%']]
-         },
-         {
-            id:'cookie-value',
-            type:'text',
-            rect:['11px','23px','209px','38px','auto','auto'],
-            text:"Cookie value<br>",
-            align:"left",
-            font:['architects-daughter, sans-serif',11,"rgba(51,51,51,1)","bold","none","normal"]
          }],
          symbolInstances: [
 
@@ -84,9 +76,6 @@ var symbols = {
       },
    states: {
       "Base State": {
-         "${_cookie-value}": [
-            ["style", "top", '23px']
-         ],
          "${_Text4}": [
             ["style", "-webkit-transform-origin", [0,50], {valueTemplate:'@@0@@% @@1@@%'} ],
             ["style", "-moz-transform-origin", [0,50],{valueTemplate:'@@0@@% @@1@@%'}],

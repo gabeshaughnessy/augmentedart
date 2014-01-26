@@ -7,8 +7,6 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",5500,function(sym,e){});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,e){sym.$('Congratulations').append('<p>'+jQuery.cookie('explore_cookie')+'</p>');});
-//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 

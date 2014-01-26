@@ -20,7 +20,7 @@
 	"pref__general__codeView":"fullView",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"viewStartMs":"-45.950293312358",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"SnapToGuides":"false",
 	"TransitionIdCounter":"38",
 	"CompZoomFactor":"100",
@@ -71,6 +71,7 @@
 		"element_${_cookie-value}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"false",
 			"timelineColor":"0x91c767"},
 		"element_${_Text}":{
 			"timelineColor2":"0x168c84",
