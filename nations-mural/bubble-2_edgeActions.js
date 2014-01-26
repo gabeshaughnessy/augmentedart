@@ -20,7 +20,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 12500, function(sym, e) {
          // play the timeline from the given position (ms or label)
-         sym.play('cookie-check');
+         sym.play(0);
 
       });
       //Edge binding end

@@ -3,7 +3,7 @@
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,e){});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12500,function(sym,e){sym.play('cookie-check');});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12500,function(sym,e){sym.play(0);});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){yepnope({nope:['jquery.cookie.js'],complete:init});function init(){}});
 //Edge binding end
