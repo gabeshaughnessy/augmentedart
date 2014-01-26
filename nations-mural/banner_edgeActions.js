@@ -14,9 +14,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         yepnope(
+         {
+         nope:[
+         'jquery.cookie.js'
+         ],
+         complete: init
+         }
+         );
+         //when yepnope has loaded everything execute init();
+         
+         function init (){
          jQuery.cookie('explore_cookie', 'false', { expires: 3, path: '/' });
          
-         // insert code to be run when the composition is fully loaded here
+         }
 
       });
       //Edge binding end
