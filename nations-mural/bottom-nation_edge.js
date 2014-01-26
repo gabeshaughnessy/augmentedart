@@ -21,7 +21,12 @@ var symbols = {
    resizeInstances: false,
    content: {
          dom: [
-],
+         {
+            id:'bottom-nation3',
+            type:'image',
+            rect:['0px','0px','520px','200px','auto','auto'],
+            fill:["rgba(0,0,0,0)",im+"bottom-nation.png",'0px','0px']
+         }],
          symbolInstances: [
 
          ]
@@ -29,10 +34,14 @@ var symbols = {
    states: {
       "Base State": {
          "${_Stage}": [
-            ["color", "background-color", 'rgba(255,255,255,1)'],
-            ["style", "width", '550px'],
-            ["style", "height", '400px'],
+            ["color", "background-color", 'rgba(255,255,255,0.00)'],
+            ["style", "width", '520px'],
+            ["style", "height", '200px'],
             ["style", "overflow", 'hidden']
+         ],
+         "${_bottom-nation3}": [
+            ["style", "left", '0px'],
+            ["style", "top", '0px']
          ]
       }
    },
@@ -58,4 +67,4 @@ Edge.registerCompositionDefn(compId, symbols, fonts, resources);
 $(window).ready(function() {
      Edge.launchComposition(compId);
 });
-})(jQuery, AdobeEdge, "EDGE-231478766");
+})(jQuery, AdobeEdge, "edge-animation");

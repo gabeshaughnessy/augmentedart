@@ -57,4 +57,4 @@ preContent={dom: [ ]};//simpleContent
 
 dlContent={dom: [ ]};//simpleContent
 
-})( "EDGE-231478766");
+})( "edge-animation");
