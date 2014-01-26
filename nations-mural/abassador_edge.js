@@ -25,12 +25,12 @@ var symbols = {
          {
             id:'ambassador',
             type:'rect',
-            rect:['0','0','auto','auto','auto','auto']
+            rect:['0','0px','auto','auto','auto','auto']
          },
          {
             id:'key',
             type:'rect',
-            rect:['0','0','auto','auto','auto','auto'],
+            rect:['0','114px','auto','auto','auto','auto'],
             clip:['rect(0px 2400pxpx 420pxpx 0px)']
          },
          {
@@ -45,9 +45,10 @@ var symbols = {
          {
             id:'Unlocked_my_nation',
             type:'text',
-            rect:['22px','543px','393px','92px','auto','auto'],
+            rect:['22px','479px','393px','92px','auto','auto'],
             opacity:0,
-            text:"You unlocked my Nation!",
+            text:"You unlocked the Exploration-nation!",
+            align:"center",
             font:['metamorphous, serif',25,"rgba(250,245,193,1.00)","700","none",""],
             textShadow:["rgba(254,253,253,0.99)",0,-1,0],
             transform:[]
@@ -72,8 +73,9 @@ var symbols = {
             ["color", "color", 'rgba(250,245,193,1.00)'],
             ["style", "font-weight", '700'],
             ["style", "left", '22px'],
-            ["style", "font-size", '25px'],
-            ["style", "top", '543px'],
+            ["style", "font-size", '32px'],
+            ["style", "top", '479px'],
+            ["style", "text-align", 'center'],
             ["style", "opacity", '0'],
             ["style", "font-family", 'metamorphous, serif'],
             ["subproperty", "textShadow.offsetV", '-1px'],
@@ -107,7 +109,7 @@ var symbols = {
             ["style", "overflow", 'hidden']
          ],
          "${_key}": [
-            ["style", "top", '148px'],
+            ["style", "top", '114px'],
             ["transform", "scaleY", '0'],
             ["transform", "scaleX", '0'],
             ["style", "-webkit-transform-origin", [2,50], {valueTemplate:'@@0@@% @@1@@%'} ],
@@ -127,10 +129,10 @@ var symbols = {
          duration: 5500,
          autoPlay: true,
          timeline: [
-            { id: "eid67", tween: [ "transform", "${_key}", "scaleY", '1', { fromValue: '0'}], position: 2000, duration: 1000, easing: "easeOutBack" },
+            { id: "eid66", tween: [ "transform", "${_key}", "scaleX", '1', { fromValue: '0'}], position: 2000, duration: 1000, easing: "easeOutBack" },
             { id: "eid76", tween: [ "style", "${_Unlocked_my_nation}", "opacity", '0', { fromValue: '0'}], position: 3000, duration: 0, easing: "easeOutBack" },
             { id: "eid81", tween: [ "style", "${_Unlocked_my_nation}", "opacity", '1', { fromValue: '0.000000'}], position: 5000, duration: 500, easing: "easeOutBack" },
-            { id: "eid66", tween: [ "transform", "${_key}", "scaleX", '1', { fromValue: '0'}], position: 2000, duration: 1000, easing: "easeOutBack" },
+            { id: "eid67", tween: [ "transform", "${_key}", "scaleY", '1', { fromValue: '0'}], position: 2000, duration: 1000, easing: "easeOutBack" },
             { id: "eid77", tween: [ "style", "${_Congratulations}", "opacity", '0', { fromValue: '0'}], position: 3000, duration: 0, easing: "easeOutBack" },
             { id: "eid79", tween: [ "style", "${_Congratulations}", "opacity", '1', { fromValue: '0.000000'}], position: 3500, duration: 500, easing: "easeOutBack" },
             { id: "eid73", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_key}', [] ], ""], position: 0 },

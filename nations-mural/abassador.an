@@ -28,6 +28,7 @@
       }\
    }}\
 }",
+	"pref__general__AutoKeyframeProperties":"false",
 	"expanded:images/":"false",
 	"key-Default Timeline_playhead_ms":"0",
 	"symbol_Preloader":{
@@ -63,12 +64,12 @@
 	"Preloader-Default Timeline_playhead_ms":"0",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"HTMLFileName":"abassador.html",
-	"pref__general__GenerateSmoothTransitions":"true",
-	"viewStartMs":"784.02960205078",
+	"pref__general__GenerateSmoothTransitions":"false",
+	"viewStartMs":"1337.3785672983",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"PosterCapturePos":"0",
 	"abmassador-Default Timeline_playhead_ms":"0",
-	"TransitionIdCounter":"82",
+	"TransitionIdCounter":"88",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"50",
 	"pixelsPerMs":"0.16084404241243",
@@ -81,7 +82,7 @@
 			"timelineColor":"0x2f73ad"}},
 	"usedBOM":"false",
 	"nextElementColorIndex":"3",
-	"stage-Default Timeline_playhead_ms":"4000",
+	"stage-Default Timeline_playhead_ms":"5324",
 	"symbol_stage":{
 		"dummyStageParentWidth":"420px",
 		"dummyStageParentHeight":"601px",
