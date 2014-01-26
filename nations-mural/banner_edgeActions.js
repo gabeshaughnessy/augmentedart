@@ -13,6 +13,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {
       
       
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         jQuery.cookie('explore_cookie', 'false', { expires: 3, path: '/' });
+         
+         // insert code to be run when the composition is fully loaded here
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 
