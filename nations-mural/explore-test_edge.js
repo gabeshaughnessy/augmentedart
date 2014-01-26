@@ -36,19 +36,8 @@ var symbols = {
             id:'Zepellin',
             type:'rect',
             rect:['44','53','auto','auto','auto','auto']
-         },
-         {
-            id:'clear-cookies',
-            type:'rect',
-            rect:['511','348','auto','auto','auto','auto'],
-            cursor:['pointer'],
-            boxShadow:["",3,3,3,0,"rgba(0,0,0,0.65)"]
          }],
          symbolInstances: [
-         {
-            id:'clear-cookies',
-            symbolName:'clear-cookies'
-         },
          {
             id:'Zepellin',
             symbolName:'Zepellin'
@@ -67,13 +56,6 @@ var symbols = {
             ["style", "height", '400px'],
             ["style", "overflow", 'hidden']
          ],
-         "${_clear-cookies}": [
-            ["subproperty", "boxShadow.blur", '3px'],
-            ["style", "cursor", 'pointer'],
-            ["subproperty", "boxShadow.offsetV", '0px'],
-            ["subproperty", "boxShadow.offsetH", '0px'],
-            ["subproperty", "boxShadow.color", 'rgba(0,0,0,0.65)']
-         ],
          "${_bg}": [
             ["style", "left", '13px'],
             ["style", "top", '38px']
@@ -87,9 +69,7 @@ var symbols = {
          duration: 0,
          autoPlay: true,
          timeline: [
-            { id: "eid30", tween: [ "subproperty", "${_clear-cookies}", "boxShadow.offsetH", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
-            { id: "eid24", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 0, duration: 0 },
-            { id: "eid32", tween: [ "subproperty", "${_clear-cookies}", "boxShadow.offsetV", '0px', { fromValue: '0px'}], position: 0, duration: 0 }         ]
+            { id: "eid24", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 0, duration: 0 }         ]
       }
    }
 },

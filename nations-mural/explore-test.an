@@ -41,7 +41,7 @@
 			"animationEnabled":"true",
 			"usingMotionPaths":"true"}},
 	"pref__general__FilterNonAnimatedElements":"false",
-	"StageZoomFactor":"150",
+	"StageZoomFactor":"75",
 	"clear-cookies-Default Timeline_playhead_ms":"0",
 	"viewStartMs":"-25",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
@@ -58,7 +58,7 @@
 		"element_${_clear-cookies}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
-			"animationEnabled":"true",
+			"animationEnabled":"false",
 			"timelineColor":"0x91c767"},
 		"element_${_Boat}":{
 			"timelineColor2":"0x5a558a",
