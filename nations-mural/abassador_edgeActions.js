@@ -13,18 +13,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {
       
       
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2000, function(sym, e) {
-         // insert code here
-      });
-      //Edge binding end
-
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 12500, function(sym, e) {
-         // play the timeline from the given position (ms or label)
-         sym.play('begin');
-
-      });
-      //Edge binding end
-
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          yepnope(
          {
@@ -38,33 +26,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          function init (){
          //initialise your variables and Edge comp here
          }// insert code to be run when the composition is fully loaded here
+         // insert code to be run when the composition is fully loaded here
+         
 
       });
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
-         if(jQuery.cookie('explore_cookie') == 'true'){
-         sym.play();
-         }
-         else {
-         sym.play('no-cookie');
-         }
-         
-         
-
-      });
-      //Edge binding end
-
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 17750, function(sym, e) {
-         // play the timeline from the given position (ms or label)
-         sym.play('no-cookie');
-         // insert code here
-
-      });
-      //Edge binding end
-
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13507, function(sym, e) {
-         sym.stop();
+         jQuery.cookie('explore_cookie', 'true', { expires: 3, path: '/' });
          // insert code here
 
       });
@@ -73,4 +42,36 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("stage");
    //Edge symbol end:'stage'
 
-})(jQuery, AdobeEdge, "EDGE-210503108");
+   //=========================================================
+   
+   //Edge symbol: 'abmassador'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2750, function(sym, e) {
+         // play the timeline from the given position (ms or label)
+         sym.play(0);
+         // insert code here
+
+      });
+      //Edge binding end
+
+   })("abmassador");
+   //Edge symbol end:'abmassador'
+
+   //=========================================================
+   
+   //Edge symbol: 'key'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2874, function(sym, e) {
+         // play the timeline from the given position (ms or label)
+         sym.play(0);
+         // insert code here
+
+      });
+      //Edge binding end
+
+   })("key");
+   //Edge symbol end:'key'
+
+})(jQuery, AdobeEdge, "edge-animation");
