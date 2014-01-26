@@ -20,7 +20,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 12500, function(sym, e) {
          // play the timeline from the given position (ms or label)
-         sym.play('begin');
+         sym.play('cookie-check');
 
       });
       //Edge binding end
@@ -36,12 +36,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          );
          //when yepnope has loaded everything execute init();
          function init (){
-         if(jQuery.cookie('explore_cookie') == 'true'){
-         sym.play();
-         }
-         else {
-         sym.play('no-cookie');
-         }
+         
          
          //initialise your variables and Edge comp here
          }// insert code to be run when the composition is fully loaded here
@@ -50,7 +45,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
-         
+         if(jQuery.cookie('explore_cookie') == 'true'){
+         sym.play();
+         }
+         else {
+         sym.play('no-cookie');
+         }
          
 
       });

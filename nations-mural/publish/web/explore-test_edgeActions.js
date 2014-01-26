@@ -1,7 +1,11 @@
 
 (function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
-(function(symbolName){})("stage");
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"${_clear-cookies}","click",function(sym,e){jQuery.cookie('explore_cookie','false',{expires:3,path:'/'});console.log('explore_cookie',jQuery.cookie('explore_cookie'));});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){yepnope({nope:['jquery.cookie.js'],complete:init});function init(){}});
+//Edge binding end
+})("stage");
 //Edge symbol end:'stage'
 
 //=========================================================
@@ -19,4 +23,10 @@
 //Edge binding end
 })("Zepellin");
 //Edge symbol end:'Zepellin'
+
+//=========================================================
+
+//Edge symbol: 'clear-cookies'
+(function(symbolName){})("clear-cookies");
+//Edge symbol end:'clear-cookies'
 })(jQuery,AdobeEdge,"edge-animate");

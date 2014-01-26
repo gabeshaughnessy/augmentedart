@@ -13,6 +13,31 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {
       
       
+      Symbol.bindElementAction(compId, symbolName, "${_clear-cookies}", "click", function(sym, e) {
+         jQuery.cookie('explore_cookie', 'false', { expires: 3, path: '/' });
+         // insert code for mouse click here
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         yepnope(
+         {
+         nope:[
+         'jquery.cookie.js'
+         ],
+         complete: init
+         }
+         );
+         //when yepnope has loaded everything execute init();
+         function init (){
+         //initialise your variables and Edge comp here
+         }// insert code to be run when the composition is fully loaded here
+         // insert code to be run when the composition is fully loaded here
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 
@@ -45,5 +70,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("Zepellin");
    //Edge symbol end:'Zepellin'
+
+   //=========================================================
+   
+   //Edge symbol: 'clear-cookies'
+   (function(symbolName) {   
+   
+   })("clear-cookies");
+   //Edge symbol end:'clear-cookies'
 
 })(jQuery, AdobeEdge, "edge-animate");

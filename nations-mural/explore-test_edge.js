@@ -36,8 +36,19 @@ var symbols = {
             id:'Zepellin',
             type:'rect',
             rect:['44','53','auto','auto','auto','auto']
+         },
+         {
+            id:'clear-cookies',
+            type:'rect',
+            rect:['511','348','auto','auto','auto','auto'],
+            cursor:['pointer'],
+            boxShadow:["",3,3,3,0,"rgba(0,0,0,0.65)"]
          }],
          symbolInstances: [
+         {
+            id:'clear-cookies',
+            symbolName:'clear-cookies'
+         },
          {
             id:'Zepellin',
             symbolName:'Zepellin'
@@ -56,6 +67,13 @@ var symbols = {
             ["style", "height", '400px'],
             ["style", "overflow", 'hidden']
          ],
+         "${_clear-cookies}": [
+            ["subproperty", "boxShadow.blur", '3px'],
+            ["style", "cursor", 'pointer'],
+            ["subproperty", "boxShadow.offsetV", '0px'],
+            ["subproperty", "boxShadow.offsetH", '0px'],
+            ["subproperty", "boxShadow.color", 'rgba(0,0,0,0.65)']
+         ],
          "${_bg}": [
             ["style", "left", '13px'],
             ["style", "top", '38px']
@@ -69,7 +87,9 @@ var symbols = {
          duration: 0,
          autoPlay: true,
          timeline: [
-            { id: "eid24", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 0, duration: 0 }         ]
+            { id: "eid30", tween: [ "subproperty", "${_clear-cookies}", "boxShadow.offsetH", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
+            { id: "eid24", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 0, duration: 0 },
+            { id: "eid32", tween: [ "subproperty", "${_clear-cookies}", "boxShadow.offsetV", '0px', { fromValue: '0px'}], position: 0, duration: 0 }         ]
       }
    }
 },
@@ -161,6 +181,65 @@ var symbols = {
             { id: "eid22", tween: [ "motion", "${_zepellin}", [[223.19,246.24,-129.57,-148.67],[22.1,15.5,0,0]]], position: 1250, duration: 7750, easing: "easeInQuad" },
             { id: "eid14", tween: [ "style", "${_zepellin}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
             { id: "eid19", tween: [ "style", "${_zepellin}", "opacity", '1', { fromValue: '0'}], position: 1250, duration: 250 }         ]
+      }
+   }
+},
+"clear-cookies": {
+   version: "2.0.1",
+   minimumCompatibleVersion: "2.0.0",
+   build: "2.0.1.268",
+   baseState: "Base State",
+   initialState: "Base State",
+   gpuAccelerate: false,
+   resizeInstances: false,
+   content: {
+   dom: [
+   {
+      rect: ['0px','0px','33px','33px','auto','auto'],
+      id: 'Rectangle',
+      stroke: [0,'rgba(0,0,0,1)','none'],
+      type: 'rect',
+      fill: ['rgba(192,192,192,1)']
+   },
+   {
+      rect: ['0px','1px','33px','29px','auto','auto'],
+      font: ['Arial, Helvetica, sans-serif',24,'rgba(0,0,0,1)','normal','none',''],
+      id: 'Text',
+      text: '<br>clear cookie',
+      align: 'center',
+      type: 'text'
+   }],
+   symbolInstances: [
+   ]
+   },
+   states: {
+      "Base State": {
+         "${_Rectangle}": [
+            ["style", "top", '0px'],
+            ["style", "left", '0px'],
+            ["style", "height", '33px']
+         ],
+         "${_Text}": [
+            ["style", "top", '1px'],
+            ["style", "text-align", 'center'],
+            ["style", "line-height", '8px'],
+            ["style", "left", '0px'],
+            ["style", "font-size", '9px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '33px'],
+            ["style", "width", '33px']
+         ]
+      }
+   },
+   timelines: {
+      "Default Timeline": {
+         fromState: "Base State",
+         toState: "",
+         duration: 0,
+         autoPlay: true,
+         timeline: [
+         ]
       }
    }
 }
