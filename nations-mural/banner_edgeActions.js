@@ -17,7 +17,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          yepnope(
          {
          nope:[
-         'jquery.cookie.js'
+         'jquery.cookie.js',
+         'geturlparams.js'
          ],
          complete: init
          }
@@ -25,9 +26,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          //when yepnope has loaded everything execute init();
          
          function init (){
-         jQuery.cookie('explore_cookie', 'false', { expires: 3, path: '/' });
-         
-         }
+         console.log(jQuery(document).getUrlParam('reset_cookie'));
+            if(jQuery(document).getUrlParam('explore_cookie') != null){
+               jQuery.cookie('explore_cookie', jQuery(document).getUrlParam('explore_cookie'), { expires: 3, path: '/' });
+            }
+         }//end init
 
       });
       //Edge binding end
