@@ -36,14 +36,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          );
          //when yepnope has loaded everything execute init();
          function init (){
-         //initialise your variables and Edge comp here
-         }// insert code to be run when the composition is fully loaded here
-
-      });
-      //Edge binding end
-
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
-         sym.$('cookie-value').append('<p>Explore cookie? : '+jQuery.cookie('explore_cookie')+'</p>');
+         
+         sym.$('cookie-value').append('<p>Explore cookie? : ' + jQuery.cookie('explore_cookie')+'</p>');
          
          if(jQuery.cookie('explore_cookie') == 'true'){
          sym.play();
@@ -51,6 +45,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          else {
          sym.play('no-cookie');
          }
+         
+         //initialise your variables and Edge comp here
+         }// insert code to be run when the composition is fully loaded here
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
          
          
 
