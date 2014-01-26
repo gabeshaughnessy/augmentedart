@@ -43,6 +43,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+         sym.$('cookie-value').append('<p>Explore cookie? : '+jQuery.cookie('explore_cookie')+'</p>');
+         
          if(jQuery.cookie('explore_cookie') == 'true'){
          sym.play();
          }

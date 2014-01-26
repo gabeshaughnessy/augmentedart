@@ -5,6 +5,10 @@
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){jQuery.cookie('explore_cookie','true',{expires:3,path:'/'});});
 //Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",5500,function(sym,e){});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,e){sym.$('Congratulations').append('<p>'+jQuery.cookie('explore_cookie')+'</p>');});
+//Edge binding end
 })("stage");
 //Edge symbol end:'stage'
 
@@ -23,4 +27,10 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,
 //Edge binding end
 })("key");
 //Edge symbol end:'key'
+
+//=========================================================
+
+//Edge symbol: 'Preloader'
+(function(symbolName){})("Preloader");
+//Edge symbol end:'Preloader'
 })(jQuery,AdobeEdge,"edge-animation");

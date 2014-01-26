@@ -39,7 +39,7 @@ if(document.addEventListener ){
 
    requiresSVG=false;
 
-   doDelayLoad=false;
+   doDelayLoad=true;
    htFallbacks={
     };
 
@@ -53,7 +53,15 @@ if (AdobeEdge.bootstrapLoading) { signaledLoading = true; AdobeEdge.loadResource
 
 loadResources(aLoader, doDelayLoad);
 
-preContent={dom: [ ]};//simpleContent
+preContent={
+   dom: [
+   {
+      id:'loader-bar',
+      type:'image',
+      tag:'img',
+      rect:['100','291','220px','19px','auto','auto'],
+      fill:["rgba(0,0,0,0)",'images/loader-bar.gif','0px','0px']
+   }]};//simpleContent
 
 dlContent={dom: [ ]};//simpleContent
 

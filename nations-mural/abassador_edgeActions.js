@@ -39,6 +39,18 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 5500, function(sym, e) {
+         // insert code here
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 4000, function(sym, e) {
+         sym.$('Congratulations').append('<p>'+jQuery.cookie('explore_cookie')+'</p>');
+         // insert code here
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 
@@ -73,5 +85,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("key");
    //Edge symbol end:'key'
+
+   //=========================================================
+   
+   //Edge symbol: 'Preloader'
+   (function(symbolName) {   
+   
+   })("Preloader");
+   //Edge symbol end:'Preloader'
 
 })(jQuery, AdobeEdge, "edge-animation");
