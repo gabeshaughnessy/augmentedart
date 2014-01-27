@@ -35,7 +35,44 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
+         if(jQuery.cookie('explore_cookie') == 'true'){
+         // play the timeline from the given position (ms or label)
+          sym.play();
+         }
+         else{
+          sym.stop();
+         }
+         // insert code here
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 4000, function(sym, e) {
+         // play the timeline from the given position (ms or label)
+         sym.play('has-cookie');
+         // insert code here
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
+
+   //=========================================================
+   
+   //Edge symbol: 'banner-wave'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 3000, function(sym, e) {
+         // play the timeline from the given position (ms or label)
+         sym.play(0);
+         // insert code here
+
+      });
+      //Edge binding end
+
+   })("banner-wave");
+   //Edge symbol end:'banner-wave'
 
 })(jQuery, AdobeEdge, "edge-animation");
