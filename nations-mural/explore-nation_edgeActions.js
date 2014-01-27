@@ -40,12 +40,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 104, function(sym, e) {
+         sym.stop();
          if(jQuery.cookie('explore_cookie') == 'true'){
          // play the timeline from the given position (ms or label)
           sym.play();
          }
          else{
-          sym.stop();
          }// insert code here
          
 

@@ -4,8 +4,8 @@
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){yepnope({nope:['jquery.cookie.js'],complete:init});function init(){if(jQuery.cookie('explore_cookie')=='true'){sym.play();}
 else{sym.stop();}}});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",104,function(sym,e){if(jQuery.cookie('explore_cookie')=='true'){sym.play();}
-else{sym.stop();}});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",104,function(sym,e){sym.stop();if(jQuery.cookie('explore_cookie')=='true'){sym.play();}
+else{}});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
