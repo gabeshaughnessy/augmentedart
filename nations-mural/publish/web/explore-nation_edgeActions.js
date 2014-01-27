@@ -45,4 +45,12 @@ else{}});
 //Edge binding end
 })("bg");
 //Edge symbol end:'bg'
+
+//=========================================================
+
+//Edge symbol: 'zepelin'
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",9000,function(sym,e){sym.play(0);});
+//Edge binding end
+})("zepelin");
+//Edge symbol end:'zepelin'
 })(jQuery,AdobeEdge,"edge-animate");

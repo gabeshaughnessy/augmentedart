@@ -40,18 +40,19 @@ var symbols = {
             rect:['451','32','auto','auto','auto','auto']
          },
          {
-            id:'Zepellin',
+            id:'zepelin',
             type:'rect',
-            rect:['44','53','auto','auto','auto','auto']
+            rect:['24px','47px','auto','auto','auto','auto'],
+            transform:[[],[],[],['0.94735','0.94735']]
          }],
          symbolInstances: [
          {
-            id:'nation-animation',
-            symbolName:'bg'
+            id:'zepelin',
+            symbolName:'zepelin'
          },
          {
-            id:'Zepellin',
-            symbolName:'Zepellin'
+            id:'nation-animation',
+            symbolName:'bg'
          },
          {
             id:'Boat',
@@ -85,8 +86,12 @@ var symbols = {
             ["style", "left", '13px'],
             ["style", "width", '555px']
          ],
-         "${_Zepellin}": [
-            ["style", "opacity", '0.010662141393443']
+         "${_zepelin}": [
+            ["style", "top", '47px'],
+            ["transform", "scaleY", '0.94735'],
+            ["transform", "scaleX", '0.94735'],
+            ["style", "opacity", '0'],
+            ["style", "left", '24px']
          ]
       }
    },
@@ -102,17 +107,17 @@ var symbols = {
          },
          timeline: [
             { id: "eid126", tween: [ "style", "${_nation-animation}", "opacity", '1', { fromValue: '0'}], position: 104, duration: 646 },
+            { id: "eid129", tween: [ "style", "${_Boat}", "opacity", '1', { fromValue: '0'}], position: 104, duration: 646 },
             { id: "eid137", tween: [ "style", "${_greybg_06}", "opacity", '1', { fromValue: '1'}], position: 0, duration: 0 },
             { id: "eid138", tween: [ "style", "${_greybg_06}", "opacity", '0', { fromValue: '1'}], position: 104, duration: 646 },
-            { id: "eid129", tween: [ "style", "${_Boat}", "opacity", '1', { fromValue: '0'}], position: 104, duration: 646 },
+            { id: "eid140", tween: [ "style", "${_zepelin}", "opacity", '1', { fromValue: '0'}], position: 104, duration: 646 },
             { id: "eid24", tween: [ "color", "${_Stage}", "background-color", 'rgba(255,255,255,0.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,0.00)'}], position: 0, duration: 0 },
-            { id: "eid127", tween: [ "style", "${_Zepellin}", "opacity", '1', { fromValue: '0'}], position: 104, duration: 646 },
-            { id: "eid36", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_Zepellin}', [0] ], ""], position: 0 },
-            { id: "eid130", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_nation-animation}', [] ], ""], position: 0 },
             { id: "eid37", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_Boat}', [0] ], ""], position: 0 },
+            { id: "eid145", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_zepelin}', [0] ], ""], position: 0 },
+            { id: "eid130", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_nation-animation}', [] ], ""], position: 0 },
+            { id: "eid131", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_nation-animation}', [0] ], ""], position: 750 },
             { id: "eid39", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_Boat}', [0] ], ""], position: 750 },
-            { id: "eid38", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_Zepellin}', [0] ], ""], position: 750 },
-            { id: "eid131", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_nation-animation}', [0] ], ""], position: 750 }         ]
+            { id: "eid146", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_zepelin}', [0] ], ""], position: 750 }         ]
       }
    }
 },
@@ -363,6 +368,55 @@ var symbols = {
             { id: "eid110", tween: [ "style", "${_nation-sprite3}", "background-position", [-5400,-400], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-4800,-400]}], position: 2629, duration: 0 },
             { id: "eid111", tween: [ "style", "${_nation-sprite3}", "background-position", [-6000,-400], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-5400,-400]}], position: 2750, duration: 0 },
             { id: "eid112", tween: [ "style", "${_nation-sprite3}", "background-position", [-6600,-400], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-6000,-400]}], position: 2876, duration: 0 }         ]
+      }
+   }
+},
+"zepelin": {
+   version: "2.0.1",
+   minimumCompatibleVersion: "2.0.0",
+   build: "2.0.1.268",
+   baseState: "Base State",
+   initialState: "Base State",
+   gpuAccelerate: false,
+   resizeInstances: false,
+   content: {
+   dom: [
+   {
+      id: 'zepelin',
+      type: 'image',
+      rect: ['0px','0px','90px','96px','auto','auto'],
+      fill: ['rgba(0,0,0,0)','images/zepelin.png','0px','0px']
+   }],
+   symbolInstances: [
+   ]
+   },
+   states: {
+      "Base State": {
+         "${_zepelin}": [
+            ["style", "top", '0px'],
+            ["motion", "location", '44.9px 47px'],
+            ["style", "height", '96px'],
+            ["style", "opacity", '1'],
+            ["style", "left", '0px'],
+            ["style", "width", '90px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '96px'],
+            ["style", "width", '90px']
+         ]
+      }
+   },
+   timelines: {
+      "Default Timeline": {
+         fromState: "Base State",
+         toState: "",
+         duration: 9000,
+         autoPlay: true,
+         timeline: [
+            { id: "eid141", tween: [ "motion", "${_zepelin}", [[44.9,47,0,0],[13.4,12.95,0,0]]], position: 0, duration: 1000 },
+            { id: "eid142", tween: [ "motion", "${_zepelin}", [[250.42,301.1,-129.57,-148.67],[45,48,0,0]]], position: 1250, duration: 7750, easing: "easeInQuad" },
+            { id: "eid143", tween: [ "style", "${_zepelin}", "opacity", '0', { fromValue: '1'}], position: 500, duration: 500 },
+            { id: "eid144", tween: [ "style", "${_zepelin}", "opacity", '1', { fromValue: '0'}], position: 1250, duration: 250 }         ]
       }
    }
 }

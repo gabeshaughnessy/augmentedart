@@ -2,6 +2,12 @@
 
 	"nation-Default Timeline_playhead_ms":"0",
 	"pref__general__AutoKeyframeProperties":"false",
+	"symbol_zepelin":{
+		"element_${_zepelin}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"animationEnabled":"true",
+			"timelineColor":"0xeedf79"}},
 	"symbol_nation":{
 		"element_${_nation-sprite}":{
 			"timelineColor2":"0x326a96",
@@ -18,10 +24,10 @@
 	"bg-Default Timeline_playhead_ms":"0",
 	"SnapToGuides":"false",
 	"Boat-Default Timeline_playhead_ms":"0",
-	"StageZoomFactor":"50",
+	"StageZoomFactor":"100",
 	"pixelsPerMs":"0.2",
 	"stage-Default Timeline_mark_ms":"-1",
-	"nextElementColorIndex":"14",
+	"nextElementColorIndex":"4",
 	"pref__general__GenerateSmoothTransitions":"false",
 	"symbol_bg":{
 		"element_${_nation-sprite3}":{
@@ -70,6 +76,11 @@
    \"timelines\": {\
       \"Default Timeline\": {\
       }\
+   }},\
+\"zepelin\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
    }}\
 }",
 	"symbol_Zepellin":{
@@ -80,8 +91,9 @@
 			"animationEnabled":"true",
 			"usingMotionPaths":"true"}},
 	"clear-cookies-Default Timeline_playhead_ms":"0",
-	"viewStartMs":"-25",
+	"viewStartMs":"7835.2473629713",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"zepelin-Default Timeline_playhead_ms":"0",
 	"symbol_stage":{
 		"dummyStageParentWidth":"600px",
 		"element_${_greybg_06}":{
@@ -129,7 +141,7 @@
 		"element_${_Zepellin}":{
 			"timelineColor2":"0xd35d6e",
 			"timelineColor3":"0x7e4b52",
-			"animationEnabled":"true",
+			"animationEnabled":"false",
 			"timelineColor":"0xfb657a"},
 		"element_${_bubble1}":{
 			"timelineColor2":"0x168c84",
@@ -152,6 +164,11 @@
 			"timelineColor3":"0x70657c",
 			"animationEnabled":"false",
 			"timelineColor":"0xceaef4"},
+		"element_${_zepelin}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"true",
+			"timelineColor":"0x91c767"},
 		"element_${_nation}":{
 			"timelineColor2":"0x1095d2",
 			"timelineColor3":"0x29647e",
@@ -183,7 +200,7 @@
 			"timelineColor3":"0x385063",
 			"animationEnabled":"false",
 			"timelineColor":"0x2f73ad"}},
-	"TransitionIdCounter":"139",
+	"TransitionIdCounter":"147",
 	"symbol_Preloader":{
 		"dummyStageParentWidth":"600px",
 		"dummyStageParentHeight":"400px",
