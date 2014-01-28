@@ -22,7 +22,7 @@ var symbols = {
    content: {
          dom: [
          {
-            id:'Text',
+            id:'Message',
             type:'text',
             rect:['10px','72px','auto','auto','auto','auto'],
             text:"Reset my cookie please",
@@ -40,7 +40,7 @@ var symbols = {
             ["style", "height", '200px'],
             ["style", "overflow", 'hidden']
          ],
-         "${_Text}": [
+         "${_Message}": [
             ["style", "top", '72px'],
             ["style", "left", '10px']
          ]
@@ -50,10 +50,10 @@ var symbols = {
       "Default Timeline": {
          fromState: "Base State",
          toState: "",
-         duration: 0,
+         duration: 1000,
          autoPlay: true,
          timeline: [
-         ]
+            { id: "eid3", tween: [ "color", "${_Stage}", "background-color", 'rgba(116,142,21,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(255,255,255,1)'}], position: 0, duration: 1000 }         ]
       }
    }
 }

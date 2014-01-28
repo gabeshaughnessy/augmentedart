@@ -1,24 +1,28 @@
 {
 
 	"HTMLFileName":"reset-cookie.html",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"symbol_stage":{
 		"defaultStageParentHeight":"200px",
-		"dummyStageParentHeight":"200px",
-		"defaultStageParentWidth":"200px",
-		"element_${_Text}":{
+		"element_${_Message}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
 			"timelineColor":"0x91c767"},
+		"dummyStageParentHeight":"200px",
+		"defaultStageParentWidth":"200px",
 		"element_${_Stage}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
+			"animationEnabled":"true",
 			"timelineColor":"0xeedf79"},
 		"dummyStageParentWidth":"200px"},
+	"TransitionIdCounter":"4",
 	"CompZoomFactor":"100",
-	"StageZoomFactor":"100",
+	"StageZoomFactor":"150",
+	"pixelsPerMs":"0.2",
 	"usedBOM":"false",
 	"nextElementColorIndex":"3",
-	"stage-Default Timeline_playhead_ms":"0",
+	"stage-Default Timeline_playhead_ms":"1000",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"ModelData":"{\
 \"stage\": {\
