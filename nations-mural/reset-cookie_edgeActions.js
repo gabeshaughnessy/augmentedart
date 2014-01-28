@@ -37,7 +37,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
-         sym.$('message').html('your cookie was reset!');// insert code here
+         sym.$('Message').html('your cookie was reset!');// insert code here
 
       });
       //Edge binding end
