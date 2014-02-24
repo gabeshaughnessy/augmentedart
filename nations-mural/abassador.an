@@ -2,6 +2,7 @@
 
 	"PubChromeFrameInstallerPrompt":"none",
 	"PubUseChromeFrameInstaller":"false",
+	"PreloaderType":"Polite",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\
@@ -60,12 +61,12 @@
 			"timelineColor":"0xeedf79"},
 		"dummyStageParentWidth":"420px"},
 	"PosterImagePath":"images/Poster.png",
-	"PreloaderType":"Polite",
+	"pref__general__codeView":"sectionalView",
 	"Preloader-Default Timeline_playhead_ms":"0",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"HTMLFileName":"abassador.html",
 	"pref__general__GenerateSmoothTransitions":"false",
-	"viewStartMs":"1337.3785672983",
+	"viewStartMs":"-31.086013793945",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"PosterCapturePos":"0",
 	"abmassador-Default Timeline_playhead_ms":"0",

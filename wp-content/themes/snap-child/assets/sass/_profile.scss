@@ -1,0 +1,63 @@
+/*---------------------------------------------------------
+ Profile template (_pages.scss)
+-------------------------------------------------------- */
+//PROFILE GRID ON ARCHIVE VIEW
+.profile-post{
+   height: auto !important;
+  .post-wrapper{
+    height: auto !important;
+  }
+.grid-thumb-wrapper{
+  margin-right: 1em;
+@media screen and (min-width: 900px){
+  float: left;
+}
+}
+.grid-content-wrapper{
+  //height: 100%;
+}
+&.post:nth-child(1), &.post:nth-child(2){
+ // height: auto;
+  .post-wrapper{
+   // height: auto;
+  }
+}
+}
+
+@media screen and (min-width: 900px) {
+  .profile .mobile-element {
+    display: none;
+  }
+}
+.profile .desktop-element {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  .profile .desktop-element {
+    display: block;
+  }
+}
+.profile .with-sidebar {
+  float: right;
+}
+.profile #sidebar {
+  float: left;
+  margin-top: 0;
+  margin-bottom: 22px;
+  margin-bottom: 1.22222rem;
+}
+.profile #sidebar img {
+  float: left;
+  max-width: 30%;
+  margin-right: 32px;
+  margin-right: 1.77778rem;
+  margin-bottom: 22px;
+  margin-bottom: 1.22222rem;
+}
+@media screen and (min-width: 900px) {
+  .profile #sidebar img {
+    float: none;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}

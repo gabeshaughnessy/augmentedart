@@ -1,0 +1,19 @@
+.press-post{
+	   height: auto !important;
+  .post-wrapper{
+    height: auto !important;
+  }
+	.grid-thumb-wrapper{
+		 margin-right: 1em;
+
+	}
+	.grid-content-wrapper{
+	  //height: 100%;
+	}
+	&.post:nth-child(1), &.post:nth-child(2){
+	 // height: auto;
+	  .post-wrapper{
+	   // height: auto;
+	  }
+	}
+}

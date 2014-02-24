@@ -1,0 +1,364 @@
+/*---------------------------------------------------------
+ 3. Scaffolding (_scaffolding.scss)
+-------------------------------------------------------- */
+html {
+	@include for(medium-screens) {
+		font-size: percentage($baseline-px/16px);
+	}
+}
+/*---------------------------------------------------------
+ Body (_scaffolding.scss)
+-------------------------------------------------------- */
+body {
+	color: $d;
+	background-color: $b;
+	font-family: $sans;
+	text-rendering: optimizeLegibility;
+	line-height: $line;
+}
+/*---------------------------------------------------------
+ Custom background (_scaffolding.scss)
+-------------------------------------------------------- */
+.custom-background #main-header {
+	max-width: $width;
+	margin: 0 auto;
+}
+/*---------------------------------------------------------
+ Base (_scaffolding.scss)
+-------------------------------------------------------- */
+ul,ol,dl,p,details,address,.vcard,figure,pre,fieldset,table,dt,dd,hr {
+	@include rem('margin-bottom', $base);
+}
+p,ul,ol,dl,blockquote {
+	word-wrap: break-word;
+	@include type-hyphens;
+	@include hyphen-limit;
+	@include hyphen-before;
+}
+pre,
+code,
+input,
+textarea {
+	font: inherit;
+}
+/*---------------------------------------------------------
+ Structure (_scaffolding.scss)
+-------------------------------------------------------- */
+.theme-container {
+	@include for(medium-screens) {
+		@include rem('padding', $base*2);
+	}
+	background-color: $b;
+	@include rem('padding', $base*2 $gut);
+}
+.frame {
+	max-width: $width;
+	margin: 0 auto;
+	@extend .clear;
+}
+/*---------------------------------------------------------
+ Links (_scaffolding.scss)
+-------------------------------------------------------- */
+a {
+	color: $primary;
+	text-decoration: none;
+	&:hover {
+		color: lighten($primary, 14);
+	}
+}
+a[rel="prev"]:before,
+a[rel="next"]:after,
+.comments-next a:before,
+.comments-previous a:after {
+	position: relative;
+	opacity: .3;
+	@include rem('top', -1px);
+}
+a[rel="prev"]:before,
+.comments-next a:before {
+	content: url(images/arrow-left.svg);
+	@include rem('padding-right', 6px);
+}
+a[rel="next"]:after,
+.comments-previous a:after {
+	content: url(images/arrow-right.svg);
+	@include rem('padding-left', 6px);
+}
+/*---------------------------------------------------------
+ Menu (_scaffolding.scss)
+-------------------------------------------------------- */
+#snap-nav {
+	@include for(medium-screens) {
+		float: right;
+		width: 60%;
+	}
+	ul {
+		@include for(medium-screens) {
+			float: right;
+			display: block;
+			background-color: transparent;
+		}
+		background-color: $b;
+		a {
+			@include for(medium-screens) {
+				padding: 0; //reset
+				display: block;
+				border-bottom: 0;
+				@include rem('font-size', 15px);
+				&:hover {
+					color: $c;
+				}
+			}
+			display: block;
+			color: $d; //reset
+			border-bottom: $rule;
+			@include rem('padding', $base $gut);
+			@include rem('font-size', 16px);
+			&:hover {
+				@include for(medium-screens) {
+					color: $c;
+					background-color: transparent;
+				}
+				background-color: $a;
+			}
+		}
+		@include for(medium-screens) {
+			.snap-menu-parent-item {
+				a:before {
+					content: url(images/arrow-menu.svg);
+					position: relative;
+					opacity: .3;
+					@include rem('top', -3px);
+					@include rem('padding-right', 6px);
+				}
+				.sub-menu a:before,
+				.children a:before {
+					content: none;
+				}
+			}
+		}
+		float: none;
+		margin-bottom: 0;
+		li {
+			@include for(medium-screens) {
+				float: left;
+				line-height: 2.2;
+				border-bottom: 0;
+				border-right: 1px solid darken($a, 10);
+				@include rem('padding', 0 14px);
+				ul {
+					display: none;
+					position: absolute;
+					padding: 0;
+					margin: 0;
+					z-index: 3;
+					border: $rule;
+					background-color: $b;
+					min-width: 120px;
+					max-width: 200px;
+					margin-left: -15px; //padding+boreder
+					-webkit-font-smoothing: subpixel-antialiased; //reset
+					li {
+						padding: 0 18px;
+					}
+				}
+				ul li,
+				ul li a {
+					float: none;
+					display: block;
+					height: auto;
+					font-weight: 400;
+					line-height: $line;
+					border: 0; //reset
+					border-bottom: $rule;
+					@include rem('font-size', 13px);
+					@include rem('margin', 14px 0);
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+				ul li a {
+					display: block;
+				}
+				&.current-menu-item,
+				&.current_page_item {
+					a {
+						color: $c;
+					}
+					ul a {
+						color: $d;
+						&:hover {
+							color: $c;
+						}
+					}
+				}
+				&:last-of-type {
+					border-right: 0;
+					padding-right: 0;
+				}
+				&:hover {
+					@include for(medium-screens) {
+						background-color: transparent;
+					}
+					ul {
+						display: block;
+					}
+					background-color: $a;
+				}
+			}
+		}
+	}
+}
+#snap-nav {
+	clip: rect(0 0 0 0);
+	max-height: 0;
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	zoom: 1;
+	@include for(medium-screens) {
+		position: relative;
+		max-height: none;
+		overflow: visible;
+		float: right;
+	}
+	&.opened {
+		max-height: 9999px;
+	}
+}
+#mobile-toggle {
+	@include for(medium-screens) {
+		display: none;
+	}
+	color: $a;
+	background-color: $d;
+	cursor: pointer;
+	line-height: 1;
+	@include rem('padding', $base 0);
+	span {
+		@include rem('font-size', 16px);
+		@include rem('padding-left', $gut);
+		&:before {
+			content: "\2630";
+			color: $secondary;
+			@include rem('padding-right', 6px);
+		}
+	}
+}
+/*---------------------------------------------------------
+ Header (_scaffolding.scss)
+-------------------------------------------------------- */
+#main-header {
+	@include for(medium-screens) {
+		@include rem('padding', $base $base*2);
+	}
+	background-color: $a;
+	border-bottom: $rule;
+}
+/*---------------------------------------------------------
+ Logo (_scaffolding.scss)
+-------------------------------------------------------- */
+.logo-wrapper {
+	@include for(medium-screens) {
+		float: left;
+		width: 40%;
+		padding: 0;
+		text-align: left;
+	}
+	text-align: center;
+	@include rem('font-size', 28px);
+	@include rem('padding', $base*1.5 $base*2);
+}
+.snap-site-title {
+	margin: 0; //reset
+	line-height: 1; //reset
+	@include rem('font-size', 34px);
+}
+.snap-tagline {
+	display: block;
+	@include rem('margin-top', $base/4);
+	@extend .small-type;
+}
+/*---------------------------------------------------------
+ Footer (_scaffolding.scss)
+-------------------------------------------------------- */
+#footer {
+	@include for(medium-screens) {
+		text-align: left;
+		@include rem('margin-top', $base*4);
+	}
+	clear: both;
+	float: left;
+	width: 100%;
+	text-align: center;
+	border-top: $rule;
+	@include rem('margin-top', $base*2);
+	@include rem('padding', $base*2 0 $base);
+	p {
+		@include type-hyphens(none);
+	}
+}
+.footer-text-wrapper {
+	@include for(medium-screens) {
+		float: left;
+		width: 40%;
+	}
+	p {
+		@include rem('margin-bottom', $base/2);
+	}
+}
+/*---------------------------------------------------------
+ Social icons (_scaffolding.scss)
+-------------------------------------------------------- */
+#social {
+	@include for(medium-screens) {
+		float: right;
+		max-width: 50%;
+		margin-top: 0;
+	}
+	@include rem('margin-top', $base);
+}
+.icons li {
+	display: inline;
+	@include rem('margin-left', 6px);
+	a {
+		display: inline-block;
+		height: 18px;
+		background: url(images/social-icons.svg) no-repeat;
+		opacity: .15;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	&:first-child {
+		margin-left: 0;
+	}
+	.twitter {
+		background-position: 0;
+		width: 18px;
+	}
+	.facebook {
+		background-position: -19px;
+		width: 8px;
+	}
+	.google {
+		background-position: -27px;
+		width: 13px;
+	}
+	.flickr {
+		background-position: -40px;
+		width: 18px;
+	}
+	.pinterest {
+		background-position: -58px;
+		width: 19px;
+	}
+	.linkedin {
+		background-position: -79px;
+		width: 16px;
+	}
+	.rss {
+		background-position: -96px;
+		width: 17px;
+	}
+}

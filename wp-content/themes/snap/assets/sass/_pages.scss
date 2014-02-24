@@ -1,0 +1,246 @@
+/*---------------------------------------------------------
+ 7. Pages (_pages.scss)
+-------------------------------------------------------- */
+.homepage-button {
+	@include for(medium-screens) {
+		@include rem('font-size', 14px);
+	}
+	position: absolute;
+	z-index: 10;
+	margin: 0;
+	@include rem('bottom', $gut/2);
+	@include rem('right', $gut/2);
+	@include rem('font-size', 16px);
+	-webkit-font-smoothing: subpixel-antialiased; //reset
+}
+.homepage-featured-area {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	@include rem('margin-bottom', $base*2);
+	img {
+		display: block;
+		height: auto;
+		float: left;
+		border: 0;
+	}
+	ul {
+		margin-bottom: 0;
+	}
+	li {
+		-webkit-backface-visibility: hidden;
+		position: absolute;
+		display: none;
+		left: 0;
+		top: 0;
+		width: 100%;
+		&:first-child {
+			position: relative;
+			display: block;
+			float: left;
+		}
+	}
+}
+/*---------------------------------------------------------
+ Homepage blurb (_pages.scss)
+-------------------------------------------------------- */
+#blurb {
+	@include for(medium-screens) {
+		width: $sidebar;
+	}
+	float: left;
+	width: 100%;
+	@include rem('margin-bottom', $base);
+	h3 {
+		margin-top: 0; //reset
+	}
+}
+/*---------------------------------------------------------
+ Homepage post area (_pages.scss)
+-------------------------------------------------------- */
+.page-template-homepage-php .with-sidebar {
+	float: right;
+}
+/*---------------------------------------------------------
+ Portfolio template (_pages.scss)
+-------------------------------------------------------- */
+.portfolio-post {
+	@include for(medium-screens) {
+		@include rem('margin', $base*3 0);
+	}
+	@include rem('margin', $base*2 0);
+	@extend .clear;
+	&:first-of-type {
+		margin-top: 0; //reset
+	}
+	&:last-of-type {
+		margin-bottom: 0; //reset
+	}
+}
+.portfolio-image,
+.portfolio-single-content {
+	@include for(medium-screens) {
+		float: left;
+		width: $with-sidebar;
+	}
+	margin-bottom: 0; //reset
+}
+.portfolio-single-content-without-excerpt {
+	width: 100%;
+}
+.portfolio-description {
+	@include for(medium-screens) {
+		float: right;
+		width: $sidebar;
+		margin-left: percentage($gut/$width); //.frame
+		border-top: $rule;
+	}
+	@include rem('padding-top', $base);
+	@extend .small-type;
+	h4 {
+		margin-top: 0;
+	}
+}
+.portfolio-details {
+	@extend .small-type;
+	color: $f;
+	li  {
+		@include for(medium-screens) {
+			display: block;
+		}
+		display: inline;
+		line-height: 1.8;
+		&:before {
+			position: relative;
+			opacity: .15;
+			@include rem('top', 2px);
+			@include rem('padding-right', 8px);
+		}
+		&:first-child {
+			@include for(medium-screens) {
+				margin-right: 0;
+			}
+			@include rem('margin-right', $gut/2);
+			&:before {
+				content: url(images/info.svg);
+			}
+		}
+		&:last-child:before {
+			content: url(images/time.svg);
+		}
+	}
+}
+.portfolio-excerpt {
+	@include rem('margin-bottom', $base);
+}
+.portfolio-button {
+	margin-bottom: 0; //reset
+	color: $c;
+	background-color: darken($a,2);
+	border-top: 1px solid lighten($a,8);
+	border-bottom: 2px solid darken($a,1);
+	&:hover {
+		color: $d;
+		background: $secondary;
+		border-top: 1px solid lighten($secondary,8);
+		border-bottom: 2px solid darken($secondary,1);
+	}
+}
+/*---------------------------------------------------------
+ with sidebar (_pages.scss)
+-------------------------------------------------------- */
+.with-sidebar {
+	@include for(medium-screens) {
+		width: $with-sidebar;
+	}
+	float: left;
+	width: 100%;
+}
+/*---------------------------------------------------------
+ Attachment (_pages.scss)
+-------------------------------------------------------- */
+.attachment-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	@include rem('margin-top', $base);
+	@include rem('margin-bottom', $base);
+}
+.attachment-content {
+	@extend .small-type;
+}
+/*---------------------------------------------------------
+ Profile template (_pages.scss)
+-------------------------------------------------------- */
+.page-template-profile-php {
+	.mobile-element {
+		@include for(medium-screens) {
+			display: none;
+		}
+	}
+	.desktop-element {
+		@include for(medium-screens) {
+			display: block;
+		}
+		display: none;
+	}
+	.with-sidebar {
+		float: right;
+	}
+	#sidebar {
+		float: left;
+		margin-top: 0;
+		@include rem('margin-bottom', $base);
+		img {
+			@include for(medium-screens) {
+				float: none;
+				max-width: 100%;
+				margin-right: 0;
+			}
+			float: left;
+			max-width: 30%;
+			@include rem('margin-right', $gut);
+			@include rem('margin-bottom', $base);
+		}
+	}
+}
+/*---------------------------------------------------------
+ Archive layout (_pages.scss)
+-------------------------------------------------------- */
+.archive,
+.search {
+	.sub-title {
+		margin-top: 0; //reset
+		font-family: $sans;
+		font-weight: 400;
+		@include rem('font-size', 18px);
+	}
+	.sub-desc {
+		border-bottom: $rule;
+		@extend .small-type;
+		@include rem('padding-bottom', $base);
+		@include rem('margin-bottom', $base*2);
+		p {
+			@include rem('margin-top', $base);
+		}
+	}
+	#s {
+		@include for(medium-screens) {
+			width: $with-sidebar;
+		}
+		width: 100%;
+		@include rem('margin-bottom', $base);
+	}
+	h4 {
+		margin: 0;
+	}
+	.post {
+		width: 100%;
+		border-bottom: $rule;
+		@include rem('padding-bottom', $base*1.5);
+		@include rem('margin-bottom', $base*1.5);
+		&:last-of-type {
+			border-bottom: 0;
+		}
+	}
+}

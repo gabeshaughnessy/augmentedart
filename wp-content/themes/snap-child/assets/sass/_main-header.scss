@@ -1,0 +1,16 @@
+//THE MAIN PAGE HEADER
+body {
+	#main-header[role=banner]{
+	background-color:#fff;
+	border-bottom: none;
+	.logo-wrapper h1 a{
+		background: url("http://augmentedart/wp-content/themes/snap-child/assets/images/logo-header.svg") no-repeat;
+		background-size: contain;
+		width: 400px;
+		height: 87px;
+		display: block;
+		text-indent: -9999%;
+	}
+}
+
+}

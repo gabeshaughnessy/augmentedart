@@ -1,0 +1,29 @@
+== 1.0.4 ==
+* Improve logo feature by getting the ID of the logo via a better function
+
+== 1.0.3 ==
+* Small styling changes
+ * Improve comment form styling
+ * Improve headline spacing
+ * Improve sharedaddy widget styling
+ * Remove end quotation mark from blockquotes
+ * Add margin to image bottom and galleries
+ * Remove comment form border
+ * Improve infinite scroll button spacing
+* Update licensing information statement
+* Update theme tags
+* Add removal of image caption in grid to prevent overflow
+* Add better selector for nav menu for compatibility with all custom menus
+* Improve flexibility of images in grid for better 3.6 compatibility
+* Remove admin notices in the grid
+* Improve logo compatibility with hosts that disable "allow_url_fopen"
+* Add comments to single portfolio pages
+
+== 1.0.2 ==
+* Add isset() calls for extra safety
+
+== 1.0.1 ==
+* Add a fallback for generating image dimensions in a rare cases that WordPress doesn't have that information
+
+== 1.0 ==
+* Initial release

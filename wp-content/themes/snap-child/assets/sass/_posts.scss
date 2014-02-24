@@ -1,0 +1,199 @@
+/*---------------------------------------------------------
+ 6. Posts (_posts.scss)
+-------------------------------------------------------- */
+.tile .post {
+	@include for(small-screens) {
+		width: percentage(($col*3+$gut*2.5)/($col*6+$gut*5)); //.with-sidebar
+		height: 472px;
+		padding-bottom: 0;
+	}
+	float: left;
+	width: 100%;
+	border-bottom: $rule;
+	@include rem('padding', $gut 0);
+	@extend .box-size;
+	.post-wrapper {
+		@include for(small-screens) {
+			height: 360px;
+		}
+		word-wrap: break-word;
+	}
+	img {
+		box-sizing: border-box;
+		@include for(small-screens) {
+			max-height: 285px;
+		}
+		@include for(medium-screens) {
+			max-height: 221px;
+		}
+		max-height: 407px;
+		width: auto;
+		@include rem('margin-bottom', $base/2);
+	}
+	&.last-of-posts {
+		@include for(small-screens) {
+			border-bottom: 0; //reset
+			padding-bottom: 0; //reset
+			margin-bottom: 0; //reset
+			height: 440px;
+		}
+	}
+	&:last-of-type {
+		border-bottom: 0; //reset
+		padding-bottom: 0; //reset
+		margin-bottom: 0; //reset
+	}
+	&:first-of-type {
+		padding-top: 0;
+	}
+	&:nth-child(1),
+	&:nth-child(2) {
+		@include for(small-screens) {
+			padding-top: 0; //reset
+			height: 440px;
+		}
+	}
+	&:nth-of-type(odd) {
+		@include for(small-screens) {
+			float: left;
+			border-right: $rule;
+			.set-post {
+				padding-right: percentage($gut*2/($col*6+$gut*5)); //.with-sidebar
+			}
+		}
+	}
+	&:nth-of-type(even) {
+		@include for(small-screens) {
+			float: right;
+			.set-post {
+				padding-left: percentage($gut*2/($col*6+$gut*5)); //.with-sidebar
+			}
+		}
+	}
+}
+.without-thumb .grid-content-wrapper {
+	@include for(small-screens) {
+		height: 360px;
+		overflow: hidden;
+	}
+}
+.with-thumb .grid-content-wrapper {
+	height: auto;
+	@include for(small-screens) {
+		//height:86px;
+		overflow: hidden;
+	}
+	@include for(medium-screens) {
+		//height:150px;
+		overflow: hidden;
+	}
+}
+.grid-thumb-wrapper {
+	p,
+	.wp-caption-text {
+		display: none;
+	}
+}
+.grid-read-more {
+	clear: both;
+	float: right;
+	text-align: center;
+	@include rem('margin-top', $base);
+	&:before {
+		@include for(medium-screens) {
+			width: 20px;
+			height: 20px;
+		}
+		content: url(images/arrow-right.svg);
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		background-color: darken($a,2);
+		@include rem('margin-right', 3px);
+		@include border-radius(50%);
+	}
+	&:hover:before {
+		background-color: $secondary;
+	}
+}
+.set-post {
+	@extend .small-type;
+	p {
+		margin-bottom: 0;
+	}
+	h3 {
+		margin-top: 0;
+		@include rem('font-size', 18px);
+	}
+	time {
+		display: block;
+	}
+}
+.main-content .video-player {
+	@include rem('margin-bottom', 22px);
+}
+/*---------------------------------------------------------
+ Post details (_posts.scss)
+-------------------------------------------------------- */
+.post-detail {
+	color: $f;
+	@include rem('font-size', 13px);
+	a {
+		color: $f; //reset
+	}
+}
+/*---------------------------------------------------------
+ Blog (_pages.scss)
+-------------------------------------------------------- */
+.blog-wrapper {
+	@extend .clear;
+}
+/*---------------------------------------------------------
+ Pagination (_posts.scss)
+-------------------------------------------------------- */
+.pagination {
+	@extend .small-type;
+	@extend .clear;
+	a[rel="prev"],
+	.comments-next {
+		float: left;
+		max-width: 40%;
+	}
+	a[rel="next"],
+	.comments-previous {
+		float: right;
+		max-width: 40%;
+	}
+}
+.infinite-scroll .pagination {
+	display: none;
+}
+/*---------------------------------------------------------
+ Post footer (_posts.scss)
+-------------------------------------------------------- */
+.post-footer {
+	clear: both;
+	border-top: $rule;
+	@include rem('padding-top', $base);
+	@include rem('margin', $base*2 0 0);
+	@extend .small-type;
+}
+/*---------------------------------------------------------
+ Sticky posts (_posts.scss)
+-------------------------------------------------------- */
+.sticky-post-message {
+	float: left;
+	color: $b;
+	background-color: $primary;
+	line-height: 1;
+	@include rem('padding', 3px 4px);
+	@include rem('margin-right', 6px);
+	@include border-radius;
+}
+/*---------------------------------------------------------
+ Post byline (_posts.scss)
+-------------------------------------------------------- */
+.byline {
+	color: $c;
+	@include rem('margin-bottom', $base);
+}

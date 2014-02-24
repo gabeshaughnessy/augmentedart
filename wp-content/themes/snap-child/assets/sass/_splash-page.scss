@@ -1,0 +1,12 @@
+.splash-content{
+	position: absolute;
+	width: 100%;
+	top:0;
+	padding-top: 10px;
+	padding-bottom: 12px;
+	.edge-animation{
+		border: 3px solid #333;
+		box-shadow: 0 0 4px rgb(0,0,0);
+		box-shadow: 0 0 4px rgba(0,0,0,.5);
+	}
+}
