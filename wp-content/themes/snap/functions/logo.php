@@ -139,8 +139,7 @@ class Snap_Logo {
 	/**
 	 * Get the ID of an attachment from its image URL.
 	 *
-	 * This function is taken directly from WordPress 3.6. It is added to the theme in order to add back compat for
-	 * WordPress 3.4 and 3.5.
+	 * This function is taken directly from WordPress 3.6 beta.
 	 *
 	 * @since  1.0.
 	 *
@@ -148,18 +147,13 @@ class Snap_Logo {
 	 * @return int|bool            ID of the attachment or 0 on failure.
 	 */
 	function get_attachment_id_from_url( $url ) {
-		// If in 3.6, just use the provided function
-		if ( function_exists( 'attachment_url_to_postid' ) ) {
-			return attachment_url_to_postid( $url );
-		} else {
-			// This is an exact copy of the 3.6 function.
-			global $wpdb;
-			if ( preg_match( '#\.[a-zA-Z0-9]+$#', $url ) ) {
-				$id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' " . "AND guid = %s", $url ) );
+		// This is an exact copy of the 3.6 beta function that was eventually removed as it was not needed.
+		global $wpdb;
+		if ( preg_match( '#\.[a-zA-Z0-9]+$#', $url ) ) {
+			$id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' " . "AND guid = %s", $url ) );
 
-				if ( ! empty( $id ) )
-					return (int) $id;
-			}
+			if ( ! empty( $id ) )
+				return (int) $id;
 		}
 
 		return 0;

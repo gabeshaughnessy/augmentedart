@@ -123,6 +123,13 @@ class Snap_Homepage_Selected_Posts {
 			add_filter( 'posts_orderby', 'snap_sort_query_by_post_in', 10, 2 );
 		}
 
+		// Do not remove the portfolio posts from this query as this is a hand curated query
+		$restore_action = false;
+		if ( has_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' ) ) {
+			remove_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+			$restore_action = true;
+		}
+
 		// Query for the selected posts
 		$query = new WP_Query(
 			array(
@@ -137,6 +144,11 @@ class Snap_Homepage_Selected_Posts {
 				'posts_per_page'      => 99,
 			)
 		);
+
+		// Restore the action
+		if ( true === $restore_action ) {
+			add_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+		}
 
 		remove_filter( 'posts_orderby', 'snap_sort_query_by_post_in', 10, 2 );
 

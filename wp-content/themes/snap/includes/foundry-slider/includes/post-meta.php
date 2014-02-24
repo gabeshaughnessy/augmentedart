@@ -73,7 +73,7 @@ class TTF_Foundry_Slider_Post_Meta {
 		// Add the metabox and apply filters to allow other code to change the configuration of the metabox
 		add_meta_box(
 			'ttf_foundry_slider_post_option_section',
-			apply_filters( 'ttf_foundry_slider_metabox_title',         __( 'Foundry Slider', 'ttf-foundry-slider' ) ),
+			apply_filters( 'ttf_foundry_slider_metabox_title',         __( 'Foundry Slider', 'snap' ) ),
 			apply_filters( 'ttf_foundry_slider_metabox_callback',      array( $this, 'display_foundry_slider_metabox' ) ),
 			apply_filters( 'ttf_foundry_slider_metabox_screen',        $post_type ),
 			apply_filters( 'ttf_foundry_slider_metabox_context',       'side' ),
@@ -99,7 +99,7 @@ class TTF_Foundry_Slider_Post_Meta {
         <input type="checkbox" id="<?php echo esc_attr( ttf_get_foundry_slider()->meta_key ); ?>" name="<?php echo esc_attr( ttf_get_foundry_slider()->meta_key ); ?>" value="1" <?php checked( $is_featured_checked ); ?>/>
 
 		<label for="<?php echo esc_attr( ttf_get_foundry_slider()->meta_key ); ?>">
-			<?php echo apply_filters( 'ttf_foundry_slider_checkbox_label', __( 'Show in featured slider', 'ttf-foundry-slider' ) ); ?>
+			<?php echo apply_filters( 'ttf_foundry_slider_checkbox_label', __( 'Show in featured slider', 'snap' ) ); ?>
         </label>
 	<?php
 		do_action( 'ttf_foundry_slider_after_metabox_content', $post, $args );

@@ -211,9 +211,10 @@
 				url      : ajaxurl,
 				type     : 'POST',
 				data     : {
-					snap_apa_term  : term,
-					snap_apa_nonce : snapDataLocal.nonce,
-					action         : snapDataLocal.action
+					snap_apa_term     : term,
+					snap_apa_template : getTemplateVal(),
+					snap_apa_nonce    : snapDataLocal.nonce,
+					action            : snapDataLocal.action
 				},
 				dataType : 'json',
 				success  : function ( data, textStatus, jqXHR ) {

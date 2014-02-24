@@ -8,27 +8,27 @@
 			var buttons = {
 				"alert"    : {
 					commandName : "alert",
-					title       : 'Alert message box'
+					title       : SnapTinymceLocal.alert
 				},
 				"error"    : {
 					commandName : "error",
-					title       : 'Error message box'
+					title       : SnapTinymceLocal.error
 				},
 				"success"  : {
 					commandName : "success",
-					title       : 'Success message box'
+					title       : SnapTinymceLocal.success
 				},
 				"note"     : {
 					commandName : "note",
-					title       : 'Note message box'
+					title       : SnapTinymceLocal.note
 				},
 				"drop-cap" : {
 					commandName : "dropCap",
-					title       : 'Remove capitalization box'
+					title       : SnapTinymceLocal.dropCap
 				},
 				"intro"    : {
 					commandName : "intro",
-					title       : 'Intro styling'
+					title       : SnapTinymceLocal.intro
 				}
 			};
 

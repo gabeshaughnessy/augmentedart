@@ -10,7 +10,30 @@ body {
 		height: 50px;
 		display: block;
 		text-indent: -9999%;
+		}
 	}
-}
 
+	@media screen and (max-width: 900px){
+		#main-header[role=banner]{
+			.logo-wrapper h1 {
+				text-align: center;
+				width: 100%;
+				a{
+					width: 80%;
+					min-height: 100px;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px){
+		#main-header[role=banner]{
+			.logo-wrapper h1 {
+				a{
+					min-height: 75px;
+				}
+			}
+		}
+	}
 }

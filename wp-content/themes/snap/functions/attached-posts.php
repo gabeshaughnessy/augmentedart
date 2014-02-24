@@ -70,17 +70,27 @@ class Snap_Attached_Posts {
 	public $labels = array();
 
 	/**
+	 * The types of posts to include in the metabox
+	 *
+	 * @since 1.0.8
+	 *
+	 * @var   array    Array of strings representing post types.
+	 */
+	public $query_post_types = array();
+
+	/**
 	 * Construct the class by validating/sanitizing data and initiating actions.
 	 *
 	 * @since  1.0.
 	 *
-	 * @param  string                 $key           Prefixed, unique string.
-	 * @param  array                  $post_types    Post type to activate the metabox on.
-	 * @param  array                  $templates     Array of templates with .php extensions.
-	 * @param  array                  $labels        Array of strings that are applied to different places. Labels should be translatable.
+	 * @param  string                 $key               Prefixed, unique string.
+	 * @param  array                  $post_types        Post type to activate the metabox on.
+	 * @param  array                  $templates         Array of templates with .php extensions.
+	 * @param  array                  $labels            Array of strings that are applied to different places. Labels should be translatable.
+	 * @param  array                  $query_post_types  Array of strings representing post types.
 	 * @return Snap_Attached_Posts
 	 */
-	public function __construct( $key, $post_types, $templates, $labels ) {
+	public function __construct( $key, $post_types, $templates, $labels, $query_post_types ) {
 		// Sanitize $key
 		$this->key = sanitize_key( $key );
 
@@ -95,7 +105,7 @@ class Snap_Attached_Posts {
 		// Set the instance variable
 		$this->post_types = $valid_post_types;
 
-		// Clean the post types
+		// Clean the templates
 		$clean_templates = array();
 		foreach ( $templates as $template ) {
 			$clean_template = $this->clean_template( $template );
@@ -114,14 +124,27 @@ class Snap_Attached_Posts {
 			'no_current_posts'   => __( 'No posts currently associated with this page.', 'snap' ),
 			'choose_posts'       => __( 'Choose Posts', 'snap' ),
 			'recent_posts'       => __( 'Recent Posts', 'snap' ),
+			'recent_pages'       => __( 'Recent Pages', 'snap' ),
 			'search_posts'       => __( 'Search', 'snap' ),
 			'no_available_posts' => __( 'No posts available', 'snap' ),
+			'no_available_pages' => __( 'No pages available', 'snap' )
 		);
 		$default_labels = apply_filters( 'snap_attached_posts_label_defaults', $default_labels, $key, $post_types, $labels );
 		$merged_labels  = wp_parse_args( $labels, $default_labels );
 
 		// Set the instance variable
 		$this->labels = $merged_labels;
+
+		// Validate the query post types
+		$valid_query_post_types = array();
+		foreach ( $query_post_types as $post_type ) {
+			if ( in_array( $post_type, get_post_types() ) ) {
+				$valid_query_post_types[] = $post_type;
+			}
+		}
+
+		// Set the instance variable
+		$this->query_post_types = $valid_query_post_types;
 
 		// Initiate actions
 		$this->init_actions();
@@ -189,6 +212,7 @@ class Snap_Attached_Posts {
 			// Query for posts
 			$current_posts_query = new WP_Query(
 				array(
+					'post_type'      => $this->query_post_types,
 					'post__in'       => $current_posts,
 					'posts_per_page' => 99,
 					'orderby'        => 'post__in'
@@ -199,21 +223,42 @@ class Snap_Attached_Posts {
 			remove_filter( 'posts_orderby', 'snap_sort_query_by_post_in', 10, 2 );
 		}
 
-		// Grab the latest posts
-		$args = array(
-			'posts_per_page' => 10,
-		);
+		if ( in_array( 'post', $this->query_post_types ) ) {
+			// Grab the latest posts
+			$post_args = array(
+				'posts_per_page' => 10,
+			);
 
-		// Filter out currently associated posts if necessary
-		if ( ! empty( $current_posts ) ) {
-			$args['post__not_in'] = $current_posts;
+			// Filter out currently associated posts if necessary
+			if ( ! empty( $current_posts ) ) {
+				$post_args['post__not_in'] = $current_posts;
+			}
+
+			// Add a filter to modify this query
+			$post_args = apply_filters( 'snap_recent_posts_in_chooser_args', $post_args, $post_local->ID, $this );
+
+			// Posts Query
+			$latest_posts = new WP_Query( $post_args );
 		}
 
-		// Add a filter to modify this query
-		$args = apply_filters( 'snap_recent_posts_in_chooser_args', $args, $post_local->ID, $this );
+		if ( in_array( 'page', $this->query_post_types ) ) {
+			// Grab the latest pages
+			$page_args = array(
+				'post_type'      => 'page',
+				'posts_per_page' => 10,
+			);
 
-		// Query
-		$latest_posts = new WP_Query( $args );
+			// Filter out currently associated posts if necessary
+			if ( ! empty( $current_posts ) ) {
+				$page_args['post__not_in'] = $current_posts;
+			}
+
+			// Add a filter to modify this query
+			$page_args = apply_filters( 'snap_recent_pages_in_chooser_args', $page_args, $post_local->ID, $this );
+
+			// Pages Query
+			$latest_pages = new WP_Query( $page_args );
+		}
 	?>
 		<p>
 			<strong><?php echo esc_html( $this->labels['selected_posts'] ); ?></strong>
@@ -243,17 +288,27 @@ class Snap_Attached_Posts {
 
 		<div class="snap-post-chooser">
 			<ul id="attach-posts-tabs" class="category-tabs">
+				<?php if ( in_array( 'post', $this->query_post_types ) ) : ?>
 				<li class="tabs">
 					<a class="tab-link" href="#posts-recent">
 						<?php echo esc_html( $this->labels['recent_posts'] ); ?>
 					</a>
 				</li>
+				<?php endif; ?>
+				<?php if ( in_array( 'page', $this->query_post_types ) ) : ?>
+				<li class="<?php echo ( in_array( 'post', $this->query_post_types ) ) ? 'hide-if-no-js' : 'tabs'; ?>">
+					<a class="tab-link" href="#pages-recent">
+						<?php echo esc_html( $this->labels['recent_pages'] ); ?>
+					</a>
+				</li>
+				<?php endif; ?>
 				<li class="hide-if-no-js">
 					<a class="tab-link" href="#posts-search">
 						<?php echo esc_html( $this->labels['search_posts'] ); ?>
 					</a>
 				</li>
 			</ul>
+			<?php if ( in_array( 'post', $this->query_post_types ) ) : ?>
 			<div id="posts-recent" class="tabs-panel snap-active-tab">
 				<ul>
 					<?php if ( $latest_posts->have_posts() ) : ?>
@@ -271,6 +326,26 @@ class Snap_Attached_Posts {
 					<?php endif; ?>
 				</ul>
 			</div>
+			<?php endif; ?>
+			<?php if ( in_array( 'page', $this->query_post_types ) ) : ?>
+			<div id="pages-recent" class="tabs-panel snap-<?php echo ( in_array( 'post', $this->query_post_types ) ) ? 'in' : ''; ?>active-tab">
+				<ul>
+					<?php if ( $latest_pages->have_posts() ) : ?>
+						<?php while ( $latest_pages->have_posts() ) : $latest_pages->the_post(); ?>
+							<li class="recent-post">
+								<a class="snap-recent-post" title="<?php esc_attr_e( 'Add page', 'snap' ); ?>" href="#" data-id="<?php the_ID(); ?>" data-title="<?php the_title_attribute(); ?>">
+									<?php the_title(); ?>
+								</a>
+							</li>
+						<?php endwhile; ?>
+					<?php else : ?>
+						<li>
+							<?php echo esc_html( $this->labels['no_available_pages'] ); ?>
+						</li>
+					<?php endif; ?>
+				</ul>
+			</div>
+			<?php endif; ?>
 			<div id="posts-search" class="tabs-panel snap-inactive-tab">
 				<p id="<?php echo esc_attr( $this->key ); ?>-input-parent" class="snap-input-parent">
 					<label for="<?php echo esc_attr( $this->key ); ?>-input">
@@ -464,11 +539,20 @@ if ( ! function_exists( 'snap_attached_posts_autocomplete_data' ) ) :
  * @return void
  */
 function snap_attached_posts_autocomplete_data() {
+	// Template
+	$template = $_POST[ 'snap_apa_template' ];
+	if ( 'homepage.php' === $template ) {
+		$types = array( 'post', 'page' );
+	} else {
+		$types = 'post';
+	}
+
 	// Verify request
 	if ( check_ajax_referer( 'snap_apa', 'snap_apa_nonce' ) && isset( $_POST['snap_apa_term'] ) ) {
 		// Search for the items
 		$query = new WP_Query(
 			array(
+				'post_type'              => $types,
 				'posts_per_page'         => 50,
 				'no_found_rows'          => true,
 				'update_post_meta_cache' => false,

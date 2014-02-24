@@ -122,7 +122,7 @@
 
 			var $tile      = $( '.tile' ),
 				$lastPosts = $( '.last-of-posts', $tile ),
-				$posts     = $( '.post', $tile );
+				$posts     = $( '.post, .page', $tile );
 
 			// When IS loads, the "last-of-posts" class needs to be removed as the last of posts posts are no longer last of posts
 			$lastPosts.removeClass( 'last-of-posts' );
@@ -155,11 +155,11 @@
 			if ( ! $.fn.dotdotdot )
 				return;
 
-			var $setPosts      = $( '.set-post', '.post' ),                              // Used to set context for other selectors
+			var $setPosts      = $( '.set-post', '.post, .page' ),                              // Used to set context for other selectors
 				$withoutThumbs = $( '.without-thumb .grid-content-wrapper', $setPosts ), // Get all of the grid items without thumbs. These are treated differently than items with thumbs.
 				$withThumbs    = $( '.with-thumb .grid-content-wrapper', $setPosts ),    // Get all of the grid items with thumbs.
 				deviceWidth    = cache.$window.width(),                                  // Current device width for getting image size.
-				gridItemWidth  = $( '.set-post:first' ).width(),                         // Get the grid item width based on the first item's width
+				gridItemWidth  = Math.round( $( '.set-post:first' ).width() ),                         // Get the grid item width based on the first item's width
 				maxGridHeight  = ( deviceWidth >= 600 ) ? 360 : 0;                       // Get the max height of the grid items, which is based on the device width
 
 			// Posts with thumbs can be dotted. Height needs to be static in all but the narrow view.
@@ -193,12 +193,20 @@
 					contentHeight = ( 0 !== maxGridHeight ) ? maxGridHeight - currentMaxHeight : '';
 				}
 
+				// Adjust the height to account for 11 px of margin
+				contentHeight = contentHeight - 11;
+				contentHeight = ( contentHeight < 0 ) ? 0 : contentHeight;
+
 				// Set the correct height for the content to avoid having half of a line get cut off
-				$this.height( contentHeight );
+				if ( contentHeight > 0 ) {
+					$this.css( {
+						height : contentHeight
+					} );
+				}
 
 				// Apply dotdotdot with the correct height
 				$this.dotdotdot( {
-					height : contentHeight
+					height : ( contentHeight > 0 ) ? contentHeight : null
 				} );
 			} );
 		}
@@ -268,7 +276,7 @@
 				}
 			}
 
-			return estimatedDisplayHeight;
+			return Math.round( estimatedDisplayHeight );
 		}
 
 		/**

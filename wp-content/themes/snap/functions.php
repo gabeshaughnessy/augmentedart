@@ -8,7 +8,7 @@
  *
  * @since 1.0.
  */
-define( 'SNAP_VERSION', '1.0.4' );
+define( 'SNAP_VERSION', '1.0.8' );
 
 /**
  * Define the suffix used for JS.
@@ -25,7 +25,7 @@ if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
  * Set the theme's content width.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 951;
+	$content_width = 651;
 }
 
 if ( ! function_exists( 'snap_setup' ) ) :
@@ -64,7 +64,7 @@ function snap_setup() {
 	register_nav_menu( 'primary', __( 'Primary Menu', 'snap' ) );
 
 	// Add post thumbnail support for posts and pages
-	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( $content_width, 9999 );
 
 	// Allow the user to natively update the background
@@ -109,6 +109,10 @@ function snap_setup() {
 			),
 			array(
 				'meta_box_title' => __( 'Selected Posts', 'snap' ),
+			),
+			array(
+				'post',
+				'page'
 			)
 		);
 
@@ -123,6 +127,9 @@ function snap_setup() {
 			),
 			array(
 				'meta_box_title' => __( 'Portfolio Posts', 'snap' ),
+			),
+			array(
+				'post'
 			)
 		);
 	}
@@ -892,6 +899,16 @@ if ( ! function_exists( 'snap_update_attached_posts_cache' ) ) :
 function snap_update_attached_posts_cache( $post_id, $key, $post_types, $templates, $ids ) {
 	$post_ids = array();
 
+	/**
+	 * Before querying, remove the removal of portfolio posts action as it will cause an infinite loop and we do not
+	 * want to withhold portfolio items from this query as the main purpose of this query is to get portfolio items
+	 */
+	$restore_action = false;
+	if ( has_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' ) ) {
+		remove_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+		$restore_action = true;
+	}
+
 	// Query for all posts with this template
 	$template_query = new WP_Query(
 		array(
@@ -906,6 +923,11 @@ function snap_update_attached_posts_cache( $post_id, $key, $post_types, $templat
 			'no_found_rows'  => true,
 		)
 	);
+
+	// Restore the action
+	if ( true === $restore_action ) {
+		add_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+	}
 
 	// Foreach post that is using the template, get posts associated with it.
 	if ( $template_query->have_posts() ) {
@@ -954,6 +976,7 @@ function snap_is_portfolio_post( $id ) {
 	return apply_filters( 'snap_is_portfolio_post', $is_portfolio_post, $id );
 }
 endif;
+
 /**
  * Get all portfolio post IDs.
  *
@@ -997,6 +1020,106 @@ function snap_redirect_single_portfolio_item_template( $template ) {
 endif;
 
 add_filter( 'template_include', 'snap_redirect_single_portfolio_item_template' );
+
+if ( ! function_exists( 'snap_maybe_remove_portfolio_posts_from_blog' ) ) :
+/**
+ * Remove portfolio items from blog content is an option is set.
+ *
+ * In order for users to show portfolio items only on the portfolio page and keep portfolio items sectioned away from the
+ * normal post content. By default, portfolio content is mixed with blog content. Only if the "hide portfolio items"
+ * option is enabled will the content be withheld from the blog. The "snap_maybe_remove_portfolio_posts_from_blog_condition"
+ * filter can be used to further refine the logic used to withold items. Note that by default this function will remove
+ * portfolio posts from everywhere, so checking for main query is purposefully excluded.
+ *
+ * @since  1.0.5.
+ *
+ * @param  object    $query    The unmodified query object.
+ * @return void
+ */
+function snap_maybe_remove_portfolio_posts_from_blog( $query ) {
+	// Do not filter in the admin
+	if ( is_admin() ) {
+		return;
+	}
+
+	// Option must be enabled to hide the portfolio posts
+	if ( true !== get_theme_mod( 'hide-portfolio-posts' ) ) {
+		return;
+	}
+
+	// Do not withhold on the portfolio page
+	if ( 'portfolio.php' === get_page_template_slug() ) {
+		return;
+	}
+
+	// Allow the post to be shown as a single post
+	if ( $query->is_main_query() && is_single() ) {
+		return;
+	}
+
+	/**
+	 * Developers can further fine tune this function by exiting the function using this filter. If the filter returns
+	 * (bool) true, the filter will not be applied and portfolio post items will be displayed.
+	 */
+	if ( true === apply_filters( 'snap_maybe_remove_portfolio_posts_from_blog_condition', false ) ) {
+		return;
+	}
+
+	// Remove the portfolio items via post__not_in
+	$query->set( 'post__not_in', snap_get_portfolio_posts() );
+}
+endif;
+
+add_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+
+if ( ! function_exists( 'snap_do_not_remove_portfolio_items_from_slider' ) ) :
+/**
+ * Do not remove portfolio posts from the featured slider.
+ *
+ * Users are allowed to hand curate the items in the featured slider. If they chose to add portfolio items to the
+ * slider, that choice should trump the "Hide portfolio posts from the blog" option. If users do not want to have a
+ * portfolio post in the slider, s/he should change the items in the slider and not use the global option.
+ *
+ * @since  1.0.6.
+ *
+ * @return void
+ */
+function snap_do_not_remove_portfolio_items_from_slider() {
+	// Use a global for restoring the action in another function
+	global $snap_restore_action;
+	$snap_restore_action = false;
+
+	// Do not remove the portfolio posts from this query as this is a hand curated query
+	if ( has_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' ) ) {
+		remove_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+		$snap_restore_action = true;
+	}
+}
+endif;
+
+add_action( 'ttf_pre_generate_featured_slider_post_ids', 'snap_do_not_remove_portfolio_items_from_slider' );
+
+if ( ! function_exists( 'snap_do_not_remove_portfolio_items_from_slider_clean_up' ) ) :
+/**
+ * Clean up the action taken in `snap_do_not_remove_portfolio_items_from_slider()`.
+ *
+ * @since  1.0.6.
+ *
+ * @return void
+ */
+function snap_do_not_remove_portfolio_items_from_slider_clean_up() {
+	// Restore the action
+	global $snap_restore_action;
+	if ( true === $snap_restore_action ) {
+		add_action( 'pre_get_posts', 'snap_maybe_remove_portfolio_posts_from_blog' );
+	}
+
+	// Cleanup the global
+	unset( $snap_restore_action );
+}
+endif;
+
+add_action( 'ttf_after_generate_featured_slider_post_ids', 'snap_do_not_remove_portfolio_items_from_slider_clean_up' );
 
 if ( ! function_exists( 'snap_content_width' ) ) :
 /**
@@ -1162,3 +1285,18 @@ function snap_disable_archive_infinite_scroll( $supported, $settings ) {
 endif;
 
 add_filter( 'infinite_scroll_archive_supported', 'snap_disable_archive_infinite_scroll', 10, 2 );
+
+if ( ! function_exists( 'snap_foundry_slider_url' ) ) :
+/**
+ * Filters the location of the Foundry Slider assets.
+ *
+ * @since 1.0.7
+ *
+ * @return array    Foundry slider location.
+ */
+function snap_foundry_slider_url( $url ) {
+	return get_template_directory_uri() . '/includes/foundry-slider';
+}
+endif;
+
+add_filter( 'ttf_foundry_slider_plugin_url', 'snap_foundry_slider_url' );

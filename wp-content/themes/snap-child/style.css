@@ -1,6 +1,6 @@
 /*
 
-	Theme Name: The New Creatures Snap Child
+	Theme Name: Lumenal Code Snap Child
 
 	Description: Child theme of Snap, by <a href="http://gabesimagination.com">Gabe's Imagination</a>.
 
@@ -626,7 +626,7 @@ a[rel="next"]:after,
 /* line 241, ../sass/_scaffolding.scss */
 #mobile-toggle span:before {
   content: "\2630";
-  color: #ffc300;
+  color: #fff;
   padding-right: 6px;
   padding-right: 0.33333rem;
 }
@@ -1798,6 +1798,25 @@ body #main-header[role=banner] .logo-wrapper h1 a {
   height: 50px;
   display: block;
   text-indent: -9999%;
+}
+@media screen and (max-width: 900px) {
+  /* line 18, ../sass/_main-header.scss */
+  body #main-header[role=banner] .logo-wrapper h1 {
+    text-align: center;
+    width: 100%;
+  }
+  /* line 21, ../sass/_main-header.scss */
+  body #main-header[role=banner] .logo-wrapper h1 a {
+    width: 80%;
+    min-height: 100px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 33, ../sass/_main-header.scss */
+  body #main-header[role=banner] .logo-wrapper h1 a {
+    min-height: 75px;
+  }
 }
 
 /*---------------------------------------------------------

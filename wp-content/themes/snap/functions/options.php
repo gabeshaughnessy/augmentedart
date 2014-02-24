@@ -241,6 +241,27 @@ function snap_customize( $wp_customize ) {
 		)
 	);
 
+	// Hide portfolio posts from the blog
+	$wp_customize->add_setting(
+		'hide-portfolio-posts',
+		array(
+			'default'           => false,
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'snap_sanitize_bool',
+		)
+	);
+
+	$wp_customize->add_control(
+		'hide-portfolio-posts',
+		array(
+			'settings' => 'hide-portfolio-posts',
+			'label'    => __( 'Hide portfolio posts from the blog', 'snap' ),
+			'section'  => 'snap_display',
+			'type'     => 'checkbox',
+			'priority' => 35,
+		)
+	);
+
 	// Remove the web font
 	$wp_customize->add_setting(
 		'disable-web-font',

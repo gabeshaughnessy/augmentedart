@@ -1,7 +1,7 @@
 /*---------------------------------------------------------
  6. Posts (_posts.scss)
 -------------------------------------------------------- */
-.tile .post {
+.tile .post, .tile .page {
 	@include for(small-screens) {
 		width: percentage(($col*3+$gut*2.5)/($col*6+$gut*5)); //.with-sidebar
 		height: 472px;

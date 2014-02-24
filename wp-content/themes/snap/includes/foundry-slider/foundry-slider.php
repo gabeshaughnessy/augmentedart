@@ -168,11 +168,14 @@ class TTF_Foundry_Slider {
 	 * @return array    Empty array on failure; array of IDs on success.
 	 */
 	private function _generate_featured_slider_post_ids() {
+		// Allow additional actions to run before the function
+		do_action( 'ttf_pre_generate_featured_slider_post_ids' );
+
 		// Set the default return value
 		$featured_slider_post_ids = array();
 
 		// Query for posts
-		$featured_slider_posts = new WP_Query( array(
+		$args = array(
 			'post_status'    => 'publish',
 			'fields'         => 'ids',
 			'meta_query'     => array(
@@ -183,11 +186,24 @@ class TTF_Foundry_Slider {
 			),
 			'no_found_rows'  => true,
 			'posts_per_page' => 999,
-		) );
+			'id'             => 'test'
+		);
+
+		// Allow arguments to be filtered
+		$args = apply_filters( 'ttf_generate_featured_slider_post_ids_args', $args );
+
+		// Run the query
+		$featured_slider_posts = new WP_Query( $args );
 
 		// Set the return value if there were posts returned
 		if ( $featured_slider_posts->have_posts() )
 			$featured_slider_post_ids = $featured_slider_posts->get_posts();
+
+		// Allow the resulting IDs to be filtered
+		$featured_slider_post_ids = apply_filters( 'ttf_generate_featured_slider_post_ids', $featured_slider_post_ids, $featured_slider_posts );
+
+		// Allow additional actions to run after the function
+		do_action( 'ttf_after_generate_featured_slider_post_ids' );
 
 		return $featured_slider_post_ids;
 	}

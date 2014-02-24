@@ -46,6 +46,16 @@ class Snap_Tiny_MCE_Plugin {
 		if ( true === apply_filters( 'snap_add_formatting_buttons', true ) ) {
 			add_action( 'admin_init', array( $this, 'tinymce_plugin' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+
+			$localize = array(
+				'alert' => __( 'Alert message box', 'snap' ),
+				'error' => __( 'Error message box', 'snap' ),
+				'success' => __( 'Success message box', 'snap' ),
+				'note' => __( 'Note message box', 'snap' ),
+				'dropCap' => __( 'Remove capitalization box', 'snap' ),
+				'intro' => __( 'Intro styling', 'snap' )
+			);
+			wp_localize_script( 'editor', 'SnapTinymceLocal', $localize );
 		}
 	}
 

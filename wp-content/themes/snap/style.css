@@ -4,7 +4,7 @@
  * Author: The Theme Foundry
  * Author URI: http://thethemefoundry.com/
  * Description: A lightweight and responsive theme designed to help you showcase your creative projects online. Multiple page templates and a grid based blog layout ensure your website stays flexible and professional.
- * Version: 1.0.4
+ * Version: 1.0.8
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: business, portfolio, professional, art, photography, clean, elegant, formal, handcrafted, light, minimal, gray, white, light, one-column, two-columns, three-columns, right-sidebar, responsive-width, custom-background, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, infinite-scroll, translation-ready, artwork, blog, contemporary, craft, design, geometric, journal, modern, personal, post-slider, simple, traditional, writing
@@ -252,7 +252,7 @@ h6, pre, table {
   word-break: hyphenate;
 }
 
-.box-size, hr, .placeholder-text, .tile .post, textarea,
+.box-size, hr, .placeholder-text, .tile .post, .tile .page, textarea,
 select,
 input {
   -webkit-box-sizing: border-box;
@@ -1274,7 +1274,7 @@ div .aligncenter {
 /*---------------------------------------------------------
  6. Posts (_posts.scss)
 -------------------------------------------------------- */
-.tile .post {
+.tile .post, .tile .page {
   float: left;
   width: 100%;
   border-bottom: 1px solid #efefef;
@@ -1282,72 +1282,72 @@ div .aligncenter {
   padding:  1.77778rem 0;
 }
 @media screen and (min-width: 600px) {
-  .tile .post {
+  .tile .post, .tile .page {
     width: 50%;
     height: 472px;
     padding-bottom: 0;
   }
 }
-.tile .post .post-wrapper {
+.tile .post .post-wrapper, .tile .page .post-wrapper {
   word-wrap: break-word;
 }
 @media screen and (min-width: 600px) {
-  .tile .post .post-wrapper {
+  .tile .post .post-wrapper, .tile .page .post-wrapper {
     height: 360px;
   }
 }
-.tile .post img {
+.tile .post img, .tile .page img {
   max-height: 407px;
   width: auto;
   margin-bottom: 11px;
   margin-bottom: 0.61111rem;
 }
 @media screen and (min-width: 600px) {
-  .tile .post img {
+  .tile .post img, .tile .page img {
     max-height: 285px;
   }
 }
 @media screen and (min-width: 900px) {
-  .tile .post img {
+  .tile .post img, .tile .page img {
     max-height: 221px;
   }
 }
 @media screen and (min-width: 600px) {
-  .tile .post.last-of-posts {
+  .tile .post.last-of-posts, .tile .page.last-of-posts {
     border-bottom: 0;
     padding-bottom: 0;
     margin-bottom: 0;
     height: 440px;
   }
 }
-.tile .post:last-of-type {
+.tile .post:last-of-type, .tile .page:last-of-type {
   border-bottom: 0;
   padding-bottom: 0;
   margin-bottom: 0;
 }
-.tile .post:first-of-type {
+.tile .post:first-of-type, .tile .page:first-of-type {
   padding-top: 0;
 }
 @media screen and (min-width: 600px) {
-  .tile .post:nth-child(1), .tile .post:nth-child(2) {
+  .tile .post:nth-child(1), .tile .post:nth-child(2), .tile .page:nth-child(1), .tile .page:nth-child(2) {
     padding-top: 0;
     height: 440px;
   }
 }
 @media screen and (min-width: 600px) {
-  .tile .post:nth-of-type(odd) {
+  .tile .post:nth-of-type(odd), .tile .page:nth-of-type(odd) {
     float: left;
     border-right: 1px solid #efefef;
   }
-  .tile .post:nth-of-type(odd) .set-post {
+  .tile .post:nth-of-type(odd) .set-post, .tile .page:nth-of-type(odd) .set-post {
     padding-right: 9.81595%;
   }
 }
 @media screen and (min-width: 600px) {
-  .tile .post:nth-of-type(even) {
+  .tile .post:nth-of-type(even), .tile .page:nth-of-type(even) {
     float: right;
   }
-  .tile .post:nth-of-type(even) .set-post {
+  .tile .post:nth-of-type(even) .set-post, .tile .page:nth-of-type(even) .set-post {
     padding-left: 9.81595%;
   }
 }

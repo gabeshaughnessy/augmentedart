@@ -240,7 +240,7 @@ a[rel="next"]:after,
 		@include rem('padding-left', $gut);
 		&:before {
 			content: "\2630";
-			color: $secondary;
+			color: #fff;
 			@include rem('padding-right', 6px);
 		}
 	}

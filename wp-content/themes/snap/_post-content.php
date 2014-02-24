@@ -15,9 +15,6 @@
 				$print_thumb = true;
 				$thumbnail   = get_the_post_thumbnail( get_the_ID(), 'snap-grid' );
 				$type        = 'featured';
-			} elseif ( 'image' === get_post_format() && function_exists( 'get_the_post_format_image' ) && $thumbnail = get_the_post_format_image( 'snap-grid' ) ) {
-				$print_thumb = true;
-				$type        = 'post-format';
 			}
 		?>
 
@@ -43,7 +40,9 @@
 					</span>
 				<?php endif; ?>
 
+				<?php if ( 'post' === get_post_type() ) : ?>
 				<?php get_template_part( '_date' ); ?>
+				<?php endif; ?>
 
 				<a href="<?php the_permalink(); ?>" rel="bookmark">
 					<h3><?php the_title(); ?></h3>

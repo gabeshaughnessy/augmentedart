@@ -62,7 +62,7 @@ class TTF_Foundry_Slider_Quick_Edit {
 	 * @return array                Modified list of table columns.
 	 */
 	public function manage_post_posts_columns( $columns ) {
-		$columns['ttf-foundry-slider'] = apply_filters( 'ttf_foundry_slider_column_label', __( 'Featured Slider', 'ttf-foundry-slider' ) );
+		$columns['ttf-foundry-slider'] = apply_filters( 'ttf_foundry_slider_column_label', __( 'Featured Slider', 'snap' ) );
 		return $columns;
 	}
 
@@ -80,7 +80,7 @@ class TTF_Foundry_Slider_Quick_Edit {
 			return;
 
 		if ( ttf_is_in_featured_slider( $id ) )
-			echo apply_filters( 'ttf_foundry_slider_status', __( 'Featured', 'ttf-foundry-slider' ) );
+			echo apply_filters( 'ttf_foundry_slider_status', __( 'Featured', 'snap' ) );
 	}
 
 	/**
@@ -102,7 +102,7 @@ class TTF_Foundry_Slider_Quick_Edit {
 					<label class="alignleft">
 						<input type="checkbox" name="<?php echo esc_attr( ttf_get_foundry_slider()->meta_key ); ?>" class="ttf-foundry-slider-input" value="1">
 							<span class="checkbox-title">
-								<?php echo apply_filters( 'ttf_foundry_slider_quick_edit_box_checkbox_label', __( 'Show in featured slider', 'ttf-foundry-slider' ) ); ?>
+								<?php echo apply_filters( 'ttf_foundry_slider_quick_edit_box_checkbox_label', __( 'Show in featured slider', 'snap' ) ); ?>
 							</span>
 					</label>
 					<?php wp_nonce_field( 'save', 'ttf-foundry-slider-input' ); ?>
