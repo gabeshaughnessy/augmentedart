@@ -11,6 +11,7 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 wp-content/plugins/jetpack/
+wp-content/plugins/wordpress-importer
 wp-content/plugins/post-type-switcher/
 wp-content/themes/twentyfourteen/
 sitemap.xml.gz
