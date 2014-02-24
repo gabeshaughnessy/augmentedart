@@ -1,0 +1,80 @@
+/*---------------------------------------------------------
+ Body (editor-style.css)
+-------------------------------------------------------- */
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	font-size: 93.75%;
+	line-height: 1.65;
+}
+/*---------------------------------------------------------
+ Code (editor-style.css)
+-------------------------------------------------------- */
+tt,
+kbd,
+pre,
+code,
+samp {
+	font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+	font-size: 100%;
+}
+code,
+pre {
+	color: #707070;
+}
+/*---------------------------------------------------------
+ Elements (editor-style.css)
+-------------------------------------------------------- */
+h1,
+h4,
+h5,
+blockquote,
+.intro {
+	font-family: Merriweather, Georgia, Times, "Times New Roman", serif;
+}
+h5,
+h6 {
+	text-transform: uppercase;
+}
+blockquote cite {
+	font-family: "Helvetica Neue", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	font-style: normal;
+}
+mark{
+	background-color: #ffc;
+	font-style: italic;
+}
+/*---------------------------------------------------------
+ Lists (editor-style.css)
+-------------------------------------------------------- */
+ul {
+	list-style: square outside;
+}
+ol {
+	list-style: decimal outside;
+}
+dl dt {
+	font-weight: 700;
+}
+/*---------------------------------------------------------
+ Extras (editor-style.css)
+-------------------------------------------------------- */
+.drop-cap {
+	font-size: 187.5%;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.alert {
+	background-color: #f9f9f9;
+}
+.error {
+	background-color: #e14023;
+	color: #ffffff;
+}
+.success {
+	background-color: #007fd0;
+	color: #ffffff;
+}
+.note {
+	background-color: #ffc300;
+	color: #181818;
+}

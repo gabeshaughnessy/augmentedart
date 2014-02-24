@@ -33,7 +33,7 @@
 				echo '<div class="fit-vid '.$video_size.'">'.$video_embed.'</div><hr />';
 			}}
 			else if(get_the_post_thumbnail( $post->ID ) != ''){
-				echo get_the_post_thumbnail( $post->ID );
+				//echo get_the_post_thumbnail( $post->ID );
 			}
 			
 			 ?>
