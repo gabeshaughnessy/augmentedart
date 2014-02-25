@@ -28,7 +28,7 @@ function jetpack_og_tags() {
 
 	if ( is_home() || is_front_page() ) {
 		$site_type              = get_option( 'open_graph_protocol_site_type' );
-		$tags['og:type']        = ! empty( $site_type ) ? $site_type : 'blog';
+		$tags['og:type']        = ! empty( $site_type ) ? $site_type : 'website';
 		$tags['og:title']       = get_bloginfo( 'name' );
 		$tags['og:description'] = get_bloginfo( 'description' );
 
@@ -62,29 +62,45 @@ function jetpack_og_tags() {
 		$tags['og:title']       = empty( $data->post_title ) ? ' ' : wp_kses( $data->post_title, array() ) ;
 		$tags['og:url']         = get_permalink( $data->ID );
 		if ( !post_password_required() )
-			$tags['og:description'] = ! empty( $data->post_excerpt ) ? strip_shortcodes( wp_kses( $data->post_excerpt, array() ) ) : wp_trim_words( strip_shortcodes( wp_kses( $data->post_content, array() ) ) );
+			$tags['og:description'] = ! empty( $data->post_excerpt ) ? preg_replace( '@https?://[\S]+@', '', strip_shortcodes( wp_kses( $data->post_excerpt, array() ) ) ): wp_trim_words( preg_replace( '@https?://[\S]+@', '', strip_shortcodes( wp_kses( $data->post_content, array() ) ) ) );
 		$tags['og:description'] = empty( $tags['og:description'] ) ? ' ' : $tags['og:description'];
+		$tags['article:published_time'] = date( 'c', strtotime( $data->post_date_gmt ) );
+		$tags['article:modified_time'] = date( 'c', strtotime( $data->post_modified_gmt ) );
+		if ( post_type_supports( get_post_type( $data ), 'author' ) && isset( $data->post_author ) )
+			$tags['article:author'] = get_author_posts_url( $data->post_author );
 	}
+
+	// Allow plugins to inject additional template-specific open graph tags
+	$tags = apply_filters( 'jetpack_open_graph_base_tags', $tags, compact( 'image_width', 'image_height' ) );
 
 	// Re-enable widont if we had disabled it
 	if ( $disable_widont )
 		add_filter( 'the_title', 'widont' );
 
-	if ( empty( $tags ) )
+	if ( empty( $tags ) && apply_filters( 'jetpack_open_graph_return_if_empty', true ) )
 		return;
 
 	$tags['og:site_name'] = get_bloginfo( 'name' );
-	$tags['og:image']     = jetpack_og_get_image( $image_width, $image_height );
+
+	if ( !post_password_required() )
+		$tags['og:image']     = jetpack_og_get_image( $image_width, $image_height );
 
 	// Facebook whines if you give it an empty title
 	if ( empty( $tags['og:title'] ) )
 		$tags['og:title'] = __( '(no title)', 'jetpack' );
 
 	// Shorten the description if it's too long
-	$tags['og:description'] = strlen( $tags['og:description'] ) > $description_length ? mb_substr( $tags['og:description'], 0, $description_length ) . '...' : $tags['og:description'];
+	if ( isset( $tags['og:description'] ) ) {
+		$tags['og:description'] = strlen( $tags['og:description'] ) > $description_length ? mb_substr( $tags['og:description'], 0, $description_length ) . '...' : $tags['og:description'];
+	}
 
 	// Add any additional tags here, or modify what we've come up with
 	$tags = apply_filters( 'jetpack_open_graph_tags', $tags, compact( 'image_width', 'image_height' ) );
+
+	// secure_urls need to go right after each og:image to work properly so we will abstract them here
+	$secure = $tags['og:image:secure_url'] = ( empty( $tags['og:image:secure_url'] ) ) ? '' : $tags['og:image:secure_url'];
+	unset( $tags['og:image:secure_url'] );
+	$secure_image_num = 0;
 
 	foreach ( (array) $tags as $tag_property => $tag_content ) {
 		// to accomodate multiple images
@@ -97,9 +113,21 @@ function jetpack_og_tags() {
 			$og_tag = sprintf( '<meta property="%s" content="%s" />', esc_attr( $tag_property ), esc_attr( $tag_content_single ) );
 			$og_output .= apply_filters( 'jetpack_open_graph_output', $og_tag );
 			$og_output .= "\n";
+
+			if ( 'og:image' == $tag_property ) {
+				if ( is_array( $secure ) && !empty( $secure[$secure_image_num] ) ) {
+					$og_tag = sprintf( '<meta property="og:image:secure_url" content="%s" />', esc_url( $secure[ $secure_image_num ] ) );
+					$og_output .= apply_filters( 'jetpack_open_graph_output', $og_tag );
+					$og_output .= "\n";
+				} else if ( !is_array( $secure ) && !empty( $secure ) ) {
+					$og_tag = sprintf( '<meta property="og:image:secure_url" content="%s" />', esc_url( $secure ) );
+					$og_output .= apply_filters( 'jetpack_open_graph_output', $og_tag );
+					$og_output .= "\n";
+				}
+				$secure_image_num++;
+			}
 		}
 	}
-
 	echo $og_output;
 }
 
@@ -149,11 +177,56 @@ function jetpack_og_get_image( $width = 200, $height = 200, $max_images = 4 ) { 
 		}
 	}
 
-	// Fallback to Blavatar if available
-	if ( function_exists( 'blavatar_domain' ) ) {
+	if ( empty( $image ) )
+		$image = array();
+	else if ( !is_array( $image ) )
+		$image = array( $image );
+
+	// First fall back, blavatar
+	if ( empty( $image ) && function_exists( 'blavatar_domain' ) ) {
 		$blavatar_domain = blavatar_domain( site_url() );
-		if ( empty( $image ) && blavatar_exists( $blavatar_domain ) )
-			$image = blavatar_url( $blavatar_domain, 'img', $width );
+		if ( blavatar_exists( $blavatar_domain ) )
+			$image[] = blavatar_url( $blavatar_domain, 'img', $width );
+	}
+
+	// Second fall back, blank image
+	if ( empty( $image ) ) {
+		$image[] = "http://wordpress.com/i/blank.jpg";
+	}
+
+	return $image;
+}
+
+/**
+* @param $email
+* @param $width
+* @return array|bool|mixed|string
+*/
+function jetpack_og_get_image_gravatar( $email, $width ) {
+	$image = '';
+	if ( function_exists( 'get_avatar_url' ) ) {
+		$avatar = get_avatar_url($email, $width);
+		if ( ! empty( $avatar ) ) {
+			if ( is_array( $avatar ) )
+				$image = $avatar[0];
+			else
+				$image = $avatar;
+		}
+	} else {
+		$has_filter = has_filter( 'pre_option_show_avatars', '__return_true' );
+		if ( !$has_filter ) {
+			add_filter( 'pre_option_show_avatars', '__return_true' );
+		}
+		$avatar = get_avatar( $email, $width );
+
+		if ( !$has_filter ) {
+			remove_filter( 'pre_option_show_avatars', '__return_true' );
+		}
+
+		if ( !empty( $avatar ) && !is_wp_error( $avatar ) ) {
+			if ( preg_match( '/src=["\']([^"\']+)["\']/', $avatar, $matches ) )
+				$image = wp_specialchars_decode($matches[1], ENT_QUOTES);
+		}
 	}
 
 	return $image;

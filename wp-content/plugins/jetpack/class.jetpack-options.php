@@ -13,8 +13,10 @@ class Jetpack_Options {
 				'do_activate',
 				'log',
 				'publicize',
+				'slideshow_background_color',
 				'widget_twitter',
 				'wpcc_options',
+				'relatedposts',
 			);
 		}
 
@@ -35,6 +37,8 @@ class Jetpack_Options {
 			'social_links',                 // (array)  The specified links for each social networking site.
 			'identity_crisis_whitelist',    // (array)  An array of options, each having an array of the values whitelisted for it.
 			'gplus_authors',                // (array)  The Google+ authorship information for connected users.
+			'last_heartbeat',               // (int)    The timestamp of the last heartbeat that fired.
+			'sync_bulk_reindexing',         // (bool)   If a bulk reindex is currently underway.
 		);
 	}
 

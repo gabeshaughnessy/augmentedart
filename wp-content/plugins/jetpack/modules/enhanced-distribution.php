@@ -6,6 +6,7 @@
  * First Introduced: 1.2
  * Requires Connection: Yes
  * Auto Activate: Public
+ * Module Tags: Writing
  */
 
 Jetpack_Sync::sync_posts( __FILE__ );
@@ -30,3 +31,23 @@ function jetpack_enhanced_distribution_before_activate_default_modules() {
 
 add_action( 'jetpack_activate_module_enhanced-distribution', 'jetpack_enhanced_distribution_activate' );
 add_action( 'jetpack_before_activate_default_modules', 'jetpack_enhanced_distribution_before_activate_default_modules' );
+
+/**
+ * If a request has ?get_freshly_pressed_data=true appended
+ * to the end, then let's provide the necessary data back via JSON.
+ */
+if ( isset( $_GET['get_freshly_pressed_data'] ) ) {
+	add_action( 'template_redirect', 'jetpack_get_freshly_pressed_data' );
+	function jetpack_maybe_freshly_pressed() {
+		if ( is_single() ) {
+			wp_send_json_success( array(
+				'blog_id' => Jetpack_Options::get_option( 'id' ),
+				'post_id' => get_the_ID(),
+			) );
+		} else {
+			wp_send_json_error( array(
+				'message' => 'Not Singular',
+			) );
+		}
+	}
+}

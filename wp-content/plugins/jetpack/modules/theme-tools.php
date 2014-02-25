@@ -1,8 +1,29 @@
 <?php
 /*
  * Load code specific to themes or theme tools
+ * This file is special, and is not an actual `module` as such.
+ * It is included by ./module-extras.php
  */
- 
+
+function jetpack_load_theme_tools() {
+	if ( current_theme_supports( 'social-links' ) ) {
+		require_once( JETPACK__PLUGIN_DIR . 'modules/theme-tools/social-links.php' );
+	}
+
+	if ( current_theme_supports( 'tonesque' ) ) {
+		jetpack_require_lib( 'tonesque' );
+	}
+
+	require_once( JETPACK__PLUGIN_DIR . 'modules/theme-tools/random-redirect.php' );
+}
+add_action( 'init', 'jetpack_load_theme_tools', 30 );
+
+// Featured Content has an internal check for theme support in the constructor.
+// This could already be defined by Twenty Fourteen if it's loaded first.
+if ( ! class_exists( 'Featured_Content' ) ) {
+	require_once( JETPACK__PLUGIN_DIR . 'modules/theme-tools/featured-content.php' );
+}
+
 /**
  * INFINITE SCROLL
  */
@@ -51,14 +72,46 @@ function jetpack_can_activate_infinite_scroll( $can_activate ) {
 }
 add_filter( 'jetpack_can_activate_infinite-scroll', 'jetpack_can_activate_infinite_scroll' );
 
-require_once( dirname( __FILE__ ) . '/featured-content/featured-content.php' );
-
-require_once( dirname( __FILE__ ) . '/social-links.php' );
-
-require_once( dirname( __FILE__ ) . '/tonesque.php' ); 
-
 // Custom Post Types - we don't want a module card for these (yet)
-require_once( dirname( __FILE__ ) . '/custom-post-types/comics.php' );
-require_once( dirname( __FILE__ ) . '/custom-post-types/testimonial.php' );
+require_once( JETPACK__PLUGIN_DIR . 'modules/custom-post-types/comics.php' );
+require_once( JETPACK__PLUGIN_DIR . 'modules/custom-post-types/testimonial.php' );
+require_once( JETPACK__PLUGIN_DIR . 'modules/custom-post-types/nova.php' );
 
-require_once( dirname( __FILE__ ) . '/random-redirect.php' );
+/**
+ * Load theme compat file if it exists.
+ *
+ * A theme could add its own compat files here if they like. For example:
+ *
+ * add_filter( 'jetpack_theme_compat_files', 'mytheme_jetpack_compat_file' );
+ * function mytheme_jetpack_compat_file( $files ) {
+ *     $files['mytheme'] = locate_template( 'jetpack-compat.php' );
+ *     return $files;
+ * }
+ */
+function jetpack_load_theme_compat() {
+	$compat_files = apply_filters( 'jetpack_theme_compat_files', array(
+		'twentyfourteen' => JETPACK__PLUGIN_DIR . 'modules/theme-tools/compat/twentyfourteen.php',
+	) );
+
+	_jetpack_require_compat_file( get_stylesheet(), $compat_files );
+
+	if ( is_child_theme() ) {
+		_jetpack_require_compat_file( get_template(), $compat_files );
+	}
+}
+add_action( 'after_setup_theme', 'jetpack_load_theme_compat', -1 );
+
+
+/**
+ * Requires a file once, if the passed key exists in the files array.
+ *
+ * @access private
+ * @param string $key
+ * @param array $files
+ * @return void
+ */
+function _jetpack_require_compat_file( $key, $files ) {
+	if ( array_key_exists( $key, $files ) && is_readable( $files[ $key ] ) ) {
+		require_once $files[ $key ];
+	}
+}

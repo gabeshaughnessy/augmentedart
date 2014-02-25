@@ -80,7 +80,7 @@ class Jetpack_Tiled_Gallery {
 			return get_attachment_link( $attachment_id );
 	}
 
-	public function default_scripts_and_styles() {
+	public static function default_scripts_and_styles() {
 		wp_enqueue_script( 'tiled-gallery', plugins_url( 'tiled-gallery/tiled-gallery.js', __FILE__ ), array( 'jquery' ) );
 		wp_enqueue_style( 'tiled-gallery', plugins_url( 'tiled-gallery/tiled-gallery.css', __FILE__ ), array(), '2012-09-21' );
 	}
@@ -102,7 +102,7 @@ class Jetpack_Tiled_Gallery {
 
 		if ( method_exists( $this, $this->atts['type'] . '_talavera' ) ) {
 			// Enqueue styles and scripts
-			$this->default_scripts_and_styles();
+			self::default_scripts_and_styles();
 			$gallery_html = call_user_func_array( array( $this, $this->atts['type'] . '_talavera' ), array( $attachments ) );
 
 			if ( $gallery_html && class_exists( 'Jetpack' ) && class_exists( 'Jetpack_Photon' ) ) {
@@ -132,6 +132,7 @@ class Jetpack_Tiled_Gallery {
 				foreach ( $group->images as $image ) {
 
 					$size = 'large';
+
 					if ( $image->width < 250 )
 						$size = 'small';
 
@@ -141,11 +142,11 @@ class Jetpack_Tiled_Gallery {
 
 					$img_src = add_query_arg( array( 'w' => $image->width, 'h' => $image->height ), $orig_file );
 
-					$output .= '<div class="tiled-gallery-item tiled-gallery-item-' . esc_attr( $size ) . '"><a href="' . esc_url( $link ) . '"><img ' . $this->generate_carousel_image_args( $image ) . ' src="' . esc_url( $img_src ) . '" width="' . esc_attr( $image->width ) . '" height="' . esc_attr( $image->height ) . '" align="left" title="' . esc_attr( $image_title ) . '" /></a>';
+					$output .= '<div class="tiled-gallery-item tiled-gallery-item-' . esc_attr( $size ) . '"><a href="' . esc_url( $link ) . '"><img ' . $this->generate_carousel_image_args( $image ) . ' src="' . esc_url( $img_src ) . '" width="' . esc_attr( $image->width ) . '" height="' . esc_attr( $image->height ) . '" align="left" title="' . esc_attr( $image_title ) . '" alt="' . esc_attr( $image_title ) . '" /></a>';
 
 					if ( $this->atts['grayscale'] == true ) {
 						$img_src_grayscale = jetpack_photon_url( $img_src, array( 'filter' => 'grayscale' ) );
-						$output .= '<a href="'. esc_url( $link ) . '"><img ' . $this->generate_carousel_image_args( $image ) . ' class="grayscale" src="' . esc_url( $img_src_grayscale ) . '" width="' . esc_attr( $image->width ) . '" height="' . esc_attr( $image->height ) . '" align="left" title="' . esc_attr( $image_title ) . '" /></a>';
+						$output .= '<a href="'. esc_url( $link ) . '"><img ' . $this->generate_carousel_image_args( $image ) . ' class="grayscale" src="' . esc_url( $img_src_grayscale ) . '" width="' . esc_attr( $image->width ) . '" height="' . esc_attr( $image->height ) . '" align="left" title="' . esc_attr( $image_title ) . '" alt="' . esc_attr( $image_title ) . '" /></a>';
 					}
 
 					if ( trim( $image->post_excerpt ) )
@@ -416,7 +417,7 @@ class Jetpack_Tiled_Gallery_Two_One extends Jetpack_Tiled_Gallery_Shape {
 
 	public function is_possible() {
 		return $this->is_not_as_previous( 3 ) && $this->images_left >= 2 &&
-			$this->images[2]->ratio < 1.6 && $this->images[0]->ratio >=0.9 && $this->images[1]->ratio >= 0.9;
+			$this->images[2]->ratio < 1.6 && $this->images[0]->ratio >= 0.9 && $this->images[0]->ratio < 2.0 && $this->images[1]->ratio >= 0.9 && $this->images[1]->ratio < 2.0;
 	}
 }
 
@@ -425,7 +426,7 @@ class Jetpack_Tiled_Gallery_One_Two extends Jetpack_Tiled_Gallery_Shape {
 
 	public function is_possible() {
 		return $this->is_not_as_previous( 3 ) && $this->images_left >= 2 &&
-			$this->images[0]->ratio < 1.6 && $this->images[1]->ratio >=0.9 && $this->images[2]->ratio >= 0.9;
+			$this->images[0]->ratio < 1.6 && $this->images[1]->ratio >= 0.9 && $this->images[1]->ratio < 2.0 && $this->images[2]->ratio >= 0.9 && $this->images[2]->ratio < 2.0;
 	}
 }
 
@@ -434,7 +435,15 @@ class Jetpack_Tiled_Gallery_One_Three extends Jetpack_Tiled_Gallery_Shape {
 
 	public function is_possible() {
 		return $this->is_not_as_previous() && $this->images_left > 3 &&
-			$this->images[0]->ratio < 0.8 && $this->images[1]->ratio >=0.9 && $this->images[2]->ratio >= 0.9 && $this->images[3]->ratio >= 0.9;
+			$this->images[0]->ratio < 0.8 && $this->images[1]->ratio >= 0.9 && $this->images[1]->ratio < 2.0 && $this->images[2]->ratio >= 0.9 && $this->images[2]->ratio < 2.0 && $this->images[3]->ratio >= 0.9 && $this->images[3]->ratio < 2.0;
+	}
+}
+
+class Jetpack_Tiled_Gallery_Panoramic extends Jetpack_Tiled_Gallery_Shape {
+	public $shape = array( 1 );
+
+	public function is_possible() {
+		return $this->images[0]->ratio >= 2.0;
 	}
 }
 
@@ -464,7 +473,7 @@ class Jetpack_Tiled_Gallery_Grouper {
 		if ( $images_left < 3 )
 			return array_fill( 0, $images_left, 1 );
 
-		foreach ( array( 'One_Three', 'One_Two', 'Five', 'Four', 'Three', 'Two_One', 'Symmetric_Row' ) as $shape_name ) {
+		foreach ( array( 'One_Three', 'One_Two', 'Five', 'Four', 'Three', 'Two_One', 'Symmetric_Row', 'Panoramic' ) as $shape_name ) {
 			$class_name = "Jetpack_Tiled_Gallery_$shape_name";
 			$shape = new $class_name( $this->images );
 			if ( $shape->is_possible() ) {
@@ -482,8 +491,8 @@ class Jetpack_Tiled_Gallery_Grouper {
 
 		foreach ( $attachments as $image ) {
 			$meta  = wp_get_attachment_metadata( $image->ID );
-			$image->width_orig = ( $meta['width'] > 0 )? $meta['width'] : 1;
-			$image->height_orig = ( $meta['height'] > 0 )? $meta['height'] : 1;
+			$image->width_orig = ( isset( $meta['width'] ) && $meta['width'] > 0 )? $meta['width'] : 1;
+			$image->height_orig = ( isset( $meta['height'] ) && $meta['height'] > 0 )? $meta['height'] : 1;
 			$image->ratio = $image->width_orig / $image->height_orig;
 			$image->ratio = $image->ratio? $image->ratio : 1;
 			$images_with_sizes[] = $image;

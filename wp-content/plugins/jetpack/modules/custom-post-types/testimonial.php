@@ -34,7 +34,7 @@ class Jetpack_Testimonial {
 	 */
 	function __construct() {
 		// Return early if theme does not support Jetpack Testimonial.
-		if ( ! current_theme_supports( self::TESTIMONIAL_POST_TYPE ) )
+		if ( ! $this->site_supports_testimonial() )
 			return;
 
 		$this->register_post_types();
@@ -46,6 +46,18 @@ class Jetpack_Testimonial {
 		$num_testimonials = self::count_testimonials();
 		if ( ! empty( $num_testimonials ) )
 			add_action( 'admin_menu', array( $this, 'add_customize_page' ) );
+	}
+
+	/**
+	* Should this Custom Post Type be made available?
+	*/
+	function site_supports_testimonial() {
+		// If the current theme requests it.
+		if ( current_theme_supports( self::TESTIMONIAL_POST_TYPE ) )
+			return true;
+
+		// Otherwise, say no unless something wants to filter us to say yes.
+		return (bool) apply_filters( 'jetpack_enable_cpt', false, self::TESTIMONIAL_POST_TYPE );
 	}
 
 	/* Setup */
@@ -221,7 +233,7 @@ class Jetpack_Testimonial {
 
 function jetpack_testimonial_custom_control_classes() {
 	class Jetpack_Testimonial_Title_Control extends WP_Customize_Control {
-		public function sanitize_content( $value ) {
+		public static function sanitize_content( $value ) {
 			if ( '' != $value )
 				$value = trim( convert_chars( wptexturize( $value ) ) );
 
@@ -241,7 +253,7 @@ function jetpack_testimonial_custom_control_classes() {
 			<?php
  		}
 
-		public function sanitize_content( $value ) {
+		public static function sanitize_content( $value ) {
 			if ( ! empty( $value ) )
 				$value = apply_filters( 'the_content', $value );
 
@@ -262,15 +274,16 @@ function jetpack_testimonial_custom_control_classes() {
 			parent::__construct( $manager, $id, $args );
 		}
 
-		public function get_img_url( $attachment_id = 0 ) {
+		public static function get_img_url( $attachment_id = 0 ) {
 			if ( is_numeric( $attachment_id ) && wp_attachment_is_image( $attachment_id ) )
 				list( $image, $x, $y ) = wp_get_attachment_image_src( $attachment_id );
 
 			return ! empty( $image ) ? $image : $attachment_id;
 		}
 
-		public function attachment_guid_to_id( $value ) {
-			if ( is_numeric( $value ) )
+		public static function attachment_guid_to_id( $value ) {
+
+			if ( is_numeric( $value ) || empty( $value ) )
 				return $value;
 
 			$matches = get_posts( array( 'post_type' => 'attachment', 'guid' => $value ) );
