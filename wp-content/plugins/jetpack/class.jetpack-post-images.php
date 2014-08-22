@@ -21,8 +21,9 @@ class Jetpack_PostImages {
 		if ( !empty( $post->post_password ) )
 			return $images;
 
-		if ( false === strpos( $post->post_content, '[slideshow' ) )
+		if ( false === has_shortcode( $post->post_content, 'slideshow' ) ) {
 			return false; // no slideshow - bail
+		}
 
 		$permalink = get_permalink( $post->ID );
 
@@ -87,8 +88,9 @@ class Jetpack_PostImages {
 		if ( !empty( $post->post_password ) )
 			return $images;
 
-		if ( false === strpos( $post->post_content, '[gallery' ) )
+		if ( false === has_shortcode( $post->post_content, 'gallery' ) ) {
 			return false; // no gallery - bail
+		}
 
 		$permalink = get_permalink( $post->ID );
 
@@ -235,16 +237,22 @@ class Jetpack_PostImages {
 			if ( !isset( $meta['height'] ) || $meta['height'] < $height )
 				return $images;
 
-			$url = wp_get_attachment_url( $thumb );
-			if ( stristr( $url, '?' ) )
-				$url = substr( $url, 0, strpos( $url, '?' ) );
+			$too_big = ( ( ! empty( $meta['width'] ) && $meta['width'] > 1200 ) || ( ! empty( $meta['height'] ) && $meta['height'] > 1200 ) );
+
+			if ( $too_big ) {
+				$img_src = wp_get_attachment_image_src( $thumb, array( 1200, 1200 ) );
+			} else {
+				$img_src = wp_get_attachment_image_src( $thumb, 'full' );
+			}
+
+			$url = $img_src[0];
 
 			$images = array( array( // Other methods below all return an array of arrays
 				'type'       => 'image',
 				'from'       => 'thumbnail',
 				'src'        => $url,
-				'src_width'  => $meta['width'],
-				'src_height' => $meta['height'],
+				'src_width'  => $img_src[1],
+				'src_height' => $img_src[2],
 				'href'       => get_permalink( $thumb ),
 			) );
 		}
@@ -451,30 +459,31 @@ class Jetpack_PostImages {
 	}
 
 	/**
-	 * Takes an image URL and a pixel dimensions and returns a URL for the
-	 * squared up image if possible.
+	 * Takes an image URL and pixel dimensions then returns a URL for the
+	 * resized and croped image.
 	 *
 	 * @param  string $src
 	 * @param  int    $dimension
 	 * @return string            Transformed image URL
 	 */
-	static function square_image_url( $src, $dimension ) {
-		$dimension = (int) $dimension;
+	static function fit_image_url( $src, $width, $height ) {
+		$width = (int) $width;
+		$height = (int) $height;
 
 		// Umm...
-		if ( $dimension < 1 ) {
+		if ( $width < 1 || $height < 1 ) {
 			return $src;
 		}
 
 		// If WPCOM hosted image use native transformations
 		$img_host = parse_url( $src, PHP_URL_HOST );
 		if ( '.files.wordpress.com' == substr( $img_host, -20 ) ) {
-			return add_query_arg( array( 'w' => $dimension, 'h' => $dimension, 'crop' => 1 ), $src );
+			return add_query_arg( array( 'w' => $width, 'h' => $height, 'crop' => 1 ), $src );
 		}
 
 		// Use Photon magic
 		if( function_exists( 'jetpack_photon_url' ) ) {
-			return jetpack_photon_url( $src, array( 'resize' => "$dimension,$dimension" ) );
+			return jetpack_photon_url( $src, array( 'resize' => "$width,$height" ) );
 		}
 
 		// Arg... no way to resize image using WordPress.com infrastructure!

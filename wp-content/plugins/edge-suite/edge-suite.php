@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Edge Suite
-Plugin URI: http://edgedocks.com/edge_suite
+Plugin URI: http://wordpress.org/plugins/edge-suite/
 Description: Upload Adobe Edge compositions to your website.
 Author: Timm Jansen
 Author URI: http://www.timmjansen.com/
 Donate link: http://www.timmjansen.com/donate
-Version: 0.5
+Version: 0.6
 */
 
 /*  Copyright 2013 Timm Jansen (email: info at timmjansen.com)
@@ -51,7 +51,7 @@ function edge_suite_init_constants(){
   define('EDGE_SUITE_COMP_PROJECT_DIR_REL', EDGE_SUITE_PUBLIC_DIR_REL . '/project');
 
 
-  define('EDGE_SUITE_ALLOWED_ASSET_EXTENSIONS', 'js|png|jpg|gif|svg|css');
+  define('EDGE_SUITE_ALLOWED_ASSET_EXTENSIONS', 'js|png|jpg|gif|svg|css|html|woff|eot|ttf|mp3|ogg|oga|wav|m4a|aac');
 
 
   define('REQUEST_TIME', time());
@@ -91,8 +91,6 @@ function edge_suite_install() {
   add_option('edge_suite_jquery_noconflict', 0);
   add_option('edge_suite_debug', 0);
 
-  // Create main edge suite directory.
-  mkdir_recursive(trailingslashit(EDGE_SUITE_PUBLIC_DIR));
 }
 
 register_activation_hook(__FILE__, 'edge_suite_install');
@@ -380,9 +378,9 @@ function edge_suite_comp_view_iframe($definition_id, $css_style = ''){
   return edge_suite_comp_iframe($definition_id, $css_style);
 }
 
-function edge_suite_comp_view_inline($definition_id, $css_style = ''){
+function edge_suite_comp_view_inline($definition_id, $css_style = '', $data = array()){
 
-  $definition_res = edge_suite_comp_render($definition_id, $css_style);
+  $definition_res = edge_suite_comp_render($definition_id, $css_style, $data);
 
   $stage = $scripts = '';
 

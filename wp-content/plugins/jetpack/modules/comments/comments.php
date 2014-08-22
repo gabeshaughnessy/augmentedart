@@ -172,7 +172,7 @@ class Jetpack_Comments extends Highlander_Comments_Base {
 	}
 
 	/**
-	 * Noop teh default comment form output, get some options, and output our
+	 * Noop the default comment form output, get some options, and output our
 	 * tricked out totally radical comment form.
 	 *
 	 * @since JetpackComments (1.4)
@@ -233,9 +233,9 @@ class Jetpack_Comments extends Highlander_Comments_Base {
 		}
 
 		$params['sig']    = $signature;
-		$url_origin       = ( is_ssl() ? 'https' : 'http' ) . '://jetpack.wordpress.com';
+		$url_origin       = set_url_scheme( 'http://jetpack.wordpress.com' );
 		$url              = "{$url_origin}/jetpack-comment/?" . http_build_query( $params );
-		$url              = "{$url}#parent=" . urlencode( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		$url              = "{$url}#parent=" . urlencode( set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ) );
 		$this->signed_url = $url;
 		$height           = $params['comment_registration'] || is_user_logged_in() ? '315' : '430'; // Iframe can be shorter if we're not allowing guest commenting
 		$transparent      = ( $params['color_scheme'] == 'transparent' ) ? 'true' : 'false';
@@ -267,7 +267,7 @@ class Jetpack_Comments extends Highlander_Comments_Base {
 	 * @since JetpackComments (1.4)
 	 */
 	public function watch_comment_parent() {
-		$url_origin = ( is_ssl() ? 'https' : 'http' ) . '://jetpack.wordpress.com';
+		$url_origin = set_url_scheme( 'http://jetpack.wordpress.com' );
 	?>
 
 		<!--[if IE]>
@@ -286,9 +286,9 @@ class Jetpack_Comments extends Highlander_Comments_Base {
 
 			tellFrameNewParent = function() {
 				if ( comm_par ) {
-					frame.src = <?php echo json_encode( esc_url_raw( $this->signed_url ) ); ?> + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					frame.src = "<?php echo esc_url_raw( $this->signed_url ); ?>" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
 				} else {
-					frame.src = <?php echo json_encode( esc_url_raw( $this->signed_url ) ); ?>;
+					frame.src = "<?php echo esc_url_raw( $this->signed_url ); ?>";
 				}
 			};
 

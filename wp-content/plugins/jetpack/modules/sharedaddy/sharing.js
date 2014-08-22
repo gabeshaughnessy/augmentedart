@@ -20,6 +20,8 @@ var WPCOMSharing = {
 	},
 	update_twitter_count : function( data ) {
 		if ( 'undefined' != typeof data.count && ( data.count * 1 ) > 0 ) {
+			if ( 'undefined' == typeof WPCOM_sharing_counts[ data.url ] )
+				data.url = data.url.replace(/\/$/, "");
 			WPCOMSharing.inject_share_count( 'sharing-twitter-' + WPCOM_sharing_counts[ data.url ], data.count );
 		}
 	},
@@ -181,6 +183,20 @@ var WPCOMSharing = {
 			} );
 		}
 
+		$( document ).click(function() {
+		
+			// Click outside 
+			// remove any timer
+			$more_sharing_buttons.each( function() {
+				clearTimeout( $( this ).data( 'timer' ) );
+			} );
+			$more_sharing_buttons.data( 'timer', false );
+			
+			// slide down forcibly
+			$( '.sharedaddy .inner' ).slideUp();
+			
+		});
+		
 		// Add click functionality
 		$( '.sharedaddy ul' ).each( function( item ) {
 

@@ -18,9 +18,9 @@ class WPCOM_Widget_Facebook_LikeBox extends WP_Widget {
 
 	private $default_height       = 432;
 	private $default_width        = 200;
-	private $max_width            = 400;
+	private $max_width            = 9999;
 	private $min_width            = 0;
-	private $max_height           = 999;
+	private $max_height           = 9999;
 	private $min_height           = 100;
 	private $default_colorscheme  = 'light';
 	private $allowed_colorschemes = array( 'light', 'dark' );
@@ -68,7 +68,10 @@ class WPCOM_Widget_Facebook_LikeBox extends WP_Widget {
 			$like_args['locale'] = $locale;
 
 		$like_args = urlencode_deep( $like_args );
-		$like_url  = add_query_arg( $like_args,  sprintf( '%swww.facebook.com/plugins/likebox.php', ( is_ssl() ) ? 'https://' : 'http://' ) );
+		$like_url  = add_query_arg(
+			$like_args,
+			set_url_scheme( 'http://www.facebook.com/plugins/likebox.php' )
+		);
 
 		echo $before_widget;
 

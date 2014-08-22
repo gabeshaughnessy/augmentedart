@@ -1,23 +1,25 @@
 === WP Lightbox 2 ===
 Contributors: masdiblogs
-Plugin Site: http://onlinewebapplication.com/
+Plugin Site: http://yepinol.com/lightbox-2-plugin-wordpress/
 Donate link: http://onlinewebapplication.com/onlinewebapplication-com-donation/
-Tags: lightbox, WP Lightbox, AJAX, image, photo, picture, JQuery WP Image Plugin, colorbox,  photo albums, slideshow, image map, imagemap, flash, gallery, AJAX slideshow, JQuery slideshow
+Tags: lightbox, WP Lightbox, AJAX, image, photo, picture, JQuery WP Image Plugin, colorbox,  photo albums, slideshow, image map, imagemap, flash, gallery, AJAX slideshow, JQuery slideshow, nextgen, page, pagination gallery, pagination portfolio, photo, photo album, photo albums, photo gallery, Photo Slider, photos, picture, pictures, plugin, plugin for gallery, plugin gallery, portfolio, responsive gallery, seo image, thumbnail, widget, wordpress gallery plugin, wordpress portfolio plugin, wp gallery, wp gallery plugin,  Galleria, gallery, Gallery Plugin, google, grid gallery, html5 player
 Requires at least: 3.0
-Tested up to: 3.6.1
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin used to add the lightbox (overlay) effect to the current page images on your WordPress blog.
+This plugin used to add the responsive lightbox (overlay) effect to the current page images and create photo albums/gallery on your WordPress blog.
 == Description ==
-From 2.1, the default view changed to [Colorbox](http://yepinol.com/lightbox-2-plugin-wordpress/) due to the license regulation by the plugin directory. This plugin used to add the lightbox (overlay) effect to the current page images on your WordPress blog. Used to overlay images on the current page. Extension of wp-jquery-lightbox. 
+### [Best Responsive Lightbox (overlay) effect Plugin - Photo Albums - Image Gallery/Map Plugin](http://yepinol.com/lightbox-2-plugin-wordpress/)
+From 2.1, the default view changed to Colorbox due to the license regulation by the plugin directory. This plugin used to add the lightbox (overlay) effect to the current page images on your WordPress blog. Used to overlay images on the current page. Extension of wp-jquery-lightbox. 
 
 Just install and sit back. This plugin enable image overlay lighbox effect for all the post images in your wordpress plugin. No configuration required.
 
-<b>This is the first [Ligtbox plugin](http://yepinol.com/lightbox-2-plugin-wordpress/) which support Image Map.</b>
+<b>This is the first [Ligtbox plugin](http://onlinewebapplication.com/wp-lightbox-2/) which support Image Map.</b>
 
-<b>Feature</b>:
+
+= Feature =
 
 1. Works on all modern browsers.
 2. Group related images in post and navigate through them with ease.
@@ -29,20 +31,25 @@ Just install and sit back. This plugin enable image overlay lighbox effect for a
 8. Group image links (play as a slideshow)
 9. Compatible with wordpress HTML5 
 
-<b>See the plugin in action here:</b> 
-[Demo link 1](http://yepinol.com/wp-lightbox-2-plugin-wordpress-demo/)
-[Demo link 2](http://demo.onlinewebapplication.com/wp-lightbox-2-demo/)
 
-Know How to use WP Lighbox 2 [here](http://onlinewebapplication.com/how-to-use-wp-lightbox-2-wordpress-plugin/)<br />
 
-<b>Troubleshooting:<b>
-Please read the [FAQ](http://yepinol.com/wp-lightbox-2-faq/) first if you are having problems.
+> #### **Live Demos, Support and Usage**
 
-If you are unable to resolve your problem with the information provided in the FAQ please leave your comments or submit a support [request](http://forums.onlinewebapplication.com/).
+> 
+* [DEMO: Ligtbox plugin Demo](http://yepinol.com/wp-lightbox-2-plugin-wordpress-demo/)
+> * [USAGE: Know How to use WP Lighbox 2](http://onlinewebapplication.com/how-to-use-wp-lightbox-2-wordpress-plugin/)
+> * [SUPPORT FORUM: Ask for support](http://onlinewebapplication.com/wp-lighbox-2-support-forums/)
+> * [TROUBLESHOOTING: Please read the FAQ first if you are having problems](http://yepinol.com/wp-lightbox-2-faq/)
+> 
+
+
+
+= Full support =
+If you are unable to resolve your problem with the information provided in the FAQ please leave your comments or submit a support [request](http://onlinewebapplication.com/wp-lighbox-2-support-forums/).
 
 If you value my plugins, please help me out by rate this.
 <br />
-Author [Site](http://onlinewebapplication.com)<br />
+[Author Site](http://onlinewebapplication.com)<br />
 [Lightbox 2 Plugin Home Page](http://yepinol.com/lightbox-2-plugin-wordpress/)
 <br />
 <br />
@@ -58,10 +65,11 @@ To do a new installation of the plugin, please follow these steps
 
 <br />
 [How to use WP Lighbox 2](http://onlinewebapplication.com/how-to-use-wp-lightbox-2-wordpress-plugin/)<br />
-[Demo](http://demo.onlinewebapplication.com/wp-lightbox-2-demo/)<br />
+[DEMO](http://yepinol.com/wp-lightbox-2-plugin-wordpress-demo/)<br />
 [FAQ](http://yepinol.com/wp-lightbox-2-faq/)
+[SUPPORT FORUM](http://onlinewebapplication.com/wp-lighbox-2-support-forums/)
 == Frequently Asked Questions ==
-[Demo](http://demo.onlinewebapplication.com/wp-lightbox-2-demo/)
+[Demo](http://yepinol.com/wp-lightbox-2-plugin-wordpress-demo/)
 
 Question: Why does not plugin is working for me?
 
@@ -86,13 +94,40 @@ You can check more FAQ on plugin official website URL :<br />
 [WP Lightbox 2 Official URL](http://onlinewebapplication.com/wp-lightbox-2/)<br />
 
 == Screenshots ==
-[Demo](http://demo.onlinewebapplication.com/wp-lightbox-2-demo/)
+[Demo](http://yepinol.com/wp-lightbox-2-plugin-wordpress-demo/)
 
 You can check Screen Shots on plugin website URL :<br />
 WP Lightbox 2 [Link 1](http://onlinewebapplication.com/wp-lightbox-2/)<br />
 WP Lightbox 2 [Link 2](http://yepinol.com/lightbox-2-plugin-wordpress/)<br />
 
 == Changelog ==
+= 2.28.8.7 =
+* Fixed Image Galary and other HTML issue minor fix [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8.6 =
+* Compatible with wordpress 3.9.1 Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8.5 =
+* Fixed Responsiveness Issue [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8.4 =
+* Compatible with wordpress 3.9. Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8.3 =
+* Fixed full screen image close issue [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8.2 =
+* Compatible with wordpress 3.8.1. Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8.1 =
+* Fixed navigation Issue. Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.8 =
+* Compatible with wordpress 3.8 Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
+= 2.28.7 =
+* Compatible with wordpress 3.7.1 Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
+
 = 2.28.6.1 =
 * Fixed navigation issue (minor release). Check more details [here](http://yepinol.com/lightbox-2-plugin-wordpress/).
 
@@ -154,6 +189,33 @@ Fixed PHP 5 comment bug that got reintroduced into plugin. Check more details [h
 * Lightbox display of Gallery.
 
 == Upgrade Notice ==
+= 2.28.8.7 =
+* Fixed Image Galary and other HTML issue minor fix
+
+= 2.28.8.6 =
+* Compatible with wordpress 3.9.1
+
+= 2.28.8.5 =
+* Fixed Responsiveness Issue
+
+= 2.28.8.4 =
+* Compatible with wordpress 3.9.
+
+= 2.28.8.3 =
+* Fixed full screen image close issue
+
+= 2.28.8.2 =
+* Compatible with wordpress 3.8.1
+
+= 2.28.8.1 =
+* Fixed navigation issue.
+
+= 2.28.8 =
+* Compatible with wordpress 3.8
+
+= 2.28.7 =
+* Compatible with wordpress 3.7.1
+
 = 2.28.6.1 =
 * Fixed navigation issue (minor release)
 

@@ -99,6 +99,11 @@ function unzip($file, $to){
     if ( ! defined('FS_CHMOD_FILE') )
       define('FS_CHMOD_FILE', 0644 );
 
+
+    if (!$filesystem->chmod($file, FS_CHMOD_FILE)){
+      return new WP_Error('chmod_failed', __('Could not change permissions on archive.'));
+    }
+
     $z = new ZipArchive();
 
     // PHP4-compat - php4 classes can't contain constants
@@ -123,7 +128,9 @@ function unzip($file, $to){
         continue;
       }
 
-      $dir_creation = mkdir_recursive(trailingslashit($to) . dirname($info['name']));
+      if ( !mkdir_recursive(trailingslashit($to) . dirname($info['name']))) {
+        return new WP_Error('dir_creation_failed', __('Could not create directories for file to be extracted.'), $to . $info['name']);
+      }
       $contents = $z->getFromIndex($i);
       if ( false === $contents )
         return new WP_Error('extract_failed', __('Could not extract file from archive.'), $info['name']);
