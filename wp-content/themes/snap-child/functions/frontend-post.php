@@ -61,6 +61,7 @@ function updateCheckboxes() {
 
       } else {
         ajaxStatus('error', 'You are unauthorized to perform this action.', $dataArray);
+        error_log(print_r($dataArray, true));
       }
 
     } else {

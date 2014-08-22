@@ -33,8 +33,8 @@ jQuery(document).ready(function($) {
   }
 
 //just a button, no form?
-$('#testbutton').on('click', function(e){
-
+$('#testbutton').on('click touch', function(e){
+alert('big button push!');
    $.post( checkbox.ajaxurl, {
             action : 'submit_checkboxes',
             nonce : checkbox.nonce,
