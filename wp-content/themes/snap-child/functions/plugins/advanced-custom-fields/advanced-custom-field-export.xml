@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.8.1" created="2014-02-24 03:05" -->
+<!-- generator="WordPress/3.9.1" created="2014-07-15 02:26" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -26,24 +26,24 @@
 >
 
 <channel>
-	<title>Lumenal Code</title>
-	<link>http://augmentedart</link>
-	<description></description>
-	<pubDate>Mon, 24 Feb 2014 03:05:49 +0000</pubDate>
+	<title>Bic Story</title>
+	<link>http://bic</link>
+	<description>Just another WordPress site</description>
+	<pubDate>Tue, 15 Jul 2014 02:26:54 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
-	<wp:base_site_url>http://augmentedart</wp:base_site_url>
-	<wp:base_blog_url>http://augmentedart</wp:base_blog_url>
+	<wp:base_site_url>http://bic</wp:base_site_url>
+	<wp:base_blog_url>http://bic</wp:base_blog_url>
 	<wp:author><wp:author_id>1</wp:author_id><wp:author_login>gabe</wp:author_login><wp:author_email>gabeshaughnessy@gmail.com</wp:author_email><wp:author_display_name><![CDATA[gabe]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 	<item>
 		<title>Layar Settings</title>
-		<link>http://augmentedart/?acf=acf_layar-settings</link>
-		<pubDate>Mon, 24 Feb 2014 02:09:00 +0000</pubDate>
+		<link>http://bic/?acf=acf_layar-settings</link>
+		<pubDate>Sat, 15 Mar 2014 23:57:48 +0000</pubDate>
 		<dc:creator>gabe</dc:creator>
-		<guid isPermaLink="false">http://augmentedart/?post_type=acf&#038;p=471</guid>
-		<wp:post_id>471</wp:post_id>
-		<wp:post_date>2014-02-24 02:09:00</wp:post_date>
-		<wp:post_date_gmt>2014-02-24 02:09:00</wp:post_date_gmt>
+		<guid isPermaLink="false">http://mof/?post_type=acf&#038;p=474</guid>
+		<wp:post_id>474</wp:post_id>
+		<wp:post_date>2014-03-15 23:57:48</wp:post_date>
+		<wp:post_date_gmt>2014-03-15 23:57:48</wp:post_date_gmt>
 		<wp:comment_status>closed</wp:comment_status>
 		<wp:ping_status>closed</wp:ping_status>
 		<wp:post_name>acf_layar-settings</wp:post_name>
@@ -57,58 +57,6 @@
 			<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>_wpas_done_all</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aac703362e</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_530aac703362e";s:5:"label";s:10:"Scrollable";s:4:"name";s:16:"layar_scrollable";s:4:"type";s:10:"true_false";s:12:"instructions";s:32:"The layar content is scrollable.";s:8:"required";s:1:"0";s:7:"message";s:0:"";s:13:"default_value";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:10;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aac443362d</wp:meta_key>
-			<wp:meta_value><![CDATA[a:10:{s:3:"key";s:19:"field_530aac443362d";s:5:"label";s:11:"Interactive";s:4:"name";s:17:"layar_interactive";s:4:"type";s:10:"true_false";s:12:"instructions";s:48:"The user interact with the content in the layar.";s:8:"required";s:1:"0";s:7:"message";s:0:"";s:13:"default_value";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:9;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aac092e082</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aac092e082";s:5:"label";s:6:"Height";s:4:"name";s:12:"layar_height";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:3:"300";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:8;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aabdd2e081</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aabdd2e081";s:5:"label";s:5:"Width";s:4:"name";s:11:"layar_width";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:3:"579";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:7;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aaba6f65c1</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_530aaba6f65c1";s:5:"label";s:3:"URL";s:4:"name";s:9:"layar_url";s:4:"type";s:4:"text";s:12:"instructions";s:59:"endpoint with the content you want to display on the layar.";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aab1df65c0</wp:meta_key>
-			<wp:meta_value><![CDATA[a:12:{s:3:"key";s:19:"field_530aab1df65c0";s:5:"label";s:12:"Content Type";s:4:"name";s:18:"layar_content_type";s:4:"type";s:6:"select";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"choices";a:3:{s:9:"text/html";s:4:"HTML";s:9:"video/mp4";s:5:"Video";s:23:"image/vnd.layar.generic";s:5:"Image";}s:13:"default_value";s:9:"text/html";s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aaae6f65bf</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_530aaae6f65bf";s:5:"label";s:15:"Reference Image";s:4:"name";s:21:"layar_reference_image";s:4:"type";s:4:"text";s:12:"instructions";s:89:"the name of the reference image on the layar.com publishing site under the pages section.";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aaab0f65be</wp:meta_key>
-			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_530aaab0f65be";s:5:"label";s:10:"Layar name";s:4:"name";s:10:"layar_name";s:4:"type";s:4:"text";s:12:"instructions";s:65:"the name of the layer registered on the Layar.com publishing site";s:8:"required";s:1:"0";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aaa6a58028</wp:meta_key>
-			<wp:meta_value><![CDATA[a:8:{s:3:"key";s:19:"field_530aaa6a58028";s:5:"label";s:9:"Transform";s:4:"name";s:0:"";s:4:"type";s:3:"tab";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:12;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aaa03dbe0f</wp:meta_key>
-			<wp:meta_value><![CDATA[a:8:{s:3:"key";s:19:"field_530aaa03dbe0f";s:5:"label";s:11:"Layar Setup";s:4:"name";s:0:"";s:4:"type";s:3:"tab";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>field_530aaa2258027</wp:meta_key>
-			<wp:meta_value><![CDATA[a:8:{s:3:"key";s:19:"field_530aaa2258027";s:5:"label";s:15:"Viewport & Size";s:4:"name";s:0:"";s:4:"type";s:3:"tab";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:6;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>rule</wp:meta_key>
-			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:5:"layar";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
 			<wp:meta_key>position</wp:meta_key>
 			<wp:meta_value><![CDATA[normal]]></wp:meta_value>
 		</wp:postmeta>
@@ -118,35 +66,73 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>hide_on_screen</wp:meta_key>
-			<wp:meta_value><![CDATA[a:3:{i:0;s:7:"excerpt";i:1;s:10:"discussion";i:2;s:8:"comments";}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aad63009d1</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aad63009d1";s:5:"label";s:4:"Size";s:4:"name";s:10:"layar_size";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:1:"1";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:11;}]]></wp:meta_value>
+			<wp:meta_key>field_5324e928bf2fa</wp:meta_key>
+			<wp:meta_value><![CDATA[a:13:{s:3:"key";s:19:"field_5324e928bf2fa";s:5:"label";s:8:"Hotspots";s:4:"name";s:14:"layar_hotspots";s:4:"type";s:8:"repeater";s:12:"instructions";s:21:"Register New Hotspots";s:8:"required";s:1:"0";s:10:"sub_fields";a:19:{i:0;a:15:{s:3:"key";s:19:"field_5324e9b62b6cf";s:5:"label";s:15:"Reference Image";s:4:"name";s:21:"layar_reference_image";s:4:"type";s:4:"text";s:12:"instructions";s:89:"the name of the reference image on the layar.com publishing site under the pages section.";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}i:1;a:13:{s:3:"key";s:19:"field_5324e9e82b6d0";s:5:"label";s:12:"Content Type";s:4:"name";s:18:"layar_content_type";s:4:"type";s:6:"select";s:12:"instructions";s:22:"The layar widget type.";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"choices";a:4:{s:9:"text/html";s:4:"HTML";s:9:"video/mp4";s:5:"Video";s:23:"image/vnd.layar.generic";s:5:"Image";s:19:"model/vnd.layar.l3d";s:8:"3D Model";}s:13:"default_value";s:9:"text/html";s:10:"allow_null";s:1:"0";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324ead11bd6c";s:8:"operator";s:2:"==";s:5:"value";s:1:"1";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}i:2;a:15:{s:3:"key";s:19:"field_5324ea0e2b6d1";s:5:"label";s:3:"URL";s:4:"name";s:9:"layar_url";s:4:"type";s:4:"text";s:12:"instructions";s:59:"endpoint with the content you want to display on the layar.";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:2;}i:3;a:16:{s:3:"key";s:19:"field_5324ea372b6d2";s:5:"label";s:16:"Refresh Interval";s:4:"name";s:22:"layar_refresh_interval";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:3:"900";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}i:4;a:16:{s:3:"key";s:19:"field_5324ea751bd69";s:5:"label";s:5:"Width";s:4:"name";s:11:"layar_width";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:3:"500";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:4;}i:5;a:16:{s:3:"key";s:19:"field_5324eab41bd6a";s:5:"label";s:6:"Height";s:4:"name";s:12:"layar_height";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:3:"300";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}i:6;a:16:{s:3:"key";s:19:"field_5324eb951bd72";s:5:"label";s:4:"Size";s:4:"name";s:10:"layar_size";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:1:"1";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:1:"0";s:3:"max";s:0:"";s:4:"step";s:5:".0001";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:6;}i:7;a:11:{s:3:"key";s:19:"field_5324ead11bd6c";s:5:"label";s:11:"Interactive";s:4:"name";s:17:"layar_interactive";s:4:"type";s:10:"true_false";s:12:"instructions";s:44:"The user can click on elements in this layar";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:0:"";s:13:"default_value";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:7;}i:8;a:11:{s:3:"key";s:19:"field_5324eae71bd6d";s:5:"label";s:10:"Scrollable";s:4:"name";s:16:"layar_scrollable";s:4:"type";s:10:"true_false";s:12:"instructions";s:44:"the user can scroll the window in this layar";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:0:"";s:13:"default_value";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:8;}i:9;a:11:{s:3:"key";s:19:"field_53c4867969a47";s:5:"label";s:8:"Rotate X";s:4:"name";s:14:"layar_rotate_x";s:4:"type";s:10:"true_false";s:12:"instructions";s:25:"rotate in the x direction";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:0:"";s:13:"default_value";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:9;}i:10;a:11:{s:3:"key";s:19:"field_53c4872c69a48";s:5:"label";s:8:"Rotate Y";s:4:"name";s:14:"layar_rotate_y";s:4:"type";s:10:"true_false";s:12:"instructions";s:25:"rotate in the y direction";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:0:"";s:13:"default_value";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:10;}i:11;a:11:{s:3:"key";s:19:"field_53c4874369a49";s:5:"label";s:8:"Rotate Z";s:4:"name";s:14:"layar_rotate_z";s:4:"type";s:10:"true_false";s:12:"instructions";s:25:"rotate in the z direction";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:0:"";s:13:"default_value";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:11;}i:12;a:11:{s:3:"key";s:19:"field_53c48dbc8bce1";s:5:"label";s:15:"Rotate Relative";s:4:"name";s:16:"layar_rotate_rel";s:4:"type";s:10:"true_false";s:12:"instructions";s:27:"rotate relative to the user";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:0:"";s:13:"default_value";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:12;}i:13;a:16:{s:3:"key";s:19:"field_53c4878469a4a";s:5:"label";s:12:"Rotate Angle";s:4:"name";s:18:"layar_rotate_angle";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:4:"-180";s:3:"max";s:3:"180";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:13;}i:14;a:16:{s:3:"key";s:19:"field_5324eb1e1bd6e";s:5:"label";s:11:"Translate X";s:4:"name";s:17:"layar_translate_x";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:4:".001";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:14;}i:15;a:16:{s:3:"key";s:19:"field_5324eb511bd6f";s:5:"label";s:11:"Translate Y";s:4:"name";s:17:"layar_translate_y";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:4:".001";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:15;}i:16;a:16:{s:3:"key";s:19:"field_5324eb5c1bd70";s:5:"label";s:11:"Translate Z";s:4:"name";s:17:"layar_translate_z";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:4:".001";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:16;}i:17;a:16:{s:3:"key";s:19:"field_5324eb6f1bd71";s:5:"label";s:5:"Scale";s:4:"name";s:11:"layar_scale";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:13:"default_value";s:1:"1";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:5:".0001";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:17;}i:18;a:10:{s:3:"key";s:19:"field_5324ebc543bb2";s:5:"label";s:7:"message";s:4:"name";s:0:"";s:4:"type";s:7:"message";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:12:"column_width";s:0:"";s:7:"message";s:66:"More translate options coming soon. Rotate, et all are on the way.";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5324e9e82b6d0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:18;}}s:7:"row_min";s:1:"1";s:9:"row_limit";s:0:"";s:6:"layout";s:3:"row";s:12:"button_label";s:11:"Add Hotspot";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aacee009cd</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aacee009cd";s:5:"label";s:11:"Translate X";s:4:"name";s:17:"layar_translate_x";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:13;}]]></wp:meta_value>
+			<wp:meta_key>field_5324f07292efe</wp:meta_key>
+			<wp:meta_value><![CDATA[a:14:{s:3:"key";s:19:"field_5324f07292efe";s:5:"label";s:10:"Layar Name";s:4:"name";s:10:"layar_name";s:4:"type";s:4:"text";s:12:"instructions";s:59:"The name of the layar as registered on the publishing site.";s:8:"required";s:1:"1";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:10:"formatting";s:4:"none";s:9:"maxlength";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aad0f009ce</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aad0f009ce";s:5:"label";s:11:"Translate Y";s:4:"name";s:17:"layar_translate_y";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:14;}]]></wp:meta_value>
+			<wp:meta_key>rule</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:5:"layar";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Social Settings</title>
+		<link>http://bic/?acf=acf_social-settings</link>
+		<pubDate>Wed, 26 Mar 2014 23:04:09 +0000</pubDate>
+		<dc:creator>gabe</dc:creator>
+		<guid isPermaLink="false">http://mof/?post_type=acf&#038;p=1359</guid>
+		<wp:post_id>1359</wp:post_id>
+		<wp:post_date>2014-03-26 23:04:09</wp:post_date>
+		<wp:post_date_gmt>2014-03-26 23:04:09</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>acf_social-settings</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>acf</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aad24009cf</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aad24009cf";s:5:"label";s:11:"Translate Z";s:4:"name";s:11:"translate_z";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:1:"0";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:15;}]]></wp:meta_value>
+			<wp:meta_key>field_53335c3b93b76</wp:meta_key>
+			<wp:meta_value><![CDATA[a:12:{s:3:"key";s:19:"field_53335c3b93b76";s:5:"label";s:13:"Instagram CTA";s:4:"name";s:17:"mof_instagram_cta";s:4:"type";s:8:"textarea";s:12:"instructions";s:54:"The CTA that pops up when the instagram animation runs";s:8:"required";s:1:"0";s:13:"default_value";s:60:"Tag your instagrams #futuremural and they will show up here.";s:11:"placeholder";s:0:"";s:9:"maxlength";s:3:"140";s:10:"formatting";s:2:"br";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aad30009d0</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aad30009d0";s:5:"label";s:5:"Scale";s:4:"name";s:11:"layar_scale";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:1:"1";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:16;}]]></wp:meta_value>
+			<wp:meta_key>field_53335c9c93b78</wp:meta_key>
+			<wp:meta_value><![CDATA[a:12:{s:3:"key";s:19:"field_53335c9c93b78";s:5:"label";s:9:"Tweet CTA";s:4:"name";s:13:"mof_tweet_cta";s:4:"type";s:8:"textarea";s:12:"instructions";s:53:"The CTA that pops up when the twitter animation runs.";s:8:"required";s:1:"0";s:13:"default_value";s:56:"Tag your tweets #futuremural and they will show up here.";s:11:"placeholder";s:0:"";s:9:"maxlength";s:3:"140";s:10:"formatting";s:2:"br";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";s:5:"value";s:0:"";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:1;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aad9b009d2</wp:meta_key>
-			<wp:meta_value><![CDATA[a:9:{s:3:"key";s:19:"field_530aad9b009d2";s:5:"label";s:7:"message";s:4:"name";s:0:"";s:4:"type";s:7:"message";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"message";s:66:"More translate options coming soon. Rotate, et all are on the way.";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:17;}]]></wp:meta_value>
+			<wp:meta_key>position</wp:meta_key>
+			<wp:meta_value><![CDATA[normal]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
-			<wp:meta_key>field_530aade31f34a</wp:meta_key>
-			<wp:meta_value><![CDATA[a:15:{s:3:"key";s:19:"field_530aade31f34a";s:5:"label";s:16:"Refresh Interval";s:4:"name";s:22:"layar_refresh_interval";s:4:"type";s:6:"number";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:13:"default_value";s:3:"900";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:4:"step";s:0:"";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_530aab1df65c0";s:8:"operator";s:2:"==";s:5:"value";s:9:"text/html";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:5;}]]></wp:meta_value>
+			<wp:meta_key>layout</wp:meta_key>
+			<wp:meta_value><![CDATA[no_box]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>hide_on_screen</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_53336ea30f341</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>field_53336ed20f342</wp:meta_key>
+			<wp:meta_value><![CDATA[a:9:{s:3:"key";s:19:"field_53336ed20f342";s:5:"label";s:34:"Looking for the Instagram hashtag?";s:4:"name";s:0:"";s:4:"type";s:7:"message";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:7:"message";s:139:"Looking for the Instagram hashtag? It's in the Instagrate Pro Account. <a href="wp-admin/edit.php?post_type=instagrate_pro">Look here»</a>";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:2:{s:5:"field";s:4:"null";s:8:"operator";s:2:"==";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:3;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>rule</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:13:"page_template";s:8:"operator";s:2:"==";s:5:"value";s:21:"page-center-panel.php";s:8:"order_no";i:0;s:8:"group_no";i:0;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 </channel>
