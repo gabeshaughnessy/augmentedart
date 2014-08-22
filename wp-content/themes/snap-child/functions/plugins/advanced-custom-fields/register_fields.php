@@ -175,7 +175,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_530aad24009cf',
 				'label' => 'Translate Z',
-				'name' => 'translate_z',
+				'name' => 'layar_translate_z',
 				'type' => 'number',
 				'default_value' => 0,
 				'placeholder' => '',
