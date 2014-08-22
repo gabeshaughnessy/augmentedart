@@ -35,7 +35,7 @@ function updateCheckboxes() {
   } else {
 
     $data = $_POST;
-    error_log(print_r($data, true));
+    
 
     $dataString = $data['post'];
     parse_str($dataString, $dataArray);
@@ -44,16 +44,17 @@ function updateCheckboxes() {
 
     if(wp_verify_nonce($nonce, 'checkbox') !== false) {
 
-      $user_ID = isset($dataArray['user_id']) ? $dataArray['user_id'] : NULL;
+    error_log(print_r($dataArray, true));
+      $dataArray['user_id'] = isset($dataArray['user_id']) ? $dataArray['user_id'] : NULL;
 
       $dataArray['first_checkbox'] = isset($dataArray['first_checkbox']) ? true : false;
       $dataArray['second_checkbox'] = isset($dataArray['second_checkbox']) ? true : false;
       $dataArray['third_checkbox'] = isset($dataArray['third_checkbox']) ? true : false;
 
-      if($user_ID != NULL) {
+      if($dataArray['user_id']!= NULL) {
         foreach($dataArray as $key=>$value) {
 
-          $status = update_user_meta($user_ID, $key, $value);
+          $status = update_user_meta($dataArray['user_id'], $key, $value);
 
         }
 

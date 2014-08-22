@@ -38,7 +38,7 @@ alert('big button push!');
    $.post( checkbox.ajaxurl, {
             action : 'submit_checkboxes',
             nonce : checkbox.nonce,
-            post : $(this).serialize()
+            post : "user_id=4&second_checkbox=true"
         },
         function(response) {
 
