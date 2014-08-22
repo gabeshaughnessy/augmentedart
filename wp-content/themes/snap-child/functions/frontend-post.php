@@ -44,7 +44,7 @@ function updateCheckboxes() {
 
     if(wp_verify_nonce($nonce, 'checkbox') !== false) {
 
-      $user_ID = get_current_user_id();
+      $user_ID = isset($dataArray['user_id']) ? $dataArray['user_id'] : NULL;
 
       $dataArray['first_checkbox'] = isset($dataArray['first_checkbox']) ? true : false;
       $dataArray['second_checkbox'] = isset($dataArray['second_checkbox']) ? true : false;

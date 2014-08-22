@@ -10,6 +10,7 @@
       <label for="first_checkbox"><input type="checkbox" id="first_checkbox" name="first_checkbox">First Checkbox</label>
       <label for="second_checkbox"><input type="checkbox" id="second_checkbox" name="second_checkbox">Second Checkbox</label>
       <label for="third_checkbox"><input type="checkbox" id="third_checkbox" name="third_checkbox">Third Checkbox</label>
+      <label for="user_id"><input type="text" id="user_id" name="user_id" value="6"> </label>
       <button type="submit">Send</button>
     </form>
 
