@@ -1603,7 +1603,7 @@ div .aligncenter {
   /* line 56, ../sass/_posts.scss */
   .tile .post:nth-of-type(odd) {
     float: left;
-    border-right: 1px solid #efefef;
+    /*border-right: 1px solid #efefef;*/
   }
   /* line 60, ../sass/_posts.scss */
   .tile .post:nth-of-type(odd) .set-post {
