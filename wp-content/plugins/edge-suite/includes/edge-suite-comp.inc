@@ -85,6 +85,9 @@ function edge_suite_comp_create($file, $replace_libs = FALSE, $definition_id_cur
       }
 
       $definition_id = $def_record['definition_id'];
+      if($definition_id == 0){
+        throw new Exception('Definition id of 0, database entry could not be created.');
+      }
       $def_name = edge_suite_comp_unique_name($def_record);
 
       $project_path = EDGE_SUITE_COMP_PROJECT_DIR . '/' . $def_name;
@@ -218,7 +221,7 @@ function edge_suite_comp_delete_definition($definition_id) {
  * @return array
  *   Array with stage content and header scripts.
  */
-function edge_suite_comp_render($definition_id, $styles = '') {
+function edge_suite_comp_render($definition_id, $styles = '', $data = array()) {
   $scripts = array();
   $stage = '';
   if ($definition_id > 0) {
@@ -267,8 +270,14 @@ function edge_suite_comp_render($definition_id, $styles = '') {
       $width = 'width:' . $definition->info->width . ';';
     }
 
+    // Generate JSON data for more advanced animations, if supplied.
+    $data_string = '';
+    if (isset($data) && !empty($data)) {
+      $data_string = '<script class="data" type="text/data">' . json_encode($data) . '</script>';
+    }
+
     // Put everything together.
-    $stage = '<div id="' . $div_id . '" style="' . $height . $width . $styles . '" class="' . $definition->composition_id . '">' . '</div>';
+    $stage = '<p><div id="' . $div_id . '" style="' . $height . $width . $styles . '" class="' . $definition->composition_id . '">' . $data_string .  '</div></p>';
 
   }
 

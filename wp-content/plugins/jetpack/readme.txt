@@ -1,7 +1,7 @@
 === Jetpack by WordPress.com ===
 Contributors: automattic, alternatekev, andy, apeatling, azaozz, barry, beaulebens, blobaugh, cfinke, chellycat, danielbachhuber, daniloercoli, designsimply, eoigal, ethitter, gibrown, georgestephanis, hew, hugobaeta, iammattthomas, jblz, jeherve, jkudish, Joen, johnjamesjacoby, jshreve, kraftbj, lancewillett, martinremy, matt, matveb, mcsf, mdawaffe, migueluy, nickmomrik, obenland, pento, richardmtl, stephdau, tmoorewp, Viper007Bond, westi, yoavf
 Tags: WordPress.com, statistics, stats, views, tweets, twitter, widget, gravatar, hovercards, profile, equations, latex, math, maths, youtube, shortcode, archives, audio, blip, bliptv, dailymotion, digg, flickr, googlevideo, google, googlemaps, kyte, kytetv, livevideo, redlasso, rockyou, rss, scribd, slide, slideshare, soundcloud, vimeo, shortlinks, wp.me, subscriptions, notifications, notes, json, api, rest, mosaic, gallery, slideshow, videopress, monitor, search, omnisearch, sso, jet pack
-Stable tag: 2.8
+Stable tag: 2.8.2
 Requires at least: 3.7
 Tested up to: 3.8.1
 
@@ -84,7 +84,21 @@ Learn more (and get detailed instructions) in our [contribute guide](http://jetp
 7. CSS Editor
 8. Mobile Theme
 
+== Upgrade Notice ==
+
+= 2.8.2 =
+Jetpack 2.8.1 fixes a security bug, and 2.8.2 fixes a rare fatal error. Please upgrade immediately.
+
+= 2.8.1 =
+Jetpack 2.8.1 fixes a security bug. Please upgrade immediately.
+
 == Changelog ==
+
+= 2.8.2 =
+* Bug Fix: Avoid function which isn't always defined.
+
+= 2.8.1 =
+* Important security update. CVE-2014-0173
 
 = 2.8 =
 * New Module: Markdown

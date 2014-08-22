@@ -1,9 +1,9 @@
 === Edge Suite ===
 Contributors: ti2m
 Tags: media, animation, interactive, adobe edge animate, edge animate, edge, embed, integration
-Requires at least: 4.3
-Tested up to: 4.3
-Stable tag: 0.4
+Requires at least: 3.6
+Tested up to: 3.8
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,10 +19,10 @@ Detailed tutorials on how to install and use Edge Suite can be found here:
 * <a href="http://old.edgedocks.com/content/edge-suite-integrate-edge-animate-wordpress">Edge Docks - written tutorial</a>
 * <a href="http://tv.adobe.com/watch/create-like-crazy-with-adobe-edge/episode-5-spice-up-your-wordpress-site-with-edge-animate/">Adobe TV - video tutorial</a>
 
-More resources can be found at <a href="http://edgedocks.com/edge_suite_wp">EdgeDocks.com</a>.
+More resources can be found at <a href="http://edgedocks.com/">EdgeDocks.com</a>.
 
 The plugin has been intensively tested over the last couple of months and seems to be rather stable, it is up to you though if you want to try and use it in production. If you experience
-any problems please open an issue in the support section. If you like the plugin please vote for it and let us know that it works for your wordpress version.
+any problems please read the FAQ before opening an issue in the support section. If you like the plugin please vote for it and let us know that it works for your wordpress version.
 
 == Features ==
 
@@ -35,6 +35,12 @@ any problems please open an issue in the support section. If you like the plugin
 
 == Frequently Asked Questions ==
 
+= Dev version =
+
+When experiencing any problems, please always try the latest dev version (http://downloads.wordpress.org/plugin/edge-suite.zip).
+ Manual installation is needed. New features and bugfixes are always tested first in the dev version before they are being merged
+ into the stable version.
+
 = General things to check when problems occur =
 
 * Open the debug console in Chrome (mac: alt + cmd + j) or Firefox and check for JavaScript errors.
@@ -43,20 +49,6 @@ any problems please open an issue in the support section. If you like the plugin
 
  Try to enable jQuery no conflict mode in the settings page, this might resolve conflicts between Edge Animates
  version of jQuery and other plugins.
-
-= Background animation =
-
-If you want to use your composition as a background animation, try the following CSS on your stage id, e.g. #Stage_mycomp
-
-    #Stage_mycomp{
-        position: absolute !important; /* That is not pretty, but no way around it. */
-        top: 0px; /* Aligns the animation with the top of the header (can be removed or changed) */
-        z-index: 5; /* Sets animation as overlay, set to negative value for background placement */
-
-        /* Only use the following if you want to center the animation */
-        left: 50%;
-        margin-left: -346px; /* Half the width of the stage */
-    }
 
 = Animations don't show up =
 
@@ -76,6 +68,15 @@ Uploading worked but nothings shows up on the page. Things to check:
 
 * Enable jQuery no-conflict mode in the settings
 
+= Custom JavaScript =
+
+When using custom JavaScript code make sure you reference the Stage through
+
+    sym.$('Stage')
+
+$('#Stage') or sym.$('#Stage') will not work. The reason is that Edge Suite needs to alter the Stage Div Id, so '#Stage'
+does not exist. When using sym.$('Stage') Edge Animate will use its internal reference to get the stage.
+
 = Head Cleaner: Animations don't show up =
 
 Head Cleaner basically skips the processing of edge_suite_header() which is needed to inject the Edge Javascript.
@@ -85,6 +86,23 @@ This stops Head Cleaner from "processing" ede_suite_header(), which basically me
 = PHP ZipArchive not found =
 
 zip.so needs to be installed as a PHP library
+
+= Background animation =
+
+If you want to use your composition as a background animation, try the following CSS on your stage id, e.g. #Stage_mycomp
+
+    #Stage_mycomp{
+        position: absolute !important; /* That is not pretty, but no way around it. */
+        top: 0px; /* Aligns the animation with the top of the header (can be removed or changed) */
+        z-index: -5; /* Places animation in the background, set to a positive value for an overlay */
+
+        /* Only use the following if you want to center the animation */
+        left: 50%;
+        margin-left: -346px; /* Half the width of the stage */
+        top: 50%;
+        margin-top: -200px; /* Half the height of the stage */
+    }
+
 
 == Installation ==
 
@@ -134,6 +152,9 @@ Bugfixes
 
 = 0.5 =
 Bugfixes, jQuery no conflict mode, readme update
+
+= 0.6 =
+Bugfixes, readme update, better error handling, Edge Animate 3 updates
 
 
 

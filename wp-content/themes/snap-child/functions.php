@@ -20,7 +20,7 @@ if (stristr($host, 'com') == FALSE){
     /* Advanced Custome Fields */
     require_once('functions/plugins/advanced-custom-fields/acf.php');
     /* ACF Add-ons */
-    //include_once( 'functions/plugins/advanced-custom-fields/add-ons/acf-repeater/acf-repeater.php' );
+    include_once( 'functions/plugins/advanced-custom-fields/add-ons/acf-repeater/acf-repeater.php' );
     //include_once( 'functions/plugins/advanced-custom-fields/add-ons/acf-flexible-content/acf-flexible-content.php' );
     //include_once( 'functions/plugins/advanced-custom-fields/add-ons/acf-options-page/acf-options-page.php' ); 
     //include_once( 'functions/plugins/advanced-custom-fields/add-ons/acf-field-date-time-picker/acf-date_time_picker.php' ); 
@@ -77,4 +77,6 @@ function get_cat_slug($cat_id) {
     $category = &get_category($cat_id);
     return $category->slug;
 }
+
+require_once('functions/frontend-post.php');
 ?>

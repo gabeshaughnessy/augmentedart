@@ -50,7 +50,7 @@
                      value="<?php echo intval(get_option('edge_suite_max_size')); ?>"/>
         <span class="setting-description">
           File size in MB<br/>
-            This is the max size that your file uploads will be limited to. 2 MB is the default upload size.<br>
+            This is the max size that your file uploads will be limited to. 5 MB is the default upload size.<br>
             <?php print $file_size_hint; ?>
         </span>
           </td>

@@ -8,11 +8,10 @@ if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
 else {
     $is_android = false;
 }
-
-$user_id = $_SERVER['userId'];
+$user_id = $_REQUEST['userId'];
 if(isset($user_id)){
     ?>
-    <script type="text/javascript">alert(<? $user_id ?>); </script>
+    <script type="text/javascript">console.log("User ID: <?php echo $user_id ?>"); </script>
     <?php
 }
 
