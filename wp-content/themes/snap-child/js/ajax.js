@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
 //just a button, no form?
 $('#testbutton').on('click touch', function(e){
   e.preventDefault();
-alert(checkbox.ajaxurl);
+  alert(checkbox.ajaxurl);
 
    $.post( checkbox.ajaxurl, {
             action : 'submit_checkboxes',

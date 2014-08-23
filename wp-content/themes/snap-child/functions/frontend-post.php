@@ -1,6 +1,6 @@
 <?php 
 //Front End Updates to USER Meta with Ajax: https://patrickshampine.com/2014/updating-user-meta-admin-ajax-frontend/
-add_action( 'wp_ajax_submit_checkboxes', 'updateCheckboxes' );
+
 add_action( 'wp_ajax_nopriv_submit_checkboxes', 'updateCheckboxes' );
 function checkbox_scripts() {
   $parameters = array(
