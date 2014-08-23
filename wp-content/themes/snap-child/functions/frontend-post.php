@@ -35,7 +35,7 @@ function updateCheckboxes() {
 
   } else {
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    error_log(print_r($_POST, true) . $user_agent);
+     echo  '"'.print_r($_POST, true) . $user_agent.'"';
     $data = $_POST;
     
 
