@@ -34,10 +34,11 @@ jQuery(document).ready(function($) {
 
 //just a button, no form?
 $('#testbutton').on('click touch', function(e){
+  e.preventDefault();
 alert('big button push!');
    $.post( checkbox.ajaxurl, {
             action : 'submit_checkboxes',
-            nonce : checkbox.nonce,
+            
             post : "user_id=4&second_checkbox=true"
         },
         function(response) {

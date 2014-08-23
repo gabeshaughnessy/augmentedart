@@ -41,9 +41,7 @@ function updateCheckboxes() {
     $dataString = $data['post'];
     parse_str($dataString, $dataArray);
 
-    $nonce = $data['nonce'];
-
-    if(wp_verify_nonce($nonce, 'checkbox') !== false) {
+    
 
       $dataArray['user_id'] = isset($dataArray['user_id']) ? $dataArray['user_id'] : NULL;
 
@@ -65,11 +63,6 @@ function updateCheckboxes() {
         error_log(print_r($dataArray, true));
       }
 
-    } else {
-
-      ajaxStatus('error', 'Nonce check cannot fail.');
-
-    }
 
   }
 
