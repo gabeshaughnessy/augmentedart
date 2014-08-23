@@ -28,7 +28,7 @@ function ajaxStatus($status, $message, $data = NULL) {
 }
 
 function updateCheckboxes() {
-
+echo '<script>alert("fuction_ran"');'</script>';
   if(empty($_POST) || !isset($_POST)) {
 
     ajaxStatus('error', 'Nothing to update.');
@@ -51,7 +51,6 @@ function updateCheckboxes() {
       $dataArray['first_checkbox'] = isset($dataArray['first_checkbox']) ? true : false;
       $dataArray['second_checkbox'] = isset($dataArray['second_checkbox']) ? true : false;
       $dataArray['third_checkbox'] = isset($dataArray['third_checkbox']) ? true : false;
-  error_log('dataArray : '.print_r($dataArray, true));
 
       if($dataArray['user_id']!= NULL) {
         foreach($dataArray as $key=>$value) {

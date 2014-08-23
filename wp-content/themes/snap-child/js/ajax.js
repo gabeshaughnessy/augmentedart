@@ -40,9 +40,7 @@ $('#testbutton').on('click touch', function(e){
             post : "user_id=4&second_checkbox=true"
         },
         function(response) {
-          console.log(this);
             alert('this '+this.data+'  response '+response);
-            console.log(response);
             responseSuccess(response);
         });
 
