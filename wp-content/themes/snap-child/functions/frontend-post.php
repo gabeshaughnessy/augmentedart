@@ -23,12 +23,12 @@ function ajaxStatus($status, $message, $data = NULL) {
     );
   $output = json_encode($response);
 
-  exit($output);
+  exit('responsestuff');
 
 }
 
 function updateCheckboxes() {
-echo '<script>alert("fuction_ran");</script>';
+
   if(empty($_POST) || !isset($_POST)) {
 
     ajaxStatus('error', 'Nothing to update.');
