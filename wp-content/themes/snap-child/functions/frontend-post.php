@@ -35,7 +35,6 @@ function updateCheckboxes() {
 
   } else {
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
-     echo  '"'.print_r($_POST, true) . $user_agent.'"';
     $data = $_POST;
     
 
@@ -46,9 +45,13 @@ function updateCheckboxes() {
 
       $dataArray['user_id'] = isset($dataArray['user_id']) ? $dataArray['user_id'] : NULL;
 
+      $dataArray['user_agent'] = isset($user_agent) ? $user_agent : NULL;
+      $dataArray['response_action'] = isset($data['action']) ? $data['action'] : NULL;
+
       $dataArray['first_checkbox'] = isset($dataArray['first_checkbox']) ? true : false;
       $dataArray['second_checkbox'] = isset($dataArray['second_checkbox']) ? true : false;
       $dataArray['third_checkbox'] = isset($dataArray['third_checkbox']) ? true : false;
+  error_log('dataArray : '.print_r($dataArray, true));
 
       if($dataArray['user_id']!= NULL) {
         foreach($dataArray as $key=>$value) {
@@ -61,10 +64,7 @@ function updateCheckboxes() {
 
       } else {
         ajaxStatus('error', 'You are unauthorized to perform this action.', $dataArray);
-        error_log(print_r($dataArray, true));
       }
-
-
   }
 
 }
