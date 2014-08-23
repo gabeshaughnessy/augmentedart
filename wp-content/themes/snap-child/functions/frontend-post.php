@@ -28,7 +28,7 @@ function ajaxStatus($status, $message, $data = NULL) {
 }
 
 function updateCheckboxes() {
-echo '<script>alert("fuction_ran"');'</script>';
+echo '<script>alert("fuction_ran");</script>';
   if(empty($_POST) || !isset($_POST)) {
 
     ajaxStatus('error', 'Nothing to update.');
