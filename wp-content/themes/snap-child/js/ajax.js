@@ -41,7 +41,7 @@ alert('big button push!');
             post : "user_id=4&second_checkbox=true"
         },
         function(response) {
-
+            alert(response);
             console.log(response);
             responseSuccess(response);
         });
