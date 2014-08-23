@@ -23,7 +23,7 @@ function ajaxStatus($status, $message, $data = NULL) {
     );
   $output = json_encode($response);
 
-  exit('responsestuff');
+  exit($output);
 
 }
 

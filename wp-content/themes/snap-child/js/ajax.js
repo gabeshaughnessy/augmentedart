@@ -8,10 +8,11 @@ jQuery(document).ready(function($) {
    
     $.post( checkbox.ajaxurl, {
           action : 'submit_checkboxes',
-          nonce : checkbox.nonce,
           post : $(this).serialize()
       },
       function(response) {
+         alert('this '+this.data+'  response '+response);
+
           console.log(response);
           responseSuccess(response);
       });
