@@ -22,7 +22,7 @@
 <div id="mobile-toggle">
 	<span><?php echo wp_strip_all_tags( snap_get_responsive_nav_options( 'label' ) ); ?></span>
 </div>
-<?php if(is_page_template('splash-page.php')){
+<?php if(is_page_template('splash-page.php') || is_page_template('layar-content-page.php') || is_page_template('page-center-panel.php')){
 	?><div class="splash-content">
 <?php	
 }
