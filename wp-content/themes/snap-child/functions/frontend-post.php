@@ -28,7 +28,7 @@ function ajaxStatus($status, $message, $data = NULL) {
 }
 
 function updateCheckboxes() {
-
+	
   if(empty($_POST) || !isset($_POST)) {
 
     ajaxStatus('error', 'Nothing to update.');
@@ -65,6 +65,6 @@ function updateCheckboxes() {
         ajaxStatus('error', 'You are unauthorized to perform this action.', $dataArray);
       }
   }
-
+  die('updated');
 }
 ?>

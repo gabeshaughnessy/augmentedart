@@ -18,4 +18,4 @@
 
     <button id="testbutton"><h1>Big Button</h1></button>
 
-<?php get_footer();
+<?php get_footer(); ?>
