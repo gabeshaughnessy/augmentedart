@@ -2696,8 +2696,7 @@ input[type="button"]:hover,
   position: absolute;
   width: 100%;
   top: 0;
-  padding-top: 10px;
-  padding-bottom: 12px;
+
 }
 /* line 7, ../sass/_splash-page.scss */
 .splash-content .edge-animation {
