@@ -11,8 +11,6 @@ jQuery(document).ready(function($) {
           post : $(this).serialize()
       },
       function(response) {
-         alert('this '+this.data+'  response '+response);
-
           console.log(response);
           responseSuccess(response);
       });
