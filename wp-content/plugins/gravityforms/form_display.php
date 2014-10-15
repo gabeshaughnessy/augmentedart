@@ -111,6 +111,7 @@ class GFFormDisplay{
                 //after submission hook
                 do_action("gform_after_submission", $lead, $form);
                 do_action("gform_after_submission_{$form["id"]}", $lead, $form);
+
             }
 
             if(is_array($confirmation) && isset($confirmation["redirect"])){
@@ -118,8 +119,15 @@ class GFFormDisplay{
                 do_action("gform_post_submission", $lead, $form);
                 do_action("gform_post_submission_{$form["id"]}", $lead, $form);
 
-                exit;
+				//GFFormsModel::delete_password( $lead, $form );
+
+				exit;
             }
+//			else{
+//
+//				GFFormsModel::delete_password( $lead, $form );
+//
+//			}
         }
         if(!isset(self::$submission[$form_id]))
             self::$submission[$form_id] = array();
@@ -164,6 +172,7 @@ class GFFormDisplay{
             GFCommon::log_debug("upload_files() - temp file info: " . print_r($file_info, true));
 
             if($file_info && move_uploaded_file($_FILES[$input_name]['tmp_name'], $target_path . $file_info["temp_filename"])){
+				GFFormsModel::set_permissions( $target_path . $file_info['temp_filename'] );
                 $files[$input_name] = $file_info["uploaded_filename"];
                 GFCommon::log_debug("upload_files() - file uploaded successfully:  {$file_info["uploaded_filename"]}");
             }
@@ -406,6 +415,9 @@ class GFFormDisplay{
         $confirmation_message = "";
         $page_number = 1;
 
+	    $view_counter_disabled = apply_filters( 'gform_disable_view_counter', false );
+	    $view_counter_disabled = apply_filters( "gform_disable_view_counter_{$form_id}", $view_counter_disabled );
+
         //If form was submitted, read variables set during form submission procedure
         $submission_info = isset(self::$submission[$form_id]) ? self::$submission[$form_id] : false;
         if($submission_info){
@@ -429,7 +441,7 @@ class GFFormDisplay{
                 }
             }
         }
-        else if(!current_user_can("administrator")){
+        else if(!current_user_can("administrator") && !$view_counter_disabled){
             RGFormsModel::insert_form_view($form_id, $_SERVER['REMOTE_ADDR']);
         }
 
@@ -509,7 +521,7 @@ class GFFormDisplay{
 
             $form_css_class = !empty($form["cssClass"]) ? "class='{$form["cssClass"]}'": "";
 
-            $action = esc_attr($action);
+            $action = esc_url($action);
             $form_string .= apply_filters("gform_form_tag_{$form_id}", apply_filters("gform_form_tag", "<form method='post' enctype='multipart/form-data' {$target} id='gform_{$form_id}' {$form_css_class} action='{$action}'>", $form), $form);
 
             if($display_title || $display_description){
@@ -696,11 +708,10 @@ class GFFormDisplay{
 
 			//check admin setting for whether the progress bar should start at zero
         	$start_at_zero = rgars($form, "pagination/display_progressbar_on_confirmation");
-			//check for filter
             $start_at_zero = apply_filters("gform_progressbar_start_at_zero", $start_at_zero, $form);
 
             //show progress bar on confirmation
-            if($start_at_zero && $has_pages && !IS_ADMIN && ($form["confirmation"]["type"] == "message" && $form["pagination"]["type"] == "percentage") && $form["pagination"]["display_progressbar_on_confirmation"])
+            if( $start_at_zero && $has_pages && ! IS_ADMIN && ( $form["confirmation"]["type"] == "message" && $form["pagination"]["type"] == "percentage" ) )
             {
                 $progress_confirmation = self::get_progress_bar($form, $form_id,$confirmation_message);
                 if($ajax)
@@ -716,7 +727,7 @@ class GFFormDisplay{
                 }
                 else
                 {
-                 $progress_confirmation = $confirmation_message;
+                    $progress_confirmation = $confirmation_message;
                 }
             }
 
@@ -975,6 +986,8 @@ class GFFormDisplay{
 
         //if Akismet plugin is installed, run lead through Akismet and mark it as Spam when appropriate
         $is_spam = GFCommon::akismet_enabled($form['id']) && GFCommon::is_akismet_spam($form, $lead);
+        $is_spam = apply_filters( 'gform_entry_is_spam', $is_spam, $form, $lead );
+	    $is_spam = apply_filters( "gform_entry_is_spam_{$form['id']}", $is_spam, $form, $lead );
 
         GFCommon::log_debug("Checking for spam...");
         GFCommon::log_debug("Is entry considered spam? {$is_spam}.");
@@ -1469,13 +1482,13 @@ class GFFormDisplay{
 
                         case "fileupload" :
                         case "post_image" :
-
                             $input_name = "input_" . $field["id"];
-                            $allowedExtensions = GFCommon::clean_extensions(explode(",", strtolower($field["allowedExtensions"])));
 
                             if(rgar($field, "multipleFiles")){
                                 $file_names = isset(GFFormsModel::$uploaded_files[$form["id"]][$input_name]) ? GFFormsModel::$uploaded_files[$form["id"]][$input_name] : array();
                             } else {
+								$max_upload_size_in_bytes = isset($field["maxFileSize"]) && $field["maxFileSize"] > 0 ? $field["maxFileSize"] * 1048576: wp_max_upload_size();
+								$max_upload_size_in_mb = $max_upload_size_in_bytes / 1048576;
                                 if(!empty($_FILES[$input_name]["name"]) && $_FILES[$input_name]["error"] > 0){
                                     $uploaded_file_name = isset(GFFormsModel::$uploaded_files[$form["id"]][$input_name]) ? GFFormsModel::$uploaded_files[$form["id"]][$input_name] : "";
                                     if(empty($uploaded_file_name)){
@@ -1483,8 +1496,6 @@ class GFFormDisplay{
                                         switch($_FILES[$input_name]["error"]){
                                             case UPLOAD_ERR_INI_SIZE :
                                             case UPLOAD_ERR_FORM_SIZE :
-                                                $max_upload_size_in_bytes = isset($field["maxFileSize"]) && $field["maxFileSize"] > 0 ? $field["maxFileSize"] * 1048576: wp_max_upload_size();
-                                                $max_upload_size_in_mb = $max_upload_size_in_bytes / 1048576;
                                                 $fileupload_validation_message = sprintf(__("File exceeds size limit. Maximum file size: %dMB", "gravityforms"), $max_upload_size_in_mb);
                                                 break;
                                             default :
@@ -1494,7 +1505,10 @@ class GFFormDisplay{
                                         break;
                                     }
 
-                                }
+                                } elseif ( $_FILES[ $input_name ]['size'] > 0 && $_FILES[ $input_name ]['size'] > $max_upload_size_in_bytes ) {
+									$field["failed_validation"] = true;
+									$field["validation_message"] = sprintf( __( 'File exceeds size limit. Maximum file size: %dMB', 'gravityforms' ), $max_upload_size_in_mb );
+								}
                                 $single_file_name = $_FILES[$input_name]["name"];
                                 $file_names = array(array("uploaded_filename" => $single_file_name));
 
@@ -1502,13 +1516,13 @@ class GFFormDisplay{
 
                             foreach($file_names as $file_name){
                                 $info = pathinfo(rgar($file_name, "uploaded_filename"));
-                                $extension = strtolower(rgget("extension",$info));
+								$allowed_extensions    = isset($field["allowedExtensions"]) && !empty($field["allowedExtensions"]) ? GFCommon::clean_extensions(explode(",", strtolower($field["allowedExtensions"]))) : array();
 
-                                if(empty($field["allowedExtensions"]) && in_array($extension, GFCommon::get_disallowed_file_extensions())){
+								if( empty( $field["allowedExtensions"] ) && GFCommon::file_name_has_disallowed_extension( rgar( $file_name, 'uploaded_filename' ) ) ){
                                     $field["failed_validation"] = true;
                                     $field["validation_message"] = empty($field["errorMessage"]) ? __("The uploaded file type is not allowed.", "gravityforms")  : $field["errorMessage"];
                                 }
-                                else if(!empty($field["allowedExtensions"]) && !empty($info["basename"]) && !in_array($extension, $allowedExtensions)){
+                                else if(!empty($field["allowedExtensions"]) && !empty($info["basename"]) && ! GFCommon::match_file_extension( rgar( $file_name, 'uploaded_filename' ), $allowed_extensions )){
                                     $field["failed_validation"] = true;
                                     $field["validation_message"] = empty($field["errorMessage"]) ? sprintf(__("The uploaded file type is not allowed. Must be one of the following: %s", "gravityforms"), strtolower($field["allowedExtensions"]) )  : $field["errorMessage"];
                                 }
@@ -1903,6 +1917,10 @@ class GFFormDisplay{
                 $is_pricing_field = GFCommon::is_pricing_field( $field['type'] );
 
                 foreach($field["choices"] as $choice){
+
+					if( $input_type == "checkbox" && ($choice_index % 10) == 0){
+						$choice_index++;
+					}
 
                     if(rgar($choice,"isSelected") && $input_type == "select"){
                         $val = $is_pricing_field ? $choice["value"] . "|" . GFCommon::to_number($choice["price"]) :  $choice["value"];
@@ -2576,9 +2594,14 @@ class GFFormDisplay{
                         $target_input_id = $field_id . "_3";
                 }
 
-            case "address" :
-                if(empty($target_input_id))
+			case "address" :
+                if(empty($target_input_id)){
                     $target_input_id = $field_id . "_1";
+				}
+
+            case 'list':
+				if(empty($target_input_id))
+                	$target_input_id = sprintf( 'input_%s_%s_shim', $form_id, $field['id'] );
 
             default :
                 if(empty($target_input_id))

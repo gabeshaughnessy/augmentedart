@@ -196,7 +196,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 		$submission_data = $this->get_submission_data( $feed, $form, $entry );
 
 		//Do not process payment if payment amount is 0 or less
-		if ( intval( $submission_data['payment_amount'] ) <= 0 ) {
+		if ( floatval( $submission_data['payment_amount'] ) <= 0 ) {
 
 			$this->log_debug( 'Payment amount is $0.00 or less. Not sending to payment gateway.' );
 
@@ -573,8 +573,10 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
             $options = array();
             if(is_array(rgar($product, "options"))){
                 foreach($product["options"] as $option){
-                    $options[] = $option["option_name"];
-                    $product_price += $option["price"];
+					if ( isset( $option['option_name'] ) ){
+                    	$options[] = $option["option_name"];
+                    	$product_price += $option["price"];
+					}
                 }
             }
 
@@ -657,7 +659,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
         if(is_wp_error( $callback_action )) {
             $this->display_callback_error($callback_action);
         }
-        else if($callback_action && is_array( $callback_action ) && rgar( $callback_action, 'type' ) ) {
+        else if($callback_action && is_array( $callback_action ) && rgar( $callback_action, 'type' ) && ! rgar($callback_action, 'abort_callback') ) {
 
             $result = $this->process_callback_action( $callback_action );
 
@@ -826,7 +828,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
         return true;
     }
 
-    public function complete_payment( $entry, $action ) {
+    public function complete_payment( &$entry, $action ) {
 
 		if ( ! rgar($action, 'payment_status') ) {
             $action['payment_status'] = 'Paid';
@@ -2118,7 +2120,9 @@ class GFPaymentStatsTable extends WP_List_Table {
         if ( empty( $this->_pagination_args ) )
             return;
 
-        extract( $this->_pagination_args, EXTR_SKIP );
+		$total_items = $this->_pagination_args['total_items'];
+		$total_pages = $this->_pagination_args['total_pages'];
+		$per_page = $this->_pagination_args['per_page'];
 
         $output = '<span class="displaying-num">' . sprintf( _n( '1 item', '%s items', $total_items, 'gravityforms' ), number_format_i18n( $total_items ) ) . '</span>';
 
