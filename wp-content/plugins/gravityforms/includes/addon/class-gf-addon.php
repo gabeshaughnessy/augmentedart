@@ -1084,21 +1084,24 @@ abstract class GFAddOn {
         if( ! $settings )
             $settings = $this->get_current_settings();
 
-        if (false === $settings)
+        if (false === $settings) {
             return $default_value;
+		}
 
         if (strpos($setting_name, "[") !== false) {
             $path_parts = explode("[", $setting_name);
             foreach ($path_parts as $part) {
                 $part = trim($part, "]");
-                if (false === isset($settings[$part]))
+                if (false === isset($settings[$part])) {
                     return $default_value;
+				}
                 $settings = rgar($settings, $part);
             }
             $setting = $settings;
         } else {
-            if (false === isset($settings[$setting_name]))
+            if (false === isset($settings[$setting_name])) {
                 return $default_value;
+			}
             $setting = $settings[$setting_name];
         }
 
@@ -1378,16 +1381,15 @@ abstract class GFAddOn {
 
 		$field['type'] = 'checkbox'; //making sure type is set to checkbox
 
-		$default_attributes = array( 'onclick' => 'jQuery(this).siblings("input[type=hidden]").val(jQuery(this).prop("checked") ? 1 : 0);' );
-		$field_attributes   = $this->get_field_attributes( $field, $default_attributes );
+		$field_attributes   = $this->get_field_attributes( $field, array() );
 		$horizontal         = rgar( $field, 'horizontal' ) ? ' gaddon-setting-inline' : '';
 
+		$default_choice_attributes = array( 'onclick' => 'jQuery(this).siblings("input[type=hidden]").val(jQuery(this).prop("checked") ? 1 : 0);' );
 		$html = '';
-
 		if ( is_array( $field['choices'] ) ) {
 			foreach ( $field['choices'] as $choice ) {
 				$choice['id']      = sanitize_title($choice['name']);
-				$choice_attributes = $this->get_choice_attributes( $choice, $field_attributes );
+				$choice_attributes = $this->get_choice_attributes( $choice, $field_attributes, $default_choice_attributes );
 				$value             = $this->get_setting( $choice['name'], rgar( $choice, 'default_value' ) );
 				$tooltip           = isset( $choice['tooltip'] ) ? gform_tooltip( $choice['tooltip'], rgar( $choice, 'tooltip_class' ), true ) : '';
 
@@ -1571,8 +1573,9 @@ abstract class GFAddOn {
         $html = '';
         $field_map = rgar( $field, 'field_map' );
 
-        if( empty( $field_map ) )
+        if( empty( $field_map ) ) {
             return $html;
+		}
 
         $form_id = rgget( 'id' );
 
@@ -1679,7 +1682,7 @@ abstract class GFAddOn {
     public static function get_field_map_fields( $feed, $field_name ) {
 
         $fields = array();
-        $prefix = "field_map_{$field_name}_";
+        $prefix = "{$field_name}_";
 
         foreach( $feed['meta'] as $name => $value ) {
             if( strpos( $name, $prefix ) === 0 ) {
@@ -1870,60 +1873,82 @@ abstract class GFAddOn {
     protected function simple_condition($setting_name_root){
 
         $conditional_fields = $this->get_conditional_logic_fields();
-        $create_condition_value_script = "";
 
-        $str = $this->settings_select(array(
-                                    "name" => "{$setting_name_root}_field_id",
-                                    "type" => "select",
-                                    "choices" => $conditional_fields,
-                                    "class" => "optin_select",
-                                    "onchange" => "jQuery('#" . esc_attr($setting_name_root) . "_container').html(GetRuleValues('gf_setting', 0, jQuery(this).val(), '', '_gaddon_setting_" . esc_attr($setting_name_root) . "_value'));"
-                                ), false);
+		$value_input = '_gaddon_setting_' . esc_attr( $setting_name_root ) . '_value';
+		$object_type = "simple_condition_{$setting_name_root}";
 
-        $str .= $this->settings_select(array(
-                                    "name" => "{$setting_name_root}_operator",
-                                    "type" => "select",
-                                    "choices" => array(
-                                        array(
-                                            "value" => "is",
-                                            "label" => __("is", "gravityforms")
-                                            ),
-                                        array(
-                                            "value" => "isnot",
-                                            "label" => __("is not", "gravityforms")
-                                            ),
-                                        array(
-                                            "value" => ">",
-                                            "label" => __("greater than", "gravityforms")
-                                            ),
-                                        array(
-                                            "value" => "<",
-                                            "label" => __("less than", "gravityforms")
-                                            ),
-                                        array(
-                                            "value" => "contains",
-                                            "label" => __("contains", "gravityforms")
-                                            ),
-                                        array(
-                                            "value" => "starts_with",
-                                            "label" => __("starts with", "gravityforms")
-                                            ),
-                                        array(
-                                            "value" => "ends_with",
-                                            "label" => __("ends with", "gravityforms")
-                                            )
-                                        )
-                                ), false);
+		$str = $this->settings_select(array(
+				'name' => "{$setting_name_root}_field_id",
+				'type' => 'select',
+				'choices' => $conditional_fields,
+				'class' => 'optin_select',
+				'onchange' => "jQuery('#" . esc_attr( $setting_name_root ) . "_container').html(GetRuleValues('{$object_type}', 0, jQuery(this).val(), '', '{$value_input}'));"
+			), false);
+
+		$str .= $this->settings_select(array(
+				'name' => "{$setting_name_root}_operator",
+				'type' => 'select',
+				'onchange' => "SetRuleProperty('{$object_type}', 0, 'operator', jQuery(this).val()); jQuery('#" . esc_attr( $setting_name_root ) . "_container').html(GetRuleValues('{$object_type}', 0, jQuery('#{$setting_name_root}_field_id').val(), '', '{$value_input}'));",
+				"choices" => array(
+					array(
+						"value" => "is",
+						"label" => __("is", "gravityforms")
+						),
+					array(
+						"value" => "isnot",
+						"label" => __("is not", "gravityforms")
+						),
+					array(
+						"value" => ">",
+						"label" => __("greater than", "gravityforms")
+						),
+					array(
+						"value" => "<",
+						"label" => __("less than", "gravityforms")
+						),
+					array(
+						"value" => "contains",
+						"label" => __("contains", "gravityforms")
+						),
+					array(
+						"value" => "starts_with",
+						"label" => __("starts with", "gravityforms")
+						),
+					array(
+						"value" => "ends_with",
+						"label" => __("ends with", "gravityforms")
+						)
+					),
+		), false);
 
         $str .= "<span id='{$setting_name_root}_container'></span>";
 
         $field_id = $this->get_setting("{$setting_name_root}_field_id");
 
-        if(!empty($field_id)){
-            $current_condition_value = $this->get_setting("{$setting_name_root}_value");
-            $str .= "<script type='text/javascript'>jQuery(document).ready(function(){jQuery('#" . esc_attr($setting_name_root) . "_container').html(GetRuleValues('gf_setting', 0, {$field_id}, '" . esc_attr($current_condition_value) . "', '_gaddon_setting_" . esc_attr($setting_name_root) . "_value'));});</script>";
-        }
-        return $str;
+        $value = $this->get_setting("{$setting_name_root}_value");
+		$operator = $this->get_setting("{$setting_name_root}_operator");
+		if ( empty( $operator ) ){
+			$operator = 'is';
+		}
+
+
+		$field_id_attribute = ! empty( $field_id ) ? $field_id : 'jQuery("#' . esc_attr( $setting_name_root ) . '_field_id").val()';
+
+		$str .= "<script type='text/javascript'>
+			var " . esc_attr( $setting_name_root ) . "_object = {'conditionalLogic':{'rules':[{'fieldId':'{$field_id}','operator':'{$operator}','value':'" . esc_attr( $value ) . "'}]}};
+
+			jQuery(document).ready(
+				function(){
+					gform.addFilter( 'gform_conditional_object', 'SimpleConditionObject' );
+
+					jQuery('#" . esc_attr( $setting_name_root ) . "_container').html(
+											GetRuleValues('{$object_type}', 0, {$field_id_attribute}, '" . esc_attr( $value ) . "', '_gaddon_setting_" . esc_attr( $setting_name_root ) . "_value'));
+
+					}
+			);
+			</script>";
+
+		return $str;
     }
 
     /**
@@ -1994,18 +2019,41 @@ abstract class GFAddOn {
      * @param array $field_attributes - current field's attributes.
      * @return array - resulting HTML attributes ready to be included in the HTML element.
      */
-    protected function get_choice_attributes($choice, $field_attributes){
-        $choice_attributes = $field_attributes;
-        foreach( $choice as $prop => $val ) {
+    protected function get_choice_attributes($choice, $field_attributes, $default_choice_attributes = array()){
+
+		$choice_attributes = $field_attributes;
+
+		foreach( $choice as $prop => $val ) {
             $no_output_choice_attributes = array( 'default_value', 'label', 'checked', 'value', 'type',
                 'validation_callback', 'required', 'tooltip' );
-            if(in_array($prop, $no_output_choice_attributes))
+            if(in_array($prop, $no_output_choice_attributes)){
                 unset($choice_attributes[$prop]);
-            else
-                $choice_attributes[$prop] = "{$prop}='" . esc_attr($val) . "'";
+			}
+            else if ( in_array( $prop, $default_choice_attributes ) ) {
+                $choice_attributes[$prop] = "{$prop}='" . esc_attr( $default_choice_attributes[ $prop ] ) . esc_attr($val) . "'";
+			}
+			else{
+				$choice_attributes[$prop] = "{$prop}='" . esc_attr($val) . "'";
+			}
         }
-        return $choice_attributes;
+
+		//Adding default attributes. Either creating a new attribute or pre-pending to an existing one.
+		foreach ( $default_choice_attributes as $default_attr_name => $default_attr_value ){
+
+			if ( isset( $choice_attributes[ $default_attr_name ] ) ){
+				$choice_attributes[ $default_attr_name ] = $this->prepend_attribute( $default_attr_name, $default_attr_value, $choice_attributes[ $default_attr_name ] );
+			}
+			else {
+				$choice_attributes[ $default_attr_name ] = "{$default_attr_name}='" . esc_attr( $default_attr_value ) . "'";
+			}
+		}
+
+		return $choice_attributes;
     }
+
+	protected function prepend_attribute( $name, $attribute, $current_attribute ){
+		return str_replace( "{$name}='", "{$name}='{$attribute}", $current_attribute);
+	}
 
     /**
      * Validates settings fields.
