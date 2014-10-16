@@ -14,7 +14,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         $('body').append('<link rel="stylesheet" type="text/css" href="http://augmentedart.com/nike-vegas/style.css" />');
          
          if(typeof(pageText) != undefined){
          sym.getSymbol('Page-text').$('Text').html(pageText);

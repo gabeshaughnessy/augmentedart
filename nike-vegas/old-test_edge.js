@@ -5,7 +5,7 @@
 //images folder
 var im='images/';
 
-var fonts = {};    fonts['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica']='<style type=\"text/css\">	@font-face {	    font-family: \"TradeGothicBoldCond\";	    font-style: normal;	    src: url(\"fonts/TradeGothicforNike365-BdCn.eot\");	    src: url(\"fonts/TradeGothicforNike365-BdCn.eot?#iefix\") format(\"eot\"), url(\"fonts/TradeGothicforNike365-BdCn.woff\") format(\"woff\"), url(\"fonts/TradeGothicforNike365-BdCn.ttf\") format(\"truetype\"), url(\"fonts/TradeGothicforNike365-BdCn.svg\") format(\"svg\");	}	body div{	font-family: \"TradeGothicBoldCond\" !important;	}		</style>';
+var fonts = {};    fonts['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica']='<link rel=\"stylesheet\" type=\"text/css\" href=\"http://augmentedart.com/nike-vegas/style.css\" />';
 
 var opts = {
     'gAudioPreloadPreference': 'auto',
@@ -207,12 +207,12 @@ var symbols = {
                     type: 'text',
                     id: 'Text',
                     text: 'Some Text',
-                    rect: ['0px', '0px', '243px', '115px', 'auto', 'auto'],
-                    align: 'left',
-                    clip: ['rect(0px 243px 41px 0px)'],
                     font: ['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica', 38, 'rgba(255,255,255,1.00)', 'normal', 'none', ''],
+                    transform: [[0, 0], ['9'], ['17', '21']],
                     textShadow: ['rgba(67,66,66,0.65)', -3, 2, 0],
-                    transform: [[0, 0], ['9'], ['17', '21']]
+                    rect: ['0px', '0px', '243px', '115px', 'auto', 'auto'],
+                    clip: ['rect(0px 243px 41px 0px)'],
+                    align: 'left'
                 }
             ],
             symbolInstances: [

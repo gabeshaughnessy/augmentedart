@@ -1,1 +1,9 @@
-@font-face {	    font-family: "TradeGothicBoldCond";	    font-style: normal;	    src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.eot"); url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	}	body div{	font-family: "TradeGothicBoldCond" !important;	}		
+@font-face {	    
+	font-family: "TradeGothicBoldCond";	    
+	font-style: normal;	    
+	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.eot"); 
+	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	
+}	
+body div{	
+		font-family: "TradeGothicBoldCond" !important;	
+}		
