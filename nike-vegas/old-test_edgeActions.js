@@ -14,14 +14,15 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         
-         if(typeof(pageText) != undefined){
+         console.log(typeof(pageText));
+         if(typeof(pageText) !== 'undefined'){
          sym.getSymbol('Page-text').$('Text').html(pageText);
          }
          else{
          console.log(pageText);
          }
          // insert code here
+         
 
       });
       //Edge binding end

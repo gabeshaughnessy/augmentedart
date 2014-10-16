@@ -7,7 +7,7 @@
 			"timelineColor2":"0x326a96",
 			"timelineColor3":"0x385063",
 			"timelineColor":"0x2f73ad",
-			"timelineTreeOpened":"true",
+			"timelineTreeOpened":"false",
 			"animationEnabled":"true"}},
 	"pref__general__AutoKeyframeProperties":"true",
 	"symbol_explosion_small_symbol_1":{
@@ -60,7 +60,7 @@
 	"viewStartY":"0",
 	"expanded:images/Poster.png":"nil",
 	"Page-text-Default Timeline_mark_ms":"-1",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"Page-text-Default Timeline_playhead_ms":"0",
 	"symbol_stage":{
 		"element_${_explosion_tiny_symbol_1}":{

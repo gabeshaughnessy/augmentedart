@@ -208,7 +208,7 @@ var symbols = {
                     id: 'Text',
                     text: 'Some Text',
                     font: ['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica', 38, 'rgba(255,255,255,1.00)', 'normal', 'none', ''],
-                    transform: [[0, 0], ['9'], ['17', '21']],
+                    transform: [[], ['9'], ['17', '21']],
                     textShadow: ['rgba(67,66,66,0.65)', -3, 2, 0],
                     rect: ['0px', '0px', '243px', '115px', 'auto', 'auto'],
                     clip: ['rect(0px 243px 41px 0px)'],
