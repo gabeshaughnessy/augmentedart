@@ -14,7 +14,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         $('body').append('<style type="text/css">	@font-face {	    font-family: "TradeGothicBoldCond";	    font-style: normal;	    src: url("/fonts/TradeGothicforNike365-BdCn.eot"); url("/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	}	body div{	font-family: "TradeGothicBoldCond" !important;	}		</style>');
+         $('body').append('<link rel="stylesheet" type="text/css" href="http://augmentedart.com/nike-vegas/style.css" />');
          
          if(typeof(pageText) != undefined){
          sym.getSymbol('Page-text').$('Text').html(pageText);
