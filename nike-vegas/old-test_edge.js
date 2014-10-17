@@ -230,7 +230,7 @@ var symbols = {
                 ["subproperty", "textShadow.offsetV", '1px'],
                 ["style", "left", '-277px'],
                 ["transform", "skewY", '18deg'],
-                ["style", "clip", [0,243,42,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+                ["style", "clip", [0,243,61,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
                 ["subproperty", "textShadow.blur", '0px'],
                 ["subproperty", "textShadow.offsetH", '-1px'],
                 ["transform", "rotateZ", '10deg'],
@@ -276,8 +276,294 @@ var symbols = {
                 { id: "eid86", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 2000, duration: 0, easing: "easeOutBack" },
                 { id: "eid72", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 0, duration: 0, easing: "easeOutBack" },
                 { id: "eid73", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
-                { id: "eid120", tween: [ "style", "${_Text}", "clip", [0,243,0,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,42,0]}], position: 3000, duration: 250, easing: "easeInQuad" },
-                { id: "eid128", tween: [ "style", "${_Text}", "clip", [0,243,40,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,0,0]}], position: 3750, duration: 225, easing: "easeInQuad" },
+                { id: "eid130", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,61,0]}], position: 0, duration: 3000 },
+                { id: "eid120", tween: [ "style", "${_Text}", "clip", [0,243,0,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,56,0]}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid128", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,0,0]}], position: 3750, duration: 225, easing: "easeInQuad" },
+                { id: "eid64", tween: [ "style", "${_Text}", "top", '49px', { fromValue: '-85px'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid121", tween: [ "style", "${_Text}", "top", '101px', { fromValue: '49px'}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid126", tween: [ "style", "${_Text}", "top", '200px', { fromValue: '101px'}], position: 3250, duration: 111, easing: "easeInQuad" },
+                { id: "eid129", tween: [ "style", "${_Text}", "top", '160px', { fromValue: '200px'}], position: 3750, duration: 225, easing: "easeInQuad" }            ]
+        }
+    }
+},
+"msgPt1": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    type: 'text',
+                    id: 'Text',
+                    text: 'Some Text',
+                    font: ['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica', 38, 'rgba(255,255,255,1.00)', 'normal', 'none', ''],
+                    transform: [[], ['9'], ['17', '21']],
+                    textShadow: ['rgba(67,66,66,0.65)', -3, 2, 0],
+                    rect: ['0px', '0px', '243px', '115px', 'auto', 'auto'],
+                    clip: ['rect(0px 243px 41px 0px)'],
+                    align: 'left'
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${_Text}": [
+                ["style", "-webkit-transform-origin", [50,100], {valueTemplate:'@@0@@% @@1@@%'} ],
+                ["style", "-moz-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "-ms-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "msTransformOrigin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "-o-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["color", "color", 'rgba(165,185,188,1.00)'],
+                ["subproperty", "textShadow.offsetV", '1px'],
+                ["style", "left", '-277px'],
+                ["transform", "skewY", '18deg'],
+                ["style", "clip", [0,243,61,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+                ["subproperty", "textShadow.blur", '0px'],
+                ["subproperty", "textShadow.offsetH", '-1px'],
+                ["transform", "rotateZ", '10deg'],
+                ["transform", "scaleX", '1.65'],
+                ["style", "width", '243px'],
+                ["style", "top", '-85px'],
+                ["style", "font-size", '38px'],
+                ["transform", "skewX", '14deg'],
+                ["style", "height", '41px'],
+                ["style", "font-family", 'Trade Gothic LT Std-Condensed18, TradeGothicBoldCond, Helvetica'],
+                ["transform", "scaleY", '1.65'],
+                ["subproperty", "textShadow.color", 'rgba(0,38,63,1.00)']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '115px'],
+                ["style", "width", '243px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 3975,
+            autoPlay: true,
+            timeline: [
+                { id: "eid78", tween: [ "transform", "${_Text}", "skewY", '0deg', { fromValue: '18deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid63", tween: [ "style", "${_Text}", "left", '19px', { fromValue: '-277px'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid92", tween: [ "style", "${_Text}", "left", '20px', { fromValue: '19px'}], position: 961, duration: 830, easing: "easeOutBack" },
+                { id: "eid93", tween: [ "style", "${_Text}", "left", '19px', { fromValue: '20px'}], position: 1791, duration: 209, easing: "easeOutBack" },
+                { id: "eid125", tween: [ "style", "${_Text}", "left", '-113px', { fromValue: '19px'}], position: 3250, duration: 111, easing: "easeInQuad" },
+                { id: "eid108", tween: [ "style", "${_Text}", "height", '41px', { fromValue: '41px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid72", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 0, duration: 0, easing: "easeOutBack" },
+                { id: "eid73", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid70", tween: [ "subproperty", "${_Text}", "textShadow.offsetH", '-1px', { fromValue: '-1px'}], position: 0, duration: 0, easing: "easeOutBack" },
+                { id: "eid71", tween: [ "subproperty", "${_Text}", "textShadow.offsetH", '-1px', { fromValue: '-1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid62", tween: [ "transform", "${_Text}", "scaleY", '1', { fromValue: '1.65'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid107", tween: [ "transform", "${_Text}", "scaleY", '1', { fromValue: '1'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid56", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 0, duration: 0 },
+                { id: "eid86", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid77", tween: [ "transform", "${_Text}", "rotateZ", '0deg', { fromValue: '10deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid80", tween: [ "subproperty", "${_Text}", "textShadow.blur", '1px', { fromValue: '0px'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid79", tween: [ "transform", "${_Text}", "skewX", '0deg', { fromValue: '14deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid61", tween: [ "transform", "${_Text}", "scaleX", '1', { fromValue: '1.65'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid106", tween: [ "transform", "${_Text}", "scaleX", '1', { fromValue: '1'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid130", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,61,0]}], position: 0, duration: 3000 },
+                { id: "eid120", tween: [ "style", "${_Text}", "clip", [0,243,0,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,56,0]}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid128", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,0,0]}], position: 3750, duration: 225, easing: "easeInQuad" },
+                { id: "eid64", tween: [ "style", "${_Text}", "top", '49px', { fromValue: '-85px'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid121", tween: [ "style", "${_Text}", "top", '101px', { fromValue: '49px'}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid126", tween: [ "style", "${_Text}", "top", '200px', { fromValue: '101px'}], position: 3250, duration: 111, easing: "easeInQuad" },
+                { id: "eid129", tween: [ "style", "${_Text}", "top", '160px', { fromValue: '200px'}], position: 3750, duration: 225, easing: "easeInQuad" }            ]
+        }
+    }
+},
+"msgPt2": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    type: 'text',
+                    id: 'Text',
+                    text: 'Some Text',
+                    font: ['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica', 38, 'rgba(255,255,255,1.00)', 'normal', 'none', ''],
+                    transform: [[], ['9'], ['17', '21']],
+                    textShadow: ['rgba(67,66,66,0.65)', -3, 2, 0],
+                    rect: ['0px', '0px', '243px', '115px', 'auto', 'auto'],
+                    clip: ['rect(0px 243px 41px 0px)'],
+                    align: 'left'
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${_Text}": [
+                ["style", "-webkit-transform-origin", [50,100], {valueTemplate:'@@0@@% @@1@@%'} ],
+                ["style", "-moz-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "-ms-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "msTransformOrigin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "-o-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["color", "color", 'rgba(165,185,188,1.00)'],
+                ["subproperty", "textShadow.offsetV", '1px'],
+                ["style", "left", '-277px'],
+                ["transform", "skewY", '18deg'],
+                ["style", "clip", [0,243,61,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+                ["subproperty", "textShadow.blur", '0px'],
+                ["subproperty", "textShadow.offsetH", '-1px'],
+                ["transform", "rotateZ", '10deg'],
+                ["transform", "scaleX", '1.65'],
+                ["style", "font-size", '38px'],
+                ["style", "top", '-85px'],
+                ["subproperty", "textShadow.color", 'rgba(0,38,63,1.00)'],
+                ["transform", "skewX", '14deg'],
+                ["style", "height", '41px'],
+                ["style", "font-family", 'Trade Gothic LT Std-Condensed18, TradeGothicBoldCond, Helvetica'],
+                ["transform", "scaleY", '1.65'],
+                ["style", "width", '243px']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '115px'],
+                ["style", "width", '243px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 3975,
+            autoPlay: true,
+            timeline: [
+                { id: "eid78", tween: [ "transform", "${_Text}", "skewY", '0deg', { fromValue: '18deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid63", tween: [ "style", "${_Text}", "left", '19px', { fromValue: '-277px'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid92", tween: [ "style", "${_Text}", "left", '20px', { fromValue: '19px'}], position: 961, duration: 830, easing: "easeOutBack" },
+                { id: "eid93", tween: [ "style", "${_Text}", "left", '19px', { fromValue: '20px'}], position: 1791, duration: 209, easing: "easeOutBack" },
+                { id: "eid125", tween: [ "style", "${_Text}", "left", '-113px', { fromValue: '19px'}], position: 3250, duration: 111, easing: "easeInQuad" },
+                { id: "eid108", tween: [ "style", "${_Text}", "height", '41px', { fromValue: '41px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid61", tween: [ "transform", "${_Text}", "scaleX", '1', { fromValue: '1.65'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid106", tween: [ "transform", "${_Text}", "scaleX", '1', { fromValue: '1'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid70", tween: [ "subproperty", "${_Text}", "textShadow.offsetH", '-1px', { fromValue: '-1px'}], position: 0, duration: 0, easing: "easeOutBack" },
+                { id: "eid71", tween: [ "subproperty", "${_Text}", "textShadow.offsetH", '-1px', { fromValue: '-1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid62", tween: [ "transform", "${_Text}", "scaleY", '1', { fromValue: '1.65'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid107", tween: [ "transform", "${_Text}", "scaleY", '1', { fromValue: '1'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid79", tween: [ "transform", "${_Text}", "skewX", '0deg', { fromValue: '14deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid77", tween: [ "transform", "${_Text}", "rotateZ", '0deg', { fromValue: '10deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid56", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 0, duration: 0 },
+                { id: "eid86", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid80", tween: [ "subproperty", "${_Text}", "textShadow.blur", '1px', { fromValue: '0px'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid72", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 0, duration: 0, easing: "easeOutBack" },
+                { id: "eid73", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid130", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,61,0]}], position: 0, duration: 3000 },
+                { id: "eid120", tween: [ "style", "${_Text}", "clip", [0,243,0,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,56,0]}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid128", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,0,0]}], position: 3750, duration: 225, easing: "easeInQuad" },
+                { id: "eid64", tween: [ "style", "${_Text}", "top", '49px', { fromValue: '-85px'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid121", tween: [ "style", "${_Text}", "top", '101px', { fromValue: '49px'}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid126", tween: [ "style", "${_Text}", "top", '200px', { fromValue: '101px'}], position: 3250, duration: 111, easing: "easeInQuad" },
+                { id: "eid129", tween: [ "style", "${_Text}", "top", '160px', { fromValue: '200px'}], position: 3750, duration: 225, easing: "easeInQuad" }            ]
+        }
+    }
+},
+"appName": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    type: 'text',
+                    id: 'Text',
+                    text: 'Some Text',
+                    font: ['\'Trade Gothic LT Std-Condensed18\', TradeGothicBoldCond, Helvetica', 38, 'rgba(255,255,255,1.00)', 'normal', 'none', ''],
+                    transform: [[], ['9'], ['17', '21']],
+                    textShadow: ['rgba(67,66,66,0.65)', -3, 2, 0],
+                    rect: ['0px', '0px', '243px', '115px', 'auto', 'auto'],
+                    clip: ['rect(0px 243px 41px 0px)'],
+                    align: 'left'
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${_Text}": [
+                ["style", "-webkit-transform-origin", [50,100], {valueTemplate:'@@0@@% @@1@@%'} ],
+                ["style", "-moz-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "-ms-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "msTransformOrigin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["style", "-o-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
+                ["color", "color", 'rgba(165,185,188,1.00)'],
+                ["subproperty", "textShadow.offsetV", '1px'],
+                ["style", "left", '-277px'],
+                ["transform", "skewY", '18deg'],
+                ["style", "clip", [0,243,61,0], {valueTemplate:'rect(@@0@@px @@1@@px @@2@@px @@3@@px)'} ],
+                ["subproperty", "textShadow.blur", '0px'],
+                ["subproperty", "textShadow.offsetH", '-1px'],
+                ["transform", "rotateZ", '10deg'],
+                ["transform", "scaleX", '1.65'],
+                ["style", "font-size", '38px'],
+                ["style", "top", '-85px'],
+                ["style", "width", '243px'],
+                ["transform", "skewX", '14deg'],
+                ["style", "height", '41px'],
+                ["subproperty", "textShadow.color", 'rgba(0,38,63,1.00)'],
+                ["transform", "scaleY", '1.65'],
+                ["style", "font-family", 'Trade Gothic LT Std-Condensed18, TradeGothicBoldCond, Helvetica']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '115px'],
+                ["style", "width", '243px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 3975,
+            autoPlay: true,
+            timeline: [
+                { id: "eid78", tween: [ "transform", "${_Text}", "skewY", '0deg', { fromValue: '18deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid63", tween: [ "style", "${_Text}", "left", '19px', { fromValue: '-277px'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid92", tween: [ "style", "${_Text}", "left", '20px', { fromValue: '19px'}], position: 961, duration: 830, easing: "easeOutBack" },
+                { id: "eid93", tween: [ "style", "${_Text}", "left", '19px', { fromValue: '20px'}], position: 1791, duration: 209, easing: "easeOutBack" },
+                { id: "eid125", tween: [ "style", "${_Text}", "left", '-113px', { fromValue: '19px'}], position: 3250, duration: 111, easing: "easeInQuad" },
+                { id: "eid108", tween: [ "style", "${_Text}", "height", '41px', { fromValue: '41px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid72", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 0, duration: 0, easing: "easeOutBack" },
+                { id: "eid73", tween: [ "subproperty", "${_Text}", "textShadow.offsetV", '1px', { fromValue: '1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid70", tween: [ "subproperty", "${_Text}", "textShadow.offsetH", '-1px', { fromValue: '-1px'}], position: 0, duration: 0, easing: "easeOutBack" },
+                { id: "eid71", tween: [ "subproperty", "${_Text}", "textShadow.offsetH", '-1px', { fromValue: '-1px'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid62", tween: [ "transform", "${_Text}", "scaleY", '1', { fromValue: '1.65'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid107", tween: [ "transform", "${_Text}", "scaleY", '1', { fromValue: '1'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid80", tween: [ "subproperty", "${_Text}", "textShadow.blur", '1px', { fromValue: '0px'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid77", tween: [ "transform", "${_Text}", "rotateZ", '0deg', { fromValue: '10deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid79", tween: [ "transform", "${_Text}", "skewX", '0deg', { fromValue: '14deg'}], position: 0, duration: 2000, easing: "easeOutBack" },
+                { id: "eid56", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 0, duration: 0 },
+                { id: "eid86", tween: [ "subproperty", "${_Text}", "textShadow.color", 'rgba(0,38,63,1.00)', { fromValue: 'rgba(0,38,63,1.00)'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid61", tween: [ "transform", "${_Text}", "scaleX", '1', { fromValue: '1.65'}], position: 0, duration: 961, easing: "easeOutBack" },
+                { id: "eid106", tween: [ "transform", "${_Text}", "scaleX", '1', { fromValue: '1'}], position: 2000, duration: 0, easing: "easeOutBack" },
+                { id: "eid130", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,61,0]}], position: 0, duration: 3000 },
+                { id: "eid120", tween: [ "style", "${_Text}", "clip", [0,243,0,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,56,0]}], position: 3000, duration: 250, easing: "easeInQuad" },
+                { id: "eid128", tween: [ "style", "${_Text}", "clip", [0,243,56,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,243,0,0]}], position: 3750, duration: 225, easing: "easeInQuad" },
                 { id: "eid64", tween: [ "style", "${_Text}", "top", '49px', { fromValue: '-85px'}], position: 0, duration: 961, easing: "easeOutBack" },
                 { id: "eid121", tween: [ "style", "${_Text}", "top", '101px', { fromValue: '49px'}], position: 3000, duration: 250, easing: "easeInQuad" },
                 { id: "eid126", tween: [ "style", "${_Text}", "top", '200px', { fromValue: '101px'}], position: 3250, duration: 111, easing: "easeInQuad" },
