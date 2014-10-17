@@ -2699,13 +2699,19 @@ input[type="button"]:hover,
   padding: 0;
 }
 
-/* line 7, ../sass/_splash-page.scss */
-.page-template-layar-content-page-php #mobile-toggle, .page-template-splash-page-php #mobile-toggle, .page-template-page-center-panel-php #mobile-toggle {
+/* line 10, ../sass/_splash-page.scss */
+.page-template-layar-content-page-php #mobile-toggle,
+.page-template-nike_layar-content-page-php #mobile-toggle,
+.page-template-splash-page-php #mobile-toggle,
+.page-template-page-center-panel-php #mobile-toggle {
   display: none !important;
 }
 
-/* line 10, ../sass/_splash-page.scss */
-body.page-template-layar-content-page-php, body.page-template-splash-page-php, body.page-template-page-center-panel-php {
+/* line 16, ../sass/_splash-page.scss */
+body.page-template-layar-content-page-php,
+body.page-template-nike_layar-content-page-php,
+body.page-template-splash-page-php,
+body.page-template-page-center-panel-php {
   background: transparent;
 }
 
