@@ -8,7 +8,7 @@
  *
  * @since 1.0.
  */
-define( 'SNAP_VERSION', '1.0.8' );
+define( 'SNAP_VERSION', '1.0.9' );
 
 /**
  * Define the suffix used for JS.

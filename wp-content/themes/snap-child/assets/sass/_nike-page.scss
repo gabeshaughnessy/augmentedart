@@ -6,7 +6,9 @@
 }	
 
 $futura-font : "FuturaW01-ExtraBoldCond 774896";		
-
+html, body{
+	background-color: transparent !important;
+}
 .page-template-nike-fa15-page-php{
 	.two-columns{
 		width: 100%;
@@ -49,7 +51,7 @@ $futura-font : "FuturaW01-ExtraBoldCond 774896";
 	}
 	h1.page-title{
 		float: left;
-		font-size: 3.1rem;
+		font-size: 2.8rem;
 		color: #939598;
 		text-transform: uppercase;
 		clear: none;

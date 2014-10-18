@@ -10,7 +10,15 @@ global $noheader;
 <!--[if IE 9]>    <html class="no-js IE9 IE" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
-	<title><?php wp_title( '' ); ?></title>
+	<title>
+
+		<?php
+	if($noheader){
+		the_title();
+	}
+	else{
+		 wp_title( '' ); 
+		}?></title>
 	
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
