@@ -2,6 +2,7 @@
 /**
  * @package Snap
  */
+global $noheader;
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]>    <html class="no-js IE7 IE" <?php language_attributes(); ?>> <![endif]-->
@@ -18,16 +19,20 @@
 
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
-<div id="mobile-toggle">
+<body <?php body_class(); 
+
+?>>
+<div id="mobile-toggle" class="<?php echo ($noheader == true ? 'hide' : ''); ?>">
 	<span><?php echo wp_strip_all_tags( snap_get_responsive_nav_options( 'label' ) ); ?></span>
 </div>
-<?php if(is_page_template('splash-page.php') || is_page_template('layar-content-page.php') || is_page_template('page-center-panel.php') || is_page_template('nike_layar-content-page.php')){
+<?php 
+
+if(is_page_template('splash-page.php') || is_page_template('layar-content-page.php') || is_page_template('page-center-panel.php') || is_page_template('nike_layar-content-page.php')){
 	?><div class="splash-content">
 <?php	
 }
 else{ ?>
-<div id="main-header" role="banner">
+<div id="main-header" role="banner" class="<?php echo ($noheader == true ? 'hide' : ''); ?>">
 	<div class="frame header-wrapper">
 		<nav id="nav">
 			<?php

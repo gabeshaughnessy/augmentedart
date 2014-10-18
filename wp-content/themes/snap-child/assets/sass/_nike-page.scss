@@ -1,0 +1,71 @@
+@font-face {	    
+	font-family: "TradeGothicBoldCond";	    
+	font-style: normal;	    
+	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.eot"); 
+	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	
+}	
+
+$futura-font : "FuturaW01-ExtraBoldCond 774896";		
+
+.page-template-nike-fa15-page-php{
+	.two-columns{
+		width: 100%;
+		.column{
+			width: 50%;
+			box-sizing: border-box;
+			padding-right: 1em;
+			float: left;
+			@media screen and (max-width: 900px){
+			width: 100%;
+			padding-right: 1em;
+
+		}
+		}
+
+		
+
+	}
+	color: #231F20;
+	h2 {
+		font-family : $futura-font;
+		color: #939598;
+		font-size: 1.4rem;
+		text-transform:uppercase;
+		@media screen and (min-width: 900px){
+			font-size:2.1rem;
+		}
+	}
+	h3, h4{
+		font-family: "TradeGothicBoldCond";
+		color: #231F20;
+		text-transform:uppercase;
+	}
+	.theme-container{
+		padding-top: 0;
+	}
+	.img-wrapper{
+		float: left;
+
+	}
+	h1.page-title{
+		float: left;
+		font-size: 3.1rem;
+		color: #939598;
+		text-transform: uppercase;
+		clear: none;
+		margin-left: 10px;
+	}
+}
+#main-header.hide{
+	display: none;
+}
+#mobile-toggle.hide{
+	display: none;
+}
+.nike-page{
+	padding: 0  1em;
+
+	.pseudo-header{
+
+	}
+}
