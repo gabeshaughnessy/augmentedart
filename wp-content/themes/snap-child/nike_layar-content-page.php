@@ -6,9 +6,7 @@
 /* look at header. If this is a layar device, or there is a debugging querystring, set $has_access to true;
 otherwise set access to false and redirect user to 'no-access' page.
 */
-error_log('$_REQUEST: '.print_r($_REQUEST, true));
-error_log('$_GET: '.print_r($_GET, true));
-error_log('$_POST: '.print_r($_GET, true));
+
 ?>
 <?php
 remove_action( 'init', 'wp_admin_bar_init' );
