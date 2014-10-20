@@ -1,6 +1,8 @@
 <?php
 global $post;
 
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+
 if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
     //This person is using an android device so we are going to have z position stacking issues wher ethe hotspots overlap.
     $is_android = true;
@@ -11,6 +13,7 @@ else {
 $user_id = $_REQUEST['userId'];
 
 
+setcookie("isLayar", $value, time()+3600);  /* expire in 1 hour */
 
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
