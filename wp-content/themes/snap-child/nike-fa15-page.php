@@ -8,7 +8,8 @@ $noheader = true;
 ?>
 <?php get_header(); ?>
 <?php //.futura for futura condensed extra bold ?>
-<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/6b75ebd8-ae2d-452e-a135-4862c297ee03.css"/>	<?php while ( have_posts() ) : the_post(); global $post; ?>
+<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/6b75ebd8-ae2d-452e-a135-4862c297ee03.css"/>
+	<?php while ( have_posts() ) : the_post(); global $post; ?>
 		<div id="page-<?php the_ID(); ?> nike-page">
 			<div class="pseudo-header">
 				<div class="img-wrapper">
