@@ -12,9 +12,6 @@ else {
 }
 $user_id = $_REQUEST['userId'];
 
-
-setcookie("isLayar", $value, time()+3600);  /* expire in 1 hour */
-
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
     $layar_name = get_field('layar_name');

@@ -11,9 +11,8 @@ otherwise set access to false and redirect user to 'no-access' page.
 <?php
 
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
-error_log('$_SERVER: '.print_r($_SERVER, true));
-error_log('$_COOKIE: '.print_r($_COOKIE, true));
-if(isset($_COOKIE['isLayar']) || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development' || is_user_logged_in() == true){
+error_log('$_REQUEST: '.print_r($_REQUEST, true));
+if(isset($_SERVER['HTTP_X_LAYAR_OS']) || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development' || is_user_logged_in() == true){
     //this is a layar client
     $layar_client = true;
 }
