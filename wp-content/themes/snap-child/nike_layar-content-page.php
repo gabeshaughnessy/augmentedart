@@ -9,10 +9,9 @@ otherwise set access to false and redirect user to 'no-access' page.
 
 ?>
 <?php
-error_log(print_r($_SERVER, true));
 
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
-if(strpos($user_agent,'Layar') !== false || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development'){
+if(strpos($user_agent,'Layar') !== false || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development' || is_user_logged_in() == true){
     //this is a layar client
     $layar_client = true;
 }
