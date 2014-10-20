@@ -1,17 +1,6 @@
 <?php
 global $post;
-error_log('$_REQUEST: '.print_r($_REQUEST, true));
-error_log('$_GET: '.print_r($_GET, true));
-error_log('$_POST: '.print_r($_GET, true));
-error_log('$_SERVER: '.print_r($_SERVER, true));
-error_log('$_COOKIE: '.print_r($_COOKIE, true));
 
-
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-if(strpos($user_agent,'Layar') !== false){
-    //this is a layar client
-    $layar_client = true;
-}
 if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
     //This person is using an android device so we are going to have z position stacking issues wher ethe hotspots overlap.
     $is_android = true;

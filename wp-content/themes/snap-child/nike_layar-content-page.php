@@ -9,6 +9,16 @@ otherwise set access to false and redirect user to 'no-access' page.
 
 ?>
 <?php
+error_log(print_r($_SERVER, true));
+
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+if(strpos($user_agent,'Layar') !== false || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development'){
+    //this is a layar client
+    $layar_client = true;
+}
+else{
+	wp_redirect(home_url());
+}
 remove_action( 'init', 'wp_admin_bar_init' );
 
  get_header();
