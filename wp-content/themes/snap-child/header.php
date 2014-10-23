@@ -42,6 +42,7 @@ if(is_page_template('splash-page.php') || is_page_template('layar-content-page.p
 	?><div class="splash-content">
 <?php	
 }
+
 else{ ?>
 <div id="main-header" role="banner" class="<?php echo ($noheader == true ? 'hide' : ''); ?>">
 	<div class="frame header-wrapper">
@@ -73,4 +74,7 @@ else{ ?>
 		</div>
 	</div>
 </div>
-<div class="theme-container frame"><?php } ?>
+<?php if(! is_page_template('nike-fa15-page.php')){
+	echo '<div class="theme-container frame">';
+}
+} ?>
