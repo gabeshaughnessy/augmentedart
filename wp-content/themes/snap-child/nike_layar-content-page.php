@@ -19,6 +19,13 @@ if(isset($_SERVER['HTTP_X_LAYAR_OS']) || isset($_GET['spoof']) || LC_ENVIRONMENT
 else{
 	wp_redirect(home_url());
 }
+
+if(isset($_REQUEST['user_id'])){
+  $user_id = $_REQUEST['user_id'];
+}
+else {
+  $user_id = 'test_user_id'.rand(1, 100);
+}
 remove_action( 'init', 'wp_admin_bar_init' );
 
  get_header();
@@ -35,6 +42,7 @@ remove_action( 'init', 'wp_admin_bar_init' );
 
 <?php while ( have_posts() ) : the_post(); ?>
  <script type="text/javascript">
+ var userID = "<?php  echo $user_id; ?>";
  var pageText = "<?php  echo get_the_content($post->ID); ?>";
  var appName = "<?php  echo get_field('app_name', $post->ID); ?>";
  var msgPt1 = "<?php  echo get_field('message_pt_1', $post->ID); ?>";
