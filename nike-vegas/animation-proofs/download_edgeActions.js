@@ -3,7 +3,7 @@ var nikeFirebase;var dataSnap;if(typeof userID=='undefined'){userID='download_us
 (function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){if(jQuery.cookie('FA15-test')=='true'&&dataSnap.val()!='stop'){sym.play();}
-else if(dataSnap.val()=='stop'){sym.play();}
+else if(dataSnap.val()=='stop'){sym.stop();}
 else{sym.play('no-access');}
 if(document.URL.indexOf('augmentedart')==-1){msgPt1='local';msgPt2='messages';msgPt3='here';}
 if(sym.getSymbol('Message')){if(typeof(msgPt1)!==undefined){sym.getSymbol('Message').getSymbol('msgPt1').$('Text').html(msgPt1);}
