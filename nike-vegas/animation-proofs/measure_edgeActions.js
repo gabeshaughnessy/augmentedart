@@ -2,7 +2,7 @@
 var nikeFirebase;if(typeof userID=='undefined'){userID='local_user_id_'+Math.floor((Math.random()*100)+1);}
 (function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){if(jQuery.cookie('FA15-test')=='true'){sym.stop();}
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){if(jQuery.cookie('FA15-test')=='true'){sym.play();}
 else{sym.play('no-access');}});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){nikeFirebase=new Firebase("https://nike-fa15-murals.firebaseio.com");nikeFirebase.child(userID).set('play');nikeFirebase.child(userID).on("value",function(snapshot){if(snapshot.val()=='play'){if(jQuery.cookie('FA15-test')=='true'){sym.getSymbol('Button').play('loop');sym.getSymbol('Athlete').play();sym.getSymbol('BG').play();}};});if(typeof wrapped!==undefined){sym.$('Button').wrap('<a href="http://www.augmentedart.com/nike-fa15-gtm/page-content/download/" style="width:150px; height:150px; top:155px; left:9px; float:left; position:absolute;" ></a>');}
@@ -17,6 +17,8 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",4000,function(sym,
 Symbol.bindElementAction(compId,symbolName,"${_BG}","click",function(sym,e){});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1200,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.stop();});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
