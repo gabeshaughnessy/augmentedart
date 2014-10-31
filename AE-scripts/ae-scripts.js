@@ -8,7 +8,7 @@
 
 //NULL objects parent the puppet pins
 //this goes on the expression of the puppet pin's position.
-
-n=thisComp.layer("Null Object Name"); //the layer name for the null object
+//the layer name for the null object
+n=thisComp.layer("Null Object Name"); 
 nullpos=n.toComp(n.anchorPoint);
 fromComp(nullpos);
