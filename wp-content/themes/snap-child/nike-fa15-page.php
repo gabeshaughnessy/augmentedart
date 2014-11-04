@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
 				<div class="header-wrapper">
 					<h1 class="page-title "><?php the_title(); ?></h1> 
 					<div class="img-wrapper right">
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/lead_logo.png" width="100%"/>
+						<img src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/Lead_logo.png" width="100%"/>
 					</div>
 				</div>
 				<div class="quote-wrapper">
