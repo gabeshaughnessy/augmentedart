@@ -60,7 +60,7 @@ html, body{
 	.img-wrapper.right{
 		width: 50%;
 		float: right;
-		padding: 2em;
+		padding: .5em 2em;
 		box-sizing : border-box;
 
 	 }
@@ -76,7 +76,7 @@ html, body{
 	.header-wrapper{
 		width: 100%;
 		box-sizing: border-box;
-		padding: 1em;
+		padding: 1em 2em;
 		padding-top: 0;
 		background-image: url(images/nike-fa15/banner-bg.jpg);
 		background-repeat: no-repeat;
@@ -91,15 +91,24 @@ html, body{
 
 	}
 	h1.page-title{
+
 		float: left;
 		font-family : $trade-gothic;
-		font-size: 3rem;
+		font-size: 4rem;
 		color: #fff;
 		text-transform: uppercase;
 		clear: none;
-		margin-left: 0px;
-		margin-top: 55px;
+		margin-bottom: 0;
 		width: 50%;
+		position: absolute;
+		bottom: 0;
+		@media screen and (max-width: 780px){
+			font-size : 3em;
+		}
+		@media screen and (max-width: 480px){
+			font-size : 2.5em;
+			position: relative;
+		}
 	}
 	.quote-wrapper{
 		position: relative;
@@ -109,6 +118,8 @@ html, body{
 		left: 0;
 		z-index: 0;
 		padding: 2em;
+		width: 100%;
+		box-sizing : border-box;
 		.quote{
 			width: 100%;
 			float: left;
@@ -119,6 +130,9 @@ html, body{
 			color: #fff;
 			text-transform : uppercase;
 			font-size : 2.2em;
+			@media screen and (max-width: 480px){
+				font-size : 1.5em;
+				}
 			
 		.source{
 			width: 100%;
@@ -145,6 +159,9 @@ html, body{
 			left: 0;
 			opacity: 1;
 		}
+	}
+	#footer{
+		border: none;
 	}
 }
 #main-header.hide{

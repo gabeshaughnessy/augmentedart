@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
 				</div>
 				<div class="quote-wrapper">
 					<p class="quote" style="color: <?php echo $quote_text_color; ?>"><?php echo $quote_text; 
-					if(isset($quote_source)) { ?><span class="source"><?php echo $quote_source; ?></span> <?php } ?></p>
+					if(isset($quote_source) && !empty($quote_source)) { ?><span class="source"><?php echo $quote_source; ?></span> <?php } ?></p>
 				
 				<div class="bg-image" data-src="<?php echo (isset($quote_bg['url']) ? $quote_bg['url'] : get_bloginfo('stylesheet_directory').'/images/nike-fa15/app-image-placeholder.jpg'); ?>" ></div></div>
 			</div>
