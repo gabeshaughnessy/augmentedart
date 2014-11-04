@@ -22,6 +22,12 @@ jQuery(document).ready(function($){
 			jQuery(this).css({'background-image': 'url('+bgImage+')', 'background-size' : 'cover', 'background-repeat' : 'no-repeat'});
 		}
 	});
+	$('.thumbnail-mneu .menu-item a').each(function(){
+
+		if( document.URL.indexOf($(this).attr('href') >= 0) ){
+			$(this).addClass('active');
+		}
+	});
 });
 </script>
 <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/6b75ebd8-ae2d-452e-a135-4862c297ee03.css"/>
@@ -50,5 +56,17 @@ jQuery(document).ready(function($){
 				<?php get_template_part( '_the-content' ); ?>
 			<?php endif; ?>
 		</div>
+		<ul class="thumbnail-menu">
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/plan" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/plan.jpg" width="100%" height="auto"/></div><h6 class="title">Plan</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/assort" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/assort.jpg" width="100%" height="auto"/></div><h6 class="title">Assort</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/create" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/create.jpg" width="100%" height="auto"/></div><h6 class="title">Create</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/download" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/download.jpg" width="100%" height="auto"/></div><h6 class="title">Download</h6><a/></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/present" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/present.jpg" width="100%" height="auto"/></div><h6 class="title">Present</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/order" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/order.jpg" width="100%" height="auto"/></div><h6 class="title">Order</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/manage" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/manage.jpg" width="100%" height="auto"/></div><h6 class="title">Manage</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/connect" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/connect.jpg" width="100%" height="auto"/></div><h6 class="title">Connect</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/measure" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/measure.jpg" width="100%" height="auto"/></div><h6 class="title">Measure</h6></a></li>
+			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/administer" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/administer.jpg" width="100%" height="auto"/></div><h6 class="title">Administer</h6></a></li>
+		</ul>
 	<?php endwhile; ?>
 <?php get_footer();

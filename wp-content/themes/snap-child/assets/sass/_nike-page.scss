@@ -34,13 +34,16 @@ html, body{
 
 	}
 	color: #6f706d;
-	h2 {
+	h2{
 		font-family : $trade-gothic;
 		color: #6f706d;
 		font-size: 1.4rem;
 		text-transform:uppercase;
 		@media screen and (min-width: 900px){
 			font-size:2.1rem;
+		}
+		a {
+			color : inherit;
 		}
 	}
 	h3, h4{
@@ -73,6 +76,14 @@ html, body{
 			color : inherit;
 		}
 	}
+	hr.shaded{
+		width: 100%;
+		height: 40px;
+		background-image: url(images/nike-fa15/hr_fade.png);
+		background-repeat: no-repeat;
+		background-size : contain;
+		border-top: none;
+	}
 	.header-wrapper{
 		width: 100%;
 		box-sizing: border-box;
@@ -103,10 +114,11 @@ html, body{
 		position: absolute;
 		bottom: 0;
 		@media screen and (max-width: 780px){
-			font-size : 3em;
+			font-size : 2em;
+			line-height: 2.5;
 		}
 		@media screen and (max-width: 480px){
-			font-size : 2.5em;
+			font-size : 1.5em;
 			position: relative;
 		}
 	}
@@ -163,6 +175,33 @@ html, body{
 	#footer{
 		border: none;
 	}
+	.thumbnail-menu{
+		float: left;
+		width: 100%;
+		.menu-item{
+			width: 19%;
+			float: left;
+			margin-right: 1%;
+			margin-bottom : 2em;
+			height: 180px;
+			text-align: center;
+
+
+			@media screen and (max-width: 780px){
+				height: 140px;
+			}
+			@media screen and (max-width: 480px){
+				width : 49%;
+				height: 140px;
+			}
+			.title{
+				font-family: $futura-font;
+				color: #151519; 
+				margin-top : 0;
+			}
+		}
+	}
+
 }
 #main-header.hide{
 	display: none;
@@ -170,4 +209,5 @@ html, body{
 #mobile-toggle.hide{
 	display: none;
 }
+
 
