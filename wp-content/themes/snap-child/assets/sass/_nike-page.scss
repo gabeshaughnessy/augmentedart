@@ -4,8 +4,14 @@
 	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.eot"); 
 	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	
 }	
+$trade-gothic : "TradeGothicBoldCond";
+$futura-font : "FuturaW01-ExtraBoldCond 774896";	
 
-$futura-font : "FuturaW01-ExtraBoldCond 774896";		
+//colors
+$green : #0d827e;
+$teal : #12515a;
+$off-white : #edf0f0;
+
 html, body{
 	background-color: transparent !important;
 }
@@ -27,10 +33,10 @@ html, body{
 		
 
 	}
-	color: #231F20;
+	color: #6f706d;
 	h2 {
-		font-family : $futura-font;
-		color: #939598;
+		font-family : $trade-gothic;
+		color: #6f706d;
 		font-size: 1.4rem;
 		text-transform:uppercase;
 		@media screen and (min-width: 900px){
@@ -38,26 +44,62 @@ html, body{
 		}
 	}
 	h3, h4{
-		font-family: "TradeGothicBoldCond";
-		color: #231F20;
+		font-family: $trade-gothic;
+		color: #aeb0a5;
 		text-transform:uppercase;
 	}
 	.theme-container{
 		padding-top: 0;
 		position: relative;
+		max-width: 100%;
+		box-sizing : border-box;
 	}
 	.img-wrapper{
 		float: left;
+			}
+	.img-wrapper.right{
+		width: 50%;
+		float: right;
+		padding: 2em;
+		box-sizing : border-box;
+
+	 }
+
+	button{
+		background-color: $green;
+		border: 1px solid $teal;
+		color: $off-white;
+		> * {
+			color : inherit;
+		}
+	}
+	.header-wrapper{
+		width: 100%;
+		box-sizing: border-box;
+		padding: 1em;
+		padding-top: 0;
+		background-image: url(images/nike-fa15/banner-bg.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+		float: left;
+		z-index: 5;
+		-webkit-box-shadow : 0 3px 3px rgba(0,0,0,.4);
+		-moz-box-shadow : 0 3px 3px rgba(0,0,0,.4);
+		-o-box-shadow : 0 3px 3px rgba(0,0,0,.4);
+		box-shadow : 0 3px 3px rgba(0,0,0,.4);
 
 	}
 	h1.page-title{
 		float: left;
+		font-family : $trade-gothic;
 		font-size: 3rem;
-		color: #939598;
+		color: #fff;
 		text-transform: uppercase;
 		clear: none;
-		margin-left: 10px;
-		text-shadow: -1px 1px 0px rgba(20,0,0, 0.8);
+		margin-left: 0px;
+		margin-top: 55px;
+		width: 50%;
 	}
 	.quote-wrapper{
 		position: relative;
@@ -66,18 +108,18 @@ html, body{
 		top: 0;
 		left: 0;
 		z-index: 0;
-		padding: 0 2em;
+		padding: 2em;
 		.quote{
 			width: 100%;
 			float: left;
 			display: block;
 			position: relative;
 			z-index: 2;
-			font-family : $futura-font;
+			font-family : $trade-gothic;
 			color: #fff;
 			text-transform : uppercase;
 			font-size : 2.2em;
-			text-shadow: -1px 1px 1px rgba(0,0,0, .8);
+			
 		.source{
 			width: 100%;
 			clear: both;
@@ -101,7 +143,7 @@ html, body{
 			z-index : -1;
 			top: 0;
 			left: 0;
-			opacity: .5;
+			opacity: 1;
 		}
 	}
 }
@@ -111,10 +153,4 @@ html, body{
 #mobile-toggle.hide{
 	display: none;
 }
-.nike-page{
-	padding: 0  1em;
 
-	.pseudo-header{
-
-	}
-}
