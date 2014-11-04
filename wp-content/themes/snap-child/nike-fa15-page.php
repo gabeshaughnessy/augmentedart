@@ -27,12 +27,15 @@ jQuery(document).ready(function($){
 <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/6b75ebd8-ae2d-452e-a135-4862c297ee03.css"/>
 	<div class="pseudo-header">
 				
-				<div class="quote-wrapper">
-				<div class="img-wrapper">
-					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/FA15_logo.jpg" width="30" />
+				<div class="header-wrapper">
+					<h1 class="page-title "><?php the_title(); ?></h1> 
+					<div class="img-wrapper right">
+						<img src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/lead_logo.png" width="100%"/>
+					</div>
 				</div>
-				<h1 class="page-title futura"><?php the_title(); ?></h1>
-					<p class="quote" style="color: <?php echo $quote_text_color; ?>"><?php echo $quote_text; ?><span class="source"><?php echo $quote_source; ?></span></p>
+				<div class="quote-wrapper">
+					<p class="quote" style="color: <?php echo $quote_text_color; ?>"><?php echo $quote_text; 
+					if(isset($quote_source)) { ?><span class="source"><?php echo $quote_source; ?></span> <?php } ?></p>
 				
 				<div class="bg-image" data-src="<?php echo (isset($quote_bg['url']) ? $quote_bg['url'] : get_bloginfo('stylesheet_directory').'/images/nike-fa15/app-image-placeholder.jpg'); ?>" ></div></div>
 			</div>
@@ -41,17 +44,7 @@ jQuery(document).ready(function($){
 		<div id="page-<?php the_ID(); ?> nike-page">
 			
 			<?php if ( empty( $post->post_content) && current_user_can( 'edit_page', get_the_ID() ) ) : ?>
-				<div class="placeholder-text">
-					<p>
-						<?php
-							printf(
-								__( '<strong>Admin:</strong> Oh snap! It looks like you haven\'t added any content. You can add content in the <a href="%1$s" title="Edit %2$s">Edit Page</a> screen.', 'snap' ),
-								esc_url( get_edit_post_link() ),
-								the_title_attribute( array( 'echo' => false, ) )
-							);
-						?>
-					</p>
-				</div>
+				
 			<?php else : ?>
 
 				<?php get_template_part( '_the-content' ); ?>

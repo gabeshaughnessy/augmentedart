@@ -12,3 +12,7 @@
 n=thisComp.layer("Null Object Name"); 
 nullpos=n.toComp(n.anchorPoint);
 fromComp(nullpos);
+
+n=thisComp.layer(""); 
+nullpos=n.toComp(n.anchorPoint);
+fromComp(nullpos);
