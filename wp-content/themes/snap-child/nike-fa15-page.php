@@ -52,17 +52,7 @@ jQuery(document).ready(function($){
 				<div class="bg-image" data-src="<?php echo (isset($quote_bg['url']) ? $quote_bg['url'] : get_bloginfo('stylesheet_directory').'/images/nike-fa15/app-image-placeholder.jpg'); ?>" ></div></div>
 			</div>
 	<div class="theme-container frame">
-	<?php while ( have_posts() ) : the_post(); global $post; ?>
-		<div id="page-<?php the_ID(); ?> nike-page">
-			
-			<?php if ( empty( $post->post_content) && current_user_can( 'edit_page', get_the_ID() ) ) : ?>
-				
-			<?php else : ?>
-
-				<?php get_template_part( '_the-content' ); ?>
-			<?php endif; ?>
-		</div>
-		<h5>//Explore other Nike.net Apps</h5>
+		<h5>//Explore other Sales 2.0 apps Apps</h5>
 		<ul class="thumbnail-menu">
 			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/plan" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/plan.jpg" width="100%" height="auto"/></div><h6 class="title">Plan</h6></a></li>
 			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/assort" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/assort.jpg" width="100%" height="auto"/></div><h6 class="title">Assort</h6></a></li>
@@ -75,6 +65,17 @@ jQuery(document).ready(function($){
 			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/measure" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/measure.jpg" width="100%" height="auto"/></div><h6 class="title">Measure</h6></a></li>
 			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/administer" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/administer.jpg" width="100%" height="auto"/></div><h6 class="title">Administer</h6></a></li>
 		</ul>
+	<?php while ( have_posts() ) : the_post(); global $post; ?>
+		<div id="page-<?php the_ID(); ?> nike-page">
+			
+			<?php if ( empty( $post->post_content) && current_user_can( 'edit_page', get_the_ID() ) ) : ?>
+				
+			<?php else : ?>
+
+				<?php get_template_part( '_the-content' ); ?>
+			<?php endif; ?>
+		</div>
+		
 		
 
 	<?php endwhile; ?>
