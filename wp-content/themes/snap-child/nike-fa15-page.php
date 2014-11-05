@@ -12,6 +12,7 @@ $quote_text = get_field('quote_text');
 $quote_bg = get_field('background_image');
 $quote_source = get_field('quote_source');
 $quote_text_color = get_field('quote_text_color');
+$learn_more_links = get_field('learn_more_links');
 ?>
 <?php //.futura for futura condensed extra bold ?>
 <script type="text/javascript">
@@ -75,5 +76,19 @@ jQuery(document).ready(function($){
 			<li class="menu-item"><a href="/nike-fa15-gtm/page-content/administer" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/administer.jpg" width="100%" height="auto"/></div><h6 class="title">Administer</h6></a></li>
 		</ul>
 		
+
 	<?php endwhile; ?>
 <?php get_footer();
+?>
+<div class="pseudo-footer">
+	<?php if(isset($learn_more_links) && !empty($learn_more_links)){ ?>
+<div class="learn-more">
+	<h3>Learn More</h3>
+	<ul class="learn more links">
+		<?php foreach ($learn_more_links as $link){
+			echo '<li><a href="'.$link['url'].'" target="_blank">'.$link['label'].'</a></li>';
+		}?>
+	</ul>
+</div>
+<?php } ?>
+</div>
