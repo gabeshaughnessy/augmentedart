@@ -69,12 +69,48 @@ html, body{
 	 }
 
 	button{
-		background-color: $green;
-		border: 1px solid $teal;
-		color: $off-white;
+		background-color: #40413e;
+		border: 1px solid #12515a;
+		font-family: $futura-font;
+		text-transform : uppercase;
+		font-size : 1.1em;
+		text-shadow: none;
+		box-shadow: none;
+		color: #aeb0a5;
+		border-radius : 0;
+		outline-color :  #aeb0a5;
+		transition : color .25s;
 		> * {
 			color : inherit;
 		}
+		&:hover{
+			color: #edf0f0;
+		}
+	}
+	button.primary{
+		background-color: $green;
+		border: 1px solid $teal;
+		color:$off-white;
+		outline-color : #38bb93;
+		&:hover{
+			color: #38bb93 ;
+		}
+	}
+	.button-row {
+		width: 100%;
+		a {
+			float: left;
+			margin-right: 2%;
+			width: 49%;
+			text-align: center;
+			&:last-child{
+				margin-right : 0;
+			}
+			button {
+				width: 100%;
+			}
+		}
+
 	}
 	hr.shaded{
 		width: 100%;
@@ -187,6 +223,7 @@ html, body{
 			text-align: center;
 
 
+
 			@media screen and (max-width: 780px){
 				height: 140px;
 			}
@@ -198,6 +235,32 @@ html, body{
 				font-family: $futura-font;
 				color: #151519; 
 				margin-top : 0;
+			}
+
+			a.current{
+				.image-wrapper{
+					opacity: .7;
+				}
+				.title{
+					color : #aeb0a5;
+				}
+			}
+
+			a:hover{
+				.image-wrapper{
+					opacity: .7;
+				}
+				.title{
+					color : #aeb0a5;
+				}
+			}
+			a:active{	
+				.image-wrapper{
+					opacity: .3;
+				}			
+				.title{
+					color : #edf0f0;
+				}
 			}
 		}
 	}
