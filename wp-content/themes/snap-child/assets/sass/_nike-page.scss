@@ -384,6 +384,42 @@ html, body{
 			}
 		}
 	}
+.learn-more{
+	color: $off-white;
+	h3{
+		color: $off-white;
+		float: left;
+		margin-right: 1em;
+		font-size: 3em;
+		@media screen and (max-width : 480px){
+			font-size: 2em;
+		}
+	}
+	ul {
+		float: left;
+		padding-top: 2em;
+		list-style: square;
+		a{
+			color: $off-white;
+		}
+	}
+}
+	.pseudo-footer{
+		width: 100%;
+		box-sizing: border-box;
+		padding: 1em 2em;
+		padding-top: 0;
+		background-image: url(images/nike-fa15/banner-bg.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+		float: left;
+		z-index: 5;
+		-webkit-box-shadow : 0 -3px 3px rgba(0,0,0,.4);
+		-moz-box-shadow : 0 -3px 3px rgba(0,0,0,.4);
+		-o-box-shadow : 0 -3px 3px rgba(0,0,0,.4);
+		box-shadow : 0 -3px 3px rgba(0,0,0,.4);
+	}
 
 }
 #main-header.hide{
