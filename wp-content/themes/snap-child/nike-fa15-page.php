@@ -19,7 +19,7 @@ jQuery(document).ready(function($){
 	$('.bg-image').each(function(){
 		var bgImage = jQuery(this).data('src');
 		if(bgImage.length > 0){
-			jQuery(this).css({'background-image': 'url('+bgImage+')', 'background-size' : 'cover', 'background-repeat' : 'no-repeat'});
+			jQuery(this).css({'background-image': 'url('+bgImage+')', 'background-size' : 'cover', 'background-position' : 'center', 'background-repeat' : 'no-repeat'});
 		}
 	});
 	$('.thumbnail-menu .menu-item').each(function(){
