@@ -58,6 +58,7 @@ html, body{
 		width: 100%;
 		clear: both;
 		padding-bottom: 1em;
+		margin-bottom: 2em;
 
 		h3{
 			background : #3e4045;
@@ -69,6 +70,7 @@ html, body{
 		}
 		ul{
 			list-style: none;
+			margin-left: 0;
 			li{
 				clear: both;
 				width: 100%;
@@ -85,6 +87,10 @@ html, body{
 						background-image: url(images/nike-fa15/app-images/lightbulb.png);
 						background-repeat : no-repeat;
 						background-size : contain;
+
+						@media screen and (max-width : 480px){
+							width: 20px;
+						}
 					}
 				
 				.tip-content{
@@ -319,6 +325,7 @@ html, body{
 	.thumbnail-menu{
 		list-style: none;
 		float: left;
+		margin-left: 0;
 		width: 100%;
 		.menu-item{
 			width: 19%;
