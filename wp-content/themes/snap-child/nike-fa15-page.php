@@ -22,10 +22,15 @@ jQuery(document).ready(function($){
 			jQuery(this).css({'background-image': 'url('+bgImage+')', 'background-size' : 'cover', 'background-repeat' : 'no-repeat'});
 		}
 	});
-	$('.thumbnail-mneu .menu-item a').each(function(){
+	$('.thumbnail-menu .menu-item').each(function(){
 
-		if( document.URL.indexOf($(this).attr('href') >= 0) ){
-			$(this).addClass('active');
+		if( document.URL.indexOf($(this).find('a').attr('href')) >= 0 ){
+			
+			$(this).find('a').addClass('current');
+		}
+		else{
+			
+			$(this).find('a').removeClass('current');
 		}
 	});
 });
