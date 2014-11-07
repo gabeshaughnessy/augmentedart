@@ -181,10 +181,19 @@ html, body{
 		float: left;
 			}
 	.img-wrapper.right{
-		width: 50%;
+		width: 20%;
 		float: right;
 		padding: .5em 2em;
 		box-sizing : border-box;
+		@media screen and (max-width: 1024px){
+			width: 30%;
+		}
+		@media screen and (max-width: 768px){
+			width: 40%;
+		}
+		@media screen and (max-width: 480px){
+			width: 50%;
+		}
 
 	 }
 
