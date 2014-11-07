@@ -48,6 +48,20 @@ remove_action( 'init', 'wp_admin_bar_init' );
  var msgPt1 = "<?php  echo get_field('message_pt_1', $post->ID); ?>";
  var msgPt2 = "<?php  echo get_field('message_pt_2', $post->ID); ?>";
   var msgPt3 = "<?php  echo get_field('message_pt_3', $post->ID); ?>";
+  <?php 
+    $orb_urls = get_field('orb_urls');
+    if(isset($orb_urls) && !empty($orb_urls[0])){
+      $i = 1;
+       foreach($orb_urls as $orb) {
+        ?>
+        var orb<?php  echo $i; ?>URL = "<?php echo $orb['url']; ?>";
+
+        <?php
+        $i ++;
+      }
+    }
+
+  ?>
  </script>
  <?php 
 $intro_fields = get_field('intro_mural_fields');

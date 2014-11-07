@@ -479,6 +479,32 @@ if(function_exists("register_field_group"))
 				'layout' => 'table',
 				'button_label' => 'Add Row',
 			),
+			array (
+				'key' => 'field_545c530ba2253',
+				'label' => 'Orb URLS',
+				'name' => 'orb_urls',
+				'type' => 'repeater',
+				'instructions' => 'Add up to Three URL\'s for the Orbs to link to',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_545c5325a2254',
+						'label' => 'url',
+						'name' => 'url',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
 		),
 		'location' => array (
 			array (
