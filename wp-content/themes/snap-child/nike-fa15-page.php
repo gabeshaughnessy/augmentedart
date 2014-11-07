@@ -14,7 +14,6 @@ $quote_source = get_field('quote_source');
 $quote_text_color = get_field('quote_text_color');
 $learn_more_links = get_field('learn_more_links');
 $show_app_menu = get_field('show_app_menu');
-error_log($show_app_menu);
 ?>
 <?php //.futura for futura condensed extra bold ?>
 <script type="text/javascript">
