@@ -296,6 +296,21 @@ if(function_exists("register_field_group"))
 		'title' => 'Nike FA15 Fields',
 		'fields' => array (
 			array (
+				'key' => 'field_545c4a913304e',
+				'label' => 'Show App Menu',
+				'name' => 'show_app_menu',
+				'type' => 'select',
+				'instructions' => 'Where to show the Nike.Net Apps on this page, if at all...',
+				'choices' => array (
+					'top' => 'At the Top',
+					'bottom' => 'At the Bottom',
+					'hidden' => 'Don\'t show it at all',
+				),
+				'default_value' => 'top',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
 				'key' => 'field_543f10025419c',
 				'label' => 'Message pt 1',
 				'name' => 'message_pt_1',
