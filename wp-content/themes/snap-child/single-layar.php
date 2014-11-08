@@ -1,6 +1,9 @@
 <?php
-global $post;
+/* Set the proper content type */
+header("Content-Type: application/json;charset=utf-8");
 
+global $post;
+session_start();
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
 if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
