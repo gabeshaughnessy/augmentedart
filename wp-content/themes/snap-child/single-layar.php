@@ -11,7 +11,13 @@ else {
     $is_android = false;
 }
 $user_id = $_REQUEST['userId'];
+if(isset($user_id)){
+setcookie("LayarUserId", $user_id, time()+60);
+}
+else{
+    setcookie("LayarUserId", 'no-user-id', time()+60);
 
+}
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
     $layar_name = get_field('layar_name');
