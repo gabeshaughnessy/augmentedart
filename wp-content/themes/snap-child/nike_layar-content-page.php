@@ -9,7 +9,7 @@ otherwise set access to false and redirect user to 'no-access' page.
 
 ?>
 <?php
-
+session_start();
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 error_log('$_REQUEST on content: '.print_r($_REQUEST, true));
 error_log('$_SERVER on content: '.print_r($_SERVER, true));
