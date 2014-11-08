@@ -20,8 +20,8 @@ else{
 	wp_redirect(home_url());
 }
 
-if(isset($_REQUEST['user_id'])){
-  $user_id = $_REQUEST['user_id'];
+if(isset($_REQUEST['userId'])){
+  $user_id = $_REQUEST['userId'];
 }
 else {
   $user_id = 'test_user_id'.rand(1, 100);
