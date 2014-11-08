@@ -45,7 +45,6 @@ remove_action( 'init', 'wp_admin_bar_init' );
 
 <?php while ( have_posts() ) : the_post(); ?>
  <script type="text/javascript">
- alert('<?php  echo $user_id; ?>');
  var userID = "<?php  echo $user_id; ?>";
  var pageText = "<?php  echo get_the_content($post->ID); ?>";
  var appName = "<?php  echo get_field('app_name', $post->ID); ?>";
