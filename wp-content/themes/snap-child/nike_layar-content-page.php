@@ -20,8 +20,8 @@ else{
 	wp_redirect(home_url());
 }
 
-if(isset($_REQUEST['userId'])){
-  $user_id = $_REQUEST['userId'];
+if(isset($_COOKIE['LayarUserId'])){
+  $user_id = $_COOKIE['LayarUserId'];
 }
 else {
   $user_id = 'test_user_id'.rand(1, 100);
@@ -42,6 +42,7 @@ remove_action( 'init', 'wp_admin_bar_init' );
 
 <?php while ( have_posts() ) : the_post(); ?>
  <script type="text/javascript">
+ alert('<?php  echo $user_id; ?>');
  var userID = "<?php  echo $user_id; ?>";
  var pageText = "<?php  echo get_the_content($post->ID); ?>";
  var appName = "<?php  echo get_field('app_name', $post->ID); ?>";
