@@ -13,6 +13,8 @@ otherwise set access to false and redirect user to 'no-access' page.
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 error_log('$_REQUEST on content: '.print_r($_REQUEST, true));
 error_log('$_SERVER on content: '.print_r($_SERVER, true));
+error_log('$_SESSION on content: '.print_r($_SESSION, true));
+error_log('$_COOKIE on content: '.print_r($_COOKIE, true));
 if(isset($_SERVER['HTTP_X_LAYAR_OS']) || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development' || is_user_logged_in() == true){
     //this is a layar client
     $layar_client = true;
@@ -20,7 +22,7 @@ if(isset($_SERVER['HTTP_X_LAYAR_OS']) || isset($_GET['spoof']) || LC_ENVIRONMENT
 else{
 	wp_redirect(home_url());
 }
-error_log('Cookie: '.print_r($_COOKIE, true));
+
 if(isset($_COOKIE['LayarUserId'])){
   $user_id = $_COOKIE['LayarUserId'];
 }
