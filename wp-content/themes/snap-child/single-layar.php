@@ -6,6 +6,7 @@ global $post;
 session_start();
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
+
 if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
     //This person is using an android device so we are going to have z position stacking issues wher ethe hotspots overlap.
     $is_android = true;
@@ -15,7 +16,9 @@ else {
 }
 $user_id = $_REQUEST['userId'];
 if(isset($user_id)){
-setcookie("LayarUserId", $user_id, time()+60);
+    if (!isset($_SESSION['user_id'])) {
+      $_SESSION['user_id'] = $user_id;
+    } 
 }
 else{
     setcookie("LayarUserId", 'no-user-id', time()+60);
