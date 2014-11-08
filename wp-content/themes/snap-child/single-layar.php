@@ -18,6 +18,7 @@ else{
     setcookie("LayarUserId", 'no-user-id', time()+60);
 
 }
+error_log('Cookie on single: '.print_r($_COOKIE, true));
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
     $layar_name = get_field('layar_name');

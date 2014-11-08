@@ -19,7 +19,7 @@ if(isset($_SERVER['HTTP_X_LAYAR_OS']) || isset($_GET['spoof']) || LC_ENVIRONMENT
 else{
 	wp_redirect(home_url());
 }
-
+error_log('Cookie: '.print_r($_COOKIE, true));
 if(isset($_COOKIE['LayarUserId'])){
   $user_id = $_COOKIE['LayarUserId'];
 }
