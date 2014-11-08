@@ -13,8 +13,7 @@ session_start();
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 error_log('$_REQUEST on content: '.print_r($_REQUEST, true));
 error_log('$_SERVER on content: '.print_r($_SERVER, true));
-error_log('$_SESSION on content: '.print_r($_SESSION, true));
-error_log('$_COOKIE on content: '.print_r($_COOKIE, true));
+error_log('$_GET on content: '.print_r($_GET, true));
 if(isset($_SERVER['HTTP_X_LAYAR_OS']) || isset($_GET['spoof']) || LC_ENVIRONMENT == 'development' || is_user_logged_in() == true){
     //this is a layar client
     $layar_client = true;

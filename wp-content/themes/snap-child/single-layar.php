@@ -3,7 +3,6 @@
 header("Content-Type: application/json;charset=utf-8");
 
 global $post;
-session_start();
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
 
@@ -15,19 +14,7 @@ else {
     $is_android = false;
 }
 $user_id = $_REQUEST['userId'];
-if(isset($user_id)){
-    if (!isset($_SESSION['user_id'])) {
-      $_SESSION['user_id'] = $user_id;
-    } 
-}
-else{
-    setcookie("LayarUserId", 'no-user-id', time()+60);
 
-}
-error_log('$_REQUEST on single: '.print_r($_REQUEST, true));
-error_log('$_SERVER on single: '.print_r($_SERVER, true));
-error_log('$_SESSION on single: '.print_r($_SESSION, true));
-error_log('$_COOKIE on single: '.print_r($_COOKIE, true));
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
     $layar_name = get_field('layar_name');
@@ -57,7 +44,7 @@ if(have_posts()) : while(have_posts()) : the_post();
 
                 $hotspots_output[$i] = array(
                     'object' => array(
-                                'url' => $layarUrl, //this is the content for the layar.
+                                'url' => $layarUrl.'?userID='.$user_id, //this is the content for the layar.
                                 'contentType' => $contentType,
                                 'viewport' => array(
                                     'height' => $layarHeight,
