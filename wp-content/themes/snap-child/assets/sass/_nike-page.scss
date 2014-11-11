@@ -19,6 +19,95 @@ html, body{
 	float: left;
 	width: 100%;
 }
+a.menu-toggle{
+	position: relative;
+	z-index: 1001;
+	text-transform: uppercase;
+	color: #3e4045;
+	font-family : $trade-gothic;
+	font-size : 1.1em;
+	transition: .2s color;
+	&:hover{
+		color: #7e7e7e;
+	}
+	&:after{
+		content : "\279f";
+		margin-left: 4px;
+
+	}
+	&.before-content{
+		top: -1em;
+	}
+
+}
+a.menu-toggle.menu-close{
+	position: absolute;
+	right: .25em;
+	&:after{
+		content : "\2716";
+		margin-left: 4px;
+	}
+
+}
+.off-canvas.overlay{
+	background-color: rgba(0,0,0,0);
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	display:block;
+	float: left;
+	margin-left : -100%;
+	transition: all .3s ease;
+	box-sizing : border-box;
+
+}
+.sidebar{
+
+	&.off-canvas{
+		box-sizing : border-box;
+		transition: .3s all ease;
+		width:90%;
+		max-width: 400px;
+		padding: .25em 1em;
+		margin-left: -100%;
+		float: left;
+		position : relative;
+		z-index:1000;
+		background : #fff;
+		box-shadow : 0 1px 10px rgba(0,0,0,.5);
+		height: 100%;
+
+
+	}
+
+}//end sidebar
+[role="main"]{
+	transition: .2s all ease;
+	width: 100%;
+	padding: 0;
+	margin-left: 0;
+	float: left;
+}
+.active-nav{
+	.sidebar.off-canvas{
+		margin-left: 0;
+		width: 80%;
+	}
+
+	[role="main"]{
+		margin-right: -100%;
+
+	}
+	.off-canvas.overlay{
+		background-color: rgba(0,0,0,.5);
+		margin-left : 0%;
+
+
+	}
+
+}
+
 .page-template-nike-fa15-page-php{
 	.two-columns{
 		width: 100%;
@@ -349,21 +438,19 @@ html, body{
 		margin-left: 0;
 		width: 100%;
 		.menu-item{
-			width: 19%;
+			width: 100%;
 			float: left;
-			margin-right: 1%;
-			margin-bottom : 2em;
-			height: 180px;
+			margin-right: 0;
+			margin-bottom : 1em;
+			height: auto;
 			text-align: center;
-
-
-
-			@media screen and (max-width: 780px){
-				height: 140px;
+			img{
+				max-width: 200px;
+				margin: 0 auto;
 			}
+
 			@media screen and (max-width: 480px){
-				width : 49%;
-				height: 140px;
+				width : 100%;
 			}
 			.title{
 				font-family: $futura-font;
