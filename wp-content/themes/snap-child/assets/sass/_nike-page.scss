@@ -5,7 +5,7 @@
 	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	
 }	
 $trade-gothic : "TradeGothicBoldCond";
-$futura-font : "FuturaW01-ExtraBoldCond 774896";	
+$futura-font : "FuturaW01-ExtraBoldCond 774896", helvetica, sans-serif;	
 
 //colors
 $green : #0d827e;
