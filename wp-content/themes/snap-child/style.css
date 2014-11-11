@@ -3061,7 +3061,7 @@ html, body {
   font-family: "TradeGothicBoldCond";
   color: #fff;
   text-transform: uppercase;
-  font-size: 2.2em;
+  font-size: 1.5em;
 }
 @media screen and (max-width: 480px) {
   /* line 303, ../sass/_nike-page.scss */
