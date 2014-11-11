@@ -2984,7 +2984,7 @@ a.menu-toggle.menu-close:after {
 }
 /* line 258, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h6 {
-  font-family: "FuturaW01-ExtraBoldCond 774896";
+  font-family: "FuturaW01-ExtraBoldCond 774896", helvetica, sans-serif;
   font-weight: 100;
   color: #404040;
   font-size: .9rem;
@@ -3029,7 +3029,7 @@ a.menu-toggle.menu-close:after {
 .page-template-nike-fa15-page-php button {
   background-color: #40413e;
   border: 1px solid #12515a;
-  font-family: "FuturaW01-ExtraBoldCond 774896";
+  font-family: "FuturaW01-ExtraBoldCond 774896", helvetica, sans-serif;
   text-transform: uppercase;
   font-size: 1.1em;
   text-shadow: none;
@@ -3225,7 +3225,7 @@ a.menu-toggle.menu-close:after {
 }
 /* line 456, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item .title {
-  font-family: "FuturaW01-ExtraBoldCond 774896";
+  font-family: "FuturaW01-ExtraBoldCond 774896", helvetica, sans-serif;
   color: #151519;
   margin-top: 0;
 }
