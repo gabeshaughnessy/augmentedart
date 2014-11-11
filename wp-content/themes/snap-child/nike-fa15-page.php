@@ -14,6 +14,11 @@ $quote_source = get_field('quote_source');
 $quote_text_color = get_field('quote_text_color');
 $learn_more_links = get_field('learn_more_links');
 $show_app_menu = get_field('show_app_menu');
+$menu_link_text = get_field('menu_link_text');
+$menu_title = get_field('menu_title');
+if($menu_link_text == ''){
+	$menu_link_text = 'Explore the Sales 2.0 Apps';
+}
 ?>
 <?php //.futura for futura condensed extra bold ?>
 <script type="text/javascript">
@@ -76,7 +81,7 @@ function toggleMenu(){
 
 	<div class="theme-container frame">
 		<?php if($show_app_menu == 'top') { 
-			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle before-content">//Explore other Sales 2.0 Apps</a>
+			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle before-content"><?php echo $menu_link_text; ?></a>
 <?php
 		} ?>
 	<?php while ( have_posts() ) : the_post(); global $post; ?>
@@ -90,7 +95,7 @@ function toggleMenu(){
 				<?php get_template_part( '_the-content' ); ?>
 			<?php endif; ?>
 			<?php if($show_app_menu == 'bottom') { 
-			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle after-content">//Explore other Sales 2.0 Apps</a>
+			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle after-content"><?php echo $menu_link_text; ?></a>
 <?php
 		} ?>
 		</div>
