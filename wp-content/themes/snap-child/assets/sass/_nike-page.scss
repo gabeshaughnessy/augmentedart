@@ -43,7 +43,7 @@ a.menu-toggle{
 }
 a.menu-toggle.menu-close{
 	position: absolute;
-	right: .25em;
+	right: .5em;
 	&:after{
 		content : "\2716";
 		margin-left: 4px;

@@ -2760,7 +2760,7 @@ a.menu-toggle.before-content {
 /* line 44, ../sass/_nike-page.scss */
 a.menu-toggle.menu-close {
   position: absolute;
-  right: .25em;
+  right: .5em;
 }
 /* line 47, ../sass/_nike-page.scss */
 a.menu-toggle.menu-close:after {

@@ -44,8 +44,7 @@ jQuery(document).ready(function($){
 
 
 
-	$('.off-canvas.overlay').height($('.main-container').height());
-	$('.off-canvas.sidebar').css('min-height', $('.main-container').height()+ 'px');
+	
 
 
 	$('.off-canvas.overlay').on('click', function(){
@@ -54,7 +53,10 @@ jQuery(document).ready(function($){
 
 });
 function toggleMenu(){
+	jQuery('.off-canvas.overlay').css('height', jQuery('.main-container').height()+ 'px');
+	jQuery('.off-canvas.sidebar').css('height', jQuery('.main-container').height()+ 'px');
 	jQuery('body').toggleClass('active-nav');
+
 	
 
 }
