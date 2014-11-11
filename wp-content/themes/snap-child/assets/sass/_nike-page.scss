@@ -58,7 +58,6 @@ a.menu-toggle.menu-close{
 	display:block;
 	float: left;
 	margin-left : -100%;
-	transition: all .3s ease;
 	box-sizing : border-box;
 
 }
@@ -67,7 +66,7 @@ a.menu-toggle.menu-close{
 
 	&.off-canvas{
 		box-sizing : border-box;
-		transition: .3s all ease;
+		transition: .2s margin;
 		width:90%;
 		max-width: 400px;
 		padding: .25em 1em;
@@ -84,7 +83,7 @@ a.menu-toggle.menu-close{
 
 }//end sidebar
 [role="main"]{
-	transition: .2s all ease;
+	transition: .2s margin;
 	width: 100%;
 	padding: 0;
 	margin-left: 0;
