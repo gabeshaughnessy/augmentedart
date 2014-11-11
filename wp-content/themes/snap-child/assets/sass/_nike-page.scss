@@ -425,7 +425,7 @@ a.menu-toggle.menu-close{
 			width: 100%;
 			height: 100%;
 			float: left;
-			position : fixed;
+			position : absolute;
 			@media screen and (min-width: 1100px){
 				position : absolute;
 			}
