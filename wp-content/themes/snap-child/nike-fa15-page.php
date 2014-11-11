@@ -35,10 +35,31 @@ jQuery(document).ready(function($){
 			$(this).find('a').removeClass('current');
 		}
 	});
+	
+
+
+
+	$('.off-canvas.overlay').height($('.main-container').outerHeight());
+	$('.off-canvas.sidebar').css('min-height', $('.main-container').outerHeight()+ 'px');
+
+
+	$('.off-canvas.overlay').on('click', function(){
+		$('body').removeClass('active-nav');
+	});
+
 });
+function toggleMenu(){
+	jQuery('body').toggleClass('active-nav');
+	
+
+}
 </script>
 <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/6b75ebd8-ae2d-452e-a135-4862c297ee03.css"/>
-	<div class="pseudo-header">
+	<?php if($show_app_menu == 'top' || $show_app_menu == 'bottom') { 
+			get_template_part('nike-templates/app-menu'); 
+		} ?>
+		<div role="main" class="main-container">
+			<div class="pseudo-header">
 				
 				<div class="header-wrapper">
 					<h1 class="page-title "><?php the_title(); ?></h1> 
@@ -52,22 +73,26 @@ jQuery(document).ready(function($){
 				
 				<div class="bg-image" data-src="<?php echo (isset($quote_bg['url']) ? $quote_bg['url'] : get_bloginfo('stylesheet_directory').'/images/nike-fa15/app-image-placeholder.jpg'); ?>" ></div></div>
 			</div>
+
 	<div class="theme-container frame">
 		<?php if($show_app_menu == 'top') { 
-			get_template_part('nike-templates/app-menu'); 
+			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle before-content">//Explore other Sales 2.0 Apps</a>
+<?php
 		} ?>
 	<?php while ( have_posts() ) : the_post(); global $post; ?>
 		<div id="page-<?php the_ID(); ?>" class="nike-page">
+
 			
 			<?php if ( empty( $post->post_content) && current_user_can( 'edit_page', get_the_ID() ) ) : ?>
 				
 			<?php else : ?>
 
 				<?php get_template_part( '_the-content' ); ?>
-				<?php if($show_app_menu == 'bottom') { 
-					get_template_part('nike-templates/app-menu'); 
-				} ?>
 			<?php endif; ?>
+			<?php if($show_app_menu == 'bottom') { 
+			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle after-content">//Explore other Sales 2.0 Apps</a>
+<?php
+		} ?>
 		</div>
 		
 		
@@ -86,4 +111,5 @@ jQuery(document).ready(function($){
 	</ul>
 </div>
 <?php } ?>
+</div>
 </div>
