@@ -44,8 +44,8 @@ jQuery(document).ready(function($){
 
 
 
-	$('.off-canvas.overlay').height($('.main-container').outerHeight());
-	$('.off-canvas.sidebar').css('min-height', $('.main-container').outerHeight()+ 'px');
+	$('.off-canvas.overlay').height($('.main-container').height());
+	$('.off-canvas.sidebar').css('min-height', $('.main-container').height()+ 'px');
 
 
 	$('.off-canvas.overlay').on('click', function(){

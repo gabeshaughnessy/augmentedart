@@ -334,11 +334,17 @@ a.menu-toggle.menu-close{
 	hr.shaded{
 		width: 100%;
 		height: 40px;
+		float: left;
+		clear: both;
 		background-image: url(images/nike-fa15/hr_fade.png);
 		background-repeat: no-repeat;
 		background-size : contain;
 		border-top: none;
 		background-position: center;
+	}
+	.wistia_embed{
+		float: left;
+		clear: both;
 	}
 	.header-wrapper{
 		width: 100%;
