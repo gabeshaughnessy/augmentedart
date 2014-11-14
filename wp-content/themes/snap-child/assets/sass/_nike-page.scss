@@ -527,6 +527,67 @@ a.menu-toggle.menu-close{
 	#footer{
 		border: none;
 	}
+	.user-list{
+		list-style : none;
+		text-align : center;
+		margin : 0;
+		li{
+			float : left;
+			width: 20%;
+			@media screen and (max-width: 767px){
+				width: 33%;
+				min-height: 160px;
+			}
+
+			.user-title{
+				font-size : .8em;
+				margin-top: 0;
+				line-height: 1.3;
+			}
+			.user-icon{
+				background-size: contain;
+				background-repeat : no-repeat;
+				background-position : center;
+				width: 100%;
+				margin: 0 auto;
+				height: 80px;
+				display: block;
+				
+
+				&.retailers{
+					background-image :  url(images/nike-fa15/user-types/retailers.jpg);
+				}
+				&.csd{
+					background-image :  url(images/nike-fa15/user-types/sales-leader.jpg);
+				}
+				&.merchants{
+					background-image :  url(images/nike-fa15/user-types/merchants.jpg);
+				}
+				&.dtc{
+					background-image :  url(images/nike-fa15/user-types/buyers-planners.jpg);
+				}
+				&.business-planners{
+					background-image :  url(images/nike-fa15/user-types/business-planners.jpg);
+				}
+				&.retail-planners{
+					background-image :  url(images/nike-fa15/user-types/retail-planners.jpg);
+				}
+				&.account-execs{
+					background-image :  url(images/nike-fa15/user-types/account-execs.jpg);
+				}
+				&.sales-ops{
+					background-image :  url(images/nike-fa15/user-types/sales-operations.jpg);
+				}
+				&.csr{
+					background-image :  url(images/nike-fa15/user-types/customer-service-rep.jpg);
+				}
+				&.account-ops{
+					background-image :  url(images/nike-fa15/user-types/account-operations.jpg);
+				}
+			}
+		}
+
+	}
 	.thumbnail-menu{
 		list-style: none;
 		float: left;

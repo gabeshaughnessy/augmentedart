@@ -13,6 +13,7 @@ $quote_bg = get_field('background_image');
 $quote_source = get_field('quote_source');
 $quote_text_color = get_field('quote_text_color');
 $learn_more_links = get_field('learn_more_links');
+$user_types = get_field('user_types');
 $show_app_menu = get_field('show_app_menu');
 $menu_link_text = get_field('menu_link_text');
 $menu_title = get_field('menu_title');
@@ -107,6 +108,55 @@ function toggleMenu(){
 			<?php else : ?>
 
 				<?php get_template_part( '_the-content' ); ?>
+				<?php 
+					if(isset($user_types) && !empty($user_types[0])){
+						echo '<h3>Used by:</h3>
+						<ul class="user-list">';
+						foreach ($user_types as $user_type) {
+							switch ($user_type) {
+
+								case 'retailers':
+									$user_title = 'Retailers';
+									break;
+								case 'csd':
+									$user_title = 'CSD and Managers / Sales Leaders';
+									break;
+								case 'merchants':
+									$user_title = 'Merchants';
+									break;
+								case 'dtc':
+									$user_title = 'DTC Buyers & Planners';
+									break;
+								case 'business-planners':
+									$user_title = 'Business Planners';
+									break;
+								case 'retail-planners':
+									$user_title = 'Retail Planners';
+									break;
+								case 'account-execs':
+									$user_title = 'Account Executives';
+									break;
+								case 'sales-ops':
+									$user_title = 'Sales Operations';
+									break;
+								case 'csr':
+									$user_title = 'Customer Service Representatives';
+									break;
+								case 'account-ops':
+									$user_title = 'Account Operations';
+									break;
+								default:
+									$user_title = $user_type;
+									break;
+							}
+							echo '<li class="user">';
+							echo '<div class="user-icon '.$user_type.'"></div><h6 class="user-title">'.$user_title.'</h6>';
+
+							echo '</li>';
+						}
+						echo '</ul>';
+					}
+				?>
 			<?php endif; ?>
 			<?php if($show_app_menu == 'bottom') { 
 			?>		<a href="" onclick="toggleMenu(); return false;" class="show-for-small tab menu-toggle after-content"><?php echo $menu_link_text; ?></a>
