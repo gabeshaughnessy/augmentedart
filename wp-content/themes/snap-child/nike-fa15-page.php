@@ -33,7 +33,10 @@ jQuery(document).ready(function($){
 
 		if( document.URL.indexOf($(this).find('a').attr('href')) >= 0 ){
 			
-			$(this).find('a').addClass('current');
+			$(this).find('a').addClass('current').on('click', function(e){
+				jQuery('body').toggleClass('active-nav');
+				e.preventDefault();
+			});
 		}
 		else{
 			
