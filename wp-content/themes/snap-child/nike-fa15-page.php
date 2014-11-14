@@ -53,8 +53,8 @@ jQuery(document).ready(function($){
 
 });
 function toggleMenu(){
-	jQuery('.off-canvas.overlay').css('height', jQuery('.main-container').height()+ 'px');
-	jQuery('.off-canvas.sidebar').css('height', jQuery('.main-container').height()+ 'px');
+	jQuery('.off-canvas.overlay').css('min-height', jQuery('.main-container').height()+ 'px');
+	jQuery('.off-canvas.sidebar').css('min-height', jQuery('.main-container').height()+ 'px');
 	jQuery('body').toggleClass('active-nav');
 
 	
@@ -63,7 +63,7 @@ function toggleMenu(){
 </script>
 <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/6b75ebd8-ae2d-452e-a135-4862c297ee03.css"/>
 	<?php if($show_app_menu == 'top' || $show_app_menu == 'bottom') { 
-			get_template_part('nike-templates/app-menu'); 
+			get_template_part('nike-templates/app-menu_off-canvas'); 
 		} ?>
 		<div role="main" class="main-container">
 			<div class="pseudo-header">
@@ -81,9 +81,18 @@ function toggleMenu(){
 				<div class="bg-image" data-src="<?php echo (isset($quote_bg['url']) ? $quote_bg['url'] : get_bloginfo('stylesheet_directory').'/images/nike-fa15/app-image-placeholder.jpg'); ?>" ></div></div>
 			</div>
 
-	<div class="theme-container frame">
+	<div class="theme-container frame has-sidebar">
+		
+		<?php if($show_app_menu == 'top' || $show_app_menu == 'bottom') { 
+			echo '<div class="sidebar-container hide-for-small">';
+			get_template_part('nike-templates/app-menu'); 
+			echo '</div>';
+			echo'<div class="content-container">';
+
+		} ?>
+
 		<?php if($show_app_menu == 'top') { 
-			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle before-content"><?php echo $menu_link_text; ?></a>
+			?>		<a href="" onclick="toggleMenu(); return false;" class="show-for-small tab menu-toggle before-content"><?php echo $menu_link_text; ?></a>
 <?php
 		} ?>
 	<?php while ( have_posts() ) : the_post(); global $post; ?>
@@ -97,14 +106,17 @@ function toggleMenu(){
 				<?php get_template_part( '_the-content' ); ?>
 			<?php endif; ?>
 			<?php if($show_app_menu == 'bottom') { 
-			?>		<a href="" onclick="toggleMenu(); return false;" class="menu-toggle after-content"><?php echo $menu_link_text; ?></a>
+			?>		<a href="" onclick="toggleMenu(); return false;" class="show-for-small tab menu-toggle after-content"><?php echo $menu_link_text; ?></a>
 <?php
 		} ?>
 		</div>
-		
+		<?php if($show_app_menu == 'top' || $show_app_menu == 'bottom') { 
+			echo '</div>';
+			} ?>
 		
 
-	<?php endwhile; ?>
+	<?php endwhile;
+	 ?>
 <?php get_footer();
 ?>
 <div class="pseudo-footer">
