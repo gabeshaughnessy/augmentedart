@@ -104,6 +104,7 @@ a.menu-toggle.menu-close{
 		margin-top: 0;
 		font-size : 1rem;
 		line-height: 1;
+		margin-bottom : 1em;
 	}
 
 	&.off-canvas{
@@ -277,13 +278,13 @@ a.menu-toggle.menu-close{
 		line-height : 1;
 		margin-top: 0;
 		font-weight: 100;
-		margin-bottom: 1em;
+		margin-bottom: .2em;
 		text-transform:uppercase;
 		@media screen and (max-width:1024px){
 			font-size:2.5rem;
 		}
 		@media screen and (max-width: 780px){
-			font-size:2rem;
+			font-size:2.5rem;
 		}
 		a {
 			color : inherit;
@@ -293,12 +294,15 @@ a.menu-toggle.menu-close{
 		font-family: $trade-gothic;
 		color: #7e7e7e;
 		text-transform:uppercase;
-		font-size: 1.8rem;
+		font-size: 2rem;
 		font-weight: 100;
+		margin : 0;
+		line-height : 1;
+		margin-bottom : .5em;
 	}
 	h4{
 		color: #404040;
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 		font-weight: 100;
 	}
 	h5{
@@ -528,9 +532,9 @@ a.menu-toggle.menu-close{
 		width: 100%;
 		.menu-item{
 			position : relative;
-			width: 100%;
+			width: 60%;
 			float: left;
-			margin-right: 0;
+			margin: 0 20%;
 			margin-bottom : 1em;
 			height: auto;
 			text-align: center;
@@ -572,7 +576,7 @@ a.menu-toggle.menu-close{
 					font-family: "nike-icon-font";
 					position: absolute;
 					display: inline-block;
-					right: 0;
+					right: -1em;
 					width: 20px;
 					height: 20px;
 					top: 20%;
@@ -606,6 +610,7 @@ a.menu-toggle.menu-close{
 		color: $off-white;
 		float: left;
 		margin-right: 1em;
+		margin-top: .5em;
 		font-size: 3em;
 		@media screen and (max-width : 480px){
 			font-size: 2em;
