@@ -83,6 +83,8 @@ a.menu-toggle.menu-close{
 	&:after{
 		content : "\2716";
 		margin-left: 4px;
+		vertical-align: top;
+		line-height: 1.4;
 	}
 
 }
