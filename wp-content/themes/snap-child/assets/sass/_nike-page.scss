@@ -1,3 +1,4 @@
+
 @font-face {	    
 	font-family: "TradeGothicBoldCond";	    
 	font-style: normal;	    
@@ -5,17 +6,15 @@
 	src: url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.woff") format("woff"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.ttf") format("truetype"), url("http://augmentedart.com/fonts/TradeGothicforNike365-BdCn.svg") format("svg");	
 }
 
-@charset "UTF-8";
-
 @font-face {
   font-family: "nike-icon-font";
-  src:url("http://augmentedart.com/fonts/untitled-font-1.eot");
-  src:url("http://augmentedart.com/fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
-    url("http://augmentedart.com/fonts/untitled-font-1.woff") format("woff"),
-    url("http://augmentedart.com/fonts/untitled-font-1.ttf") format("truetype"),
-    url("http://augmentedart.com/fonts/untitled-font-1.svg#untitled-font-1") format("svg");
   font-weight: normal;
   font-style: normal;
+  src:url("http://augmentedart.com/fonts/nike-icon-font.eot");
+  src:url("http://augmentedart.com/fonts/nike-icon-font.svg") format("svg"),  url("http://augmentedart.com/fonts/nike-icon-font.ttf") format("truetype"),  url("http://augmentedart.com/fonts/nike-icon-font.woff") format("woff");
+
+
+
 
 }
 
@@ -53,6 +52,7 @@ a.menu-toggle{
 		font-family : $icon-font;
 		content : "\279f";
 		margin-left: 4px;
+		vertical-align: bottom;
 
 	}
 	&.tab{
@@ -103,10 +103,11 @@ a.menu-toggle.menu-close{
 	.sidebar-title{
 		margin-top: 0;
 		font-size : 1rem;
+		line-height: 1;
 	}
 
 	&.off-canvas{
-		@media screen and (min-width: $small-screen){
+		@media screen and (min-width: 768px){
 			display: none;
 		}
 		box-sizing : border-box;
@@ -137,7 +138,7 @@ a.menu-toggle.menu-close{
 	margin-left: 0;
 	float: left;
 }
-@media screen and (max-width: $small-screen){
+@media screen and (max-width: 768px){
 	.active-nav{
 		.sidebar.off-canvas{
 			margin-left: 0;
@@ -331,9 +332,10 @@ a.menu-toggle.menu-close{
 		float: left;
 		padding: 1em;
 		padding-top : 0;
+		padding-left: 0;
 		box-sizing : border-box;
 		border-right : 1px solid #ccc;
-		@media screen and (max-width: $small-screen){
+		@media screen and (max-width: 767px){
 			width: 100%;
 			display : none;
 		}
@@ -343,7 +345,7 @@ a.menu-toggle.menu-close{
 		float: left;
 		box-sizing : border-box;
 		padding: 1em;
-		@media screen and (max-width: $small-screen){
+		@media screen and (max-width: 767px){
 			width: 100%;
 			padding: auto;
 		}
@@ -525,12 +527,14 @@ a.menu-toggle.menu-close{
 		margin-left: 0;
 		width: 100%;
 		.menu-item{
+			position : relative;
 			width: 100%;
 			float: left;
 			margin-right: 0;
 			margin-bottom : 1em;
 			height: auto;
 			text-align: center;
+			color: #151519; 
 			img{
 				max-width: 200px;
 				margin: 0 auto;
@@ -541,12 +545,12 @@ a.menu-toggle.menu-close{
 			}
 			.title{
 				font-family: $futura-font;
-				color: #151519; 
+				color: inherit;
 				margin-top : 0;
 			}
 			a{
 				.image-wrapper{
-					transition : opacity .5s;
+					transition : all .5s;
 					opacity : .5;
 				}
 				.title{
@@ -556,11 +560,25 @@ a.menu-toggle.menu-close{
 			}
 
 			a.current{
+				color: inherit;
 				.image-wrapper{
 					opacity: 1;
 				}
 				.title{
-					color: #151519; 
+					color: #333; 
+				}
+				&:after{
+					content: "\279f";
+					font-family: "nike-icon-font";
+					position: absolute;
+					display: inline-block;
+					right: 0;
+					width: 20px;
+					height: 20px;
+					top: 20%;
+					font-size: 1.5em;
+					color: inherit;
+					text-shadow :  0 0 0px #333;
 				}
 			}
 
@@ -569,7 +587,7 @@ a.menu-toggle.menu-close{
 					opacity: 1;
 				}
 				.title{
-					color : #aeb0a5;
+					color : #151519;
 				}
 			}
 			a:active{	
