@@ -84,7 +84,7 @@ function toggleMenu(){
 	<div class="theme-container frame has-sidebar">
 		
 		<?php if($show_app_menu == 'top' || $show_app_menu == 'bottom') { 
-			echo '<div class="sidebar-container hide-for-small">';
+			echo '<div class="sidebar-container">';
 			get_template_part('nike-templates/app-menu'); 
 			echo '</div>';
 			echo'<div class="content-container">';
