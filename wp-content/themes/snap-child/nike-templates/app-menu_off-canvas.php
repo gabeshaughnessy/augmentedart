@@ -1,9 +1,10 @@
 
-<div class="sidebar in-content">
+<div class="off-canvas sidebar">
+	<a class="menu-toggle menu-close" onclick="toggleMenu(); return false;">Close</a>
 <?php global $post; $menu_title = get_field('menu_title', $post->ID); 
 if($menu_title != ''){
 
-echo '<h5 class="sidebar-title">'.$menu_title.'</h5>'; 
+echo '<h5>'.$menu_title.'</h5>'; 
 }?>
 	<ul class="thumbnail-menu">
 		<li class="menu-item"><a href="/nike-fa15-gtm/page-content/plan" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/plan.jpg" width="100%" height="auto"/></div><h6 class="title">Plan</h6></a></li>
@@ -18,3 +19,4 @@ echo '<h5 class="sidebar-title">'.$menu_title.'</h5>';
 		<li class="menu-item"><a href="/nike-fa15-gtm/page-content/administer" ><div class="image-wrapper"><img class="thumbnail" src="<?php bloginfo('stylesheet_directory'); ?>/images/nike-fa15/menu-thumbnails/administer.jpg" width="100%" height="auto"/></div><h6 class="title">Administer</h6></a></li>
 	</ul> 
 </div>
+<div class="off-canvas overlay"></div>
