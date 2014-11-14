@@ -2872,12 +2872,16 @@ a.menu-toggle.menu-close:after {
 .page-template-nike-fa15-page-php {
   color: #6f706d;
 }
-/* line 169, ../sass/_nike-page.scss */
+/* line 168, ../sass/_nike-page.scss */
+.page-template-nike-fa15-page-php footer {
+  display: none;
+}
+/* line 172, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .two-columns {
   width: 100%;
   float: left;
 }
-/* line 172, ../sass/_nike-page.scss */
+/* line 175, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .two-columns .column {
   width: 50%;
   box-sizing: border-box;
@@ -2885,25 +2889,25 @@ a.menu-toggle.menu-close:after {
   float: left;
 }
 @media screen and (max-width: 780px) {
-  /* line 181, ../sass/_nike-page.scss */
+  /* line 184, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .two-columns.medium .column {
     width: 100%;
     padding-right: 1em;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 190, ../sass/_nike-page.scss */
+  /* line 193, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .two-columns.small .column {
     width: 100%;
     padding-right: 1em;
   }
 }
-/* line 202, ../sass/_nike-page.scss */
+/* line 205, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php ul {
   margin-left: 1.5em;
   list-style: disc;
 }
-/* line 206, ../sass/_nike-page.scss */
+/* line 209, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list {
   background: #909090;
   float: left;
@@ -2912,7 +2916,7 @@ a.menu-toggle.menu-close:after {
   padding-bottom: 1em;
   margin-bottom: 2em;
 }
-/* line 214, ../sass/_nike-page.scss */
+/* line 217, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list h3 {
   background: #3e4045;
   color: #edf0f0;
@@ -2920,11 +2924,11 @@ a.menu-toggle.menu-close:after {
   margin: .5em 0 1em;
   padding: 1em 0;
 }
-/* line 222, ../sass/_nike-page.scss */
+/* line 225, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul {
   list-style: none;
 }
-/* line 224, ../sass/_nike-page.scss */
+/* line 227, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li {
   clear: both;
   width: 100%;
@@ -2932,7 +2936,7 @@ a.menu-toggle.menu-close:after {
   float: left;
   margin-bottom: 2em;
 }
-/* line 231, ../sass/_nike-page.scss */
+/* line 234, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li .icon {
   width: 40px;
   height: 40px;
@@ -2942,22 +2946,22 @@ a.menu-toggle.menu-close:after {
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 241, ../sass/_nike-page.scss */
+/* line 244, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li .icon.magnify {
   background-image: url(images/nike-fa15/app-images/magnify.png);
 }
 @media screen and (max-width: 480px) {
-  /* line 231, ../sass/_nike-page.scss */
+  /* line 234, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .tip-list ul li .icon {
     width: 20px;
   }
 }
-/* line 250, ../sass/_nike-page.scss */
+/* line 253, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li .tip-content {
   float: left;
   max-width: 90%;
 }
-/* line 254, ../sass/_nike-page.scss */
+/* line 257, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li h5 {
   float: left;
   color: #edf0f0;
@@ -2967,16 +2971,16 @@ a.menu-toggle.menu-close:after {
   margin-right: .25em;
   line-height: 1;
 }
-/* line 264, ../sass/_nike-page.scss */
+/* line 267, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li li {
   color: #edf0f0;
 }
-/* line 267, ../sass/_nike-page.scss */
+/* line 270, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .tip-list ul li p {
   color: #edf0f0;
   line-height: 1.4;
 }
-/* line 276, ../sass/_nike-page.scss */
+/* line 279, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h2 {
   font-family: "TradeGothicBoldCond";
   color: #404040;
@@ -2988,22 +2992,22 @@ a.menu-toggle.menu-close:after {
   text-transform: uppercase;
 }
 @media screen and (max-width: 1024px) {
-  /* line 276, ../sass/_nike-page.scss */
+  /* line 279, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php h2 {
     font-size: 2.5rem;
   }
 }
 @media screen and (max-width: 780px) {
-  /* line 276, ../sass/_nike-page.scss */
+  /* line 279, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php h2 {
     font-size: 2.5rem;
   }
 }
-/* line 291, ../sass/_nike-page.scss */
+/* line 294, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h2 a {
   color: inherit;
 }
-/* line 295, ../sass/_nike-page.scss */
+/* line 298, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h3, .page-template-nike-fa15-page-php h4 {
   font-family: "TradeGothicBoldCond";
   color: #7e7e7e;
@@ -3014,44 +3018,44 @@ a.menu-toggle.menu-close:after {
   line-height: 1;
   margin-bottom: .5em;
 }
-/* line 305, ../sass/_nike-page.scss */
+/* line 308, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h4 {
   color: #404040;
   font-size: 1.4rem;
   font-weight: 100;
 }
-/* line 310, ../sass/_nike-page.scss */
+/* line 313, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h5 {
   font-family: "TradeGothicBoldCond";
   font-weight: 100;
   color: #404040;
   font-size: 1.3rem;
 }
-/* line 317, ../sass/_nike-page.scss */
+/* line 320, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h6 {
   font-family: "FuturaW01-ExtraBoldCond 774896", helvetica, sans-serif;
   font-weight: 100;
   color: #404040;
   font-size: .9rem;
 }
-/* line 324, ../sass/_nike-page.scss */
+/* line 327, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .theme-container {
   padding-top: 2em;
   position: relative;
   max-width: 100%;
   box-sizing: border-box;
 }
-/* line 329, ../sass/_nike-page.scss */
+/* line 332, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .theme-container.has-sidebar {
   padding: 1em;
 }
 @media screen and (max-width: 480px) {
-  /* line 329, ../sass/_nike-page.scss */
+  /* line 332, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .theme-container.has-sidebar {
     padding: auto;
   }
 }
-/* line 336, ../sass/_nike-page.scss */
+/* line 339, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .sidebar-container {
   width: 20%;
   float: left;
@@ -3062,13 +3066,13 @@ a.menu-toggle.menu-close:after {
   border-right: 1px solid #ccc;
 }
 @media screen and (max-width: 767px) {
-  /* line 336, ../sass/_nike-page.scss */
+  /* line 339, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .sidebar-container {
     width: 100%;
     display: none;
   }
 }
-/* line 349, ../sass/_nike-page.scss */
+/* line 352, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .content-container {
   width: 80%;
   float: left;
@@ -3076,17 +3080,17 @@ a.menu-toggle.menu-close:after {
   padding: 0 1em;
 }
 @media screen and (max-width: 767px) {
-  /* line 349, ../sass/_nike-page.scss */
+  /* line 352, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .content-container {
     width: 100%;
     padding: 2em 1em;
   }
 }
-/* line 359, ../sass/_nike-page.scss */
+/* line 362, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .img-wrapper {
   float: left;
 }
-/* line 362, ../sass/_nike-page.scss */
+/* line 365, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .img-wrapper.right {
   width: 20%;
   float: right;
@@ -3094,24 +3098,24 @@ a.menu-toggle.menu-close:after {
   box-sizing: border-box;
 }
 @media screen and (max-width: 1024px) {
-  /* line 362, ../sass/_nike-page.scss */
+  /* line 365, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .img-wrapper.right {
     width: 30%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 362, ../sass/_nike-page.scss */
+  /* line 365, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .img-wrapper.right {
     width: 40%;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 362, ../sass/_nike-page.scss */
+  /* line 365, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .img-wrapper.right {
     width: 50%;
   }
 }
-/* line 379, ../sass/_nike-page.scss */
+/* line 382, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php button {
   background-color: #40413e;
   border: 1px solid #12515a;
@@ -3125,45 +3129,45 @@ a.menu-toggle.menu-close:after {
   outline-color: #aeb0a5;
   transition: color .25s;
 }
-/* line 391, ../sass/_nike-page.scss */
+/* line 394, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php button > * {
   color: inherit;
 }
-/* line 394, ../sass/_nike-page.scss */
+/* line 397, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php button:hover {
   color: #edf0f0;
 }
-/* line 398, ../sass/_nike-page.scss */
+/* line 401, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php button.primary {
   background-color: #0d827e;
   border: 1px solid #12515a;
   color: #edf0f0;
   outline-color: #38bb93;
 }
-/* line 403, ../sass/_nike-page.scss */
+/* line 406, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php button.primary:hover {
   color: #38bb93;
 }
-/* line 407, ../sass/_nike-page.scss */
+/* line 410, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .button-row {
   width: 100%;
 }
-/* line 409, ../sass/_nike-page.scss */
+/* line 412, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .button-row a {
   float: left;
   margin-right: 2%;
   width: 49%;
   text-align: center;
 }
-/* line 414, ../sass/_nike-page.scss */
+/* line 417, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .button-row a:last-child {
   margin-right: 0;
 }
-/* line 417, ../sass/_nike-page.scss */
+/* line 420, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .button-row a button {
   width: 100%;
 }
-/* line 423, ../sass/_nike-page.scss */
+/* line 426, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php hr.shaded {
   width: 100%;
   height: 40px;
@@ -3175,12 +3179,12 @@ a.menu-toggle.menu-close:after {
   border-top: none;
   background-position: center;
 }
-/* line 434, ../sass/_nike-page.scss */
+/* line 437, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .wistia_embed {
   float: left;
   clear: both;
 }
-/* line 438, ../sass/_nike-page.scss */
+/* line 441, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .header-wrapper {
   width: 100%;
   box-sizing: border-box;
@@ -3197,7 +3201,7 @@ a.menu-toggle.menu-close:after {
   -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
-/* line 455, ../sass/_nike-page.scss */
+/* line 458, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php h1.page-title {
   float: left;
   font-family: "TradeGothicBoldCond";
@@ -3212,20 +3216,20 @@ a.menu-toggle.menu-close:after {
   bottom: 0;
 }
 @media screen and (max-width: 780px) {
-  /* line 455, ../sass/_nike-page.scss */
+  /* line 458, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php h1.page-title {
     font-size: 2em;
     line-height: 2.5;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 455, ../sass/_nike-page.scss */
+  /* line 458, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php h1.page-title {
     font-size: 1.5em;
     position: relative;
   }
 }
-/* line 477, ../sass/_nike-page.scss */
+/* line 480, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .quote-wrapper {
   position: relative;
   box-shadow: 0 0 64px rgba(0, 0, 0, 0.8) inset;
@@ -3237,7 +3241,7 @@ a.menu-toggle.menu-close:after {
   width: 100%;
   box-sizing: border-box;
 }
-/* line 487, ../sass/_nike-page.scss */
+/* line 490, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .quote-wrapper .quote {
   width: 100%;
   float: left;
@@ -3250,12 +3254,12 @@ a.menu-toggle.menu-close:after {
   font-size: 1.5em;
 }
 @media screen and (max-width: 480px) {
-  /* line 487, ../sass/_nike-page.scss */
+  /* line 490, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .quote-wrapper .quote {
     font-size: 1.5em;
   }
 }
-/* line 501, ../sass/_nike-page.scss */
+/* line 504, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .quote-wrapper .quote .source {
   width: 100%;
   clear: both;
@@ -3263,11 +3267,11 @@ a.menu-toggle.menu-close:after {
   font-size: .7em;
   color: #fff;
 }
-/* line 507, ../sass/_nike-page.scss */
+/* line 510, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .quote-wrapper .quote .source:before {
   content: "- ";
 }
-/* line 512, ../sass/_nike-page.scss */
+/* line 515, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .quote-wrapper .bg-image {
   display: block;
   width: 100%;
@@ -3280,40 +3284,40 @@ a.menu-toggle.menu-close:after {
   opacity: 1;
 }
 @media screen and (min-width: 1100px) {
-  /* line 512, ../sass/_nike-page.scss */
+  /* line 515, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .quote-wrapper .bg-image {
     position: absolute;
   }
 }
-/* line 527, ../sass/_nike-page.scss */
+/* line 530, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php #footer {
   border: none;
 }
-/* line 530, ../sass/_nike-page.scss */
+/* line 533, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list {
   list-style: none;
   text-align: center;
   margin: 0;
 }
-/* line 534, ../sass/_nike-page.scss */
+/* line 537, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li {
   float: left;
   width: 20%;
 }
 @media screen and (max-width: 767px) {
-  /* line 534, ../sass/_nike-page.scss */
+  /* line 537, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .user-list li {
     width: 33%;
     min-height: 160px;
   }
 }
-/* line 542, ../sass/_nike-page.scss */
+/* line 545, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-title {
   font-size: .8em;
   margin-top: 0;
   line-height: 1.3;
 }
-/* line 547, ../sass/_nike-page.scss */
+/* line 550, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon {
   background-size: contain;
   background-repeat: no-repeat;
@@ -3323,54 +3327,54 @@ a.menu-toggle.menu-close:after {
   height: 80px;
   display: block;
 }
-/* line 557, ../sass/_nike-page.scss */
+/* line 560, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.retailers {
   background-image: url(images/nike-fa15/user-types/retailers.jpg);
 }
-/* line 560, ../sass/_nike-page.scss */
+/* line 563, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.csd {
   background-image: url(images/nike-fa15/user-types/sales-leader.jpg);
 }
-/* line 563, ../sass/_nike-page.scss */
+/* line 566, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.merchants {
   background-image: url(images/nike-fa15/user-types/merchants.jpg);
 }
-/* line 566, ../sass/_nike-page.scss */
+/* line 569, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.dtc {
   background-image: url(images/nike-fa15/user-types/buyers-planners.jpg);
 }
-/* line 569, ../sass/_nike-page.scss */
+/* line 572, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.business-planners {
   background-image: url(images/nike-fa15/user-types/business-planners.jpg);
 }
-/* line 572, ../sass/_nike-page.scss */
+/* line 575, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.retail-planners {
   background-image: url(images/nike-fa15/user-types/retail-planners.jpg);
 }
-/* line 575, ../sass/_nike-page.scss */
+/* line 578, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.account-execs {
   background-image: url(images/nike-fa15/user-types/account-execs.jpg);
 }
-/* line 578, ../sass/_nike-page.scss */
+/* line 581, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.sales-ops {
   background-image: url(images/nike-fa15/user-types/sales-operations.jpg);
 }
-/* line 581, ../sass/_nike-page.scss */
+/* line 584, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.csr {
   background-image: url(images/nike-fa15/user-types/customer-service-rep.jpg);
 }
-/* line 584, ../sass/_nike-page.scss */
+/* line 587, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .user-list li .user-icon.account-ops {
   background-image: url(images/nike-fa15/user-types/account-operations.jpg);
 }
-/* line 591, ../sass/_nike-page.scss */
+/* line 594, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu {
   list-style: none;
   float: left;
   margin-left: 0;
   width: 100%;
 }
-/* line 596, ../sass/_nike-page.scss */
+/* line 599, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item {
   position: relative;
   width: 60%;
@@ -3381,47 +3385,47 @@ a.menu-toggle.menu-close:after {
   text-align: center;
   color: #151519;
 }
-/* line 605, ../sass/_nike-page.scss */
+/* line 608, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item img {
   max-width: 200px;
   margin: 0 auto;
 }
 @media screen and (max-width: 480px) {
-  /* line 596, ../sass/_nike-page.scss */
+  /* line 599, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .thumbnail-menu .menu-item {
     width: 100%;
     margin: auto;
   }
 }
-/* line 614, ../sass/_nike-page.scss */
+/* line 617, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item .title {
   font-family: "FuturaW01-ExtraBoldCond 774896", helvetica, sans-serif;
   color: inherit;
   margin-top: 0;
 }
-/* line 620, ../sass/_nike-page.scss */
+/* line 623, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a .image-wrapper {
   transition: all .5s;
   opacity: .5;
 }
-/* line 624, ../sass/_nike-page.scss */
+/* line 627, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a .title {
   color: #aeb0a5;
   font-size: .9em;
 }
-/* line 630, ../sass/_nike-page.scss */
+/* line 633, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a.current {
   color: inherit;
 }
-/* line 632, ../sass/_nike-page.scss */
+/* line 635, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a.current .image-wrapper {
   opacity: 1;
 }
-/* line 635, ../sass/_nike-page.scss */
+/* line 638, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a.current .title {
   color: #333;
 }
-/* line 638, ../sass/_nike-page.scss */
+/* line 641, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a.current:after {
   content: "\279f";
   font-family: "nike-icon-font";
@@ -3436,32 +3440,32 @@ a.menu-toggle.menu-close:after {
   text-shadow: 0 0 0px #333;
 }
 @media screen and (max-width: 480px) {
-  /* line 638, ../sass/_nike-page.scss */
+  /* line 641, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a.current:after {
     right: 0;
   }
 }
-/* line 657, ../sass/_nike-page.scss */
+/* line 660, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a:hover .image-wrapper {
   opacity: 1;
 }
-/* line 660, ../sass/_nike-page.scss */
+/* line 663, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a:hover .title {
   color: #151519;
 }
-/* line 665, ../sass/_nike-page.scss */
+/* line 668, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a:active .image-wrapper {
   opacity: .3;
 }
-/* line 668, ../sass/_nike-page.scss */
+/* line 671, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .thumbnail-menu .menu-item a:active .title {
   color: #edf0f0;
 }
-/* line 674, ../sass/_nike-page.scss */
+/* line 677, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .learn-more {
   color: #edf0f0;
 }
-/* line 676, ../sass/_nike-page.scss */
+/* line 679, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .learn-more h3 {
   color: #edf0f0;
   float: left;
@@ -3470,22 +3474,22 @@ a.menu-toggle.menu-close:after {
   font-size: 3em;
 }
 @media screen and (max-width: 480px) {
-  /* line 676, ../sass/_nike-page.scss */
+  /* line 679, ../sass/_nike-page.scss */
   .page-template-nike-fa15-page-php .learn-more h3 {
     font-size: 2em;
   }
 }
-/* line 686, ../sass/_nike-page.scss */
+/* line 689, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .learn-more ul {
   float: left;
   padding-top: 2em;
   list-style: square;
 }
-/* line 690, ../sass/_nike-page.scss */
+/* line 693, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .learn-more ul a {
   color: #edf0f0;
 }
-/* line 695, ../sass/_nike-page.scss */
+/* line 698, ../sass/_nike-page.scss */
 .page-template-nike-fa15-page-php .pseudo-footer {
   width: 100%;
   box-sizing: border-box;
@@ -3503,12 +3507,12 @@ a.menu-toggle.menu-close:after {
   box-shadow: 0 -3px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* line 713, ../sass/_nike-page.scss */
+/* line 716, ../sass/_nike-page.scss */
 #main-header.hide {
   display: none;
 }
 
-/* line 716, ../sass/_nike-page.scss */
+/* line 719, ../sass/_nike-page.scss */
 #mobile-toggle.hide {
   display: none;
 }
