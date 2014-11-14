@@ -344,10 +344,10 @@ a.menu-toggle.menu-close{
 		width: 80%;
 		float: left;
 		box-sizing : border-box;
-		padding: 1em;
+		padding: 0 1em;
 		@media screen and (max-width: 767px){
 			width: 100%;
-			padding: auto;
+			padding: 2em 1em;
 		}
 	}
 	.img-wrapper{
