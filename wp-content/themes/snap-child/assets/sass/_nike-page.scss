@@ -546,6 +546,7 @@ a.menu-toggle.menu-close{
 
 			@media screen and (max-width: 480px){
 				width : 100%;
+				margin: auto;
 			}
 			.title{
 				font-family: $futura-font;
@@ -583,6 +584,9 @@ a.menu-toggle.menu-close{
 					font-size: 1.5em;
 					color: inherit;
 					text-shadow :  0 0 0px #333;
+					@media screen and (max-width: 480px){ 
+						right : 0;
+					}
 				}
 			}
 
