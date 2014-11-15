@@ -720,8 +720,6 @@ a.menu-toggle.menu-close{
 						color : #aeb0a5;
 						opacity : .2;
 					}
-
-			}
 			&.day2 a .image-wrapper:before{
 				content : "Check Back Thursday"
 			}
@@ -731,6 +729,8 @@ a.menu-toggle.menu-close{
 			&.day4 a .image-wrapper:before{
 				content : "Check Back Saturday"
 			}
+			}
+			
 
 			a.current{
 				color: inherit;

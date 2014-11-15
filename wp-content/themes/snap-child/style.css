@@ -3531,16 +3531,16 @@ a.menu-toggle.menu-close:after {
   color: #aeb0a5;
   opacity: .2;
 }
-/* line 725, ../sass/_nike-page.scss */
-.page-template-nike-fa15-page-php .thumbnail-menu .menu-item.day2 a .image-wrapper:before {
+/* line 723, ../sass/_nike-page.scss */
+.page-template-nike-fa15-page-php .thumbnail-menu .menu-item.disabled.day2 a .image-wrapper:before {
   content: "Check Back Thursday";
 }
-/* line 728, ../sass/_nike-page.scss */
-.page-template-nike-fa15-page-php .thumbnail-menu .menu-item.day3 a .image-wrapper:before {
+/* line 726, ../sass/_nike-page.scss */
+.page-template-nike-fa15-page-php .thumbnail-menu .menu-item.disabled.day3 a .image-wrapper:before {
   content: "Check Back Friday";
 }
-/* line 731, ../sass/_nike-page.scss */
-.page-template-nike-fa15-page-php .thumbnail-menu .menu-item.day4 a .image-wrapper:before {
+/* line 729, ../sass/_nike-page.scss */
+.page-template-nike-fa15-page-php .thumbnail-menu .menu-item.disabled.day4 a .image-wrapper:before {
   content: "Check Back Saturday";
 }
 /* line 735, ../sass/_nike-page.scss */
