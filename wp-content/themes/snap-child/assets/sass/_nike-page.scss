@@ -206,6 +206,58 @@ a.menu-toggle.menu-close{
 		margin-left: 1.5em;
 		list-style: disc;
 	}
+	.block-grid{
+		list-style : none;
+		margin-left: 0;
+		float: left;
+		width:100%;
+		clear: both;
+
+		li{
+			float: left;
+			display: block;
+			box-sizing : border-box;
+			padding: 4px;
+			position: relative;			
+		}
+		&.two-up li{
+			width: 50%;
+			@media screen and (max-width: 480px){
+				width: 100%;
+			}
+		}
+		&.three-up li{
+			width: 33%;
+			@media screen and (max-width: 767px){
+				width: 50%;
+			}
+			@media screen and (max-width: 480px){
+				width: 100%;
+			}
+		}
+		&.four-up li{
+			width: 25%;
+			@media screen and (max-width: 767px){
+				width: 33%;
+			}
+			@media screen and (max-width: 480px){
+				width: 50%;
+			}
+		}
+		&.five-up li{
+			width: 20%;
+			@media screen and (max-width: 480px){
+				width: 50%;
+			}
+		}
+		&.six-up li{
+			width: 16.66%;
+			@media screen and (max-width: 480px){
+				width: 50%;
+			}
+		}
+	}
+
 	.tip-list{
 		background: #909090;
 		float: left;
