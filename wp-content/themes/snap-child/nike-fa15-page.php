@@ -62,12 +62,12 @@ jQuery(document).ready(function($){
 			
 			$(this).find('a').removeClass('current');
 		}
+		if($(this).hasClass('disabled')){
+			$(this).find('a').on('click', function(e){
+				e.preventDefault();
+			});
+		}
 	});
-	
-
-
-
-	
 
 
 	$('.off-canvas.overlay').on('click', function(){
