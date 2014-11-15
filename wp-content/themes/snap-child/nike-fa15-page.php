@@ -24,6 +24,9 @@ if($today == 22){
 if(is_user_logged_in()){
 	$day = 4;
 }
+if(isset($_GET['menu-day'])){
+	$day = $_GET['menu-day'];
+}
 $quote_text = get_field('quote_text');
 $quote_bg = get_field('background_image');
 $quote_source = get_field('quote_source');

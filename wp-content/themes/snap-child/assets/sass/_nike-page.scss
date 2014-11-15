@@ -63,6 +63,8 @@ a.menu-toggle{
 	}
 	&.tab{
 		position: absolute;
+		white-space: nowrap;
+		overflow: hidden;
 		color: #ddd;
 		left: 0;
 		background: #333;
@@ -77,7 +79,7 @@ a.menu-toggle{
 		}
 
 		&.after-content{
-			bottom: 10px;
+			bottom: 14px;
 		}
 	}
 	
@@ -414,7 +416,7 @@ a.menu-toggle.menu-close{
 		padding: 0 1em;
 		@media screen and (max-width: 767px){
 			width: 100%;
-			padding: 2em 1em;
+			padding: 2em 1em 4em;
 		}
 	}
 	.img-wrapper{
@@ -691,6 +693,7 @@ a.menu-toggle.menu-close{
 				.title{
 					color : #aeb0a5;
 					font-size : .9em;
+					white-space: nowrap;
 				}
 			}
 			&.disabled {
