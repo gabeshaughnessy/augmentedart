@@ -29,6 +29,12 @@ $green : #0d827e;
 $teal : #12515a;
 $off-white : #edf0f0;
 
+* { //no hyphenation
+	-moz-hyphens: none;
+  -ms-hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
 html, body{
 	background-color: transparent !important;
 }
@@ -590,7 +596,7 @@ a.menu-toggle.menu-close{
 			float : left;
 			width: 20%;
 			@media screen and (max-width: 767px){
-				width: 33%;
+				width: 50%;
 				min-height: 160px;
 			}
 
@@ -598,6 +604,9 @@ a.menu-toggle.menu-close{
 				font-size : .8em;
 				margin-top: 0;
 				line-height: 1.3;
+				@media screen and (max-width: 767px){
+				font-size : .7em;
+			}
 			}
 			.user-icon{
 				background-size: contain;
@@ -672,20 +681,58 @@ a.menu-toggle.menu-close{
 				margin-top : 0;
 			}
 			a{
+				
+				
 				.image-wrapper{
-					transition : all .5s;
-					opacity : .5;
+				opacity : .5;
+				will-change: opacity;
+				transition : all .5s;
 				}
 				.title{
 					color : #aeb0a5;
 					font-size : .9em;
 				}
 			}
+			&.disabled {
+				a .image-wrapper{
+				
+					img{
+						opacity : .2;
+					}
+					&:before{
+						content: "Check Back";
+						position : absolute;
+						top : 20%;
+						text-align : center;
+						width: 100%;
+						float: left;
+						font-family : $trade-gothic;
+						text-transform : uppercase;
+						font-size : .8em;
+						color: #333;
+					}
+					
+					}
+					.title{
+						color : #aeb0a5;
+						opacity : .2;
+					}
+
+			}
+			&.day2 a .image-wrapper:before{
+				content : "Check Back Thursday"
+			}
+			&.day3 a .image-wrapper:before{
+				content : "Check Back Friday"
+			}
+			&.day4 a .image-wrapper:before{
+				content : "Check Back Saturday"
+			}
 
 			a.current{
 				color: inherit;
 				.image-wrapper{
-					opacity: 1;
+					
 				}
 				.title{
 					color: #333; 

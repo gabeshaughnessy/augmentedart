@@ -8,6 +8,22 @@ $noheader = true;
 ?>
 <?php get_header(); 
 
+$today = date('d');
+if($today == 19){
+	$day = 1;
+}
+if($today == 20){
+	$day = 2;
+}
+if($today == 21){
+	$day = 3;
+}
+if($today == 22){
+	$day = 4;
+}
+if(is_user_logged_in()){
+	$day = 4;
+}
 $quote_text = get_field('quote_text');
 $quote_bg = get_field('background_image');
 $quote_source = get_field('quote_source');
