@@ -350,7 +350,7 @@ if(function_exists("register_field_group"))
 					'retail-planners' => 'Retail Planners',
 					'account-execs' => 'Account Executives',
 					'sales-ops' => 'Sales Operations',
-					'csr' => 'Customer Service Representatives',
+					'csr' => 'Customer Service Reps',
 					'account-ops' => 'Account Operations',
 					'csd' => 'CSD and Managers / Sales Leaders',
 					'' => '',
