@@ -8,8 +8,8 @@ else{if(dataSnap.val()!='stop'){nikeFirebase.child(userID).set('stop');sym.play(
 else if(dataSnap.val()=='stop'){sym.stop();}}}
 else{sym.play('no-access');}});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){nikeFirebase=new Firebase("https://nike-fa15-murals.firebaseio.com");nikeFirebase.child(userID).set('play');nikeFirebase.child(userID).on("value",function(snapshot){dataSnap=snapshot;if(snapshot.val()=='play'){if(jQuery.cookie('FA15-test')=='true'){sym.getSymbol('Athlete').play();sym.getSymbol('Button').play();nikeFirebase.child(userID).set('stop');}};if(snapshot.val()=='stop'){if(jQuery.cookie('FA15-test')=='true'){sym.stop();}};if(snapshot.val()=='reset'){if(jQuery.cookie('FA15-test')=='true'){sym.getSymbol('Athlete').play('reset');sym.getSymbol('Button').play('reset');}};});if(typeof wrapped!==undefined){sym.$('Button').wrap('<a href="http://www.augmentedart.com/nike-fa15-gtm/page-content/plan/" style="width:180px; height:150px; margin-top: 266px; float:right;" ></a>');}
-else{wrapped=true;}});
+Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){nikeFirebase=new Firebase("https://nike-fa15-murals.firebaseio.com");nikeFirebase.child(userID).set('play');nikeFirebase.child(userID).on("value",function(snapshot){dataSnap=snapshot;if(snapshot.val()=='play'){if(jQuery.cookie('FA15-test')=='true'){sym.getSymbol('Athlete').play();sym.getSymbol('Button').play();nikeFirebase.child(userID).set('stop');}};if(snapshot.val()=='stop'){if(jQuery.cookie('FA15-test')=='true'){sym.stop();}};if(snapshot.val()=='reset'){if(jQuery.cookie('FA15-test')=='true'){sym.getSymbol('Athlete').play('reset');sym.getSymbol('Button').play('reset');}};});if(jQuery.cookie('FA15-test')=='true'){if(typeof wrapped!==undefined){sym.$('Button').wrap('<a href="http://www.augmentedart.com/nike-fa15-gtm/page-content/plan/" style="width:180px; height:150px; margin-top: 266px; float:right;" ></a>');}
+else{wrapped=true;}}});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",39000,function(sym,e){sym.play('loop');});
 //Edge binding end
