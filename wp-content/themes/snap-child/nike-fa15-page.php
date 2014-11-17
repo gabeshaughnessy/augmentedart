@@ -33,6 +33,7 @@ $quote_source = get_field('quote_source');
 $quote_text_color = get_field('quote_text_color');
 $learn_more_links = get_field('learn_more_links');
 $user_types = get_field('user_types');
+$video_embed = get_field('video_embed_code');
 $show_app_menu = get_field('show_app_menu');
 $menu_link_text = get_field('menu_link_text');
 $menu_title = get_field('menu_title');
@@ -175,6 +176,9 @@ function toggleMenu(){
 							echo '</li>';
 						}
 						echo '</ul>';
+					}
+					if(isset($video_embed) && !empty($video_embed)){
+						echo $video_embed;
 					}
 				?>
 			<?php endif; ?>

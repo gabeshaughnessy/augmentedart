@@ -360,6 +360,17 @@ if(function_exists("register_field_group"))
 				'multiple' => 1,
 			),
 			array (
+				'key' => 'field_546a7f9713efc',
+				'label' => 'Video Embed Code',
+				'name' => 'video_embed_code',
+				'type' => 'textarea',
+				'instructions' => 'Paste the Embed code here for the video',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'formatting' => 'html',
+			),
+			array (
 				'key' => 'field_543f10025419c',
 				'label' => 'Message pt 1',
 				'name' => 'message_pt_1',
@@ -464,7 +475,7 @@ if(function_exists("register_field_group"))
 				'default_value' => '',
 				'placeholder' => '',
 				'maxlength' => '',
-				'formatting' => 'br',
+				'formatting' => 'html',
 			),
 			array (
 				'key' => 'field_54498f53bf705',
