@@ -557,11 +557,12 @@ a.menu-toggle.menu-close{
 			color: #fff;
 			text-transform : uppercase;
 			font-size : 1.5em;
-			&.big{
-				font-size: 2em;
+			.big{
+				font-size: 1.5em;
 			}
-			&.small{
-				font-size: 1em;
+			.small{
+				font-size: .8em;
+				opacity: .9;
 			}
 			@media screen and (max-width: 480px){
 				font-size : 1.5em;

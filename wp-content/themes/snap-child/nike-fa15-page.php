@@ -176,8 +176,10 @@ function toggleMenu(){
 							echo '</li>';
 						}
 						echo '</ul>';
+
 					}
 					if(isset($video_embed) && !empty($video_embed)){
+						echo '<hr class="shaded" />';
 						echo $video_embed;
 					}
 				?>
