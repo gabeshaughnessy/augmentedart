@@ -7,8 +7,9 @@
 $noheader = true;
 ?>
 <?php get_header(); 
-
+date_default_timezone_set('America/Los_Angeles');
 $today = date('d');
+
 if($today == 19){
 	$day = 1;
 }
