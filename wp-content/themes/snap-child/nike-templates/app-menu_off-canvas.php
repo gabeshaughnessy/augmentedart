@@ -1,7 +1,7 @@
 
 <div class="off-canvas sidebar">
 	<a class="menu-toggle menu-close" onclick="toggleMenu(); return false;">Close</a>
-<?php global $post $day; $menu_title = get_field('menu_title', $post->ID); 
+<?php global $post, $day; $menu_title = get_field('menu_title', $post->ID); 
 if($menu_title != ''){
 
 echo '<h5>'.$menu_title.'</h5>'; 
