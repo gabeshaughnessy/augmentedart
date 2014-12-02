@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Websockets test</title>
+	<script>
+	  socket_ = new WebSocket('ws://duel.uncontext.com:80');
+	  socket_.onmessage = function (data) {
+	    console.log(data);
+	    generateBanana(data);
+	  };
+	</script>
+</head>
+<body>
+</body>
+</html>
