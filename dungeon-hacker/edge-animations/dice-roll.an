@@ -1,0 +1,71 @@
+
+{
+
+	"HTMLFileName":"dice-roll.html",
+	"expanded:images/Poster2.png":"nil",
+	"PosterCapturePos":"0",
+	"expanded:images/diceroll_spritesheet.png":"nil",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"diceroll_spritesheet_symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
+	"StageZoomFactor":"25",
+	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
+	"PosterImagePath":"images/Poster2.png",
+	"pref__general__codeView":"fullView",
+	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"expanded:images/Poster.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"PubDPS":"true",
+	"symbol_stage":{
+		"defaultStageParentHeight":"800px",
+		"dummyStageParentHeight":"800px",
+		"defaultStageParentWidth":"800px",
+		"dummyStageParentWidth":"800px",
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_diceroll_spritesheet_symbol_1}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"}},
+	"TransitionIdCounter":"17",
+	"diceroll_spritesheet_symbol_1-Default Timeline_playhead_ms":"0",
+	"viewStartY":"0",
+	"pixelsPerMs":"0.2",
+	"usedBOM":"false",
+	"nextElementColorIndex":"4",
+	"stage-Default Timeline_playhead_ms":"0",
+	"CompZoomFactor":"100",
+	"PreloadAudio":"auto",
+	"symbol_diceroll_spritesheet_symbol_1":{
+		"defaultStageParentHeight":"738px",
+		"dummyStageParentHeight":"738px",
+		"defaultStageParentWidth":"615px",
+		"element_${_diceroll_spritesheet}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"},
+		"dummyStageParentWidth":"615px"}}
