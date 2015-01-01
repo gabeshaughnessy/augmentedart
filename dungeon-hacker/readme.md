@@ -14,4 +14,4 @@ The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to s
 	- [ ] Monster
 	- [ ] Item
 	- [ ] Attribute
-	- [ ] Roll
+	- [ ] DiceRoll

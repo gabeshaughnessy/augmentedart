@@ -19,6 +19,7 @@
 \
    }}\
 }",
+	"ShowRulers":"true",
 	"PosterImagePath":"images/Poster.png",
 	"viewStartY":"0",
 	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
