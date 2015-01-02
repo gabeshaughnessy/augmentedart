@@ -2,9 +2,9 @@
 [Check out the PDF Overview here](https://github.com/gabeshaughnessy/augmentedart/blob/dungeon-hacker/dungeon-hacker/pdfs/Game-Outline_small.pdf) 
 
 ##Overview
-Dungeon Hacker is a gallery installation at the (Diode gallery)[http://www.jetsoncreative.com/diode] for electronic art that is both an illustration show and an game that visitors play on their smartphones by scanning the illustrations.
+Dungeon Hacker is a gallery installation at the [Diode gallery](http://www.jetsoncreative.com/diode) for electronic art that is both an illustration show and an game that visitors play on their smartphones by scanning the illustrations.
 
-The illustrations that are activated with the (Layar augmented reality app)[http://get.layar.com/]. Visitors play the Dungeon Hacker game by loading layar, and scanning the illustrations to view the augmented reality content.
+The illustrations that are activated with the [Layar augmented reality app](http://get.layar.com/). Visitors play the Dungeon Hacker game by loading layar, and scanning the illustrations to view the augmented reality content.
 
 First you scan a character and touch the image to select that character. Each character has a unique set of attributes for fighting the monsters. 
 
