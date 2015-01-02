@@ -9,7 +9,6 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.playerClass = 'default-class';
 	this.title="Default Player Title";
 	this.description = "The default player description.";
-	alert(this.player);
 	
 	this.addPlayer = function(){ //create a new player entry in the db or replace existing player entry
 		firebaseRef.child('players').child(this.player).set({
@@ -21,13 +20,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 		});
 	}
-	this.update = function(){
+	this.update = function(att, value){
 		//update existing player entry with new data.
+		
 		firebaseRef.child('players').child(this.player).update({
 
-				'title' : this.title,
-				'class' : this.playerClass,
-				'description' : this.description,
+			att : value
+			//not working attribute is note resolving
+
 
 		});
 	}

@@ -55,7 +55,7 @@ var symbols = {
         "Default Timeline": {
             fromState: "Base State",
             toState: "",
-            duration: 0,
+            duration: 1000,
             autoPlay: true,
             timeline: [
             ]

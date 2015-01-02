@@ -6,6 +6,11 @@
 * ability to interact with these actions from within Adobe Edge Animate
 *
 ***********************/
+/* --- Globals --- */
+var player = new Player('test-id');
+
+/* - end Globals - */
+
 (function($, Edge, compId){
 var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonly used Edge classes
 
@@ -14,9 +19,15 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         var player = new Player('test-id');// insert code to be run when the composition is fully loaded here
          
          player.addPlayer();
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+         player.update('title', 'new title');
+         //alert(player);
 
       });
       //Edge binding end
