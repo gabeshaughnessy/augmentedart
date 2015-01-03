@@ -11,13 +11,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.playerClass = 'default-class';
 	this.title = "Default Player Title";
 	this.description = "The default player description.";
-	
+	this.playerImg = 'images/project-manager.png';
 	this.addPlayer = function(){ //create a new player entry in the db or replace existing player entry
 		firebaseRef.child('players').child(this.player).set({
 
 				'title' : this.title,
 				'class' : this.playerClass,
 				'description' : this.description,
+				'playerImg' : this.playerImg,
 
 
 		});
@@ -34,7 +35,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}
 
 	firebaseRef.child('players').child(this.player).on("value", function(snapshot) {
-	  
+	  console.log(snapshot.val());
 	  var dataSet = snapshot.val();
 	  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
 	  for(var key in dataSet){
@@ -45,6 +46,22 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			if(key = 'description'){
 				sym.$('Description').html( dataSet[key]);
 			}
+			if(key = 'playerImg'){
+				//console.log(sym.getSymbol('PlayerImage').$('image').css('backgroundImage'));
+				sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+				//sym.getSymbol('PlayerImage').$('image').html('<img src="'+dataSet[key]+'" />"');
+			}
+			if(key = 'attributes'){
+				sym.$('Attributes').html('');
+				for(var attributeKey in dataSet[key]){
+					console.log(dataSet[key][attributeKey]);
+					for(var i = 0; i < dataSet[key][attributeKey]; i++){
+						sym.$('Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+					}
+				}
+				
+			}
+
 		  }
 	  	 
 	  }

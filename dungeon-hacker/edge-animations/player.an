@@ -17,43 +17,73 @@
 \"Down-level\": {\
    \"timelines\": {\
 \
+   }},\
+\"PlayerImage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
    }}\
 }",
-	"PosterImagePath":"images/Poster.png",
-	"pref__general__codeView":"fullView",
-	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
-	"expanded:images/Poster.png":"nil",
-	"pref__general__FilterNonAnimatedElements":"false",
-	"symbol_stage":{
-		"element_${_Description}":{
-			"timelineColor2":"0x4fa275",
-			"timelineColor3":"0x456a55",
-			"timelineColor":"0x50bd82"},
-		"dummyStageParentWidth":"500px",
-		"element_${_Stage}":{
-			"timelineColor2":"0xcbbd71",
-			"timelineColor3":"0x7b7652",
-			"timelineColor":"0xeedf79"},
-		"dummyStageParentHeight":"500px",
-		"defaultStageParentWidth":"500px",
+	"expanded:images/designer.png":"nil",
+	"expanded:images/diceroll_spritesheet.png":"nil",
+	"expanded:images/charisma.png":"nil",
+	"symbol_PlayerImage":{
 		"element_${_PlayerImage}":{
 			"timelineColor2":"0x1aa38f",
 			"timelineColor3":"0x2a6a61",
 			"timelineColor":"0x00bda4"},
+		"element_${_image}":{
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"timelineColor":"0x63599f"}},
+	"PosterImagePath":"images/Poster.png",
+	"pref__general__codeView":"fullView",
+	"expanded:images/creativity.png":"nil",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"StageZoomFactor":"50",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/knowledge.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"expanded:images/Poster2.png":"nil",
+	"symbol_stage":{
+		"dummyStageParentWidth":"500px",
+		"dummyStageParentHeight":"500px",
 		"element_${_Title}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
 			"timelineColor":"0x91c767"},
-		"defaultStageParentHeight":"500px"},
+		"element_${_AttributesLabel}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineColor":"0x2f73ad"},
+		"defaultStageParentHeight":"500px",
+		"element_${_PlayerImage}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
+			"animationEnabled":"true",
+			"timelineColor":"0x00a9fa"},
+		"defaultStageParentWidth":"500px",
+		"element_${_Description}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_Attributes}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"timelineColor":"0x00a096"}},
 	"PreloadAudio":"auto",
 	"CompZoomFactor":"100",
 	"viewStartY":"0",
 	"pixelsPerMs":"0.2",
-	"nextElementColorIndex":"5",
-	"expanded:images/diceroll_spritesheet.png":"nil",
-	"usedBOM":"false",
-	"ShowRulers":"true",
-	"stage-Default Timeline_playhead_ms":"0",
+	"expanded:images/project-manager.png":"nil",
 	"PubDPS":"true",
-	"StageZoomFactor":"50",
-	"expanded:images/Poster2.png":"nil"}
+	"usedBOM":"false",
+	"nextElementColorIndex":"10",
+	"stage-Default Timeline_playhead_ms":"0",
+	"ShowRulers":"false",
+	"PlayerImage-Default Timeline_playhead_ms":"0",
+	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/"}

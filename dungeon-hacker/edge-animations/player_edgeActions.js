@@ -37,4 +37,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("stage");
    //Edge symbol end:'stage'
 
+   //=========================================================
+   
+   //Edge symbol: 'PlayerImage'
+   (function(symbolName) {   
+   
+   })("PlayerImage");
+   //Edge symbol end:'PlayerImage'
+
 })(jQuery, AdobeEdge, "player");
