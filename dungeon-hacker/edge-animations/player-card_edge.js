@@ -19,8 +19,8 @@ var symbols = {
     minimumCompatibleVersion: "4.0.0",
     build: "4.0.0.359",
     baseState: "Base State",
-    scaleToFit: "none",
-    centerStage: "horizontal",
+    scaleToFit: "width",
+    centerStage: "none",
     initialState: "Base State",
     gpuAccelerate: false,
     resizeInstances: false,
@@ -118,14 +118,14 @@ var symbols = {
             {
                 id: 'Title',
                 type: 'text',
-                rect: ['0px', '15px','400px','auto','auto', 'auto'],
+                rect: ['0px', '15px','100%','2%','auto', 'auto'],
                 text: "Title",
                 font: ['Lucida Console, Monaco, monospace', 24, "rgba(0,0,0,1)", "700", "none", ""]
             },
             {
                 id: 'page_label',
                 type: 'text',
-                rect: ['1px', '56px','400px','32px','auto', 'auto'],
+                rect: ['1px', '56px','100%','2%','auto', 'auto'],
                 text: "Player Card",
                 align: "center",
                 font: ['\'Lucida Console\', Monaco, monospace', 13, "rgba(60,60,60,1.00)", "bold", "none", "normal"]
@@ -133,7 +133,7 @@ var symbols = {
             {
                 id: 'logo',
                 type: 'image',
-                rect: ['0', '0','400px','57px','auto', 'auto'],
+                rect: ['0', '0','100%','3.6%','auto', 'auto'],
                 fill: ["rgba(0,0,0,0)",im+"dungeon-hacker-logo.png",'0px','0px']
             }],
             symbolInstances: [
@@ -152,9 +152,10 @@ var symbols = {
                 ["color", "color", 'rgba(62,61,61,1.00)'],
                 ["style", "font-weight", '700'],
                 ["style", "left", '5px'],
-                ["style", "width", '390px'],
+                ["style", "width", '97.5%'],
                 ["style", "top", '89px'],
                 ["transform", "scaleY", '1'],
+                ["style", "height", '2.01%'],
                 ["style", "font-family", 'Lucida Console, Monaco, monospace'],
                 ["style", "word-spacing", '0px'],
                 ["transform", "scaleX", '1']
@@ -193,8 +194,8 @@ var symbols = {
                 ["style", "font-size", '16px']
             ],
             "${_logo}": [
-                ["style", "height", '57px'],
-                ["style", "width", '400px']
+                ["style", "height", '3.59%'],
+                ["style", "width", '100%']
             ],
             "${_CryptoCredits}": [
                 ["style", "top", '675px'],
@@ -203,9 +204,11 @@ var symbols = {
                 ["style", "width", '390px']
             ],
             "${_page_label}": [
-                ["color", "color", 'rgba(60,60,60,1.00)'],
                 ["style", "top", '56px'],
                 ["style", "text-align", 'center'],
+                ["color", "color", 'rgba(60,60,60,1.00)'],
+                ["style", "height", '2.01%'],
+                ["style", "width", '100%'],
                 ["style", "font-size", '13px']
             ],
             "${_Attributes}": [
@@ -289,7 +292,7 @@ var symbols = {
                 { id: "eid73", tween: [ "color", "${_AttributesLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid67", tween: [ "style", "${_InventoryLabel}", "top", '743px', { fromValue: '743px'}], position: 0, duration: 0 },
                 { id: "eid70", tween: [ "style", "${_InventoryLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
-                { id: "eid59", tween: [ "style", "${_Title}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
+                { id: "eid59", tween: [ "style", "${_Title}", "width", '97.5%', { fromValue: '97.5%'}], position: 0, duration: 0 },
                 { id: "eid51", tween: [ "style", "${_Title}", "top", '89px', { fromValue: '89px'}], position: 0, duration: 0 },
                 { id: "eid68", tween: [ "color", "${_InventoryLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid55", tween: [ "color", "${_Title}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
