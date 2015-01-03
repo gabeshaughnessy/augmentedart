@@ -54,6 +54,8 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		}
 	}
 
+
+
 	this.loadData = function(sym){
 		//initial composition setup - populates data based on character class, but does not interact with firebase yet.
 		sym.$('Title').html( player.title );//update the title symbol
@@ -74,6 +76,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				'title' : this.title,
 				'description' : this.description,
 				'playerImg' : this.playerImg,
+				'crypto-credits' : 1
 
 
 		});
@@ -93,19 +96,19 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
 			
-			if(key = 'title'){
+			if(key == 'title'){
 				sym.$('Title').html( dataSet[key]);//update the title symbol
 			}
 			
-			if(key = 'description'){
+			if(key == 'description'){
 				sym.$('Description').html( dataSet[key]); //update the description symbol
 			}
 			
-			if(key = 'playerImg'){ //update the playerImg 
+			if(key == 'playerImg'){ //update the playerImg 
 				sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
 			}
 			
-			if(key = 'attributes'){ //loop through the attributes and display the correct number for each.
+			if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
 				sym.$('Attributes').html('');
 				for(var attributeKey in dataSet[key]){ 
 					
@@ -116,6 +119,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				
 			}
 
+			 if(key == 'crypto-credits'){ //show crypto credits on some pages
+				if(sym.$('CryptoCredits').length > 0){
+					sym.$('CryptoCredits').html('');
+					for(var credits = 0; credits < 	dataSet[key]; credits++){
+						sym.$('CryptoCredits').append( '<img class="crypto-credit" src="images/crypto-credit.png" />');//add another crypto credit
+					}
+				}
+			}
 		  }
 	  	 
 	  }
