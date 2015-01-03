@@ -29,9 +29,24 @@ var symbols = {
             {
                 id: 'Title',
                 type: 'text',
-                rect: ['227px', '12px','auto','auto','auto', 'auto'],
+                rect: ['28px', '15px','437px','auto','auto', 'auto'],
                 text: "Title",
-                font: ['Arial, Helvetica, sans-serif', [24, ""], "rgba(0,0,0,1)", "normal", "none", ""]
+                font: ['Lucida Console, Monaco, monospace', 24, "rgba(0,0,0,1)", "700", "none", ""]
+            },
+            {
+                id: 'Description',
+                type: 'text',
+                rect: ['28px', '51px','437px','84px','auto', 'auto'],
+                text: "This is the default player Description.",
+                align: "left",
+                font: ['Lucida Console, Monaco, monospace', 16, "rgba(0,0,0,1)", "400", "none", "normal"]
+            },
+            {
+                id: 'PlayerImage',
+                type: 'rect',
+                rect: ['28px', '135px','437px','321px','auto', 'auto'],
+                fill: ["rgba(192,192,192,1)"],
+                stroke: [0,"rgba(0,0,0,1)","none"]
             }],
             symbolInstances: [
 
@@ -41,13 +56,30 @@ var symbols = {
         "Base State": {
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "width", '500px'],
+                ["style", "overflow", 'hidden'],
                 ["style", "height", '500px'],
-                ["style", "overflow", 'hidden']
+                ["style", "width", '500px']
             ],
             "${_Title}": [
-                ["style", "left", '227px'],
-                ["style", "top", '12px']
+                ["style", "top", '15px'],
+                ["style", "font-weight", '700'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+                ["style", "left", '28px'],
+                ["style", "width", '437px']
+            ],
+            "${_Description}": [
+                ["style", "top", '51px'],
+                ["style", "width", '437px'],
+                ["style", "height", '84px'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+                ["style", "left", '28px'],
+                ["style", "font-size", '16px']
+            ],
+            "${_PlayerImage}": [
+                ["style", "top", '135px'],
+                ["style", "height", '321px'],
+                ["style", "left", '28px'],
+                ["style", "width", '437px']
             ]
         }
     },
@@ -55,7 +87,7 @@ var symbols = {
         "Default Timeline": {
             fromState: "Base State",
             toState: "",
-            duration: 1000,
+            duration: 0,
             autoPlay: true,
             timeline: [
             ]

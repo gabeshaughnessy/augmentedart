@@ -9,7 +9,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	
 	this.player = 'player-' + playerID;
 	this.playerClass = 'default-class';
-	this.title="Default Player Title";
+	this.title = "Default Player Title";
 	this.description = "The default player description.";
 	
 	this.addPlayer = function(){ //create a new player entry in the db or replace existing player entry
@@ -25,9 +25,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.update = function(att, value){
 		//update existing player entry with new data.
 		var attributeObj = {};
-
 		attributeObj[att] = value;
-		
 		firebaseRef.child('players').child(this.player).update(attributeObj);
 
 	}
@@ -44,12 +42,15 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			if(key = 'title'){
 				sym.$('Title').html( dataSet[key]);
 			}
+			if(key = 'description'){
+				sym.$('Description').html( dataSet[key]);
+			}
 		  }
 	  	 
 	  }
 	 
 	}, function (errorObject) {
-	  console.log("The read failed: " + errorObject.code);
+	  console.log("The firebase read failed: " + errorObject.code);
 	});
 }
 
