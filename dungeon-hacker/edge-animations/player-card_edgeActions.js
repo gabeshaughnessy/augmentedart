@@ -6,6 +6,9 @@
 * ability to interact with these actions from within Adobe Edge Animate
 *
 ***********************/
+
+
+
 /* --- Globals --- */
 if(typeof playerId == 'undefined'){//first check if playerId is set globally elsewhere
    if( $.urlParam('playerId') != null ){//then check if playerId is passed as a url parameter
@@ -28,25 +31,18 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         
+         player.syncData();
          player.getPlayerClass();
-
-         playerCardUrl = 'http://augmentedart.com/dungeon-hacker/player-card/?playerId='+player.player;
-         sym.$('PlayerCardButton').wrap('<a href="'+playerCardUrl+'">');
 
       });
       //Edge binding end
 
       
 
-      Symbol.bindElementAction(compId, symbolName, "${_SelectButton}", "click", function(sym, e) {
-         sym.play('selected');	// insert code for mouse click here
-
-      });
-      //Edge binding end
+      
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         player.loadData(sym);
+         
          sym.stop();// insert code here
 
       });
@@ -55,13 +51,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
          // insert code here
 
-         player.addPlayer();
-         player.syncData();
-         player.update('title' , player.title);
-         player.update('description' , player.description);
-         player.update('player-class' , player.playerClass);
-         player.update('playerImg' , player.playerImg);
-         player.update('attributes' , player.attributes);
+        
+         
+         
 
 
       });
