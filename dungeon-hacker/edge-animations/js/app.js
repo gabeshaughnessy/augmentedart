@@ -1,6 +1,8 @@
 /* Sets up connection to Firebase */
 var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
 
+
+
 /* defines classes for player, monster, item and attribute and assigns them properties and methods */
 
 function Player(playerID){ //pass unique player ID to the constructor.
@@ -29,6 +31,26 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.player).update(attributeObj);
 
 	}
+	
+	//data sync - events that fire when the firebase database is updated. returns an object like this:
+	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}
+
+	firebaseRef.child('players').child(this.player).on("value", function(snapshot) {
+	  
+	  var dataSet = snapshot.val();
+	  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+	  for(var key in dataSet){
+		if (dataSet.hasOwnProperty(key)) {
+			if(key = 'title'){
+				sym.$('Title').html( dataSet[key]);
+			}
+		  }
+	  	 
+	  }
+	 
+	}, function (errorObject) {
+	  console.log("The read failed: " + errorObject.code);
+	});
 }
 
 
