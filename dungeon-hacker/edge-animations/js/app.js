@@ -22,14 +22,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 	this.update = function(att, value){
 		//update existing player entry with new data.
+		var attributeObj = {};
+
+		attributeObj[att] = value;
 		
-		firebaseRef.child('players').child(this.player).update({
+		firebaseRef.child('players').child(this.player).update(attributeObj);
 
-			att : value
-			//not working attribute is note resolving
-
-
-		});
 	}
 }
 
