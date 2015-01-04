@@ -1,6 +1,7 @@
 
 {
 
+	"expanded:images/default-item.png":"nil",
 	"pref__general__AutoKeyframeProperties":"true",
 	"expanded:images/diceroll_spritesheet.png":"nil",
 	"PosterImagePath":"images/Poster.png",
@@ -8,25 +9,26 @@
 	"pref__general__FilterNonAnimatedElements":"false",
 	"PlayerCardButton-Default Timeline_playhead_ms":"0",
 	"expanded:images/Poster2.png":"nil",
+	"expanded:images/paper-bg.jpg":"nil",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"50",
 	"pixelsPerMs":"0.2",
 	"expanded:images/project-manager.png":"nil",
 	"stage-Default Timeline_mark_ms":"-1",
 	"nextElementColorIndex":"9",
-	"stage-Default Timeline_playhead_ms":"0",
+	"stage-Default Timeline_playhead_ms":"500",
 	"PlayerImage-Default Timeline_playhead_ms":"0",
 	"symbol_SelectButton":{
-		"element_${_Button}":{
-			"timelineColor2":"0xb099ce",
-			"timelineColor3":"0x70657c",
-			"animationEnabled":"true",
-			"timelineColor":"0xceaef4"},
 		"element_${_Text}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
 			"animationEnabled":"true",
-			"timelineColor":"0xeedf79"}},
+			"timelineColor":"0xeedf79"},
+		"element_${_Button}":{
+			"timelineColor2":"0xb099ce",
+			"timelineColor3":"0x70657c",
+			"animationEnabled":"true",
+			"timelineColor":"0xceaef4"}},
 	"HTMLFileName":"player.html",
 	"PosterCapturePos":"0",
 	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
@@ -61,6 +63,7 @@
    }}\
 }",
 	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"expanded:images/crypto-credit.png":"nil",
 	"expanded:images/creativity.png":"nil",
 	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
 	"symbol_PlayerCardButton":{
@@ -81,10 +84,14 @@
 	"expanded:images/Poster.png":"nil",
 	"expanded:images/dungeon-hacker-logo.png":"nil",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
-	"TransitionIdCounter":"43",
+	"expanded:images/charisma.png":"nil",
 	"symbol_stage":{
 		"dummyStageParentWidth":"400px",
-		"dummyStageParentHeight":"640px",
+		"element_${_Text4}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"animationEnabled":"false",
+			"timelineColor":"0x008dc8"},
 		"element_${_Text}":{
 			"timelineColor2":"0xd35d6e",
 			"timelineColor3":"0x7e4b52",
@@ -127,33 +134,29 @@
 			"timelineColor3":"0x2a6a61",
 			"timelineColor":"0x00bda4"},
 		"defaultStageParentHeight":"640px",
-		"element_${_Stage}":{
-			"timelineColor2":"0xcbbd71",
-			"timelineColor3":"0x7b7652",
-			"timelineTreeOpened":"false",
-			"timelineColor":"0xeedf79"},
-		"element_${_Text4}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"animationEnabled":"false",
-			"timelineColor":"0x008dc8"},
-		"defaultStageParentWidth":"400px",
-		"element_${_PlayerCardButton}":{
-			"timelineColor2":"0x326a96",
-			"timelineColor3":"0x385063",
-			"animationEnabled":"true",
-			"timelineColor":"0x2f73ad"},
 		"element_${_SelectButton}":{
 			"timelineColor2":"0xba5b89",
 			"timelineColor3":"0x734a5f",
 			"timelineColor":"0xdb619d",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
+		"element_${_PlayerCardButton}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"animationEnabled":"true",
+			"timelineColor":"0x2f73ad"},
+		"defaultStageParentWidth":"400px",
+		"dummyStageParentHeight":"640px",
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0xeedf79"},
 		"element_${_Attributes}":{
 			"timelineColor2":"0x168c84",
 			"timelineColor3":"0x2a605c",
 			"timelineColor":"0x00a096"}},
-	"PreloadAudio":"auto",
+	"TransitionIdCounter":"43",
 	"symbol_PlayerImage":{
 		"element_${_image}":{
 			"timelineColor2":"0x5a558a",
@@ -165,12 +168,12 @@
 			"animationEnabled":"false",
 			"timelineColor":"0x00bda4"}},
 	"viewStartY":"0",
-	"expanded:images/designer.png":"nil",
+	"pref__general__GenerateSmoothTransitions":"true",
 	"SelectButton-Default Timeline_playhead_ms":"0",
-	"expanded:images/knowledge.png":"nil",
+	"PubDPS":"true",
 	"usedBOM":"false",
 	"ShowRulers":"false",
-	"PubDPS":"true",
-	"pref__general__GenerateSmoothTransitions":"true",
+	"expanded:images/knowledge.png":"nil",
+	"expanded:images/designer.png":"nil",
 	"SelectButton-Default Timeline_mark_ms":"250",
-	"expanded:images/charisma.png":"nil"}
+	"PreloadAudio":"auto"}

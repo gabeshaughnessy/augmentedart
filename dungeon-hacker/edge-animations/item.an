@@ -1,0 +1,67 @@
+
+{
+
+	"HTMLFileName":"item.html",
+	"expanded:images/default-item.png":"nil",
+	"expanded:images/diceroll_spritesheet.png":"nil",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
+	"expanded:images/crypto-credit.png":"nil",
+	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"expanded:images/designer.png":"nil",
+	"expanded:images/creativity.png":"nil",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"ShowRulers":"false",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/paper-bg.jpg":"nil",
+	"expanded:images/knowledge.png":"nil",
+	"StageZoomFactor":"25",
+	"symbol_stage":{
+		"dummyStageParentWidth":"500px",
+		"dummyStageParentHeight":"500px",
+		"element_${_Text}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82"},
+		"defaultStageParentHeight":"500px",
+		"element_${_Button-text}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0x00bda4"},
+		"defaultStageParentWidth":"500px",
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_Equip-Item-Button}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767",
+			"timelineTreeOpened":"false",
+			"epOpened":"false"}},
+	"PreloadAudio":"auto",
+	"CompZoomFactor":"100",
+	"viewStartY":"0",
+	"pixelsPerMs":"0.2",
+	"expanded:images/project-manager.png":"nil",
+	"expanded:images/charisma.png":"nil",
+	"usedBOM":"false",
+	"nextElementColorIndex":"5",
+	"stage-Default Timeline_playhead_ms":"250",
+	"expanded:images/Poster2.png":"nil",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
+	"pref__general__codeView":"fullView"}

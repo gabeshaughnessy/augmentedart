@@ -1,3 +1,4 @@
+
 /* Get URL PARAMS */
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -11,8 +12,38 @@ $.urlParam = function(name){
 // usage: console.log($.urlParam('playerId'));
 
 
+/* --- Globals --- */
+
 /* Sets up connection to Firebase */
 var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
+
+if(typeof playerId == 'undefined'){//first check if playerId is set globally elsewhere
+   if( $.urlParam('playerId') != null ){//then check if playerId is passed as a url parameter
+      var playerId = $.urlParam('playerId');
+   }
+   else{
+     var playerId = 'test-id';
+   }
+ 
+};
+
+
+var player = new Player(playerId);
+
+
+if(typeof itemId == 'undefined'){
+ if( $.urlParam('itemId') != null){
+   var itemId = $.urlParam('itemId');
+  }
+  else{
+    var itemId = 'default-item';
+  }
+}
+var item = new Item(itemId);
+/* - end Globals - */
+
+
+
 
 
 
@@ -20,7 +51,7 @@ var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
 
 function Player(playerID){ //pass unique player ID to the constructor.
 	
-	this.player = 'player-' + playerID;
+	this.id = 'player-' + playerID;
 	this.title = "Default Player Title";
 	this.description = "The default player description.";
 	this.playerImg = 'images/project-manager.png';
@@ -28,30 +59,37 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
 		if($.urlParam('playerClass') == null){
-			player.playerClass = 'Default Character Class';
+			this.playerClass = 'Default Character Class';
 		}
 		else{
-			player.playerClass = $.urlParam('playerClass');
+			this.playerClass = $.urlParam('playerClass');
 
 		}
-		if(player.playerClass == 'project-manager'){
-			 player.title = 'Project Manager';
-			 player.attributes = { charisma : 1, creativity : 1, knowledge : 1};
-			 player.description = 'A Project Manager is the all-around balanced character';
-			 player.playerImg = 'images/project-manager.png';
+		if(this.playerClass == 'project-manager'){
+			 this.title = 'Project Manager';
+			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
+			 this.description = 'A Project Manager is the all-around balanced character';
+			 this.playerImg = 'images/project-manager.png';
 		}
-		else if(player.playerClass == 'designer'){
-			 player.title = 'Designer';
-			 player.attributes = { charisma : 0, creativity : 2, knowledge : 1};
-			 player.description = 'A Designer is creative and knowledgeable';
-			 player.playerImg = 'images/designer.png';
+		else if(this.playerClass == 'designer'){
+			 this.title = 'Designer';
+			 this.attributes = { charisma : 0, creativity : 2, knowledge : 1};
+			 this.description = 'A Designer is creative and knowledgeable';
+			 this.playerImg = 'images/designer.png';
 		}
 		else{
-			 player.title = 'Default Character Class';
-			 player.attributes = { charisma : 1, creativity : 1, knowledge : 1};
-			 player.description = 'This is the default character class';
-			 player.playerImg = 'images/project-manager.png';
+			 this.title = 'Default Character Class';
+			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
+			 this.description = 'This is the default character class';
+			 this.playerImg = 'images/project-manager.png';
 		}
+	}
+
+	this.getPlayerData = function(){
+		firebaseRef.child('players').child(this.id).once('value', function(snapshot){
+			playerData = snapshot.val();
+			this.cryptoCredits = playerData['cryptoCredits'];
+		});
 	}
 
 
@@ -71,12 +109,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 	
 	this.addPlayer = function(){ //create a new player entry in the db or replace existing player entry - this triggers when you select the player.
-		firebaseRef.child('players').child(this.player).set({
+		firebaseRef.child('players').child(this.id).set({
 
 				'title' : this.title,
+				'playerClass' : this.playerClass,
 				'description' : this.description,
 				'playerImg' : this.playerImg,
-				'crypto-credits' : 1
+				'cryptoCredits' : 1,
+				'attributes' : this.attributes
 
 
 		});
@@ -89,7 +129,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 
 	this.syncData = function(){ //bind to data changes to stay synced with the firebase data.
-	  firebaseRef.child('players').child(this.player).on("value", function(snapshot) {
+	  firebaseRef.child('players').child(this.id).on("value", function(snapshot) {
 	  	//The 'value' event fires once on load and whenever a value changes. 
 	  var dataSet = snapshot.val(); //js object with the complete dataset for the player.
 	  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
@@ -119,7 +159,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				
 			}
 
-			 if(key == 'crypto-credits'){ //show crypto credits on some pages
+			 if(key == 'cryptoCredits'){ //show crypto credits on some pages
 				if(sym.$('CryptoCredits').length > 0){
 					sym.$('CryptoCredits').html('');
 					for(var credits = 0; credits < 	dataSet[key]; credits++){
@@ -135,13 +175,56 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  console.log("The firebase read failed: " + errorObject.code);
 	});
 	}
-	
 	//DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
-	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}
+	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}	
+}/* END PLAYER CLASS */
 
-	
+//ITEM CLASS CONSTRUCTOR
+function Item(){
+	this.title = 'Default Item Title';
+	this.description = 'This is the default item description';
+	this.attributes = {'creativity' : 1};
+	this.img = 'images/default-item.png';
+	this.price = 1;
+
+	this.getItemData = function(){//intial data for the item
+		if($.urlParam('itemId') == null){
+			this.itemId = 'Default Item Class';
+		}
+		else{
+			this.itemId = $.urlParam('itemId');
+
+		}
+		if(this.itemId == 'glove-of-power'){
+			this.title = 'Glove of Power';
+			this.description = 'The glove of power increases your charisma '
+			this.attributes = {'charisma' : 1};
+			this.img = 'images/glove-of-power.png';
+		}
+
+	}
+	this.addItem = function(){
+		firebaseRef.child('items').child(this.title).set({
+
+				'title' : this.title,
+				'description' : this.description,
+				'attributes' : this.attributes,
+				'img' : this.img,
+				'price' : this.price,
+
+
+		});
+		
+	}
+	this.pickUpItem = function(player){
+		
+		var itemObject = {};
+	    itemObject[this.title] = 'carried';
+        firebaseRef.child('players').child(player.id).child('inventory').update(itemObject);
+
+	}
+
 }
-
 
 
 

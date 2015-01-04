@@ -54,15 +54,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
          // insert code here
-
+         
          player.addPlayer();
          player.syncData();
-         player.update('title' , player.title);
-         player.update('description' , player.description);
-         player.update('player-class' , player.playerClass);
-         player.update('playerImg' , player.playerImg);
-         player.update('attributes' , player.attributes);
-
+         
+         
 
       });
       //Edge binding end
