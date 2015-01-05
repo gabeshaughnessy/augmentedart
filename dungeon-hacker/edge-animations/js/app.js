@@ -56,6 +56,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.description = "The default player description.";
 	this.playerImg = 'images/project-manager.png';
 	this.playerClass = 'Default Player Class';
+	this.cryptoCredits = 0;
+	this.attributes = {};
+	this.inventory = {};
 	
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
 		if($.urlParam('playerClass') == null){
@@ -86,10 +89,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 
 	this.getPlayerData = function(){
+		var _this = this; //retain a reference to the player object.
 		firebaseRef.child('players').child(this.id).once('value', function(snapshot){
 			playerData = snapshot.val();
-			this.cryptoCredits = playerData['cryptoCredits'];
+			_this.cryptoCredits = playerData['cryptoCredits'];
+			_this.attributes = playerData['attributes'];
+			_this.inventory = playerData['inventory'];
 		});
+		
 	}
 
 
@@ -116,7 +123,8 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				'description' : this.description,
 				'playerImg' : this.playerImg,
 				'cryptoCredits' : 1,
-				'attributes' : this.attributes
+				'attributes' : this.attributes,
+				'inventory' : this.inventory
 
 
 		});
@@ -124,48 +132,104 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.update = function(att, value){//update existing firebase player entry with new data.
 		var attributeObj = {};
 		attributeObj[att] = value;
-		firebaseRef.child('players').child(this.player).update(attributeObj);
+		firebaseRef.child('players').child(this.id).update(attributeObj);
 
 	}
+	this.addItem = function(itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
 
+		var itemObj = {};
+		itemObj[itemTitle] = 'carried';
+
+		var attObject = {};
+		if(typeof this.attributes[itemAttribute] != 'undefined'){
+			attObject[itemAttribute] = this.attributes[itemAttribute] + attAmount;
+		}
+		else{
+			attObject[itemAttribute] = attAmount;
+		}
+
+		
+		
+		firebaseRef.child('players').child(this.id).child('inventory').update(itemObj);
+
+		firebaseRef.child('players').child(this.id).child('attributes').update(attObject);
+		console.log('item-added');
+	}
+
+	//DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
+	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}	
 	this.syncData = function(){ //bind to data changes to stay synced with the firebase data.
 	  firebaseRef.child('players').child(this.id).on("value", function(snapshot) {
 	  	//The 'value' event fires once on load and whenever a value changes. 
-	  var dataSet = snapshot.val(); //js object with the complete dataset for the player.
-	  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+	  var dataSet = snapshot.val(); //js object with the complete data set for the player.
+	  
+	  if(typeof AdobeEdge.getComposition('player') != 'undefined'){
+		  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+		}
+		else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
+				var sym = AdobeEdge.getComposition('item').getStage();
+			}
+		else {
+			console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+			var sym = false;
+	
+		}
+
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
 			
-			if(key == 'title'){
-				sym.$('Title').html( dataSet[key]);//update the title symbol
+			
+			if( key == 'title' ){
+				if(sym && typeof sym.$('Title') != 'undefined'){
+					sym.$('Title').html( dataSet[key]);//update the title symbol
+				}
+				this.title = dataSet[key];
+				
 			}
 			
 			if(key == 'description'){
-				sym.$('Description').html( dataSet[key]); //update the description symbol
+				if(sym && typeof sym.$('Description') != 'undefined'){
+					sym.$('Description').html( dataSet[key]); //update the description symbol
+				}
+				this.description = dataSet[key];
 			}
 			
 			if(key == 'playerImg'){ //update the playerImg 
+				if(sym && typeof sym.getSymbol('PlayerImage') != 'undefined' && sym.getSymbol('PlayerImage').$('image').length > 0){
 				sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+				}
+				this.playerImg = dataSet[key];
 			}
 			
 			if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
-				sym.$('Attributes').html('');
-				for(var attributeKey in dataSet[key]){ 
-					
-					for(var i = 0; i < dataSet[key][attributeKey]; i++){
-						sym.$('Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+				if(sym && typeof sym.$('Attributes') != 'undefined' ){
+					sym.$('Attributes').html('');
+					for(var attributeKey in dataSet[key]){ 
+						
+						for(var i = 0; i < dataSet[key][attributeKey]; i++){
+							sym.$('Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+						}
 					}
 				}
+				this.attributes = dataSet[key];
 				
 			}
 
 			 if(key == 'cryptoCredits'){ //show crypto credits on some pages
-				if(sym.$('CryptoCredits').length > 0){
+				if(sym && typeof sym.$('CryptoCredits') != 'undefined'){
 					sym.$('CryptoCredits').html('');
 					for(var credits = 0; credits < 	dataSet[key]; credits++){
 						sym.$('CryptoCredits').append( '<img class="crypto-credit" src="images/crypto-credit.png" />');//add another crypto credit
 					}
 				}
+				this.cryptoCredits = dataSet[key];
+			}
+
+			if(key == 'inventory'){
+				if(sym && typeof sym.$('inventory') != 'undefined'){
+
+				}
+				this.inventory = dataSet[key];
 			}
 		  }
 	  	 
@@ -175,8 +239,6 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  console.log("The firebase read failed: " + errorObject.code);
 	});
 	}
-	//DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
-	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}	
 }/* END PLAYER CLASS */
 
 //ITEM CLASS CONSTRUCTOR
@@ -213,15 +275,67 @@ function Item(){
 				'price' : this.price,
 
 
-		});
-		
+		});	
 	}
-	this.pickUpItem = function(player){
-		
-		var itemObject = {};
-	    itemObject[this.title] = 'carried';
-        firebaseRef.child('players').child(player.id).child('inventory').update(itemObject);
+	this.syncData = function(){
+		firebaseRef.child('items').child(item.title).on('value', function(snapshot){
+			var dataSet = snapshot.val();
+			if(typeof AdobeEdge.getComposition('item') != 'undefined'){
+				var sym = AdobeEdge.getComposition('item').getStage();
+			}
+			else {
+				//	console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+			}
 
+	  for(var key in dataSet){
+		if (dataSet.hasOwnProperty(key)) {
+			
+			if(key == 'title'){
+				if(typeof sym.$('Item-Title') != 'undefined'){
+					sym.$('Item-Title').html( dataSet[key]);//update the title symbol
+				}
+				this.title = dataSet[key];
+			}
+			
+			if(key == 'description'){
+				if(typeof sym.$('Item-Description') != 'undefined'){
+					sym.$('Item-Description').html( dataSet[key]); //update the description symbol
+				}
+				this.description = dataSet[key];
+			}
+			
+			if(key == 'img'){ //update the item image 
+				if(typeof sym.getSymbol('item-image') != 'undefined' && sym.getSymbol('item-image').$('image').length > 0){
+				sym.getSymbol('item-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+				}
+				this.playerImg = dataSet[key];
+			}
+			
+			if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
+				if(typeof sym.$('Item-Attributes') != 'undefined' ){
+					sym.$('Item-Attributes').html('');
+					for(var attributeKey in dataSet[key]){ 
+						
+						for(var i = 0; i < dataSet[key][attributeKey]; i++){
+							sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+						}
+					}
+				}
+				this.attributes = dataSet[key];
+				
+			}
+
+			 if(key == 'price'){ //show crypto credits on some pages
+				
+				this.price = dataSet[key];
+			}
+		  }
+	  	 
+	  }
+	 
+	}, function (errorObject) {//fires when firebase fails to read data.
+	  console.log("The firebase read failed: " + errorObject.code);
+	});
 	}
 
 }

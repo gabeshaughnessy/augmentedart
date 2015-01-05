@@ -20,13 +20,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          item.getItemData();
          item.addItem();
-         //player.getPlayerData();
+         item.syncData();
+         player.getPlayerData();
+         player.syncData();
 
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_Equip-Item-Button}", "click", function(sym, e) {
+         if(!item.equipped){
          sym.play('selected');// insert code for mouse click here
+         }
 
       });
       //Edge binding end
@@ -39,27 +43,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 250, function(sym, e) {
          if(typeof item != 'undefined' && typeof player.id != 'undefined'){
-            console.log(player.id);
-            firebaseRef.child('players').child(player.id).on('value', function(snapshot){
+            
+           /* firebaseRef.child('players').child(player.id).on('value', function(snapshot){
                var playerData = snapshot.val();
-               
-               console.log(playerData);   
-               if(player.cryptoCredits >= item.price){
-                  
-                  var creditObject = {};
-                  creditObject['cryptoCredits'] = player.cryptoCredits - item.price;
-                  var itemObject = {}
-                  itemObject['inventory'] = 'foobar';
-
-                   firebaseRef.child('players').child(player.id).update(creditObject);
-                   firebaseRef.child('players').child(player.id).update(itemObject);
-               }
-            });
+            });*/
+             
+            if(player.cryptoCredits >= item.price){
+                 player.update('cryptoCredits', player.cryptoCredits - item.price );
+                 player.addItem(item.title, 'charisma', 1 );
+            }
          }
          
          
          else {
-         alert('whoops');
+         console.log('whoops, no item or player object to work with here.');
          }
 
       });
@@ -68,4 +65,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("stage");
    //Edge symbol end:'stage'
 
-})(jQuery, AdobeEdge, "EDGE-257681527");
+   //=========================================================
+   
+   //Edge symbol: 'item-image'
+   (function(symbolName) {   
+   
+   })("item-image");
+   //Edge symbol end:'item-image'
+
+})(jQuery, AdobeEdge, "item");
