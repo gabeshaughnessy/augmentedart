@@ -24,18 +24,25 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          player.getPlayerData();
          player.syncData();
 
+        
+        
       });
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_Equip-Item-Button}", "click", function(sym, e) {
-         if(!item.equipped){
-         sym.play('selected');// insert code for mouse click here
+         if(player.hasItem(item.title) === false){
+            sym.play('selected');// insert code for mouse click here
+            sym.$('Equip-Button-text').html('Item Equipped');
+         }
+         else{
+            sym.$('Equip-Button-text').html('Item Already Equipped');
          }
 
       });
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
+          
          sym.stop();// insert code here
 
       });

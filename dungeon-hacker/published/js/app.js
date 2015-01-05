@@ -90,7 +90,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	this.getPlayerData = function(){
 		var _this = this; //retain a reference to the player object.
-		firebaseRef.child('players').child(this.id).once('value', function(snapshot){
+		firebaseRef.child('players').child(this.id).on('value', function(snapshot){
 			playerData = snapshot.val();
 			_this.cryptoCredits = playerData['cryptoCredits'];
 			_this.attributes = playerData['attributes'];
@@ -276,6 +276,21 @@ function Item(){
 
 
 		});	
+	}
+	this.equipped = function(player){
+		var isEquipped = false;
+		
+		if(typeof player.inventory != 'undefined'){
+				for(var equippedItem in player.inventory){
+					if(player.inventory.hasOwnProperty(equippedItem)) {
+						if(item.title == equippedItem){
+							isEquipped = true;
+						}
+				}
+			}
+		}
+		return  isEquipped;
+		//if its in the player's inventory, return true, else return false.
 	}
 	this.syncData = function(){
 		firebaseRef.child('items').child(item.title).on('value', function(snapshot){
