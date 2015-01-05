@@ -51,7 +51,7 @@ var item = new Item(itemId);
 
 function Player(playerID){ //pass unique player ID to the constructor.
 	
-	this.id = 'player-' + playerID;
+	this.id = playerID;
 	this.title = "Default Player Title";
 	this.description = "The default player description.";
 	this.playerImg = 'images/project-manager.png';
@@ -209,7 +209,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		if(sym && typeof sym.$('Inventory') != 'undefined'){ 
 					sym.$('Inventory').html(''); //clear the inventory first
 				}
-				
+
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
 			
