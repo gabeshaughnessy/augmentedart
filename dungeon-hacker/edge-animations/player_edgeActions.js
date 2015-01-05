@@ -31,7 +31,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          player.getPlayerClass();
 
-         playerCardUrl = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html?playerId='+player.player;
+         playerCardUrl = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html?playerId='+player.id;
          sym.$('PlayerCardButton').wrap('<a href="'+playerCardUrl+'">');
 
       });
