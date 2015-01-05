@@ -36,8 +36,20 @@ The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to s
 
 ##TODO
 - [ ] Define classes:
-	- [ ] Player
+	- [x] Player
 	- [ ] Monster
-	- [ ] Item
+	- [x] Item
 	- [ ] Attribute
 	- [ ] DiceRoll
+- [x] Player View
+	- [x] Player Selected
+- [x] Item View
+	- [x] Item Already Carried
+	- [x] Equip Item
+	- [ ] Sell Item
+- [x] Player Card View
+	- [x] Player Data
+	- [x] Credits
+	- [ ] Inventory
+	- [ ] Monsters Defeated
+- [ ] Monster View
