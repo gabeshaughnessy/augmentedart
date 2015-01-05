@@ -185,7 +185,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		return hasItem;
 	}
 
-	//DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
+	//Player DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
 	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}	
 	this.syncData = function(){ //bind to data changes to stay synced with the firebase data.
 		var _this = this;
@@ -205,6 +205,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	
 		}
 
+		/* Clean things up first */
+		if(sym && typeof sym.$('Inventory') != 'undefined'){ 
+					sym.$('Inventory').html(''); //clear the inventory first
+				}
+				
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
 			
@@ -256,6 +261,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			}
 
 			if(key == 'inventory'){
+				
+
+
 				for(var inventoryItem in dataSet[key]){
 					
 					if(_this.hasItem(inventoryItem)){
@@ -274,15 +282,21 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Inventory') != 'undefined'){
 
 						var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
-						itemSymbol.$('title').html(inventoryItem);
+
+						itemSymbol.$('title').html(dataSet[key][inventoryItem].title);
+						itemSymbol.$('description').html(dataSet[key][inventoryItem].description);
+
+						itemSymbol.getSymbol('item-image-container').$('item-image').css('backgroundImage', 'url('+dataSet[key][inventoryItem].img+')');
 	
 						}
+
 
 				}
 
 
 				_this.inventory = dataSet[key];
 			}
+
 		  }
 	  	 
 	  }

@@ -85,4 +85,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("inventory-item");
    //Edge symbol end:'inventory-item'
 
+   //=========================================================
+   
+   //Edge symbol: 'item-image-container'
+   (function(symbolName) {   
+   
+   })("item-image-container");
+   //Edge symbol end:'item-image-container'
+
 })(jQuery, AdobeEdge, "player");

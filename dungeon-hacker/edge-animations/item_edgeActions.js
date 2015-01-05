@@ -22,7 +22,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          item.addItem();
          item.syncData();
          player.getPlayerData();
-         player.syncData();
+         //player.syncData();
 
         
         
@@ -42,7 +42,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-          
+         sym.$('Equip-Button-text').html('Cost: ' +  item.price);
          sym.stop();// insert code here
 
       });
@@ -50,10 +50,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 250, function(sym, e) {
          if(typeof item != 'undefined' && typeof player.id != 'undefined'){
-            
-           /* firebaseRef.child('players').child(player.id).on('value', function(snapshot){
-               var playerData = snapshot.val();
-            });*/
              
             if(player.cryptoCredits >= item.price){
                  player.update('cryptoCredits', player.cryptoCredits - item.price );

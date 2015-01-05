@@ -5,7 +5,7 @@
 	"expanded:images/diceroll_spritesheet.png":"nil",
 	"PosterImagePath":"images/Poster4.png",
 	"expanded:images/designer.png":"nil",
-	"pref__general__FilterNonAnimatedElements":"false",
+	"Down-level-Default Timeline_playhead_ms":"0",
 	"expanded:images/Poster2.png":"nil",
 	"expanded:images/paper-bg.jpg":"nil",
 	"CompZoomFactor":"100",
@@ -14,6 +14,7 @@
 	"expanded:images/project-manager.png":"nil",
 	"nextElementColorIndex":"12",
 	"expanded:images/knowledge.png":"nil",
+	"expanded:images/glove-of-power.png":"nil",
 	"HTMLFileName":"item.html",
 	"symbol_item-image":{
 		"dummyStageParentWidth":"400px",
@@ -43,19 +44,10 @@
    }},\
 \"Down-level\": {\
    \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
+\
    }}\
 }",
 	"expanded:images/dungeon-hacker-logo.jpg":"nil",
-	"expanded:images/crypto-credit.png":"nil",
-	"expanded:images/creativity.png":"nil",
-	"expanded:images/Poster3.png":"nil",
-	"Down-level-Default Timeline_playhead_ms":"0",
-	"expanded:images/Poster.png":"nil",
-	"expanded:images/dungeon-hacker-logo.png":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
-	"PreloadAudio":"auto",
 	"symbol_stage":{
 		"dummyStageParentWidth":"500px",
 		"element_${_Item-Attributes}":{
@@ -106,7 +98,15 @@
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true",
 			"epOpened":"false"}},
-	"TransitionIdCounter":"39",
+	"expanded:images/charisma.png":"nil",
+	"expanded:images/Poster4.png":"nil",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"TransitionIdCounter":"41",
+	"expanded:images/crypto-credit.png":"nil",
+	"PreloadAudio":"auto",
 	"symbol_Down-level":{
 		"defaultStageParentWidth":"500px",
 		"defaultStageParentHeight":"500px",
@@ -119,6 +119,6 @@
 	"usedBOM":"false",
 	"PubDPS":"true",
 	"item-image-Default Timeline_playhead_ms":"0",
-	"expanded:images/charisma.png":"nil",
 	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
-	"expanded:images/Poster4.png":"nil"}
+	"expanded:images/creativity.png":"nil",
+	"expanded:images/Poster3.png":"nil"}
