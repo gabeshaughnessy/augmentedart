@@ -147,10 +147,18 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.id).update(attributeObj);
 
 	}
-	this.addItem = function(itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
-
+	this.addItem = function(item, itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
+	
+	//first we need an array of all the item's children, like item.title, item.description.
+	//then we loop through it and build a key value pair, matching it to item obj.
+		
 		var itemObj = {};
-		itemObj[itemTitle] = 'carried';
+		itemObj[itemTitle] = {
+			'title' : item.title,
+			'img' : item.img,
+			'description' : item.description,
+			'attributes' : item.attributes,
+		};
 
 		var attObject = {};
 		if(typeof this.attributes[itemAttribute] != 'undefined'){
@@ -256,15 +264,23 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 							sym.$('Equip-Button-text').html('Item Carried');
 						}
+
 					}
+					
 					else{
 
 					}
+
+					if(sym && typeof sym.$('Inventory') != 'undefined'){
+
+						var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
+						itemSymbol.$('title').html(inventoryItem);
+	
+						}
+
 				}
 
-				if(sym && typeof sym.$('inventory') != 'undefined'){
 
-				}
 				_this.inventory = dataSet[key];
 			}
 		  }

@@ -63,9 +63,7 @@ var symbols = {
             {
                 id: 'Inventory',
                 type: 'rect',
-                rect: ['7px', '706px','382px','265px','auto', 'auto'],
-                fill: ["rgba(192,192,192,0)"],
-                stroke: [0,"rgb(0, 0, 0)","none"]
+                rect: ['7', '785','auto','auto','auto', 'auto']
             },
             {
                 id: 'InventoryLabel',
@@ -138,6 +136,10 @@ var symbols = {
             }],
             symbolInstances: [
             {
+                id: 'Inventory',
+                symbolName: 'Inventory'
+            },
+            {
                 id: 'PlayerImage',
                 symbolName: 'PlayerImage',
                 autoPlay: {
@@ -179,10 +181,6 @@ var symbols = {
                 ["style", "font-weight", 'bold'],
                 ["style", "left", '5px'],
                 ["style", "font-size", '15px']
-            ],
-            "${_Inventory}": [
-                ["style", "height", '265px'],
-                ["style", "top", '785px']
             ],
             "${_Description}": [
                 ["style", "top", '125px'],
@@ -282,7 +280,6 @@ var symbols = {
             },
             timeline: [
                 { id: "eid59", tween: [ "style", "${_Title}", "width", '97.5%', { fromValue: '97.5%'}], position: 0, duration: 0 },
-                { id: "eid71", tween: [ "style", "${_Inventory}", "top", '785px', { fromValue: '785px'}], position: 0, duration: 0 },
                 { id: "eid54", tween: [ "color", "${_CryptoCreditsLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid56", tween: [ "style", "${_Title}", "word-spacing", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid69", tween: [ "style", "${_InventoryLabel}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
@@ -478,6 +475,145 @@ var symbols = {
             toState: "",
             duration: 0,
             autoPlay: false,
+            timeline: [
+            ]
+        }
+    }
+},
+"Inventory": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    rect: ['0px', '-79px', '382px', '265px', 'auto', 'auto'],
+                    id: 'background',
+                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                    type: 'rect',
+                    fill: ['rgba(192,192,192,0)']
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${symbolSelector}": [
+                ["style", "height", '265px'],
+                ["style", "width", '382px']
+            ],
+            "${_background}": [
+                ["style", "top", '0px'],
+                ["style", "left", '0px'],
+                ["style", "height", '265px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 0,
+            autoPlay: true,
+            timeline: [
+                { id: "eid71", tween: [ "style", "${_background}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 }            ]
+        }
+    }
+},
+"inventory-item": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    rect: ['92px', '0px', '274px', '33px', 'auto', 'auto'],
+                    id: 'title',
+                    text: 'Item Title',
+                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', 'normal', 'none', ''],
+                    type: 'text'
+                },
+                {
+                    rect: ['92px', '32px', '274px', '33px', 'auto', 'auto'],
+                    id: 'description',
+                    text: 'Item Description goes here<br>',
+                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', 'normal', 'none', ''],
+                    type: 'text'
+                },
+                {
+                    rect: ['0px', '0px', '85px', '64px', 'auto', 'auto'],
+                    id: 'image',
+                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                    type: 'rect',
+                    fill: ['rgba(192,192,192,0)'],
+                    c: [
+                    {
+                        id: 'default-item',
+                        type: 'image',
+                        rect: ['0px', '0px', '100%', '129.5%', 'auto', 'auto'],
+                        fill: ['rgba(0,0,0,0)', 'images/default-item.png', '0%', '0%', '100%', 'auto']
+                    }]
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${_image}": [
+                ["style", "left", '0px'],
+                ["style", "top", '0px']
+            ],
+            "${_default-item}": [
+                ["style", "top", '0px'],
+                ["style", "height", '129.48%'],
+                ["style", "background-size", [100,'auto'], {valueTemplate:'@@0@@% @@1@@'} ],
+                ["style", "left", '0px'],
+                ["style", "width", '100%']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '83px'],
+                ["style", "width", '366px']
+            ],
+            "${_description}": [
+                ["style", "top", '32px'],
+                ["style", "width", '274px'],
+                ["color", "color", 'rgba(41,41,41,1)'],
+                ["style", "height", '33px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "left", '92px'],
+                ["style", "font-size", '14px']
+            ],
+            "${_title}": [
+                ["style", "top", '0px'],
+                ["style", "font-size", '14px'],
+                ["style", "height", '33px'],
+                ["color", "color", 'rgba(41,41,41,1.00)'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+                ["style", "left", '92px'],
+                ["style", "width", '274px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 0,
+            autoPlay: true,
             timeline: [
             ]
         }

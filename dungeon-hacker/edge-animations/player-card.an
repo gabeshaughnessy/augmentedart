@@ -2,6 +2,38 @@
 {
 
 	"expanded:images/default-item.png":"nil",
+	"symbol_Inventory":{
+		"element_${_description}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"animationEnabled":"false",
+			"timelineColor":"0x00a096"},
+		"element_${_background}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"},
+		"element_${_default-item}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"animationEnabled":"false",
+			"timelineColor":"0x00bda4"},
+		"element_${_title}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"animationEnabled":"false",
+			"timelineColor":"0x2f73ad"},
+		"element_${_image}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"false",
+			"timelineColor":"0x50bd82"},
+		"element_${_inventory-item}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"false",
+			"timelineColor":"0x91c767"}},
 	"pref__general__AutoKeyframeProperties":"true",
 	"expanded:images/diceroll_spritesheet.png":"nil",
 	"PosterImagePath":"images/Poster.png",
@@ -10,14 +42,32 @@
 	"PlayerCardButton-Default Timeline_playhead_ms":"0",
 	"expanded:images/Poster2.png":"nil",
 	"expanded:images/paper-bg.jpg":"nil",
+	"symbol_inventory-item":{
+		"element_${_title}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"timelineColor":"0xfb657a"},
+		"element_${_image}":{
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"timelineColor":"0xdb619d"},
+		"element_${_description}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_default-item}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"timelineColor":"0xffd46d"}},
 	"pref__general__GenerateSmoothTransitions":"false",
+	"Inventory-Default Timeline_playhead_ms":"0",
 	"CompZoomFactor":"100",
-	"StageZoomFactor":"10",
+	"StageZoomFactor":"75",
 	"pixelsPerMs":"0.2",
 	"expanded:images/project-manager.png":"nil",
 	"expanded:images/knowledge.png":"nil",
 	"stage-Default Timeline_mark_ms":"-1",
-	"nextElementColorIndex":"9",
+	"nextElementColorIndex":"7",
 	"stage-Default Timeline_playhead_ms":"0",
 	"PlayerImage-Default Timeline_playhead_ms":"0",
 	"symbol_SelectButton":{
@@ -60,6 +110,16 @@
 \
    }},\
 \"Down-level\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Inventory\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"inventory-item\": {\
    \"timelines\": {\
       \"Default Timeline\": {\
       }\
@@ -124,11 +184,10 @@
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
 		"element_${_Inventory}":{
-			"timelineColor2":"0x81aa62",
-			"timelineColor3":"0x5b6c4d",
-			"timelineColor":"0x91c767",
-			"timelineTreeOpened":"false",
-			"animationEnabled":"true"},
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"animationEnabled":"true",
+			"timelineColor":"0x63599f"},
 		"element_${_Rectangle}":{
 			"timelineColor2":"0xb099ce",
 			"timelineColor3":"0x70657c",
@@ -239,7 +298,7 @@
 			"timelineColor":"0x00a096"}},
 	"expanded:images/Poster.png":"nil",
 	"expanded:images/dungeon-hacker-logo.png":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"expanded:images/designer.png":"nil",
 	"expanded:images/crypto-credit.png":"nil",
 	"TransitionIdCounter":"76",

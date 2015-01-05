@@ -57,7 +57,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
              
             if(player.cryptoCredits >= item.price){
                  player.update('cryptoCredits', player.cryptoCredits - item.price );
-                 player.addItem(item.title, 'charisma', 1 );
+                 player.addItem(item, item.title, 'charisma', 1 );
             }
          }
          
