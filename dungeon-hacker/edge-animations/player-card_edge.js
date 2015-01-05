@@ -186,9 +186,9 @@ var symbols = {
             ],
             "${_Description}": [
                 ["style", "top", '125px'],
-                ["color", "color", 'rgba(62,61,61,1.00)'],
                 ["style", "width", '395px'],
                 ["style", "height", '84px'],
+                ["color", "color", 'rgba(62,61,61,1.00)'],
                 ["style", "font-family", 'Lucida Console, Monaco, monospace'],
                 ["style", "left", '5px'],
                 ["style", "font-size", '16px']
@@ -207,8 +207,8 @@ var symbols = {
                 ["style", "top", '56px'],
                 ["style", "text-align", 'center'],
                 ["color", "color", 'rgba(60,60,60,1.00)'],
-                ["style", "height", '2.01%'],
                 ["style", "width", '100%'],
+                ["style", "height", '2.01%'],
                 ["style", "font-size", '13px']
             ],
             "${_Attributes}": [
@@ -226,20 +226,20 @@ var symbols = {
                 ["style", "left", '5px'],
                 ["style", "width", '390px']
             ],
-            "${_SharingLabel}": [
-                ["style", "top", '1357px'],
-                ["style", "width", '390px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["color", "color", 'rgba(62,61,61,1)'],
-                ["style", "font-weight", 'bold'],
-                ["style", "left", '5px'],
-                ["style", "font-size", '15px']
-            ],
             "${_InventoryLabel}": [
                 ["style", "top", '743px'],
                 ["style", "width", '390px'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["color", "color", 'rgba(62,61,61,1.00)'],
+                ["style", "font-weight", 'bold'],
+                ["style", "left", '5px'],
+                ["style", "font-size", '15px']
+            ],
+            "${_SharingLabel}": [
+                ["style", "top", '1357px'],
+                ["style", "width", '390px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["color", "color", 'rgba(62,61,61,1)'],
                 ["style", "font-weight", 'bold'],
                 ["style", "left", '5px'],
                 ["style", "font-size", '15px']
@@ -252,8 +252,8 @@ var symbols = {
             ],
             "${_CryptoCreditsLabel}": [
                 ["style", "top", '650px'],
-                ["style", "font-weight", 'bold'],
                 ["style", "font-size", '15px'],
+                ["style", "font-weight", 'bold'],
                 ["color", "color", 'rgba(62,61,61,1.00)'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '5px'],
@@ -281,30 +281,30 @@ var symbols = {
                 "default": 0
             },
             timeline: [
+                { id: "eid59", tween: [ "style", "${_Title}", "width", '97.5%', { fromValue: '97.5%'}], position: 0, duration: 0 },
                 { id: "eid71", tween: [ "style", "${_Inventory}", "top", '785px', { fromValue: '785px'}], position: 0, duration: 0 },
-                { id: "eid62", tween: [ "style", "${_Description}", "width", '395px', { fromValue: '395px'}], position: 0, duration: 0 },
                 { id: "eid54", tween: [ "color", "${_CryptoCreditsLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
-                { id: "eid65", tween: [ "style", "${_CryptoCredits}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid56", tween: [ "style", "${_Title}", "word-spacing", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid69", tween: [ "style", "${_InventoryLabel}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid66", tween: [ "style", "${_CryptoCredits}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
-                { id: "eid64", tween: [ "style", "${_CryptoCreditsLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
                 { id: "eid73", tween: [ "color", "${_AttributesLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid67", tween: [ "style", "${_InventoryLabel}", "top", '743px', { fromValue: '743px'}], position: 0, duration: 0 },
                 { id: "eid70", tween: [ "style", "${_InventoryLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
-                { id: "eid59", tween: [ "style", "${_Title}", "width", '97.5%', { fromValue: '97.5%'}], position: 0, duration: 0 },
                 { id: "eid51", tween: [ "style", "${_Title}", "top", '89px', { fromValue: '89px'}], position: 0, duration: 0 },
+                { id: "eid65", tween: [ "style", "${_CryptoCredits}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
+                { id: "eid62", tween: [ "style", "${_Description}", "width", '395px', { fromValue: '395px'}], position: 0, duration: 0 },
                 { id: "eid68", tween: [ "color", "${_InventoryLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
-                { id: "eid55", tween: [ "color", "${_Title}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
+                { id: "eid72", tween: [ "style", "${_AttributesLabel}", "top", '554px', { fromValue: '554px'}], position: 0, duration: 0 },
                 { id: "eid53", tween: [ "color", "${_Description}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid52", tween: [ "style", "${_CryptoCredits}", "top", '675px', { fromValue: '675px'}], position: 0, duration: 0 },
-                { id: "eid61", tween: [ "style", "${_Description}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
+                { id: "eid60", tween: [ "style", "${_Title}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid74", tween: [ "style", "${_AttributesLabel}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid63", tween: [ "style", "${_CryptoCreditsLabel}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
+                { id: "eid61", tween: [ "style", "${_Description}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid48", tween: [ "style", "${_Description}", "top", '125px', { fromValue: '125px'}], position: 0, duration: 0 },
-                { id: "eid72", tween: [ "style", "${_AttributesLabel}", "top", '554px', { fromValue: '554px'}], position: 0, duration: 0 },
+                { id: "eid64", tween: [ "style", "${_CryptoCreditsLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
                 { id: "eid50", tween: [ "style", "${_CryptoCreditsLabel}", "top", '650px', { fromValue: '650px'}], position: 0, duration: 0 },
-                { id: "eid60", tween: [ "style", "${_Title}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
+                { id: "eid55", tween: [ "color", "${_Title}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid75", tween: [ "style", "${_AttributesLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 }            ]
         }
     }
@@ -377,12 +377,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)']
                 },
                 {
+                    font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
                     type: 'text',
-                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto'],
                     id: 'Text',
                     text: 'Select This Character',
                     align: 'center',
-                    font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal']
+                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto']
                 }
             ],
             symbolInstances: [
@@ -442,12 +442,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)'],
                     c: [
                     {
+                        font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
                         type: 'text',
-                        rect: ['62px', '12px', 'auto', 'auto', 'auto', 'auto'],
                         id: 'Text4',
                         text: 'View Player Card',
                         align: 'center',
-                        font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal']
+                        rect: ['62px', '12px', 'auto', 'auto', 'auto', 'auto']
                     }]
                 }
             ],

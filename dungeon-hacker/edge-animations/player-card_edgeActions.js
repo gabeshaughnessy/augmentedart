@@ -7,22 +7,6 @@
 *
 ***********************/
 
-
-
-/* --- Globals --- */
-if(typeof playerId == 'undefined'){//first check if playerId is set globally elsewhere
-   if( $.urlParam('playerId') != null ){//then check if playerId is passed as a url parameter
-      var playerId = $.urlParam('playerId');
-   }
-   else{
-     var playerId = 'test-id';
-   }
- 
-};
-var player = new Player(playerId);
-
-/* - end Globals - */
-
 (function($, Edge, compId){
 var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonly used Edge classes
 
