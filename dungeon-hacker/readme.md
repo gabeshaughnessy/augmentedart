@@ -13,9 +13,9 @@ This is a brief summary of the gameplay and mechanics
 First you scan a character and touch the image to select that character. Each character has a unique set of attributes for fighting the monsters. 
 
 Visit this URL to select a new character: 
-[https://dungeon-hacker.firebaseio.com/](https://dungeon-hacker.firebaseio.com/)
+[http://augmentedart.com/dungeon-hacker/edge-animations/player.html](http://augmentedart.com/dungeon-hacker/edge-animations/player.html)
 add a `playerId` paramerter like this or your will just be the default player:
-`https://dungeon-hacker.firebaseio.com/?playerId=your-name`
+`http://augmentedart.com/dungeon-hacker/edge-animations/player.html?playerId=your-name`
 
 ####Your Player Card
 After you select a character, you can view your player card, which is a one-page stat sheet for your player. It contains your character class, attributes, items in your inventory, and your trophy wall with the monsters you have defeated. Each player card has a unique url and at the bottom there are links to share it on social networks. Player cards are activated by clicking the player card button or in the Layar menu under recent content > player card. Once you share your player card, it is accessible from the unique url in a web browser.
