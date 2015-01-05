@@ -30,9 +30,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_Equip-Item-Button}", "click", function(sym, e) {
-         if(player.hasItem(item.title) === false){
+    
+         if(player.hasItem(item.title) === false && player.cryptoCredits >= item.price){
             sym.play('selected');// insert code for mouse click here
             sym.$('Equip-Button-text').html('Item Equipped');
+         }
+
+         else if(player.cryptoCredits < item.price){
+            sym.$('Equip-Button-text').html('Not Enough Credits');
          }
          else{
             sym.$('Equip-Button-text').html('Item Already Equipped');

@@ -132,10 +132,10 @@ var symbols = {
                 ["style", "font-size", '24px']
             ],
             "${_item-image}": [
-                ["transform", "scaleX", '0.9282'],
                 ["style", "top", '-668px'],
-                ["transform", "scaleY", '0.9282'],
-                ["style", "left", '18px']
+                ["transform", "scaleX", '0.9282'],
+                ["style", "left", '18px'],
+                ["transform", "scaleY", '0.9282']
             ]
         }
     },
@@ -153,15 +153,15 @@ var symbols = {
                 { id: "eid24", tween: [ "style", "${_AttributesLabel}", "width", '121px', { fromValue: '121px'}], position: 0, duration: 0 },
                 { id: "eid10", tween: [ "style", "${_Equip-Item-Button}", "top", '657px', { fromValue: '657px'}], position: 0, duration: 0 },
                 { id: "eid9", tween: [ "style", "${_Equip-Item-Button}", "left", '32px', { fromValue: '32px'}], position: 0, duration: 0 },
-                { id: "eid36", tween: [ "style", "${_Item-Attributes}", "top", '570px', { fromValue: '570px'}], position: 0, duration: 0 },
-                { id: "eid22", tween: [ "style", "${_item-image}", "top", '-668px', { fromValue: '-668px'}], position: 0, duration: 0 },
-                { id: "eid32", tween: [ "style", "${_AttributesLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
-                { id: "eid18", tween: [ "style", "${_item-image}", "left", '18px', { fromValue: '18px'}], position: 0, duration: 0 },
-                { id: "eid23", tween: [ "style", "${_AttributesLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 },
-                { id: "eid37", tween: [ "style", "${_AttributesLabel}", "top", '588px', { fromValue: '588px'}], position: 0, duration: 0 },
-                { id: "eid29", tween: [ "style", "${_Item-Attributes}", "left", '166px', { fromValue: '166px'}], position: 0, duration: 0 },
-                { id: "eid15", tween: [ "transform", "${_item-image}", "scaleY", '0.9282', { fromValue: '0.9282'}], position: 0, duration: 0 },
                 { id: "eid38", tween: [ "style", "${_AttributesLabel}", "font-size", '14px', { fromValue: '14px'}], position: 0, duration: 0 },
+                { id: "eid22", tween: [ "style", "${_item-image}", "top", '-668px', { fromValue: '-668px'}], position: 0, duration: 0 },
+                { id: "eid29", tween: [ "style", "${_Item-Attributes}", "left", '166px', { fromValue: '166px'}], position: 0, duration: 0 },
+                { id: "eid23", tween: [ "style", "${_AttributesLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 },
+                { id: "eid18", tween: [ "style", "${_item-image}", "left", '18px', { fromValue: '18px'}], position: 0, duration: 0 },
+                { id: "eid37", tween: [ "style", "${_AttributesLabel}", "top", '588px', { fromValue: '588px'}], position: 0, duration: 0 },
+                { id: "eid32", tween: [ "style", "${_AttributesLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
+                { id: "eid15", tween: [ "transform", "${_item-image}", "scaleY", '0.9282', { fromValue: '0.9282'}], position: 0, duration: 0 },
+                { id: "eid36", tween: [ "style", "${_Item-Attributes}", "top", '570px', { fromValue: '570px'}], position: 0, duration: 0 },
                 { id: "eid14", tween: [ "transform", "${_item-image}", "scaleX", '0.9282', { fromValue: '0.9282'}], position: 0, duration: 0 }            ]
         }
     }

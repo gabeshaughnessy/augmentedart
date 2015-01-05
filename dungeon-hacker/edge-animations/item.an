@@ -5,7 +5,7 @@
 	"expanded:images/diceroll_spritesheet.png":"nil",
 	"PosterImagePath":"images/Poster4.png",
 	"expanded:images/designer.png":"nil",
-	"Down-level-Default Timeline_playhead_ms":"0",
+	"pref__general__FilterNonAnimatedElements":"false",
 	"expanded:images/Poster2.png":"nil",
 	"expanded:images/paper-bg.jpg":"nil",
 	"CompZoomFactor":"100",
@@ -48,6 +48,14 @@
    }}\
 }",
 	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"Down-level-Default Timeline_playhead_ms":"0",
+	"expanded:images/charisma.png":"nil",
+	"expanded:images/Poster3.png":"nil",
+	"expanded:images/crypto-credit.png":"nil",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"PreloadAudio":"auto",
 	"symbol_stage":{
 		"dummyStageParentWidth":"500px",
 		"element_${_Item-Attributes}":{
@@ -98,15 +106,7 @@
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true",
 			"epOpened":"false"}},
-	"expanded:images/charisma.png":"nil",
-	"expanded:images/Poster4.png":"nil",
-	"pref__general__FilterNonAnimatedElements":"false",
-	"expanded:images/Poster.png":"nil",
-	"expanded:images/dungeon-hacker-logo.png":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"TransitionIdCounter":"41",
-	"expanded:images/crypto-credit.png":"nil",
-	"PreloadAudio":"auto",
 	"symbol_Down-level":{
 		"defaultStageParentWidth":"500px",
 		"defaultStageParentHeight":"500px",
@@ -119,6 +119,6 @@
 	"usedBOM":"false",
 	"PubDPS":"true",
 	"item-image-Default Timeline_playhead_ms":"0",
-	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
 	"expanded:images/creativity.png":"nil",
-	"expanded:images/Poster3.png":"nil"}
+	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
+	"expanded:images/Poster4.png":"nil"}

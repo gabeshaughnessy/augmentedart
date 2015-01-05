@@ -51,7 +51,7 @@ var item = new Item(itemId);
 
 function Player(playerID){ //pass unique player ID to the constructor.
 	
-	this.id = 'player-' + playerID;
+	this.id = playerID;
 	this.title = "Default Player Title";
 	this.description = "The default player description.";
 	this.playerImg = 'images/project-manager.png';
@@ -147,10 +147,18 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.id).update(attributeObj);
 
 	}
-	this.addItem = function(itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
-
+	this.addItem = function(item, itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
+	
+	//first we need an array of all the item's children, like item.title, item.description.
+	//then we loop through it and build a key value pair, matching it to item obj.
+		
 		var itemObj = {};
-		itemObj[itemTitle] = 'carried';
+		itemObj[itemTitle] = {
+			'title' : item.title,
+			'img' : item.img,
+			'description' : item.description,
+			'attributes' : item.attributes,
+		};
 
 		var attObject = {};
 		if(typeof this.attributes[itemAttribute] != 'undefined'){
@@ -177,7 +185,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		return hasItem;
 	}
 
-	//DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
+	//Player DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
 	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}	
 	this.syncData = function(){ //bind to data changes to stay synced with the firebase data.
 		var _this = this;
@@ -196,6 +204,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			var sym = false;
 	
 		}
+
+		/* Clean things up first */
+		if(sym && typeof sym.$('Inventory') != 'undefined'){ 
+					sym.$('Inventory').html(''); //clear the inventory first
+				}
 
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
@@ -248,6 +261,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			}
 
 			if(key == 'inventory'){
+				
+
+
 				for(var inventoryItem in dataSet[key]){
 					
 					if(_this.hasItem(inventoryItem)){
@@ -256,17 +272,31 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 							sym.$('Equip-Button-text').html('Item Carried');
 						}
+
 					}
+					
 					else{
 
 					}
+
+					if(sym && typeof sym.$('Inventory') != 'undefined'){
+
+						var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
+
+						itemSymbol.$('title').html(dataSet[key][inventoryItem].title);
+						itemSymbol.$('description').html(dataSet[key][inventoryItem].description);
+
+						itemSymbol.getSymbol('item-image-container').$('item-image').css('backgroundImage', 'url('+dataSet[key][inventoryItem].img+')');
+	
+						}
+
+
 				}
 
-				if(sym && typeof sym.$('inventory') != 'undefined'){
 
-				}
 				_this.inventory = dataSet[key];
 			}
+
 		  }
 	  	 
 	  }
