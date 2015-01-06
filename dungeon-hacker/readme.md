@@ -1,5 +1,5 @@
 #Dungeon Hacker
-DungeoN Hacker is an Augmented Reality Dungeon Crawl. Check out the PDF Overview here](https://github.com/gabeshaughnessy/augmentedart/blob/dungeon-hacker/dungeon-hacker/pdfs/Game-Outline_small.pdf) 
+DungeoN Hacker is an Augmented Reality Dungeon Crawl. [Check out the PDF Overview here](https://github.com/gabeshaughnessy/augmentedart/blob/dungeon-hacker/dungeon-hacker/pdfs/Game-Outline_small.pdf) 
 <img src="https://raw.githubusercontent.com/gabeshaughnessy/augmentedart/dungeon-hacker/dungeon-hacker/images/poster-sketch.jpg" width="100%"/>
 ##Overview
 Dungeon Hacker is a gallery installation at the [Diode gallery](http://www.jetsoncreative.com/diode) for electronic art that is both an illustration show and an game that visitors play on their smartphones by scanning the illustrations.
