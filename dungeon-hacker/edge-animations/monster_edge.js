@@ -81,64 +81,64 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_Stage}": [
-                ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "overflow", 'hidden'],
-                ["style", "height", '800px'],
-                ["style", "width", '500px']
-            ],
-            "${_Title}": [
-                ["style", "top", '430px'],
-                ["style", "width", '422px'],
-                ["style", "text-align", 'center'],
-                ["style", "font-weight", 'bold'],
-                ["style", "height", '31px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "left", '37px'],
-                ["style", "font-size", '24px']
-            ],
-            "${_Secondary-Attribute}": [
-                ["style", "top", '581px'],
-                ["color", "background-color", 'rgba(192,192,192,0)'],
-                ["style", "left", '242px'],
-                ["style", "width", '173px']
-            ],
-            "${_Monster-Image}": [
-                ["style", "height", '367px'],
-                ["style", "top", '39px'],
-                ["style", "left", '67px'],
-                ["style", "width", '349px']
-            ],
             "${_SecondaryAttLabel}": [
-                ["style", "top", '550px'],
-                ["style", "width", '173px'],
-                ["style", "font-weight", 'bold'],
-                ["style", "height", '31px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "left", '242px'],
-                ["style", "font-size", '14px']
-            ],
-            "${_Description}": [
-                ["style", "top", '472px'],
-                ["style", "width", '422px'],
-                ["style", "font-weight", 'bold'],
-                ["style", "height", '78px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "left", '37px'],
-                ["style", "font-size", '14px']
-            ],
-            "${_PrimaryAttLabel}": [
                 ["style", "top", '550px'],
                 ["style", "font-size", '14px'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "height", '31px'],
                 ["style", "font-weight", 'bold'],
+                ["style", "left", '242px'],
+                ["style", "width", '173px']
+            ],
+            "${_Title}": [
+                ["style", "top", '430px'],
+                ["style", "font-size", '24px'],
+                ["style", "text-align", 'center'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "height", '31px'],
+                ["style", "font-weight", 'bold'],
                 ["style", "left", '37px'],
-                ["style", "width", '161px']
+                ["style", "width", '422px']
+            ],
+            "${_PrimaryAttLabel}": [
+                ["style", "top", '550px'],
+                ["style", "width", '161px'],
+                ["style", "font-weight", 'bold'],
+                ["style", "height", '31px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "left", '37px'],
+                ["style", "font-size", '14px']
+            ],
+            "${_Monster-Image}": [
+                ["style", "top", '39px'],
+                ["style", "height", '367px'],
+                ["style", "left", '67px'],
+                ["style", "width", '349px']
+            ],
+            "${_Stage}": [
+                ["color", "background-color", 'rgba(255,255,255,0.00)'],
+                ["style", "width", '500px'],
+                ["style", "height", '800px'],
+                ["style", "overflow", 'hidden']
+            ],
+            "${_Description}": [
+                ["style", "top", '472px'],
+                ["style", "font-size", '14px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "height", '78px'],
+                ["style", "font-weight", 'bold'],
+                ["style", "left", '37px'],
+                ["style", "width", '422px']
+            ],
+            "${_Secondary-Attribute}": [
+                ["color", "background-color", 'rgba(192,192,192,0)'],
+                ["style", "top", '581px'],
+                ["style", "left", '242px'],
+                ["style", "width", '173px']
             ],
             "${_Primary-Attribute}": [
-                ["color", "background-color", 'rgba(192,192,192,0.00)'],
                 ["style", "top", '581px'],
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
                 ["style", "left", '37px'],
                 ["style", "width", '173px']
             ]
@@ -152,13 +152,13 @@ var symbols = {
             autoPlay: true,
             timeline: [
                 { id: "eid14", tween: [ "style", "${_Primary-Attribute}", "width", '173px', { fromValue: '173px'}], position: 0, duration: 0 },
-                { id: "eid4", tween: [ "style", "${_PrimaryAttLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
+                { id: "eid2", tween: [ "style", "${_PrimaryAttLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 },
                 { id: "eid5", tween: [ "style", "${_PrimaryAttLabel}", "font-size", '14px', { fromValue: '14px'}], position: 0, duration: 0 },
                 { id: "eid11", tween: [ "style", "${_PrimaryAttLabel}", "width", '161px', { fromValue: '161px'}], position: 0, duration: 0 },
-                { id: "eid15", tween: [ "style", "${_PrimaryAttLabel}", "top", '550px', { fromValue: '550px'}], position: 0, duration: 0 },
-                { id: "eid16", tween: [ "style", "${_Primary-Attribute}", "top", '581px', { fromValue: '581px'}], position: 0, duration: 0 },
                 { id: "eid12", tween: [ "style", "${_Primary-Attribute}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
-                { id: "eid2", tween: [ "style", "${_PrimaryAttLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 }            ]
+                { id: "eid16", tween: [ "style", "${_Primary-Attribute}", "top", '581px', { fromValue: '581px'}], position: 0, duration: 0 },
+                { id: "eid4", tween: [ "style", "${_PrimaryAttLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
+                { id: "eid15", tween: [ "style", "${_PrimaryAttLabel}", "top", '550px', { fromValue: '550px'}], position: 0, duration: 0 }            ]
         }
     }
 }

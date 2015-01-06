@@ -40,10 +40,41 @@ if(typeof itemId == 'undefined'){
   }
 }
 var item = new Item(itemId);
+
+if(typeof monsterId == 'undefined'){
+	if($.urlParam('monsterId') != null){
+		var monsterId = $.urlParam('monsterId');
+	}
+	else{
+		var monsterId = 'default-monster';
+	}
+}
+var monster = new Monster(monsterId);
 /* - end Globals - */
 
-
-
+/* DICE */
+function diceRoll(diceSides){
+	var diceValue = Math.floor(Math.random() * diceSides) + 1;
+	return diceValue;
+}
+function rollForTie(){
+	var tiebreaker = false;
+	var monsterScore = diceRoll(20);
+	var playerScore = diceRoll(20);
+	if(monsterScore > playerScore){
+		console.log('monster wins the tiebreaker');
+		tiebreaker = true;
+	}
+	else if(monsterScore == playerScore){
+		console.log('tied again! roll once more');
+		return rollForTie();
+	}
+	else{
+		console.log('You win the Tiebreaker');
+	}
+	
+	return tiebreaker;
+}
 
 
 
@@ -59,6 +90,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.cryptoCredits = 0;
 	this.attributes = {};
 	this.inventory = {};
+	this.hits = false;
+	this.hitCount = 0;
+	this.blocks = false;
 	
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
 		if($.urlParam('playerClass') == null){
@@ -189,10 +223,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	// {class: "default-class", description: "The default player description.", title: "Default Player Title"}	
 	this.syncData = function(){ //bind to data changes to stay synced with the firebase data.
 		var _this = this;
+		
 	  firebaseRef.child('players').child(this.id).on("value", function(snapshot) {
 	  	//The 'value' event fires once on load and whenever a value changes. 
 	  var dataSet = snapshot.val(); //js object with the complete data set for the player.
-	  
+	 
 	  if(typeof AdobeEdge.getComposition('player') != 'undefined'){
 		  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
 		}
@@ -206,105 +241,141 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		}
 
 		/* Clean things up first */
-		if(sym && typeof sym.$('Inventory') != 'undefined'){ 
-					sym.$('Inventory').html(''); //clear the inventory first
-				}
 
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
 			
 			
-			if( key == 'title' ){
-				if(sym && typeof sym.$('Title') != 'undefined'){
-					sym.$('Title').html( dataSet[key]);//update the title symbol
+				if( key == 'title' ){
+					if(sym && typeof sym.$('Title') != 'undefined'){
+						sym.$('Title').html( dataSet[key]);//update the title symbol
+					}
+					_this.title = dataSet[key];
+					
 				}
-				_this.title = dataSet[key];
 				
-			}
-			
-			if(key == 'description'){
-				if(sym && typeof sym.$('Description') != 'undefined'){
-					sym.$('Description').html( dataSet[key]); //update the description symbol
+				if(key == 'description'){
+					if(sym && typeof sym.$('Description') != 'undefined'){
+						sym.$('Description').html( dataSet[key]); //update the description symbol
+					}
+					_this.description = dataSet[key];
 				}
-				_this.description = dataSet[key];
-			}
-			
-			if(key == 'playerImg'){ //update the playerImg 
-				if(sym && typeof sym.getSymbol('PlayerImage') != 'undefined' && sym.getSymbol('PlayerImage').$('image').length > 0){
-				sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+				
+				if(key == 'playerImg'){ //update the playerImg 
+					if(sym && typeof sym.getSymbol('PlayerImage') != 'undefined' && sym.getSymbol('PlayerImage').$('image').length > 0){
+					sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+					}
+					_this.playerImg = dataSet[key];
 				}
-				_this.playerImg = dataSet[key];
-			}
-			
-			if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
-				if(sym && typeof sym.$('Attributes') != 'undefined' ){
-					sym.$('Attributes').html('');
-					for(var attributeKey in dataSet[key]){ 
+				
+				if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
+					if(sym && typeof sym.$('Attributes') != 'undefined' ){
+						sym.$('Attributes').html('');
+						for(var attributeKey in dataSet[key]){ 
+							
+							for(var i = 0; i < dataSet[key][attributeKey]; i++){
+								sym.$('Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+							}
+						}
+					}
+					_this.attributes = dataSet[key];
+					
+				}
+
+				 if(key == 'cryptoCredits'){ //show crypto credits on some pages
+					if(sym && typeof sym.$('CryptoCredits') != 'undefined'){
+						sym.$('CryptoCredits').html('');
+						for(var credits = 0; credits < 	dataSet[key]; credits++){
+							sym.$('CryptoCredits').append( '<img class="crypto-credit" src="images/crypto-credit.png" />');//add another crypto credit
+						}
+					}
+					_this.cryptoCredits = dataSet[key];
+				}
+
+				if(key == 'inventory'){
+					
+					if(sym && typeof sym.$('Inventory') != 'undefined'){ 
+						sym.$('Inventory').html(''); //clear the inventory first
+					}
+
+					for(var inventoryItem in dataSet[key]){
 						
-						for(var i = 0; i < dataSet[key][attributeKey]; i++){
-							sym.$('Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+						if(_this.hasItem(inventoryItem)){
+		
+							if(sym && typeof sym.$('Equip-Button-text') != 'undefined' ) {
+
+								sym.$('Equip-Button-text').html('Item Carried');
+							}
+
 						}
-					}
-				}
-				_this.attributes = dataSet[key];
-				
-			}
+						
+						else{
 
-			 if(key == 'cryptoCredits'){ //show crypto credits on some pages
-				if(sym && typeof sym.$('CryptoCredits') != 'undefined'){
-					sym.$('CryptoCredits').html('');
-					for(var credits = 0; credits < 	dataSet[key]; credits++){
-						sym.$('CryptoCredits').append( '<img class="crypto-credit" src="images/crypto-credit.png" />');//add another crypto credit
-					}
-				}
-				_this.cryptoCredits = dataSet[key];
-			}
-
-			if(key == 'inventory'){
-				
-
-
-				for(var inventoryItem in dataSet[key]){
-					
-					if(_this.hasItem(inventoryItem)){
-	
-						if(sym.$('Equip-Button-text').length > 0) {
-
-							sym.$('Equip-Button-text').html('Item Carried');
 						}
 
+						if(sym && typeof sym.$('Inventory') != 'undefined'){
+
+							var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
+
+							itemSymbol.$('title').html(dataSet[key][inventoryItem].title);
+							itemSymbol.$('description').html(dataSet[key][inventoryItem].description);
+
+							itemSymbol.getSymbol('item-image-container').$('item-image').css('backgroundImage', 'url('+dataSet[key][inventoryItem].img+')');
+		
+							}
+
+
 					}
-					
-					else{
-
-					}
-
-					if(sym && typeof sym.$('Inventory') != 'undefined'){
-
-						var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
-
-						itemSymbol.$('title').html(dataSet[key][inventoryItem].title);
-						itemSymbol.$('description').html(dataSet[key][inventoryItem].description);
-
-						itemSymbol.getSymbol('item-image-container').$('item-image').css('backgroundImage', 'url('+dataSet[key][inventoryItem].img+')');
-	
-						}
 
 
-				}
+					_this.inventory = dataSet[key];
+				}	
 
-
-				_this.inventory = dataSet[key];
-			}
-
-		  }
+		 }
 	  	 
 	  }
-	 
+	
 	}, function (errorObject) {//fires when firebase fails to read data.
 	  console.log("The firebase read failed: " + errorObject.code);
 	});
+	
 	}
+/* -------  Player Attack and Defend -------- */
+	this.blockAttack = function(attributeId){
+		var defendScore = 20 - (this.attributes[attributeId] * 5);
+		console.log('Player Attributes: ');
+		console.log(this.attributes);
+		if(diceRoll(20) >= defendScore){
+			this.blocks = true;
+		}
+		else{
+			this.blocks = false;
+		}
+		console.log('player blocks attack: '+this.blocks);
+
+	}
+	this.attack = function(attributeId){
+
+		player.hitCount = 0;
+		var attackScore = 20 - (this.attributes[attributeId] * 5);
+		if(diceRoll(20) >= attackScore){
+			this.hits = true;
+
+		}
+		else{
+			this.hits = false;
+		}
+		console.log('player hits on attack: '+ this.hits);
+
+		if(this.hits == true && monster.blocks != true){
+			console.log('Your attack hits!');
+			this.hitCount++;
+		}
+		else{
+			console.log('your attack missed!');
+		}
+	}
+
 }/* END PLAYER CLASS */
 
 //ITEM CLASS CONSTRUCTOR
@@ -365,52 +436,52 @@ function Item(){
 				var sym = AdobeEdge.getComposition('item').getStage();
 			}
 			else {
-				//	console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+				var sym = false;
+				console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
 			}
 
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
-			
-			if(key == 'title'){
-				if(typeof sym.$('Item-Title') != 'undefined'){
-					sym.$('Item-Title').html( dataSet[key]);//update the title symbol
+				if(key == 'title'){
+					if(sym && typeof sym.$('Item-Title') != 'undefined'){
+						sym.$('Item-Title').html( dataSet[key]);//update the title symbol
+					}
+					this.title = dataSet[key];
 				}
-				this.title = dataSet[key];
-			}
-			
-			if(key == 'description'){
-				if(typeof sym.$('Item-Description') != 'undefined'){
-					sym.$('Item-Description').html( dataSet[key]); //update the description symbol
+				if(key == 'description'){
+					if(typeof sym.$('Item-Description') != 'undefined'){
+						sym.$('Item-Description').html( dataSet[key]); //update the description symbol
+					}
+					this.description = dataSet[key];
 				}
-				this.description = dataSet[key];
-			}
-			
-			if(key == 'img'){ //update the item image 
-				if(typeof sym.getSymbol('item-image') != 'undefined' && sym.getSymbol('item-image').$('image').length > 0){
-				sym.getSymbol('item-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+				
+				if(key == 'img'){ //update the item image 
+					if(sym && typeof sym.getSymbol('item-image') != 'undefined' && sym.getSymbol('item-image').$('image').length > 0){
+					sym.getSymbol('item-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+					}
+					this.playerImg = dataSet[key];
 				}
-				this.playerImg = dataSet[key];
-			}
-			
-			if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
-				if(typeof sym.$('Item-Attributes') != 'undefined' ){
-					sym.$('Item-Attributes').html('');
-					for(var attributeKey in dataSet[key]){ 
-						
-						for(var i = 0; i < dataSet[key][attributeKey]; i++){
-							sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+				
+				if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
+					if(sym && typeof sym.$('Item-Attributes') != 'undefined' ){
+						sym.$('Item-Attributes').html('');
+						for(var attributeKey in dataSet[key]){ 
+							
+							for(var i = 0; i < dataSet[key][attributeKey]; i++){
+								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+							}
 						}
 					}
+					this.attributes = dataSet[key];
+					
 				}
-				this.attributes = dataSet[key];
-				
-			}
 
-			 if(key == 'price'){ //show crypto credits on some pages
-				
-				this.price = dataSet[key];
+				 if(key == 'price'){ //show crypto credits on some pages
+					
+					this.price = dataSet[key];
+				}
 			}
-		  }
+		  
 	  	 
 	  }
 	 
@@ -420,6 +491,112 @@ function Item(){
 	}
 
 }
+
+function Monster(monsterId){
+	this.id = monsterId;
+	this.title = 'Monster Title';
+	this.description = 'This is the Monster Description';
+	this.img = 'images/default-monster.png';
+	this.attributes = {
+		primary : 'charisma',
+		secondary : 'creativity'
+	};
+	this.attacks = 1;
+	this.hits = false;
+	this.hitCount = 0;
+	this.blocks = false;
+
+	this.addMonster = function(){
+		//sets the database record with the monster data
+
+		firebaseRef.child('monsters').child(this.id).set({
+			title : this.title,
+			description : this.description,
+			img : this.img,
+			attributes : this.attributes,
+			attacks : this.attacks,
+			hits : this.hits,
+			blocks : this.blocks,
+			boss: false
+		});
+	}
+	this.syncData = function(){
+		//firebase value change event
+		 // - updates the monster object
+		 // - updates the monster view
+	}
+
+	this.attack = function(player){
+
+	//attack the player with the monster's primary attribute. Rolls 20-attribute for a hit.
+		var attackScore = 10; //20 - primary attribute X 2;
+		var winner = false;
+		console.log('Monster Attributes: ');
+		console.log(this.attributes);
+		if(!this.boss){ this.hitCount = 0;} //bosses get multiple attacks
+		if(diceRoll(20) >= attackScore){
+			this.hits = true;
+		}
+		else{
+			this.hits = false;
+		}
+		this.attacks = this.attacks - 1;
+
+		
+
+		player.blockAttack(this.attributes.primary);
+
+		console.log('monster hits on attack: ' + this.hits);
+		if(this.hits == true && player.blocks == false){
+			console.log('The Monster Attack Hits!');
+			this.hitCount++;
+
+		}
+		else{
+			console.log('The Monster Missed!');
+		}
+
+	//player attacks back
+
+		var defendScore = 5; //20-secondary attribute X2;		
+		if(diceRoll(20) > defendScore){
+			this.blocks = true;
+		}
+		else{
+			this.blocks = false;	
+		}
+		console.log('monster defends your attack: ' + this.blocks);
+	
+		player.attack(this.attributes.secondary);
+
+	//Battle Results:
+		if(this.hitCount > player.hitCount){
+			console.log('Monster Wins!');
+			//monster defeats you and you lose all your stuff.
+
+		}
+		else if(this.hitCount == player.hitCount){
+			console.log('Tie Game');
+			//tiebreaker goes here
+			var monsterWins = rollForTie();
+			if(monsterWins){
+				console.log('Monster Wins!');
+			}
+			else{
+				console.log('You Defeated the Monster!');
+			}
+		}
+		else if(player.hitCount > this.hitCount){
+			console.log('You Defeated the Monster!');
+				//monster prize goes here.
+			
+		}
+	}//end monster Attack
+}
+
+
+
+
 
 
 
