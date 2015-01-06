@@ -62,6 +62,11 @@ The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to s
 - [x] Player Card View
 	- [x] Player Data
 	- [x] Credits
-	- [ ] Inventory
+	- [x] Inventory
 	- [ ] Monsters Defeated
 - [ ] Monster View
+	- [x] Add Monster
+	- [ ] Sync Monster Data with View
+	- [x] Basic Attack Sequence
+		- [ ] Attack Sequence Stages with Views
+
