@@ -12,12 +12,24 @@ This is a brief summary of the gameplay and mechanics
 ####Select a Character
 First you scan a character and touch the image to select that character. Each character has a unique set of attributes for fighting the monsters. 
 
+Visit this URL to select a new character: 
+[http://augmentedart.com/dungeon-hacker/edge-animations/player.html](http://augmentedart.com/dungeon-hacker/edge-animations/player.html)
+add a `playerId` paramerter like this or your will just be the default player:
+`http://augmentedart.com/dungeon-hacker/edge-animations/player.html?playerId=your-name`
+
 ####Your Player Card
 After you select a character, you can view your player card, which is a one-page stat sheet for your player. It contains your character class, attributes, items in your inventory, and your trophy wall with the monsters you have defeated. Each player card has a unique url and at the bottom there are links to share it on social networks. Player cards are activated by clicking the player card button or in the Layar menu under recent content > player card. Once you share your player card, it is accessible from the unique url in a web browser.
+
+Vist this URL to view your character card after you have selected a character:
+[http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html](http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html)
+you need to add your playerId to the end again, like `http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html?playerId=your-name`
 
 ####Get Some Items
 When you select a new player, you are given one crypto-credit, which is enough to buy a single item. Items are a series of small illustrations, done by several artists. Each Item has a unique attribute that it provides. You can get more items by defeating monsters. 
 Monsters appear when you scan the door illustrations with Layar. When you scan the door, a monster appears. The monster has attack(primary) and defense(secondary) attributes, and you have the option of running away or fighting the monster. If you run away, you roll a 20 sided die and a 10 or better gets away, otherwise you fight the monster anyway.
+You can Pickup an item at this URL:
+[http://augmentedart.com/dungeon-hacker/edge-animations/item.html](http://augmentedart.com/dungeon-hacker/edge-animations/item.html). Just like before, you need to add your playerId parameter to the url like this:
+`http://augmentedart.com/dungeon-hacker/edge-animations/item.html?playerId=your-name`
 
 ####Fighting Monsters
 If you fight the monster, the monster attacks first. First the monster rolls for its attack attribute. It needs a 10 or higher on a 20 sided die to hit. You take your matching attribute and total it to get your attribute score, then roll a 20 minus your attribute score to block the attack. The monster either misses, or it hits. If it hits and you block it is a miss. Then you roll for your attack. You total your attribute that matches the monster’s defence attribute and roll a 20 minus your attribute score. If you hit, the monster rolls its defence attribute and either blocks or you hit. If both you and the monster scored a hit, then you roll for a tie, highest roll wins. 
