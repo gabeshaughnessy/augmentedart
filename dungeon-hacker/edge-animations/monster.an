@@ -17,10 +17,11 @@
 	"expanded:images/project-manager.png":"nil",
 	"stage-Default Timeline_mark_ms":"-1",
 	"nextElementColorIndex":"2",
-	"expanded:images/knowledge.png":"nil",
+	"stage-Default Timeline_playhead_ms":"0",
 	"expanded:images/glove-of-power.png":"nil",
 	"HTMLFileName":"monster.html",
-	"stage-Default Timeline_playhead_ms":"0",
+	"viewStartMs":"11226.770507812",
+	"expanded:images/knowledge.png":"nil",
 	"PosterCapturePos":"0",
 	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
 	"ModelData":"{\
@@ -29,50 +30,43 @@
       \"Default Timeline\": {\
       }\
    }},\
-\"Preloader\": {\
-   \"timelines\": {\
-\
-   }},\
 \"dice-roll-sprite_symbol_1\": {\
    \"timelines\": {\
       \"Default Timeline\": {\
       }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
    }},\
 \"Down-level\": {\
    \"timelines\": {\
 \
    }}\
 }",
+	"expanded:images/designer.png":"nil",
+	"expanded:images/Poster3.png":"nil",
 	"pref__general__GenerateSmoothTransitions":"false",
-	"expanded:images/creativity.png":"nil",
-	"diceroll_spritesheet_symbol_1-Default Timeline_playhead_ms":"0",
-	"ShowRulers":"true",
+	"PubDPS":"true",
 	"expanded:images/dungeon-hacker-logo.jpg":"nil",
-	"expanded:images/dungeon-hacker-logo.png":"nil",
-	"expanded:images/charisma.png":"nil",
+	"expanded:images/creativity.png":"nil",
 	"expanded:images/Poster4.png":"nil",
-	"symbol_diceroll_spritesheet_symbol_1":{
-		"dummyStageParentWidth":"615px",
-		"dummyStageParentHeight":"738px",
-		"defaultStageParentWidth":"615px",
-		"element_${_diceroll_spritesheet}":{
-			"timelineColor2":"0xba5b89",
-			"timelineColor3":"0x734a5f",
-			"animationEnabled":"true",
-			"timelineColor":"0xdb619d"},
-		"defaultStageParentHeight":"738px"},
+	"TransitionIdCounter":"135",
 	"expanded:images/Poster.png":"nil",
-	"viewStartMs":"-20.037954330444",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
 	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"expanded:images/diceroll_spritesheet2.png":"nil",
 	"symbol_stage":{
-		"defaultStageParentHeight":"800px",
+		"element_${_Monster-Title}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0x2f73ad"},
 		"dummyStageParentWidth":"500px",
-		"element_${_Dice}":{
-			"timelineColor2":"0xd35d6e",
-			"timelineColor3":"0x7e4b52",
-			"animationEnabled":"false",
-			"timelineColor":"0xfb657a"},
+		"element_${_Rectangle}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"timelineColor":"0x00a096"},
 		"dummyStageParentHeight":"800px",
 		"element_${_diceRoll}":{
 			"timelineColor2":"0xcbbd71",
@@ -95,57 +89,63 @@
 			"timelineColor":"0x00bda4",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
-		"element_${_SecondaryAttLabel}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"timelineTreeOpened":"false",
-			"timelineColor":"0x008dc8"},
-		"element_${_Monster-Description}":{
-			"timelineColor2":"0x1095d2",
-			"timelineColor3":"0x29647e",
-			"timelineTreeOpened":"false",
-			"timelineColor":"0x00a9fa"},
 		"element_${_Secondary-Attribute}":{
 			"timelineColor2":"0x5a558a",
 			"timelineColor3":"0x4a485e",
 			"timelineTreeOpened":"false",
 			"timelineColor":"0x63599f"},
+		"defaultStageParentHeight":"800px",
+		"defaultStageParentWidth":"500px",
 		"element_${_Stage}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
 			"timelineColor":"0xeedf79"},
-		"defaultStageParentWidth":"500px",
+		"element_${_SecondaryAttLabel}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0x008dc8"},
 		"element_${_PrimaryAttLabel}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
 			"timelineColor":"0x91c767",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
-		"element_${_Rectangle}":{
-			"timelineColor2":"0x168c84",
-			"timelineColor3":"0x2a605c",
-			"timelineColor":"0x00a096"},
-		"element_${_Monster-Title}":{
-			"timelineColor2":"0x326a96",
-			"timelineColor3":"0x385063",
+		"element_${_Dice}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"animationEnabled":"false",
+			"timelineColor":"0xfb657a"},
+		"element_${_Monster-Description}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
 			"timelineTreeOpened":"false",
-			"timelineColor":"0x2f73ad"}},
-	"PreloadAudio":"auto",
-	"pref__general__codeView":"fullView",
+			"timelineColor":"0x00a9fa"}},
+	"symbol_diceroll_spritesheet_symbol_1":{
+		"dummyStageParentWidth":"615px",
+		"dummyStageParentHeight":"738px",
+		"defaultStageParentWidth":"615px",
+		"element_${_diceroll_spritesheet}":{
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"animationEnabled":"true",
+			"timelineColor":"0xdb619d"},
+		"defaultStageParentHeight":"738px"},
+	"expanded:images/crypto-credit.png":"nil",
 	"viewStartY":"0",
 	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
-	"expanded:images/crypto-credit.png":"nil",
-	"TransitionIdCounter":"135",
+	"pref__general__codeView":"fullView",
+	"PreloadAudio":"auto",
 	"usedBOM":"false",
-	"PubDPS":"true",
+	"ShowRulers":"true",
 	"expanded:images/Poster5.png":"nil",
-	"expanded:images/Poster3.png":"nil",
-	"expanded:images/designer.png":"nil",
+	"expanded:images/charisma.png":"nil",
+	"diceroll_spritesheet_symbol_1-Default Timeline_playhead_ms":"0",
 	"symbol_dice-roll-sprite_symbol_1":{
-		"dummyStageParentWidth":"187px",
+		"defaultStageParentHeight":"198px",
 		"dummyStageParentHeight":"198px",
 		"defaultStageParentWidth":"187px",
-		"defaultStageParentHeight":"198px",
+		"dummyStageParentWidth":"187px",
 		"element_${_dice-roll-sprite}":{
 			"timelineColor2":"0xd8b467",
 			"timelineColor3":"0x81714f",

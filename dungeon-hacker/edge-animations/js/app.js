@@ -551,7 +551,6 @@ Player.prototype.attack = function(monster, diceRoll){
 			var defendScore = 15; //Monsters defense score - same as their secondary attribute;		
 				if(rollTheDice(20) >= defendScore){
 					monster.blocks = true;
-					this.hits = false;
 				}
 
 				else{

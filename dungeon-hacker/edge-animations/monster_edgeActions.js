@@ -24,7 +24,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2458, function(sym, e) {
          
          player.blockScore = 20 - (player.attributes[monster.attributes.primary] * 5);
-         monster.status.html('Roll to block the attack.<br/>You need a ' + player.blockScore + ' or higher to block the attack.');
+         monster.status.html('Roll to block the attack.<br/>You need to roll a ' + player.blockScore + ' or higher.');
          sym.stop();
          
 
@@ -80,7 +80,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          monster.status.html(monster.title + 'blocked your attack<br /> and defeated you!');
          
          if(typeof monster.tiebreaker != 'undefined'){
-         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker');
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
          
          }
          
@@ -88,7 +88,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          else{
          monster.status.html(monster.title + ' defeated you!');
          if(typeof monster.tiebreaker != 'undefined'){
-         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker');
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
          
          }
          }
@@ -145,6 +145,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 6100, function(sym, e) {
+                 console.log('playerhits : '+player.hits);
+                 console.log('monsterblocks : '+monster.blocks);
          if(player.hits == true && monster.blocks == false){
            monster.status.html('Your attack hits!');
           }

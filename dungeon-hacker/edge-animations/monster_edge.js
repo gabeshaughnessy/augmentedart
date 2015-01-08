@@ -106,14 +106,14 @@ var symbols = {
                 ["style", "left", '156px']
             ],
             "${_Secondary-Attribute}": [
-                ["color", "background-color", 'rgba(192,192,192,0)'],
                 ["style", "top", '671px'],
+                ["color", "background-color", 'rgba(192,192,192,0)'],
                 ["style", "left", '242px'],
                 ["style", "width", '173px']
             ],
             "${_Primary-Attribute}": [
-                ["style", "top", '671px'],
                 ["color", "background-color", 'rgba(192,192,192,0.00)'],
+                ["style", "top", '671px'],
                 ["style", "left", '37px'],
                 ["style", "width", '173px']
             ],
@@ -126,52 +126,52 @@ var symbols = {
             ],
             "${_Monster-Description}": [
                 ["style", "top", '562px'],
-                ["style", "font-size", '14px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "height", '78px'],
+                ["style", "width", '422px'],
                 ["style", "font-weight", 'bold'],
+                ["style", "height", '78px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '37px'],
-                ["style", "width", '422px']
+                ["style", "font-size", '14px']
             ],
             "${_Monster-Image}": [
-                ["style", "top", '111px'],
                 ["style", "height", '367px'],
+                ["style", "top", '111px'],
                 ["style", "left", '67px'],
                 ["style", "width", '349px']
             ],
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "width", '500px'],
+                ["style", "overflow", 'hidden'],
                 ["style", "height", '800px'],
-                ["style", "overflow", 'hidden']
+                ["style", "width", '500px']
             ],
-            "${_SecondaryAttLabel}": [
+            "${_Monster-Title}": [
+                ["style", "top", '520px'],
+                ["style", "width", '422px'],
+                ["style", "text-align", 'center'],
+                ["style", "font-weight", 'bold'],
+                ["style", "height", '31px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "left", '37px'],
+                ["style", "font-size", '24px']
+            ],
+            "${_PrimaryAttLabel}": [
                 ["style", "top", '640px'],
                 ["style", "font-size", '14px'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "height", '31px'],
                 ["style", "font-weight", 'bold'],
-                ["style", "left", '242px'],
-                ["style", "width", '173px']
+                ["style", "left", '37px'],
+                ["style", "width", '161px']
             ],
-            "${_PrimaryAttLabel}": [
+            "${_SecondaryAttLabel}": [
                 ["style", "top", '640px'],
-                ["style", "width", '161px'],
+                ["style", "width", '173px'],
                 ["style", "font-weight", 'bold'],
                 ["style", "height", '31px'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "left", '37px'],
+                ["style", "left", '242px'],
                 ["style", "font-size", '14px']
-            ],
-            "${_Monster-Title}": [
-                ["style", "top", '520px'],
-                ["style", "font-size", '24px'],
-                ["style", "text-align", 'center'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "height", '31px'],
-                ["style", "font-weight", 'bold'],
-                ["style", "left", '37px'],
-                ["style", "width", '422px']
             ]
         }
     },
@@ -194,10 +194,10 @@ var symbols = {
             },
             timeline: [
                 { id: "eid5", tween: [ "style", "${_PrimaryAttLabel}", "font-size", '14px', { fromValue: '14px'}], position: 0, duration: 0 },
-                { id: "eid2", tween: [ "style", "${_PrimaryAttLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 },
+                { id: "eid18", tween: [ "style", "${_Primary-Attribute}", "top", '671px', { fromValue: '671px'}], position: 0, duration: 0 },
                 { id: "eid12", tween: [ "style", "${_Primary-Attribute}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
                 { id: "eid14", tween: [ "style", "${_Primary-Attribute}", "width", '173px', { fromValue: '173px'}], position: 0, duration: 0 },
-                { id: "eid18", tween: [ "style", "${_Primary-Attribute}", "top", '671px', { fromValue: '671px'}], position: 0, duration: 0 },
+                { id: "eid100", tween: [ "style", "${_diceRoll}", "left", '156px', { fromValue: '156px'}], position: 11260, duration: 0 },
                 { id: "eid131", tween: [ "style", "${_Monster-Image}", "top", '111px', { fromValue: '111px'}], position: 2458, duration: 0 },
                 { id: "eid11", tween: [ "style", "${_PrimaryAttLabel}", "width", '161px', { fromValue: '161px'}], position: 0, duration: 0 },
                 { id: "eid102", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 0, duration: 143 },
@@ -210,9 +210,9 @@ var symbols = {
                 { id: "eid122", tween: [ "style", "${_diceRoll}", "opacity", '0', { fromValue: '1'}], position: 10658, duration: 130 },
                 { id: "eid119", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 10787, duration: 68 },
                 { id: "eid120", tween: [ "style", "${_diceRoll}", "opacity", '0', { fromValue: '1'}], position: 12393, duration: 149 },
-                { id: "eid4", tween: [ "style", "${_PrimaryAttLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
                 { id: "eid17", tween: [ "style", "${_PrimaryAttLabel}", "top", '640px', { fromValue: '640px'}], position: 0, duration: 0 },
-                { id: "eid100", tween: [ "style", "${_diceRoll}", "left", '156px', { fromValue: '156px'}], position: 11260, duration: 0 }            ]
+                { id: "eid4", tween: [ "style", "${_PrimaryAttLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
+                { id: "eid2", tween: [ "style", "${_PrimaryAttLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 }            ]
         }
     }
 },
@@ -242,11 +242,11 @@ var symbols = {
         "Base State": {
             "${_dice-roll-sprite}": [
                 ["style", "top", '0px'],
-                ["style", "background-position", [-561,-594], {valueTemplate:'@@0@@px @@1@@px'} ],
+                ["style", "left", '0px'],
                 ["transform", "rotateZ", '0deg'],
                 ["style", "height", '198px'],
                 ["style", "background-size", [935,990], {valueTemplate:'@@0@@px @@1@@px'} ],
-                ["style", "left", '0px'],
+                ["style", "background-position", [-561,-594], {valueTemplate:'@@0@@px @@1@@px'} ],
                 ["style", "width", '187px']
             ],
             "${symbolSelector}": [
@@ -287,8 +287,9 @@ var symbols = {
             },
             timeline: [
                 { id: "eid54", tween: [ "style", "${_dice-roll-sprite}", "width", '187px', { fromValue: '0px'}], position: 0, duration: 0 },
-                { id: "eid53", tween: [ "style", "${_dice-roll-sprite}", "height", '198px', { fromValue: '0px'}], position: 0, duration: 0 },
+                { id: "eid52", tween: [ "style", "${_dice-roll-sprite}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid51", tween: [ "style", "${_dice-roll-sprite}", "left", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
+                { id: "eid53", tween: [ "style", "${_dice-roll-sprite}", "height", '198px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid74", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 0, duration: 0 },
                 { id: "eid75", tween: [ "style", "${_dice-roll-sprite}", "background-position", [0,-792], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-748,-594]}], position: 83, duration: 0 },
                 { id: "eid76", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-187,-792], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,-792]}], position: 167, duration: 0 },
@@ -320,8 +321,7 @@ var symbols = {
                 { id: "eid96", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-187,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,-594]}], position: 2333, duration: 0 },
                 { id: "eid97", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-374,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-187,-594]}], position: 2416, duration: 0 },
                 { id: "eid98", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-561,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-374,-594]}], position: 2500, duration: 0 },
-                { id: "eid99", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 2583, duration: 0 },
-                { id: "eid52", tween: [ "style", "${_dice-roll-sprite}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 }            ]
+                { id: "eid99", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 2583, duration: 0 }            ]
         }
     }
 }
