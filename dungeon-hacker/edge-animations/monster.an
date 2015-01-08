@@ -2,21 +2,25 @@
 {
 
 	"expanded:images/default-item.png":"nil",
+	"pref__general__AutoKeyframeProperties":"true",
 	"expanded:images/diceroll_spritesheet.png":"nil",
 	"expanded:images/monster.png":"nil",
 	"PosterImagePath":"images/Poster5.png",
-	"pref__general__codeView":"fullView",
+	"expanded:images/dice-roll-sprite.png":"nil",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"expanded:images/Poster2.png":"nil",
 	"expanded:images/paper-bg.jpg":"nil",
+	"dice-roll-sprite_symbol_1-Default Timeline_playhead_ms":"0",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"50",
-	"pixelsPerMs":"0.2",
+	"pixelsPerMs":"0.24952646258577",
 	"expanded:images/project-manager.png":"nil",
-	"nextElementColorIndex":"10",
+	"stage-Default Timeline_mark_ms":"-1",
+	"nextElementColorIndex":"2",
 	"expanded:images/knowledge.png":"nil",
 	"expanded:images/glove-of-power.png":"nil",
 	"HTMLFileName":"monster.html",
+	"stage-Default Timeline_playhead_ms":"0",
 	"PosterCapturePos":"0",
 	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
 	"ModelData":"{\
@@ -29,76 +33,121 @@
    \"timelines\": {\
 \
    }},\
+\"dice-roll-sprite_symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
 \"Down-level\": {\
    \"timelines\": {\
 \
    }}\
 }",
-	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"pref__general__GenerateSmoothTransitions":"false",
 	"expanded:images/creativity.png":"nil",
-	"expanded:images/Poster3.png":"nil",
-	"expanded:images/Poster.png":"nil",
+	"diceroll_spritesheet_symbol_1-Default Timeline_playhead_ms":"0",
+	"ShowRulers":"true",
+	"expanded:images/dungeon-hacker-logo.jpg":"nil",
 	"expanded:images/dungeon-hacker-logo.png":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
-	"expanded:images/crypto-credit.png":"nil",
-	"PreloadAudio":"auto",
-	"TransitionIdCounter":"17",
-	"viewStartY":"0",
-	"expanded:images/designer.png":"nil",
-	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
-	"expanded:images/Poster4.png":"nil",
-	"usedBOM":"false",
-	"PubDPS":"true",
-	"expanded:images/Poster5.png":"nil",
 	"expanded:images/charisma.png":"nil",
+	"expanded:images/Poster4.png":"nil",
+	"symbol_diceroll_spritesheet_symbol_1":{
+		"dummyStageParentWidth":"615px",
+		"dummyStageParentHeight":"738px",
+		"defaultStageParentWidth":"615px",
+		"element_${_diceroll_spritesheet}":{
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"animationEnabled":"true",
+			"timelineColor":"0xdb619d"},
+		"defaultStageParentHeight":"738px"},
+	"expanded:images/Poster.png":"nil",
+	"viewStartMs":"-20.037954330444",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"expanded:images/diceroll_spritesheet2.png":"nil",
 	"symbol_stage":{
+		"defaultStageParentHeight":"800px",
 		"dummyStageParentWidth":"500px",
+		"element_${_Dice}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"animationEnabled":"false",
+			"timelineColor":"0xfb657a"},
 		"dummyStageParentHeight":"800px",
+		"element_${_diceRoll}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"animationEnabled":"true",
+			"timelineColor":"0xeedf79"},
 		"element_${_Primary-Attribute}":{
 			"timelineColor2":"0x4fa275",
 			"timelineColor3":"0x456a55",
 			"timelineColor":"0x50bd82",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
-		"element_${_Title}":{
-			"timelineColor2":"0x326a96",
-			"timelineColor3":"0x385063",
-			"timelineTreeOpened":"false",
-			"timelineColor":"0x2f73ad"},
+		"element_${_Status}":{
+			"timelineColor2":"0xb099ce",
+			"timelineColor3":"0x70657c",
+			"timelineColor":"0xceaef4"},
 		"element_${_Monster-Image}":{
 			"timelineColor2":"0x1aa38f",
 			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4",
 			"timelineTreeOpened":"false",
-			"timelineColor":"0x00bda4"},
-		"element_${_Description}":{
-			"timelineColor2":"0x1095d2",
-			"timelineColor3":"0x29647e",
-			"timelineTreeOpened":"false",
-			"timelineColor":"0x00a9fa"},
-		"defaultStageParentHeight":"800px",
-		"element_${_Rectangle}":{
-			"timelineColor2":"0x168c84",
-			"timelineColor3":"0x2a605c",
-			"timelineColor":"0x00a096"},
+			"animationEnabled":"true"},
 		"element_${_SecondaryAttLabel}":{
 			"timelineColor2":"0x107faa",
 			"timelineColor3":"0x295a6d",
 			"timelineTreeOpened":"false",
 			"timelineColor":"0x008dc8"},
+		"element_${_Monster-Description}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0x00a9fa"},
 		"element_${_Secondary-Attribute}":{
 			"timelineColor2":"0x5a558a",
 			"timelineColor3":"0x4a485e",
 			"timelineTreeOpened":"false",
 			"timelineColor":"0x63599f"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"defaultStageParentWidth":"500px",
 		"element_${_PrimaryAttLabel}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
 			"timelineColor":"0x91c767",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"},
-		"element_${_Stage}":{
-			"timelineColor2":"0xcbbd71",
-			"timelineColor3":"0x7b7652",
-			"timelineColor":"0xeedf79"},
-		"defaultStageParentWidth":"500px"},
-	"stage-Default Timeline_playhead_ms":"0"}
+		"element_${_Rectangle}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"timelineColor":"0x00a096"},
+		"element_${_Monster-Title}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0x2f73ad"}},
+	"PreloadAudio":"auto",
+	"pref__general__codeView":"fullView",
+	"viewStartY":"0",
+	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
+	"expanded:images/crypto-credit.png":"nil",
+	"TransitionIdCounter":"135",
+	"usedBOM":"false",
+	"PubDPS":"true",
+	"expanded:images/Poster5.png":"nil",
+	"expanded:images/Poster3.png":"nil",
+	"expanded:images/designer.png":"nil",
+	"symbol_dice-roll-sprite_symbol_1":{
+		"dummyStageParentWidth":"187px",
+		"dummyStageParentHeight":"198px",
+		"defaultStageParentWidth":"187px",
+		"defaultStageParentHeight":"198px",
+		"element_${_dice-roll-sprite}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"animationEnabled":"true",
+			"timelineColor":"0xffd46d"}}}

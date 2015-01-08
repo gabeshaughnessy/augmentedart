@@ -66,7 +66,10 @@ The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to s
 	- [ ] Monsters Defeated
 - [ ] Monster View
 	- [x] Add Monster
-	- [ ] Sync Monster Data with View
+	- [x] Sync Monster Data with View - not necessary...
 	- [x] Basic Attack Sequence
-		- [ ] Attack Sequence Stages with Views
+		- [x] Attack Sequence Stages with Views
+- [ ] Dice Roll
+	- [ ] 20-sided sprite for the dice, much smaller and without the shadow.
+	- [ ] text fields for your roll score, monster's roll score on the monster view.
 

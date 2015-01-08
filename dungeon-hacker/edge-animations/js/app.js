@@ -53,28 +53,24 @@ var monster = new Monster(monsterId);
 /* - end Globals - */
 
 /* DICE */
-function diceRoll(diceSides){
+var dice = new Dice();
+
+function Dice(){
+	this.roll = function(diceSides, sym){
+		this.value = Math.floor(Math.random() * diceSides) + 1;
+		sym.play('roll');
+		console.log('dice roll value:'+this.value);
+		return this.value;
+
+	}
+}
+function rollTheDice(diceSides){
 	var diceValue = Math.floor(Math.random() * diceSides) + 1;
-	return diceValue;
+		return diceValue;
 }
-function rollForTie(){
-	var tiebreaker = false;
-	var monsterScore = diceRoll(20);
-	var playerScore = diceRoll(20);
-	if(monsterScore > playerScore){
-		console.log('monster wins the tiebreaker');
-		tiebreaker = true;
-	}
-	else if(monsterScore == playerScore){
-		console.log('tied again! roll once more');
-		return rollForTie();
-	}
-	else{
-		console.log('You win the Tiebreaker');
-	}
-	
-	return tiebreaker;
-}
+
+
+
 
 
 
@@ -234,6 +230,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
 				var sym = AdobeEdge.getComposition('item').getStage();
 			}
+		else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
+				var sym = AdobeEdge.getComposition('monster').getStage();
+			}
 		else {
 			console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
 			var sym = false;
@@ -313,7 +312,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 						}
 
-						if(sym && typeof sym.$('Inventory') != 'undefined'){
+						if(sym && sym.$('Inventory').length > 0 ){
 
 							var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
 
@@ -340,41 +339,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	});
 	
 	}
-/* -------  Player Attack and Defend -------- */
-	this.blockAttack = function(attributeId){
-		var defendScore = 20 - (this.attributes[attributeId] * 5);
-		console.log('Player Attributes: ');
-		console.log(this.attributes);
-		if(diceRoll(20) >= defendScore){
-			this.blocks = true;
-		}
-		else{
-			this.blocks = false;
-		}
-		console.log('player blocks attack: '+this.blocks);
 
-	}
-	this.attack = function(attributeId){
-
-		player.hitCount = 0;
-		var attackScore = 20 - (this.attributes[attributeId] * 5);
-		if(diceRoll(20) >= attackScore){
-			this.hits = true;
-
-		}
-		else{
-			this.hits = false;
-		}
-		console.log('player hits on attack: '+ this.hits);
-
-		if(this.hits == true && monster.blocks != true){
-			console.log('Your attack hits!');
-			this.hitCount++;
-		}
-		else{
-			console.log('your attack missed!');
-		}
-	}
 
 }/* END PLAYER CLASS */
 
@@ -494,7 +459,7 @@ function Item(){
 
 function Monster(monsterId){
 	this.id = monsterId;
-	this.title = 'Monster Title';
+	this.title = 'This Monster';
 	this.description = 'This is the Monster Description';
 	this.img = 'images/default-monster.png';
 	this.attributes = {
@@ -526,7 +491,7 @@ function Monster(monsterId){
 		 // - updates the monster view
 	}
 
-	this.attack = function(player){
+	this.attack = function(player, diceRoll){
 
 	//attack the player with the monster's primary attribute. Rolls 20-attribute for a hit.
 		var attackScore = 10; //20 - primary attribute X 2;
@@ -534,68 +499,107 @@ function Monster(monsterId){
 		console.log('Monster Attributes: ');
 		console.log(this.attributes);
 		if(!this.boss){ this.hitCount = 0;} //bosses get multiple attacks
-		if(diceRoll(20) >= attackScore){
+		if(diceRoll >= attackScore){
 			this.hits = true;
 		}
 		else{
 			this.hits = false;
 		}
 		this.attacks = this.attacks - 1;
-
 		
-
-		player.blockAttack(this.attributes.primary);
-
-		console.log('monster hits on attack: ' + this.hits);
-		if(this.hits == true && player.blocks == false){
-			console.log('The Monster Attack Hits!');
-			this.hitCount++;
-
-		}
-		else{
-			console.log('The Monster Missed!');
-		}
 
 	//player attacks back
 
-		var defendScore = 5; //20-secondary attribute X2;		
-		if(diceRoll(20) > defendScore){
+		
+
+	//Battle Results:
+		
+	}//end monster Attack
+}//end monster class def.
+
+
+/* -------  Player Attack and Defend -------- */
+Player.prototype.blockAttack = function(monster, diceRoll){
+	console.log(this);
+		var attributeId = monster.attributes.primary;
+		var defendScore = 20 - (this.attributes[attributeId] * 5);
+		console.log('block: ' + diceRoll+ ' : ' + defendScore);
+		if(diceRoll >= defendScore){
 			this.blocks = true;
 		}
 		else{
-			this.blocks = false;	
+			this.blocks = false;
 		}
-		console.log('monster defends your attack: ' + this.blocks);
-	
-		player.attack(this.attributes.secondary);
+		console.log('player blocks attack: '+this.blocks);
 
-	//Battle Results:
-		if(this.hitCount > player.hitCount){
-			console.log('Monster Wins!');
-			//monster defeats you and you lose all your stuff.
+	}
+Player.prototype.attack = function(monster, diceRoll){
 
-		}
-		else if(this.hitCount == player.hitCount){
-			console.log('Tie Game');
-			//tiebreaker goes here
-			var monsterWins = rollForTie();
-			if(monsterWins){
-				console.log('Monster Wins!');
-			}
-			else{
-				console.log('You Defeated the Monster!');
-			}
-		}
-		else if(player.hitCount > this.hitCount){
-			console.log('You Defeated the Monster!');
-				//monster prize goes here.
+		player.hitCount = 0;
+		var attributeId = monster.attributes.secondary;
+		var attackScore = 20 - (this.attributes[attributeId] * 5);
+		console.log('attack: '+ diceRoll + ' : ' +  attackScore);
+		monster.blocks == false;
+
+		
+		if(diceRoll >= attackScore){
 			
+			this.hits = true;
+			console.log('player hits on attack: '+ this.hits);
+
+			//monster rolls to block
+			var defendScore = 15; //Monsters defense score - same as their secondary attribute;		
+				if(rollTheDice(20) >= defendScore){
+					monster.blocks = true;
+					this.hits = false;
+				}
+
+				else{
+					monster.blocks = false;	
+
+				}
+
+				console.log('monster defends your attack: ' + monster.blocks);
+
 		}
-	}//end monster Attack
+		else{
+			this.hits = false;
+		}
+		
+
+		if(this.hits == true && monster.blocks != true){
+			console.log('Your attack hits!');
+			this.hitCount++;
+		}
+		else{
+			console.log('your attack missed!');
+		}
+	}
+
+
+function battleResults(monster, player, sym){
+	player.wins = false;
+
+	if(monster.hitCount > player.hitCount){
+		console.log(monster.title + ' Wins!');
+		//monster defeats you and you lose all your stuff.
+		sym.play('monster-wins');
+
+	}
+	else if(monster.hitCount == player.hitCount){
+		console.log('Tie Game');
+		monster.status.html('Tie Game!');
+		sym.play();
+
+		
+	}
+	else if(player.hitCount > monster.hitCount){
+		player.wins = true;
+		console.log('You Defeated the Monster!');
+		sym.play('player-wins');
+			
+	}
 }
-
-
-
 
 
 
