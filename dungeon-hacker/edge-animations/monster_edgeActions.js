@@ -92,6 +92,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          }
          }
+         
+         player.reset();
            sym.stop();
          // insert code here
 
@@ -100,6 +102,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13106, function(sym, e) {
          monster.status.html('You Defeated the Monster!');
+         player.addMonster(monster);
          sym.stop();// insert code here
 
       });
