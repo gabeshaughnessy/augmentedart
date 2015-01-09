@@ -86,10 +86,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.cryptoCredits = 0;
 	this.attributes = {};
 	this.inventory = {};
+	this.monsters = {};
 	this.hits = false;
 	this.hitCount = 0;
 	this.blocks = false;
 	
+
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
 		if($.urlParam('playerClass') == null){
 			this.playerClass = 'Default Character Class';
@@ -137,6 +139,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			_this.cryptoCredits = playerData['cryptoCredits'];
 			_this.attributes = playerData['attributes'];
 			_this.inventory = playerData['inventory'];
+			_this.monsters = playerData['monsters'];
 		});
 		
 	}
@@ -166,17 +169,29 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				'playerImg' : this.playerImg,
 				'cryptoCredits' : 1,
 				'attributes' : this.attributes,
-				'inventory' : this.inventory
+				'inventory' : this.inventory,
+				'monsters' : this.monsters
 
 
 		});
 	}
+
 	this.update = function(att, value){//update existing firebase player entry with new data.
 		var attributeObj = {};
 		attributeObj[att] = value;
 		firebaseRef.child('players').child(this.id).update(attributeObj);
 
 	}
+	this.addMonster = function(monster){
+		var monsterObj = {};
+		monsterObj[monster.title] = {
+			'title' : monster.title,
+			'img' : monster.img,
+			'description' : monster.description
+		}
+		firebaseRef.child('players').child(this.id).child('monsters').update(monsterObj);
+	};
+
 	this.addItem = function(item, itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
 	
 	//first we need an array of all the item's children, like item.title, item.description.
@@ -213,6 +228,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			}
 		}
 		return hasItem;
+	}
+
+	this.reset = function(){
+		this.update('attributes', {});
+        this.update('inventory', {});
+        this.update('monsters', {});
+        this.update('cryptoCredits', {});
 	}
 
 	//Player DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
@@ -329,6 +351,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 					_this.inventory = dataSet[key];
 				}	
+
+				if( key == 'monsters' ){
+					if(sym && typeof sym.$('Monsters') != 'undefined'){
+						//sym.$('Monsters').html( dataSet[key]);//add to the monster wall
+					}
+					_this.monsters = dataSet[key];
+					
+				}
 
 		 }
 	  	 
@@ -551,7 +581,6 @@ Player.prototype.attack = function(monster, diceRoll){
 			var defendScore = 15; //Monsters defense score - same as their secondary attribute;		
 				if(rollTheDice(20) >= defendScore){
 					monster.blocks = true;
-					this.hits = false;
 				}
 
 				else{
