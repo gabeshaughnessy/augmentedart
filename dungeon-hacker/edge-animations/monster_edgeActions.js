@@ -14,11 +14,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+       
        player.syncData();
        monster.syncData();
+       
        dice.symbol = sym.getSymbol('diceRoll');
+       if(checkIfItemExists('monsters', monster.id)){
        
-       
+       }
+       else{
+       monster.addMonster();
+       }
 
       });
       //Edge binding end
@@ -27,7 +33,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          player.setFrame('block');
          
          player.blockScore = 20 - (player.attributes[monster.attributes.primary] * 5);
-         monster.status.html('Roll to block the attack.<br/>You need to roll a ' + player.blockScore + ' or higher.');
+         monster.status.html('Roll to block the attack.<br/>You need to roll a ' + player.blockScore + ' or higher. <br />Tap to continue.');
          sym.stop();
          
 
@@ -62,11 +68,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         
          monster.status = sym.$('Status');
-         monster.status.html(monster.title + ' rolls first.<br/>It needs a 10 or higher to hit.');
-         
+         monster.status.html(monster.title + ' attacks first.<br/>It needs to roll a 10 or higher to hit. <br />Tap to continue.');
          sym.stop();
+         
+         
+         
 
       });
       //Edge binding end
@@ -86,6 +93,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          if(typeof monster.tiebreaker != 'undefined'){
          		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
+         		player.reset();
          
          }
          
@@ -94,12 +102,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          monster.status.html(monster.title + ' defeated you!');
          if(typeof monster.tiebreaker != 'undefined'){
          		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
+         		player.reset();
          
          }
          }
          
          player.reset();
-           sym.stop();
+         sym.stop('dead');
          // insert code here
 
       });
@@ -107,7 +116,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13106, function(sym, e) {
          
-         monster.status.html('You Defeated the Monster!');
+         monster.status.html('You Defeated '+monster.title+'! <br />Tap to face '+monster.title+' again.');
          player.addMonster(monster);
          sym.stop();// insert code here
 
@@ -116,10 +125,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 8882, function(sym, e) {
          if(monster.blocks == true){
-         monster.status.html(monster.title + ' blocked your attack to tie the match!<br/>Roll to break the tie, highest roll wins.');
+         monster.status.html(monster.title + ' blocked your attack to tie the match!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');
          
          }
-         monster.status.html('Tie Game!<br/>Roll to break the tie, highest roll wins.');
+         monster.status.html('Tie Game!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');
          
          
          
@@ -151,7 +160,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 10787, function(sym, e) {
          
-         monster.status.html('You rolled a '+ player.tiebreaker+'. </br /> Click to roll for '+monster.title+'.');
+         monster.status.html('You rolled a '+ player.tiebreaker+'. </br /> Tap to roll for '+monster.title+'.');
          sym.stop();
 
       });
@@ -164,13 +173,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          console.log('playerhits : '+player.hits);
                  console.log('monsterblocks : '+monster.blocks);
          if(player.hits == true && monster.blocks == false){
-           monster.status.html('Your attack hits!');
+           monster.status.html('Your attack hits! <br />Tap to continue.');
           }
           else if(player.hits == true && monster.blocks == true){
-           monster.status.html('The Monster Blocked your attack!');
+           monster.status.html('The Monster Blocked your attack! <br />Tap to continue.');
           }
          else{
-           monster.status.html('Your attack misses!');
+           monster.status.html('Your attack misses! <br />Tap to continue.');
           }
          // insert code here
 
@@ -178,7 +187,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 143, function(sym, e) {
-         
          
          monster.attack(player, dice.roll(20, dice.symbol));
          
@@ -202,7 +210,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 5084, function(sym, e) {
         player.setFrame('player-attacks');
         player.attackScore = 20-(player.attributes[monster.attributes.secondary]*5);
-        monster.status.html('Roll to attack '+monster.title+'.<br/>You need a '+ player.attackScore + ' or higher to hit.');
+        monster.status.html('Roll to attack '+monster.title+'.<br/>You need a '+ player.attackScore + ' or higher to hit. <br />Tap to continue.');
         
         sym.stop();// insert code here
 
@@ -211,10 +219,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1066, function(sym, e) {
          if(monster.hits == true){
-           monster.status.html(monster.title + ' rolls a '+ dice.value + ' and hits!');
+           monster.status.html(monster.title + ' rolls a '+ dice.value + ' and hits! <br />Tap to continue.');
           }
          else{
-           monster.status.html(monster.title + ' rolls a '+ dice.value +' and misses!');
+           monster.status.html(monster.title + ' rolls a '+ dice.value +' and misses! <br />Tap to continue.');
           }// insert code here
          
 
@@ -255,18 +263,18 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 12250, function(sym, e) {
          sym.stop();// insert code here		
          if(monster.tiebreaker > player.tiebreaker){
-         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker');
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker. <br />Tap to continue.');
          		sym.stop('monster-wins');
          		}
          
          	else if(monster.tiebreaker == player.tiebreaker){
-         	monster.status.html(monster.title + 'also rolled '+monster.tiebreaker+'<br />so you must roll again!');
+         	monster.status.html(monster.title + 'also rolled '+monster.tiebreaker+'<br />so you must roll again! <br />Tap to continue.');
          		console.log('tied again! roll once more');
          		sym.stop();
-         		
+         
          	}
          	else{
-         		monster.status.html(monster.title+' rolled a '+monster.tiebreaker+' </br/> so you win the tiebreaker');
+         		monster.status.html(monster.title+' rolled a '+monster.tiebreaker+' </br/> so you win the tiebreaker. <br />Tap to continue.');
          		sym.stop('player-wins');
          
          		}
@@ -276,10 +284,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2250, function(sym, e) {
-         if(monster.hits != true){
-         		sym.stop('player-attacks');
-         	}
-         	sym.stop();
+         sym.stop();
+         
+         	
          // insert code here
 
       });
@@ -288,10 +295,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 3662, function(sym, e) {
          player.setFrame('block-results');
          if(player.blocks == true){
-         monster.status.html('You block the attack!');// insert code here
+         monster.status.html('You block the attack! <br />Tap to continue.');// insert code here
          }
          else{
-         monster.status.html('Your block fails');
+         monster.status.html('Your block fails. <br />Tap to continue.');
          monster.hitCount++;
          }// insert code here
 
@@ -315,6 +322,41 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 8806, function(sym, e) {
          
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_Monster-Title}", "click", function(sym, e) {
+         sym.play();
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_Dead_Player}", "click", function(sym, e) {
+         // insert code for mouse click here
+         
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13514, function(sym, e) {
+         monster.status.html('Your Player has been vanquished!<br />Tap to view your player card.');
+         
+         var linkUrl = playerCardURL+'?playerId='+player.id;
+         sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 61, function(sym, e) {
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2305, function(sym, e) {
+         if(monster.hits != true){
+         		sym.stop('player-attacks');
+         	}
 
       });
       //Edge binding end

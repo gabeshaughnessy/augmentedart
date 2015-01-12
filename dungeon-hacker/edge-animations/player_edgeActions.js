@@ -30,9 +30,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          
          player.getPlayerClass();
-
-         playerCardUrl = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html?playerId='+player.id;
-         sym.$('PlayerCardButton').wrap('<a href="'+playerCardUrl+'">');
+         
+         linkUrl = playerCardURL+'?playerId='+player.id;
+         sym.$('PlayerCardButton').wrap('<a href="'+linkUrl+'">');
 
       });
       //Edge binding end

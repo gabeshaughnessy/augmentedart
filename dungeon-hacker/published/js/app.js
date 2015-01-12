@@ -1,4 +1,3 @@
-
 /* Get URL PARAMS */
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -26,7 +25,6 @@ if(typeof playerId == 'undefined'){//first check if playerId is set globally els
    }
  
 };
-
 
 var player = new Player(playerId);
 
@@ -84,12 +82,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.playerImg = 'images/project-manager.png';
 	this.playerClass = 'Default Player Class';
 	this.cryptoCredits = 0;
+	this.gameState = {};
 	this.attributes = {};
 	this.inventory = {};
 	this.monsters = {};
 	this.hits = false;
 	this.hitCount = 0;
 	this.blocks = false;
+
 	
 
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
@@ -136,6 +136,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		var _this = this; //retain a reference to the player object.
 		firebaseRef.child('players').child(this.id).on('value', function(snapshot){
 			playerData = snapshot.val();
+			_this.gameState = playerData['gameState'];
 			_this.cryptoCredits = playerData['cryptoCredits'];
 			_this.attributes = playerData['attributes'];
 			_this.inventory = playerData['inventory'];
@@ -147,7 +148,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 
 	this.loadData = function(sym){
-		//initial composition setup - populates data based on character class, but does not interact with firebase yet.
+		//initial composition setup - populates data based on character classes, but does not interact with firebase yet.
 		sym.$('Title').html( player.title );//update the title symbol
 		sym.$('Description').html( player.description ); //update the description symbol
 		sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+player.playerImg+')');
@@ -170,7 +171,8 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				'cryptoCredits' : 1,
 				'attributes' : this.attributes,
 				'inventory' : this.inventory,
-				'monsters' : this.monsters
+				'monsters' : this.monsters,
+				'gameState' : {}
 
 
 		});
@@ -190,6 +192,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			'description' : monster.description
 		}
 		firebaseRef.child('players').child(this.id).child('monsters').update(monsterObj);
+		firebaseRef.child('players').child(this.id).child('gameState').child(monster.title).update({currentFrame : 'player-wins'});
 	};
 
 	this.addItem = function(item, itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
@@ -234,7 +237,33 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		this.update('attributes', {});
         this.update('inventory', {});
         this.update('monsters', {});
+        this.update('gameState', {});
         this.update('cryptoCredits', {});
+	}
+	
+	this.setFrame = function(frame){	
+		
+		monsterObj = {};
+		monsterObj['currentFrame'] = frame;
+		monsterObj.hits = monster.hits;
+		monsterObj.blocks = monster.blocks;
+		monsterObj.playerHits = this.hits;
+		monsterObj.playerBlocks = this.blocks;
+		monsterObj.hitCount = monster.hitCount;
+		monsterObj.playerHitCount = this.hitCount;
+
+		firebaseRef.child('players').child(this.id).child('gameState').child(monster.title).update(monsterObj);
+		
+		
+
+
+
+		
+		//console.log(monster);
+		
+		
+		
+
 	}
 
 	//Player DATA SYNC with Firebase - events that fire when the firebase database is updated. returns an object like this:
@@ -265,8 +294,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	  for(var key in dataSet){
 		if (dataSet.hasOwnProperty(key)) {
-			
-			
+					
 				if( key == 'title' ){
 					if(sym && typeof sym.$('Title') != 'undefined'){
 						sym.$('Title').html( dataSet[key]);//update the title symbol
@@ -354,9 +382,58 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 				if( key == 'monsters' ){
 					if(sym && typeof sym.$('Monsters') != 'undefined'){
-						//sym.$('Monsters').html( dataSet[key]);//add to the monster wall
+						//clear the monster wall element first
+
+						sym.$('Monsters').html( '');//add to the monster wall
+					}
+					for(var monsterItem in dataSet[key]){
+
+						if(monster.title == monsterItem.title){//is this monster the same as one already in the player data?
+							//monster already defeated code goes here.
+						}
+						
+						if(sym && sym.$('Monsters').length > 0 ){
+
+							var monsterSymbol = sym.createChildSymbol('monster', 'Monsters');
+
+							monsterSymbol.$('title').html(dataSet[key][monsterItem].title);
+							monsterSymbol.$('description').html(dataSet[key][monsterItem].description);
+
+							monsterSymbol.getSymbol('monster-image-container').$('monster-image').css('backgroundImage', 'url('+dataSet[key][monsterItem].img+')');
+		
+							}
+
+
 					}
 					_this.monsters = dataSet[key];
+					
+				}
+
+				if(key == 'gameState'){
+					_this.gameState = dataSet[key];
+
+					if(!_this.hasOwnProperty('gameState')){
+						console.log('no game state yet');
+						}
+					
+					else{
+						 if(_this.gameState.hasOwnProperty(monster.title)){
+						 	var currentFrame = _this.gameState[monster.title]['currentFrame'];
+						 	
+						 	monster.hits = _this.gameState[monster.title]['hits'];
+						 	monster.blocks = _this.gameState[monster.title]['blocks'];
+						 	monster.hitCount = _this.gameState[monster.title]['hitCount'];
+						 	player.hits = _this.gameState[monster.title]['playerHits'];
+						 	player.blocks = _this.gameState[monster.title]['playerBlocks'];
+						 	player.hitCount = _this.gameState[monster.title]['playerHitCount'];
+
+						 	monster.goToFrame(sym, currentFrame);
+						 }
+						 
+						 
+					}
+						
+
 					
 				}
 
@@ -454,7 +531,7 @@ function Item(){
 					if(sym && typeof sym.getSymbol('item-image') != 'undefined' && sym.getSymbol('item-image').$('image').length > 0){
 					sym.getSymbol('item-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
 					}
-					this.playerImg = dataSet[key];
+					this.img = dataSet[key];
 				}
 				
 				if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
@@ -491,7 +568,7 @@ function Monster(monsterId){
 	this.id = monsterId;
 	this.title = 'This Monster';
 	this.description = 'This is the Monster Description';
-	this.img = 'images/default-monster.png';
+	this.img = 'images/monster.png';
 	this.attributes = {
 		primary : 'charisma',
 		secondary : 'creativity'
@@ -516,9 +593,75 @@ function Monster(monsterId){
 		});
 	}
 	this.syncData = function(){
-		//firebase value change event
-		 // - updates the monster object
-		 // - updates the monster view
+		firebaseRef.child('monsters').child(this.id).on('value', function(snapshot){
+			var dataSet = snapshot.val();
+			if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
+				var sym = AdobeEdge.getComposition('monster').getStage();
+			}
+			else {
+				var sym = false;
+				console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+			}
+
+			
+		    for(var key in dataSet){
+				if (dataSet.hasOwnProperty(key)) {
+
+
+					if(key == 'title'){
+						if(sym && typeof sym.$('Monster-Title') != 'undefined'){
+							sym.$('Monster-Title').html( dataSet[key]);//update the title symbol
+						}
+						this.title = dataSet[key];
+					}
+					if(key == 'description'){
+						if(typeof sym.$('Monster-Description') != 'undefined'){
+							sym.$('Monster-Description').html( dataSet[key]); //update the description symbol
+						}
+						this.description = dataSet[key];
+					}
+					
+					if(key == 'img'){ //update the item image 
+						if(sym && typeof sym.getSymbol('monster-image') != 'undefined' && sym.getSymbol('monster-image').$('image').length > 0){
+						sym.getSymbol('monster-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+						}
+						this.img = dataSet[key];
+					}
+					
+					if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
+						
+						for(var attributeKey in dataSet[key]){ 
+
+							if(attributeKey == 'primary'){		
+
+								if(sym && sym.$('AttackAttribute').length > 0 ){
+									
+									sym.$('AttackAttribute').html('');
+									//update primary attribute element
+									sym.$('AttackAttribute').append('<img class="'+dataSet[key][attributeKey]+'" src="images/'+dataSet[key][attributeKey]+'.png" />' );
+									sym.$('AttackAttribute').append('<img class="'+dataSet[key][attributeKey]+'" src="images/'+dataSet[key][attributeKey]+'.png" />' );
+								}
+							}
+							else if(attributeKey == 'secondary'){
+								if(sym && sym.$('DefenseAttribute').length > 0 ){
+									sym.$('DefenseAttribute').html('');
+									//update secondary attribute element
+									sym.$('DefenseAttribute').append('<img class="'+dataSet[key][attributeKey]+'" src="images/'+dataSet[key][attributeKey]+'.png" />' );
+								}
+							}		
+						}
+						this.attributes = dataSet[key];	
+					}
+				}	  
+			} 
+		}, function (errorObject) {//fires when firebase fails to read data.
+		  console.log("The firebase read failed: " + errorObject.code);
+		});
+	}
+	this.goToFrame = function(sym, frameLabel){
+		if(typeof sym != 'undefined'){
+			sym.play(frameLabel);
+		}
 	}
 
 	this.attack = function(player, diceRoll){
@@ -536,6 +679,8 @@ function Monster(monsterId){
 			this.hits = false;
 		}
 		this.attacks = this.attacks - 1;
+
+		player.setFrame('monster-attack-start');
 		
 
 	//player attacks back
@@ -550,7 +695,6 @@ function Monster(monsterId){
 
 /* -------  Player Attack and Defend -------- */
 Player.prototype.blockAttack = function(monster, diceRoll){
-	console.log(this);
 		var attributeId = monster.attributes.primary;
 		var defendScore = 20 - (this.attributes[attributeId] * 5);
 		console.log('block: ' + diceRoll+ ' : ' + defendScore);
@@ -618,6 +762,7 @@ function battleResults(monster, player, sym){
 	else if(monster.hitCount == player.hitCount){
 		console.log('Tie Game');
 		monster.status.html('Tie Game!');
+		
 		sym.play();
 
 		

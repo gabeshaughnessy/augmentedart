@@ -1,11 +1,11 @@
 
 (function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){player.syncData();monster.syncData();dice.symbol=sym.getSymbol('diceRoll');});
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){player.syncData();monster.syncData();dice.symbol=sym.getSymbol('diceRoll');monster.addMonster();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2458,function(sym,e){player.blockScore=20-(player.attributes[monster.attributes.primary]*5);monster.status.html('Roll to block the attack.<br/>You need to roll a '+player.blockScore+' or higher.');sym.stop();});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2458,function(sym,e){player.setFrame('block');player.blockScore=20-(player.attributes[monster.attributes.primary]*5);monster.status.html('Roll to block the attack.<br/>You need to roll a '+player.blockScore+' or higher.');sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",6931,function(sym,e){battleResults(monster,player,sym);});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",6931,function(sym,e){player.setFrame('battle-results');battleResults(monster,player,sym);});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Monster-Image}","click",function(sym,e){sym.play();});
 //Edge binding end
@@ -22,7 +22,7 @@ player.reset();sym.stop();});
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13106,function(sym,e){monster.status.html('You Defeated the Monster!');player.addMonster(monster);sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8882,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+' blocked your attack to tie the match!<br/>Roll to break the tie, highest roll wins.');}
-monster.status.html('Tie Game!<br/>Roll to break the tie, highest roll wins.');sym.stop();});
+monster.status.html('Tie Game!<br/>Roll to break the tie, highest roll wins.');player.setFrame('tie-game-start');sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12969,function(sym,e){sym.stop(0);});
 //Edge binding end
@@ -32,7 +32,7 @@ Symbol.bindElementAction(compId,symbolName,"${_diceRoll}","click",function(sym,e
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",10787,function(sym,e){monster.status.html('You rolled a '+player.tiebreaker+'. </br /> Click to roll for '+monster.title+'.');sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",6100,function(sym,e){console.log('playerhits : '+player.hits);console.log('monsterblocks : '+monster.blocks);if(player.hits==true&&monster.blocks==false){monster.status.html('Your attack hits!');}
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",6100,function(sym,e){player.setFrame('attack-results');console.log('playerhits : '+player.hits);console.log('monsterblocks : '+monster.blocks);if(player.hits==true&&monster.blocks==false){monster.status.html('Your attack hits!');}
 else if(player.hits==true&&monster.blocks==true){monster.status.html('The Monster Blocked your attack!');}
 else{monster.status.html('Your attack misses!');}});
 //Edge binding end
@@ -40,7 +40,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",143,function(sym,e
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2601,function(sym,e){player.blockAttack(monster,dice.roll(20,dice.symbol));monster.status.html('Rolling...');});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",5084,function(sym,e){player.attackScore=20-(player.attributes[monster.attributes.secondary]*5);monster.status.html('Roll to attack '+monster.title+'.<br/>You need a '+player.attackScore+' or higher to hit.');sym.stop();});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",5084,function(sym,e){player.setFrame('player-attacks');player.attackScore=20-(player.attributes[monster.attributes.secondary]*5);monster.status.html('Roll to attack '+monster.title+'.<br/>You need a '+player.attackScore+' or higher to hit.');sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1066,function(sym,e){if(monster.hits==true){monster.status.html(monster.title+' rolls a '+dice.value+' and hits!');}
 else{monster.status.html(monster.title+' rolls a '+dice.value+' and misses!');}});
@@ -60,12 +60,14 @@ else{monster.status.html(monster.title+' rolled a '+monster.tiebreaker+' </br/> 
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2250,function(sym,e){if(monster.hits!=true){sym.stop('player-attacks');}
 sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3662,function(sym,e){if(player.blocks==true){monster.status.html('You block the attack!');}
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3662,function(sym,e){player.setFrame('block-results');if(player.blocks==true){monster.status.html('You block the attack!');}
 else{monster.status.html('Your block fails');monster.hitCount++;}});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",10920,function(sym,e){monster.tiebreaker=dice.roll(20,dice.symbol);monster.status.html(monster.title+' is rolling...');});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12285,function(sym,e){if(monster.tiebreaker==player.tiebreaker){sym.play('tie-game');}});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8806,function(sym,e){});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
