@@ -27,4 +27,28 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){
 //Edge symbol: 'PlayerCardButton'
 (function(symbolName){})("PlayerCardButton");
 //Edge symbol end:'PlayerCardButton'
+
+//=========================================================
+
+//Edge symbol: 'Inventory'
+(function(symbolName){})("Inventory");
+//Edge symbol end:'Inventory'
+
+//=========================================================
+
+//Edge symbol: 'inventory-item'
+(function(symbolName){})("inventory-item");
+//Edge symbol end:'inventory-item'
+
+//=========================================================
+
+//Edge symbol: 'item-image-container'
+(function(symbolName){})("item-image-container");
+//Edge symbol end:'item-image-container'
+
+//=========================================================
+
+//Edge symbol: 'inventory-item_1'
+(function(symbolName){})("monster");
+//Edge symbol end:'monster'
 })(jQuery,AdobeEdge,"player");

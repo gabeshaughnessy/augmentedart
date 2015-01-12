@@ -2,7 +2,7 @@
 if(typeof playerId=='undefined'){if($.urlParam('playerId')!=null){var playerId=$.urlParam('playerId');}
 else{var playerId='test-id';}};var player=new Player(playerId);(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
-(function(symbolName){Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){player.getPlayerClass();playerCardUrl='http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html?playerId='+player.id;sym.$('PlayerCardButton').wrap('<a href="'+playerCardUrl+'">');});
+(function(symbolName){Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){player.getPlayerClass();linkUrl=playerCardURL+'?playerId='+player.id;sym.$('PlayerCardButton').wrap('<a href="'+linkUrl+'">');});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_SelectButton}","click",function(sym,e){sym.play('selected');});
 //Edge binding end
