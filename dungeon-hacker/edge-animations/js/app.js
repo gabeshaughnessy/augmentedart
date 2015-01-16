@@ -544,20 +544,38 @@ function Item(){
 		if(this.itemId == 'glove-of-power'){
 			this.title = 'Glove of Power';
 			this.description = 'The glove of power increases your charisma '
-			this.attributes = {'charisma' : 1};
+			this.attributes = {'knowledge' : 1};
 			this.img = 'images/glove-of-power.png';
 		}
-		if(this.itemId == 'bluetooth-axe'){
+		else if(this.itemId == 'bluetooth-axe'){
 			this.title = 'Blue Tooth Battle Axe';
 			this.description = 'Comes with a speaker so you can listen to Slayer while you slay. Also has a bottle opener for breaktime. '
 			this.attributes = {'creativity' : 1};
 			this.img = 'images/battle-axe.png';
 		}
-		if(this.itemId == 'mouse-of-nine-heads'){
+		else if(this.itemId == 'mouse-of-nine-heads'){
 			this.title = 'Mouse of Nine Heads';
 			this.description = 'Cat of Nine Tails, look the F out, there is no esc from this. '
 			this.attributes = {'charisma' : 1};
 			this.img = 'images/mouse-of-nine-heads.png';
+		}
+		else if(this.itemId == 'wifi-shield'){
+			this.title = 'Shield of WiFi';
+			this.description = 'Blocks excess data charges, but leaves you a bit exposed. '
+			this.attributes = {'knowledge' : 1};
+			this.img = 'images/wifi-shield.png';
+		}
+		else if(this.itemId == 'sword-calc'){
+			this.title = 'Sword of Calculating';
+			this.description = 'Just add this sword, subtract your enemy\'s limbs, divide their skull, and multiply the carnage.'
+			this.attributes = {'creativity' : 1};
+			this.img = 'images/sword-calc.png';
+		}
+		else if(this.itemId == 'blue-ribbon-potion'){
+			this.title = 'Blue Ribbon Potion';
+			this.description = 'Do you need a frosty sippy-poo of courage? Thish wool totally do-er bud.'
+			this.attributes = {'charisma' : 1};
+			this.img = 'images/potion.png';
 		}
 
 	}
