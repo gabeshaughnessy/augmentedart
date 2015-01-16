@@ -459,13 +459,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						}
 
 						if(sym && sym.$('Inventory').length > 0 ){
-
 							var itemSymbol = sym.createChildSymbol('inventory-item', 'Inventory');
 
 							itemSymbol.$('title').html(dataSet[key][inventoryItem].title);
 							itemSymbol.$('description').html(dataSet[key][inventoryItem].description);
-
-							itemSymbol.getSymbol('item-image-container').$('item-image').css('backgroundImage', 'url('+dataSet[key][inventoryItem].img+')');
+							itemSymbol.getSymbol('item-image-container').$('image').css('backgroundImage', 'url('+dataSet[key][inventoryItem].img+')');
+							console.log(itemSymbol.getSymbol('item-image-container').$('image').css('backgroundImage'));
 		
 							}
 
@@ -547,6 +546,18 @@ function Item(){
 			this.description = 'The glove of power increases your charisma '
 			this.attributes = {'charisma' : 1};
 			this.img = 'images/glove-of-power.png';
+		}
+		if(this.itemId == 'bluetooth-axe'){
+			this.title = 'Blue Tooth Battle Axe';
+			this.description = 'Comes with a speaker so you can listen to Slayer while you slay. Also has a bottle opener for breaktime. '
+			this.attributes = {'creativity' : 1};
+			this.img = 'images/battle-axe.png';
+		}
+		if(this.itemId == 'mouse-of-nine-heads'){
+			this.title = 'Mouse of Nine Heads';
+			this.description = 'Cat of Nine Tails, look the F out, there is no esc from this. '
+			this.attributes = {'charisma' : 1};
+			this.img = 'images/mouse-of-nine-heads.png';
 		}
 
 	}
