@@ -159,13 +159,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			 this.title = 'Developer';
 			 this.attributes = { charisma : 0, creativity : 1, knowledge : 2};
 			 this.description = 'The Developer builds the things';
-			 this.playerImg = 'images/project-manager.png';
+			 this.playerImg = 'images/developer.png';
 		}
 		else if(this.playerClass == 'executive'){
 			 this.title = 'Executive';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'The Executive runs the ship and stuff...';
-			 this.playerImg = 'images/designer.png';
+			 this.playerImg = 'images/executive.png';
 		}
 		else{
 			 this.title = 'Default Character Class';
