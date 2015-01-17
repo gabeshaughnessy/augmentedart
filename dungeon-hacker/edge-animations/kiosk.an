@@ -1,0 +1,118 @@
+
+{
+
+	"expanded:images/default-item.png":"nil",
+	"pref__general__AutoKeyframeProperties":"false",
+	"expanded:images/diceroll_spritesheet.png":"nil",
+	"expanded:images/monster.png":"nil",
+	"expanded:images/designer.png":"nil",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"expanded:images/Poster2.png":"nil",
+	"expanded:images/paper-bg.jpg":"nil",
+	"dice-roll-sprite_symbol_1-Default Timeline_playhead_ms":"0",
+	"expanded:images/mouse-of-nine-heads.png":"nil",
+	"colorSwatches":"rgba(76,116,104,0.99)|rgba(184,132,52,0.99)|rgba(230,90,11,0.99)",
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"50",
+	"pixelsPerMs":"0.082410150421906",
+	"expanded:images/project-manager.png":"nil",
+	"pref__general__codeView":"fullView",
+	"stage-Default Timeline_mark_ms":"-1",
+	"nextElementColorIndex":"8",
+	"stage-Default Timeline_playhead_ms":"3750",
+	"expanded:images/glove-of-power.png":"nil",
+	"expanded:images/wifi-shield.png":"nil",
+	"expanded:images/logo.png":"nil",
+	"HTMLFileName":"kiosk.html",
+	"expanded:images/sword-calc.png":"nil",
+	"viewStartMs":"5252.4296875",
+	"pref__general__GenerateSmoothTransitions":"false",
+	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }},\
+\"dice-roll-sprite_symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }}\
+}",
+	"symbol_dice-roll-sprite_symbol_1":{
+		"dummyStageParentWidth":"187px",
+		"dummyStageParentHeight":"198px",
+		"defaultStageParentWidth":"187px",
+		"defaultStageParentHeight":"198px",
+		"element_${_dice-roll-sprite}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"animationEnabled":"true",
+			"timelineColor":"0x00bda4"}},
+	"expanded:images/dice-roll-sprite2.png":"nil",
+	"expanded:images/developer.png":"nil",
+	"TransitionIdCounter":"27",
+	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"expanded:images/executive.png":"nil",
+	"expanded:images/creativity.png":"nil",
+	"expanded:images/Poster3.png":"nil",
+	"expanded:images/knowledge.png":"nil",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"expanded:images/diceroll_spritesheet2.png":"nil",
+	"expanded:images/crypto-credit.png":"nil",
+	"PreloadAudio":"auto",
+	"symbol_stage":{
+		"dummyStageParentWidth":"700px",
+		"element_${_dice-roll-sprite_symbol_1}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"true",
+			"timelineColor":"0x50bd82"},
+		"dummyStageParentHeight":"600px",
+		"element_${_logo}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"animationEnabled":"true",
+			"timelineColor":"0x00a096"},
+		"defaultStageParentHeight":"600px",
+		"element_${_Message}":{
+			"timelineColor2":"0x1095d2",
+			"animationEnabled":"true",
+			"timelineColor3":"0x29647e",
+			"timelineColor":"0x00a9fa"},
+		"element_${_kiosk-bg}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"true",
+			"timelineColor":"0x91c767"},
+		"defaultStageParentWidth":"700px",
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_Coming_Soon}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"animationEnabled":"true",
+			"timelineColor":"0x2f73ad"}},
+	"viewStartY":"59",
+	"expanded:images/dice-roll-sprite.png":"nil",
+	"expanded:images/social-media-monster.png":"nil",
+	"expanded:images/charisma.png":"nil",
+	"usedBOM":"false",
+	"expanded:images/battle-axe.png":"nil",
+	"expanded:images/Poster5.png":"nil",
+	"expanded:images/kiosk-bg.jpg":"nil",
+	"expanded:images/Poster4.png":"nil",
+	"expanded:images/potion.png":"nil"}

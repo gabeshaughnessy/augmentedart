@@ -14,9 +14,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-       
+       monster.getMonsterData();
        player.syncData();
        monster.syncData();
+       
        
        dice.symbol = sym.getSymbol('diceRoll');
        if(checkIfItemExists('monsters', monster.id)){
@@ -50,12 +51,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_Monster-Image}", "click", function(sym, e) {
-         
-         sym.play();
-
-      });
-      //Edge binding end
+      
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13292, function(sym, e) {
          sym.stop(0);
@@ -115,8 +111,22 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13106, function(sym, e) {
+         var facedMonster = false;
+         for(var thisMonster in player.monsters){
+         			if(monster.title == thisMonster){
+         			facedMonster = true;
+         			}
+         			else{
+         			facedMonster = false;
+         			}
+         		}
+         		if(!facedMonster){
+         monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to face '+monster.title+' again.');
+         		}
+         		else{
+         		monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> you can tap to face '+monster.title+' again.');
          
-         monster.status.html('You Defeated '+monster.title+'! <br />Tap to face '+monster.title+' again.');
+         		}
          player.addMonster(monster);
          sym.stop();// insert code here
 
@@ -159,7 +169,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 10787, function(sym, e) {
-         
+         if(player.tiebreaker == 20){
+         				alert('Damn, nat 20?! That\'s certainly one way to break a tie...');
+         			}
          monster.status.html('You rolled a '+ player.tiebreaker+'. </br /> Tap to roll for '+monster.title+'.');
          sym.stop();
 
@@ -253,6 +265,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 9025, function(sym, e) {
          
          player.tiebreaker = dice.roll(20, dice.symbol);
+         
          monster.status.html('Rolling...');// insert code here
          
          
@@ -262,6 +275,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 12250, function(sym, e) {
          sym.stop();// insert code here		
+         if(player.tiebreaker == 20){
+         				alert('Well shiii-ot, a nat 20?! I ain\'t saying the dice are loaded, but it sure does look that way');
+         			}
          if(monster.tiebreaker > player.tiebreaker){
          		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker. <br />Tap to continue.');
          		sym.stop('monster-wins');
@@ -321,7 +337,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 8806, function(sym, e) {
-         
+   
 
       });
       //Edge binding end
@@ -383,5 +399,28 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("dice-roll-sprite_symbol_1");
    //Edge symbol end:'dice-roll-sprite_symbol_1'
+
+   //=========================================================
+   
+   //Edge symbol: 'monster-image'
+   (function(symbolName) {   
+   
+      Symbol.bindElementAction(compId, symbolName, "${_image}", "click", function(sym, e) {
+         
+         sym.play();
+
+      });
+         //Edge binding end
+
+   })("monster-image");
+   //Edge symbol end:'monster-image'
+
+   //=========================================================
+   
+   //Edge symbol: 'PlayerAttributes'
+   (function(symbolName) {   
+   
+   })("PlayerAttributes");
+   //Edge symbol end:'PlayerAttributes'
 
 })(jQuery, AdobeEdge, "monster");

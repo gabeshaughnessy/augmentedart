@@ -27,33 +27,51 @@ var symbols = {
     content: {
             dom: [
             {
-                id: 'Monster-Image',
+                id: 'paper-bg',
                 type: 'image',
-                rect: ['67px', '39px','349px','367px','auto', 'auto'],
-                fill: ["rgba(0,0,0,0)",im+"monster.png",'0px','0px']
+                rect: ['-63px', '-428px','600px','1633px','auto', 'auto'],
+                fill: ["rgba(0,0,0,0)",im+"paper-bg.jpg",'0px','0px']
+            },
+            {
+                id: 'monster-image',
+                type: 'rect',
+                rect: ['67', '111','auto','auto','auto', 'auto']
             },
             {
                 id: 'Monster-Description',
                 type: 'text',
-                rect: ['23px', '529px','422px','55px','auto', 'auto'],
+                rect: ['31px', '618px','445px','55px','auto', 'auto'],
                 text: "Description goes right here and takes up a couple of lines.",
                 font: ['Lucida Console, Monaco, monospace', 15, "rgba(0,0,0,1)", "700", "none", ""]
             },
             {
                 id: 'Monster-Title',
                 type: 'text',
-                rect: ['37px', '492px','422px','auto','auto', 'auto'],
+                rect: ['31px', '581px','445px','auto','auto', 'auto'],
                 text: "Monster Title",
-                align: "center",
+                align: "left",
                 font: ['Lucida Console, Monaco, monospace', 24, "rgba(0,0,0,1)", "700", "none", ""]
             },
             {
                 id: 'Status',
                 type: 'text',
-                rect: ['27px', '21px','445px','87px','auto', 'auto'],
+                rect: ['31px', '21px','445px','87px','auto', 'auto'],
                 text: "Status Message",
-                align: "center",
-                font: ['Lucida Console, Monaco, monospace', 18, "rgba(0,0,0,1)", "normal", "none", ""]
+                align: "left",
+                font: ['Lucida Console, Monaco, monospace', 16, "rgba(0,0,0,1)", "normal", "none", ""]
+            },
+            {
+                id: 'Attributes',
+                type: 'rect',
+                rect: ['3', '742','auto','auto','auto', 'auto']
+            },
+            {
+                id: 'Text',
+                type: 'text',
+                rect: ['31px', '750px','121px','45px','auto', 'auto'],
+                text: "Your Current Attributes:",
+                align: "left",
+                font: ['\'Lucida Console\', Monaco, monospace', 14, "rgba(0,0,0,1)", "400", "none", "normal"]
             },
             {
                 id: 'diceRoll',
@@ -63,37 +81,37 @@ var symbols = {
             {
                 id: 'MonsterAttributes',
                 type: 'rect',
-                rect: ['37px', '578px','422px','116px','auto', 'auto'],
+                rect: ['31px', '643px','422px','116px','auto', 'auto'],
                 fill: ["rgba(192,192,192,0.00)"],
                 stroke: [0,"rgba(0,0,0,1)","none"]
             },
             {
                 id: 'AttributeLabel_Attack',
                 type: 'text',
-                rect: ['37px', '578px','auto','auto','auto', 'auto'],
-                text: "Attack Atrribute",
+                rect: ['31px', '693px','auto','auto','auto', 'auto'],
+                text: "Attacks with:",
                 align: "left",
                 font: ['\'Lucida Console\', Monaco, monospace', 14, "rgba(0,0,0,1)", "bold", "none", "normal"]
             },
             {
                 id: 'DefenseAttributeLabel',
                 type: 'text',
-                rect: ['250px', '578px','auto','auto','auto', 'auto'],
-                text: "Defense Attribute",
+                rect: ['256px', '693px','auto','auto','auto', 'auto'],
+                text: "Defends with:",
                 align: "left",
                 font: ['\'Lucida Console\', Monaco, monospace', 14, "rgba(0,0,0,1)", "bold", "none", "normal"]
             },
             {
                 id: 'AttackAttribute',
                 type: 'rect',
-                rect: ['37px', '597px','204px','47px','auto', 'auto'],
+                rect: ['162px', '679px','80px','47px','auto', 'auto'],
                 fill: ["rgba(192,192,192,0.00)"],
                 stroke: [0,"rgb(0, 0, 0)","none"]
             },
             {
                 id: 'DefenseAttribute',
                 type: 'rect',
-                rect: ['248px', '597px','204px','47px','auto', 'auto'],
+                rect: ['382px', '679px','80px','47px','auto', 'auto'],
                 fill: ["rgba(192,192,192,0.00)"],
                 stroke: [0,"rgb(0, 0, 0)","none"]
             },
@@ -106,6 +124,14 @@ var symbols = {
             }],
             symbolInstances: [
             {
+                id: 'monster-image',
+                symbolName: 'monster-image'
+            },
+            {
+                id: 'Attributes',
+                symbolName: 'PlayerAttributes'
+            },
+            {
                 id: 'diceRoll',
                 symbolName: 'dice-roll-sprite_symbol_1',
                 autoPlay: {
@@ -116,75 +142,97 @@ var symbols = {
         },
     states: {
         "Base State": {
+            "${_Text}": [
+                ["style", "top", '750px'],
+                ["style", "height", '45px'],
+                ["style", "font-size", '14px'],
+                ["style", "left", '31px'],
+                ["style", "width", '121px']
+            ],
             "${_Monster-Title}": [
-                ["style", "top", '492px'],
-                ["style", "font-size", '24px'],
-                ["style", "text-align", 'center'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "height", '31px'],
+                ["style", "top", '581px'],
+                ["style", "width", '445px'],
+                ["style", "text-align", 'left'],
                 ["style", "font-weight", 'bold'],
-                ["style", "left", '37px'],
-                ["style", "width", '422px']
+                ["style", "height", '31px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "left", '31px'],
+                ["style", "font-size", '24px']
+            ],
+            "${_diceRoll}": [
+                ["style", "top", '222px'],
+                ["style", "opacity", '0'],
+                ["style", "left", '156px']
             ],
             "${_Dead_Player}": [
                 ["style", "height", '0%'],
+                ["style", "left", '31px'],
                 ["style", "width", '0%']
             ],
+            "${_monster-image}": [
+                ["transform", "scaleX", '1.21253'],
+                ["style", "top", '148px'],
+                ["style", "left", '70px'],
+                ["transform", "scaleY", '1.21253']
+            ],
+            "${_Attributes}": [
+                ["style", "top", '740px'],
+                ["transform", "scaleY", '1'],
+                ["style", "left", '176px'],
+                ["transform", "scaleX", '1']
+            ],
             "${_AttackAttribute}": [
-                ["style", "top", '597px'],
-                ["style", "left", '37px'],
-                ["color", "background-color", 'rgba(192,192,192,0.00)']
+                ["style", "top", '679px'],
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
+                ["style", "left", '162px'],
+                ["style", "width", '80px']
             ],
             "${_DefenseAttribute}": [
-                ["style", "top", '597px'],
-                ["style", "left", '248px'],
-                ["color", "background-color", 'rgba(192,192,192,0.00)']
+                ["style", "top", '679px'],
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
+                ["style", "left", '382px'],
+                ["style", "width", '80px']
             ],
             "${_Status}": [
                 ["style", "top", '21px'],
-                ["style", "text-align", 'center'],
-                ["style", "font-size", '18px'],
+                ["style", "text-align", 'left'],
+                ["style", "width", '445px'],
                 ["style", "height", '87px'],
                 ["style", "font-family", 'Lucida Console, Monaco, monospace'],
-                ["style", "left", '27px'],
-                ["style", "width", '445px']
+                ["style", "left", '31px'],
+                ["style", "font-size", '16px']
             ],
             "${_Monster-Description}": [
-                ["style", "top", '529px'],
-                ["style", "font-size", '14px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "height", '55px'],
+                ["style", "top", '618px'],
+                ["style", "width", '445px'],
                 ["style", "font-weight", 'bold'],
-                ["style", "left", '37px'],
-                ["style", "width", '422px']
+                ["style", "height", '55px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "left", '31px'],
+                ["style", "font-size", '14px']
             ],
             "${_AttributeLabel_Attack}": [
-                ["style", "top", '578px'],
-                ["style", "left", '37px']
-            ],
-            "${_Monster-Image}": [
-                ["style", "top", '111px'],
-                ["style", "height", '367px'],
-                ["style", "left", '67px'],
-                ["style", "width", '349px']
+                ["style", "top", '693px'],
+                ["style", "left", '31px']
             ],
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "width", '500px'],
+                ["style", "overflow", 'hidden'],
                 ["style", "height", '800px'],
-                ["style", "overflow", 'hidden']
+                ["style", "width", '500px']
             ],
             "${_DefenseAttributeLabel}": [
-                ["style", "top", '578px'],
-                ["style", "left", '250px']
+                ["style", "top", '693px'],
+                ["style", "left", '256px']
             ],
             "${_MonsterAttributes}": [
+                ["style", "top", '643px'],
+                ["style", "left", '31px'],
                 ["color", "background-color", 'rgba(192,192,192,0.00)']
             ],
-            "${_diceRoll}": [
-                ["style", "top", '191px'],
-                ["style", "opacity", '0'],
-                ["style", "left", '156px']
+            "${_paper-bg}": [
+                ["style", "top", '-428px'],
+                ["style", "left", '-63px']
             ]
         }
     },
@@ -211,12 +259,17 @@ var symbols = {
                 "dead": 13514
             },
             timeline: [
-                { id: "eid174", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '0%'}], position: 0, duration: 0 },
-                { id: "eid172", tween: [ "style", "${_Dead_Player}", "height", '100%', { fromValue: '0%'}], position: 13514, duration: 0 },
-                { id: "eid131", tween: [ "style", "${_Monster-Image}", "top", '111px', { fromValue: '111px'}], position: 2458, duration: 0 },
+                { id: "eid185", tween: [ "style", "${_Attributes}", "left", '176px', { fromValue: '176px'}], position: 13106, duration: 0 },
+                { id: "eid187", tween: [ "transform", "${_Attributes}", "scaleX", '1', { fromValue: '1'}], position: 13106, duration: 0 },
                 { id: "eid173", tween: [ "style", "${_Dead_Player}", "width", '0%', { fromValue: '0%'}], position: 0, duration: 0 },
                 { id: "eid171", tween: [ "style", "${_Dead_Player}", "width", '100%', { fromValue: '0%'}], position: 13514, duration: 0 },
+                { id: "eid181", tween: [ "transform", "${_monster-image}", "scaleY", '1.21253', { fromValue: '1.21253'}], position: 13106, duration: 0 },
                 { id: "eid100", tween: [ "style", "${_diceRoll}", "left", '156px', { fromValue: '156px'}], position: 11260, duration: 0 },
+                { id: "eid186", tween: [ "style", "${_Attributes}", "top", '740px', { fromValue: '740px'}], position: 13106, duration: 0 },
+                { id: "eid183", tween: [ "style", "${_diceRoll}", "top", '222px', { fromValue: '222px'}], position: 13106, duration: 0 },
+                { id: "eid180", tween: [ "transform", "${_monster-image}", "scaleX", '1.21253', { fromValue: '1.21253'}], position: 13106, duration: 0 },
+                { id: "eid175", tween: [ "style", "${_monster-image}", "left", '70px', { fromValue: '70px'}], position: 13106, duration: 0 },
+                { id: "eid182", tween: [ "style", "${_monster-image}", "top", '148px', { fromValue: '148px'}], position: 13106, duration: 0 },
                 { id: "eid102", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 0, duration: 143 },
                 { id: "eid103", tween: [ "style", "${_diceRoll}", "opacity", '0', { fromValue: '1'}], position: 2250, duration: 143 },
                 { id: "eid104", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 2458, duration: 143 },
@@ -226,7 +279,11 @@ var symbols = {
                 { id: "eid121", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 8882, duration: 143 },
                 { id: "eid122", tween: [ "style", "${_diceRoll}", "opacity", '0', { fromValue: '1'}], position: 10658, duration: 130 },
                 { id: "eid119", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 10787, duration: 68 },
-                { id: "eid120", tween: [ "style", "${_diceRoll}", "opacity", '0', { fromValue: '1'}], position: 12393, duration: 149 }            ]
+                { id: "eid120", tween: [ "style", "${_diceRoll}", "opacity", '0', { fromValue: '1'}], position: 12393, duration: 149 },
+                { id: "eid174", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '0%'}], position: 0, duration: 0 },
+                { id: "eid172", tween: [ "style", "${_Dead_Player}", "height", '100%', { fromValue: '0%'}], position: 13514, duration: 0 },
+                { id: "eid188", tween: [ "transform", "${_Attributes}", "scaleY", '1', { fromValue: '1'}], position: 13106, duration: 0 },
+                { id: "eid184", tween: [ "style", "${_Dead_Player}", "left", '31px', { fromValue: '31px'}], position: 13106, duration: 0 }            ]
         }
     }
 },
@@ -256,11 +313,11 @@ var symbols = {
         "Base State": {
             "${_dice-roll-sprite}": [
                 ["style", "top", '0px'],
-                ["style", "background-position", [-561,-594], {valueTemplate:'@@0@@px @@1@@px'} ],
+                ["style", "left", '0px'],
                 ["transform", "rotateZ", '0deg'],
                 ["style", "height", '198px'],
                 ["style", "background-size", [935,990], {valueTemplate:'@@0@@px @@1@@px'} ],
-                ["style", "left", '0px'],
+                ["style", "background-position", [-561,-594], {valueTemplate:'@@0@@px @@1@@px'} ],
                 ["style", "width", '187px']
             ],
             "${symbolSelector}": [
@@ -301,6 +358,8 @@ var symbols = {
             },
             timeline: [
                 { id: "eid54", tween: [ "style", "${_dice-roll-sprite}", "width", '187px', { fromValue: '0px'}], position: 0, duration: 0 },
+                { id: "eid51", tween: [ "style", "${_dice-roll-sprite}", "left", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
+                { id: "eid52", tween: [ "style", "${_dice-roll-sprite}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid74", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 0, duration: 0 },
                 { id: "eid75", tween: [ "style", "${_dice-roll-sprite}", "background-position", [0,-792], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-748,-594]}], position: 83, duration: 0 },
                 { id: "eid76", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-187,-792], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,-792]}], position: 167, duration: 0 },
@@ -333,9 +392,101 @@ var symbols = {
                 { id: "eid97", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-374,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-187,-594]}], position: 2416, duration: 0 },
                 { id: "eid98", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-561,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-374,-594]}], position: 2500, duration: 0 },
                 { id: "eid99", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 2583, duration: 0 },
-                { id: "eid52", tween: [ "style", "${_dice-roll-sprite}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
-                { id: "eid53", tween: [ "style", "${_dice-roll-sprite}", "height", '198px', { fromValue: '0px'}], position: 0, duration: 0 },
-                { id: "eid51", tween: [ "style", "${_dice-roll-sprite}", "left", '0px', { fromValue: '0px'}], position: 0, duration: 0 }            ]
+                { id: "eid53", tween: [ "style", "${_dice-roll-sprite}", "height", '198px', { fromValue: '0px'}], position: 0, duration: 0 }            ]
+        }
+    }
+},
+"monster-image": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    id: 'image',
+                    type: 'image',
+                    rect: ['0px', '-72px', '349px', '367px', 'auto', 'auto'],
+                    fill: ['rgba(0,0,0,0)', 'images/monster.png', '0px', '0px']
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${symbolSelector}": [
+                ["style", "height", '367px'],
+                ["style", "width", '367px']
+            ],
+            "${_image}": [
+                ["style", "top", '0px'],
+                ["style", "height", '367px'],
+                ["style", "left", '0px'],
+                ["style", "width", '367px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 13106,
+            autoPlay: true,
+            timeline: [
+                { id: "eid131", tween: [ "style", "${_image}", "top", '0px', { fromValue: '0px'}], position: 2458, duration: 0 },
+                { id: "eid176", tween: [ "style", "${_image}", "width", '367px', { fromValue: '367px'}], position: 13106, duration: 0 }            ]
+        }
+    }
+},
+"PlayerAttributes": {
+    version: "4.0.0",
+    minimumCompatibleVersion: "4.0.0",
+    build: "4.0.0.359",
+    baseState: "Base State",
+    scaleToFit: "none",
+    centerStage: "none",
+    initialState: "Base State",
+    gpuAccelerate: false,
+    resizeInstances: false,
+    content: {
+            dom: [
+                {
+                    rect: ['0px', '0px', '500px', '55px', 'auto', 'auto'],
+                    id: 'Rectangle',
+                    stroke: [0, 'rgb(0, 0, 0)', 'none'],
+                    type: 'rect',
+                    fill: ['rgba(192,192,192,0)']
+                }
+            ],
+            symbolInstances: [
+            ]
+        },
+    states: {
+        "Base State": {
+            "${_Rectangle}": [
+                ["style", "left", '0px'],
+                ["style", "top", '0px']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '55px'],
+                ["style", "width", '300px']
+            ]
+        }
+    },
+    timelines: {
+        "Default Timeline": {
+            fromState: "Base State",
+            toState: "",
+            duration: 0,
+            autoPlay: true,
+            timeline: [
+            ]
         }
     }
 }
