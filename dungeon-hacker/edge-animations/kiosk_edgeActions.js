@@ -43,6 +43,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // insert code to be run when the composition is fully loaded here
          sym.$('body, html').css('background-color', '#000');
+         sym.$('head').append('<meta name="apple-mobile-web-app-capable" content="yes" />');
 
       });
       //Edge binding end
