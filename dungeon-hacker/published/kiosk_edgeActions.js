@@ -5,7 +5,7 @@ var messages=["Enter the Fray","Crawl the Dungeon","Play the Game","Roll the Dic
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){someRandomNumber=Math.floor(Math.random()*messages.length);message=messages[someRandomNumber]+messageDate;sym.$('Message').html(message);});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){sym.$('body, html').css('background-color','#000');sym.$('head').append('<meta name="apple-mobile-web-app-capable" content="yes" />');});
+Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){sym.$('body, html').css('background-color','#000');sym.$('head').append('<meta name="apple-mobile-web-app-capable" content="yes" /><meta name="viewport" content="width=device-width" />');});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
