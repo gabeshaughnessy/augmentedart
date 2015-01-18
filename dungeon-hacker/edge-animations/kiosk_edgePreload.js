@@ -59,10 +59,12 @@ if (AdobeEdge.bootstrapLoading) { signaledLoading = true; AdobeEdge.loadResource
 
 loadResources(aLoader, doDelayLoad);
 
-var plSTF="width",ctrPlS="both",minPlW="0",maxPlW=undefined,plWidth="700px",plHeight="600px";
+var plSTF="both",ctrPlS="both",minPlW="0",maxPlW=undefined,plWidth="700px",plHeight="600px";
 
 preContent={dom: [ ]};//simpleContent
 
-dlContent={dom: [ ]};//simpleContent
+dlContent={
+    dom: [
+]};//simpleContent
 
 })( "kiosk");
