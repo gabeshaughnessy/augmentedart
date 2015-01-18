@@ -10,7 +10,10 @@ var messages = [
 "Enter the Fray",
 "Crawl the Dungeon",
 "Play the Game",
-"Roll the Dice"
+"Roll the Dice",
+"Find Enchanted Items",
+"Bring your Friends",
+"Grok the Source"
 ];
 
 var messageDate = " on Feb. 5th, 2015 from 6 - 9PM";
