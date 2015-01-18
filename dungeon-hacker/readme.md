@@ -47,12 +47,11 @@ Each view loads the app.js file, which defines classes, properties and methods f
 The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to store data and Sync data between views. Request access to the database by contacting gabeshaughnessy@gmail.com. 
 
 ##TODO
-- [ ] Define classes:
+- [x] Define classes:
 	- [x] Player
-	- [ ] Monster
+	- [x] Monster
 	- [x] Item
-	- [ ] Attribute
-	- [ ] DiceRoll
+	- [x] DiceRoll
 - [x] Player View
 	- [x] Player Selected
 - [x] Item View
@@ -64,12 +63,13 @@ The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to s
 	- [x] Credits
 	- [x] Inventory
 	- [ ] Monsters Defeated
-- [ ] Monster View
+- [x] Monster View
 	- [x] Add Monster
 	- [x] Sync Monster Data with View - not necessary...
 	- [x] Basic Attack Sequence
 		- [x] Attack Sequence Stages with Views
-- [ ] Dice Roll
-	- [ ] 20-sided sprite for the dice, much smaller and without the shadow.
-	- [ ] text fields for your roll score, monster's roll score on the monster view.
+- [ ] Boss View
+- [x] Dice Roll
+	- [x] 20-sided sprite for the dice, much smaller and without the shadow.
+	- [x] text fields for your roll score, monster's roll score on the monster view.
 
