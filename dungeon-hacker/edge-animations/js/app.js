@@ -131,6 +131,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.monsters = {};
 	this.hits = false;
 	this.hitCount = 0;
+	this.secondBlock = false;
 	this.blocks = false;
 
 	
@@ -300,11 +301,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		monsterObj = {};
 		monsterObj['currentFrame'] = frame;
 		monsterObj.hits = monster.hits;
+		monsterObj.boss = monster.boss;
 		monsterObj.blocks = monster.blocks;
 		monsterObj.playerHits = this.hits;
 		monsterObj.playerBlocks = this.blocks;
 		monsterObj.hitCount = monster.hitCount;
 		monsterObj.playerHitCount = this.hitCount;
+		monsterObj.secondAttack = monster.secondAttack;
 
 		firebaseRef.child('players').child(this.id).child('gameState').child(monster.title).update(monsterObj);
 		
@@ -357,11 +360,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							 if(_this.gameState.hasOwnProperty(monster.title)){
 							 	var currentFrame = _this.gameState[monster.title]['currentFrame'];
 							 	
+							 	monster.boss = _this.gameState[monster.title]['boss'];
 							 	monster.hits = _this.gameState[monster.title]['hits'];
 							 	monster.blocks = _this.gameState[monster.title]['blocks'];
+							 	monster.secondAttack = _this.gameState[monster.title]['secondAttack'];
 							 	monster.hitCount = _this.gameState[monster.title]['hitCount'];
 							 	player.hits = _this.gameState[monster.title]['playerHits'];
 							 	player.blocks = _this.gameState[monster.title]['playerBlocks'];
+							 	player.secondBlock = _this.gameState[monster.title]['playerSecondBlock'];
 							 	player.hitCount = _this.gameState[monster.title]['playerHitCount'];
 
 							 	monster.goToFrame(sym, currentFrame);
@@ -685,6 +691,7 @@ function Monster(monsterId){
 	this.title = 'This Monster';
 	this.description = 'This is the Monster Description';
 	this.img = 'images/monster.png';
+	this.boss=false;
 	this.attributes = {
 		primary : 'charisma',
 		secondary : 'creativity'
@@ -693,6 +700,7 @@ function Monster(monsterId){
 	this.hits = false;
 	this.hitCount = 0;
 	this.blocks = false;
+	this.secondAttack = false;
 
 	this.getMonsterData = function(){//intial data for the item
 		if($.urlParam('monsterId') == null){
@@ -706,13 +714,13 @@ function Monster(monsterId){
 			this.id = monsterId;
 			this.title = 'The Gibson';
 			this.description = 'The most powerful (and evil) super-computer in all the land.';
-			this.img = 'images/the-gibson.png';
+			this.img = 'images/the-gibson.jpg';
 			this.boss = true;
 			this.attributes = {
 				primary : 'knowledge',
-				secondary : 'creativity'
+				secondary : 'creativity',
+				tertiary : 'charisma'
 			};
-			this.attacks = 2;
 		}
 		if(this.monsterId == 'social-media'){
 			this.id = monsterId;
@@ -735,10 +743,7 @@ function Monster(monsterId){
 			description : this.description,
 			img : this.img,
 			attributes : this.attributes,
-			attacks : this.attacks,
-			hits : this.hits,
-			blocks : this.blocks,
-			boss: false
+			boss: this.boss
 		});
 	}
 	this.syncData = function(){
@@ -771,9 +776,11 @@ function Monster(monsterId){
 						}
 						this.description = dataSet[key];
 					}
+					if(key == 'boss'){
+						this.boss = dataSet[key];	
+					}
 					
 					if(key == 'img'){ //update the item image
-console.log(sym.getSymbol('monster-image')); 
 						if(sym && typeof sym.getSymbol('monster-image') != 'undefined' && sym.getSymbol('monster-image').$('image').length > 0){
 						sym.getSymbol('monster-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
 						}
@@ -818,23 +825,49 @@ console.log(sym.getSymbol('monster-image'));
 	this.attack = function(player, diceRoll){
 
 	//attack the player with the monster's primary attribute. Rolls 20-attribute for a hit.
-		
+			if(diceRoll == 20){
+					alert('What kind of monster rolls a nat 20?! Somebody must have rigged the dice...');
+				}
 			var attackScore = 10; //20 - primary attribute X 2;
 			var winner = false;
-			console.log('Monster Attributes: ');
-			console.log(this.attributes);
-			if(!this.boss){ this.hitCount = 0;} //bosses get multiple attacks
-			if(diceRoll == 20){
-				alert('What kind of monster rolls a nat 20?! Somebody must have rigged the dice...');
+
+			if(!this.boss){ 
+				this.hitCount = 0;
+			
+				if(diceRoll >= attackScore){
+					this.hits = true;
+				}
+				else{
+					this.hits = false;
+				}
+				this.attacks = this.attacks - 1;
+				
+				player.setFrame('monster-attack-start');
+			} //bosses get multiple attacks
+			
+			else if(this.boss == true){				
+				
+				attackScore = 5;
+				if(this.secondAttack === true){
+					if(diceRoll >= attackScore){
+						this.hits = true;
+					}
+					else{
+						this.hits = false;
+					}
+					player.setFrame('boss-attack-2-start');
+				}
+				else{
+					if(diceRoll >= attackScore){
+						this.hits = true;
+					}
+					else{
+						this.hits = false;
+					}
+	                player.setFrame('boss-attack-start');
+				}
+
 			}
-			if(diceRoll >= attackScore){
-				this.hits = true;
-			}
-			else{
-				this.hits = false;
-			}
-			this.attacks = this.attacks - 1;
-			player.setFrame('monster-attack-start');
 
 		
 
@@ -852,6 +885,7 @@ console.log(sym.getSymbol('monster-image'));
 
 /* -------  Player Attack and Defend -------- */
 Player.prototype.blockAttack = function(monster, diceRoll){
+
 		var attributeId = monster.attributes.primary;
 		var defendScore = 20 - (this.attributes[attributeId] * 5);
 		console.log('block: ' + diceRoll+ ' : ' + defendScore);
@@ -918,21 +952,36 @@ function battleResults(monster, player, sym){
 	if(monster.hitCount > player.hitCount){
 		console.log(monster.title + ' Wins!');
 		//monster defeats you and you lose all your stuff.
-		sym.play('monster-wins');
+		if(monster.boss != true){
+		 sym.play('monster-wins');
+		}
+		else{
+			sym.play('boss-wins');
+		}
 
 	}
 	else if(monster.hitCount == player.hitCount){
 		console.log('Tie Game');
 		monster.status.html('Tie Game!');
 		
+		if(monster.boss != true){
 		sym.play();
+		}
+		else{
+			sym.play('boss-tie');
+		}
 
 		
 	}
 	else if(player.hitCount > monster.hitCount){
 		player.wins = true;
-		console.log('You Defeated the Monster!');
-		sym.play('player-wins');
+		if(monster.boss != true){
+			console.log('You Defeated the Monster!');
+			sym.play('player-wins');
+			}
+		else{
+			sym.play('player-beats-boss');
+		}
 			
 	}
 }

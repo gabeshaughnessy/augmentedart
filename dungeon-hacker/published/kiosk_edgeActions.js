@@ -1,5 +1,5 @@
 
-var messages=["Enter the Fray","Crawl the Dungeon","Play the Game","Roll the Dice"];var messageDate=" on Feb. 5th, 2015 from 6 - 9PM";var message="";(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
+var messages=["Enter the Fray","Crawl the Dungeon","Play the Game","Roll the Dice","Find Enchanted Items","Bring your Friends","Grok the Source"];var messageDate=" on Feb. 5th, 2015 from 6 - 9PM";var message="";(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",14118,function(sym,e){sym.play(0);});
 //Edge binding end
