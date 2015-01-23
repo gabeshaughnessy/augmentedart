@@ -23,6 +23,7 @@ else{
 
 if(isset($_GET['userID'])){
   $user_id = $_GET['userID'];
+  $user_id = 'gabe';
 }
 else {
   $user_id = 'test_user_id'.rand(1, 100);
