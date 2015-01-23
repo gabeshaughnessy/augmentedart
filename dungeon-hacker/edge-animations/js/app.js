@@ -59,13 +59,16 @@ var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
 /* Player Card URL */
 var playerCardURL = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html';
 
-if(typeof playerId == 'undefined'){//first check if playerId is set globally elsewhere
-   if( $.urlParam('playerId') != null ){//then check if playerId is passed as a url parameter
+if( $.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
       var playerId = $.urlParam('playerId');
    }
    else{
-     var playerId = 'test-id';
-   }
+	if(typeof playerId == 'undefined'){//then if playerId is set globally elsewhere, like from the layar client, for example, then leave it be.
+	   
+	   else{
+	     var playerId = 'test-id';
+	   }
+	}
  
 };
 
