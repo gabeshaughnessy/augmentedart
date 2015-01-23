@@ -140,7 +140,7 @@
 		"dummyStageParentWidth":"500px",
 		"dummyStageParentHeight":"500px"},
 	"viewStartY":"0",
-	"stage-Default Timeline_playhead_ms":"0",
+	"stage-Default Timeline_playhead_ms":"250",
 	"expanded:images/developer.png":"nil",
 	"expanded:images/designer.png":"nil",
 	"usedBOM":"false",

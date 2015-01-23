@@ -16,7 +16,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-         alert(item);
          item.getItemData();
          item.addItem();
          item.syncData();
