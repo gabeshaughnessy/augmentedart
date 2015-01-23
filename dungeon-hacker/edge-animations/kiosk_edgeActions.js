@@ -6,6 +6,17 @@
 * ability to interact with these actions from within Adobe Edge Animate
 *
 ***********************/
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
+var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
+
 var messages = [
 "Enter the Fray",
 "Crawl the Dungeon",
@@ -16,9 +27,18 @@ var messages = [
 "Grok the Source"
 ];
 
+
 var messageDate = " on Feb. 5th, 2015 from 6 - 9PM";
 
 var message = "";
+
+firebaseRef.child('kiosk').child('messages').on('value', function(snapshot){
+   messages = snapshot.val();
+});
+firebaseRef.child('kiosk').child('messageDate').on('value', function(snapshot){
+   messageDate = snapshot.val();
+});
+
 
 (function($, Edge, compId){
 var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonly used Edge classes
@@ -45,6 +65,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          // insert code to be run when the composition is fully loaded here
+         
+         if($.urlParam('mirrored') != null){
+         			sym.$('body').css('transform', 'rotateY(180deg)');
+         		}
          sym.$('body, html').css('background-color', '#000');
          sym.$('head').append('<meta name="apple-mobile-web-app-capable" content="yes" /><meta name="viewport" content="width=device-width" /><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>');
 

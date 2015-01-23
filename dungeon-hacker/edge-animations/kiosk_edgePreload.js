@@ -52,6 +52,7 @@ if(document.addEventListener ){
    aLoader = [
       { load: "edge_includes/jquery-2.0.3.min.js"},
       { load: "edge_includes/edge.4.0.0.min.js"},
+      { load: "https://cdn.firebase.com/js/client/2.0.6/firebase.js", user: true },
       { load: "kiosk_edge.js"},
       { load: "kiosk_edgeActions.js"}];
 

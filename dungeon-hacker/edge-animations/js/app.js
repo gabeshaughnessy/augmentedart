@@ -727,7 +727,7 @@ function Monster(monsterId){
 			this.title = 'The Social Media Monster';
 			this.description = 'You really don\'t want to like these things. It will only them stronger.';
 			this.img = 'images/social-media-monster.png';
-			this.boss = true;
+			this.boss = false;
 			this.attributes = {
 				primary : 'charisma',
 				secondary : 'creativity'

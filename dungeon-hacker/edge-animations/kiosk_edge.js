@@ -29,7 +29,7 @@ var symbols = {
             {
                 id: 'kiosk-bg',
                 type: 'image',
-                rect: ['-5px', '-5px','700px','609px','auto', 'auto'],
+                rect: ['-4786px', '-5px','700px','609px','auto', 'auto'],
                 fill: ["rgba(0,0,0,0)",im+"kiosk-bg.jpg",'0px','0px']
             },
             {
@@ -70,13 +70,14 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_logo}": [
-                ["style", "top", '252px'],
-                ["style", "height", '43px'],
+            "${_kiosk-bg}": [
+                ["style", "top", '-5px'],
+                ["transform", "scaleY", '1'],
                 ["transform", "scaleX", '1'],
+                ["style", "height", '609px'],
                 ["style", "opacity", '0'],
-                ["style", "left", '98px'],
-                ["style", "width", '0px']
+                ["style", "left", '-4786px'],
+                ["style", "width", '700px']
             ],
             "${_Message}": [
                 ["style", "top", '314px'],
@@ -88,12 +89,6 @@ var symbols = {
                 ["style", "left", '98px'],
                 ["style", "width", '453px']
             ],
-            "${_Stage}": [
-                ["color", "background-color", 'rgba(0,0,0,1.00)'],
-                ["style", "width", '700px'],
-                ["style", "height", '600px'],
-                ["style", "overflow", 'hidden']
-            ],
             "${_Coming_Soon}": [
                 ["style", "top", '216px'],
                 ["style", "opacity", '0'],
@@ -102,19 +97,24 @@ var symbols = {
                 ["style", "left", '98px'],
                 ["style", "font-size", '14px']
             ],
+            "${_Stage}": [
+                ["color", "background-color", 'rgba(0,0,0,1.00)'],
+                ["style", "width", '700px'],
+                ["style", "height", '600px'],
+                ["style", "overflow", 'hidden']
+            ],
             "${_dice-roll-sprite_symbol_1}": [
                 ["style", "top", '201px'],
                 ["style", "opacity", '0'],
                 ["style", "left", '264px']
             ],
-            "${_kiosk-bg}": [
-                ["style", "top", '-5px'],
-                ["transform", "scaleY", '1'],
+            "${_logo}": [
+                ["style", "top", '252px'],
+                ["style", "height", '43px'],
                 ["transform", "scaleX", '1'],
-                ["style", "height", '609px'],
                 ["style", "opacity", '0'],
-                ["style", "left", '-5px'],
-                ["style", "width", '700px']
+                ["style", "left", '98px'],
+                ["style", "width", '0px']
             ]
         }
     },
@@ -212,9 +212,8 @@ var symbols = {
             },
             timeline: [
                 { id: "eid54", tween: [ "style", "${_dice-roll-sprite}", "width", '187px', { fromValue: '0px'}], position: 0, duration: 0 },
-                { id: "eid52", tween: [ "style", "${_dice-roll-sprite}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid51", tween: [ "style", "${_dice-roll-sprite}", "left", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
-                { id: "eid53", tween: [ "style", "${_dice-roll-sprite}", "height", '198px', { fromValue: '0px'}], position: 0, duration: 0 },
+                { id: "eid52", tween: [ "style", "${_dice-roll-sprite}", "top", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid74", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 0, duration: 0 },
                 { id: "eid75", tween: [ "style", "${_dice-roll-sprite}", "background-position", [0,-792], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-748,-594]}], position: 83, duration: 0 },
                 { id: "eid76", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-187,-792], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,-792]}], position: 167, duration: 0 },
@@ -246,7 +245,8 @@ var symbols = {
                 { id: "eid96", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-187,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,-594]}], position: 2333, duration: 0 },
                 { id: "eid97", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-374,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-187,-594]}], position: 2416, duration: 0 },
                 { id: "eid98", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-561,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-374,-594]}], position: 2500, duration: 0 },
-                { id: "eid99", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 2583, duration: 0 }            ]
+                { id: "eid99", tween: [ "style", "${_dice-roll-sprite}", "background-position", [-748,-594], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-561,-594]}], position: 2583, duration: 0 },
+                { id: "eid53", tween: [ "style", "${_dice-roll-sprite}", "height", '198px', { fromValue: '0px'}], position: 0, duration: 0 }            ]
         }
     }
 }

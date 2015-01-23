@@ -375,6 +375,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 20086, function(sym, e) {
+         monster.hitCount = 0;
+         player.hitCount = 0;
+         monster.hits = false;
+         player.hits = false;
          monster.attack(player, dice.roll(20, dice.symbol));
          
          monster.status.html(monster.title + ' is rolling...');
@@ -550,7 +554,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
            monster.status.html('Your attack hits! <br />Tap to continue.');
           }
           else if(player.hits == true && monster.blocks == true){
-           monster.status.html('The Monster Blocked your attack! <br />Tap to continue.');
+           monster.status.html(monster.title+' blocked your attack! <br />Tap to continue.');
           }
          else{
            monster.status.html('Your attack misses! <br />Tap to continue.');
@@ -583,13 +587,36 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36000, function(sym, e) {
-         alert('boss wins!');
+         if(monster.blocks == true){
+         monster.status.html(monster.title + 'blocked your attack<br /> and defeated you!');
+         
+         if(typeof monster.tiebreaker != 'undefined'){
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
+         		player.reset();
+         
+         }
+         
+         }
+         else{
+         monster.status.html(monster.title + ' defeated you!');
+         if(typeof monster.tiebreaker != 'undefined'){
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
+         		player.reset();
+         
+         }
+         }
+         
+         player.reset();
+         sym.stop('dead');
+         sym.stop();
 
       });
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36405, function(sym, e) {
          alert('player wins');
+         
+         sym.stop();
 
       });
       //Edge binding end
@@ -669,6 +696,47 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          if(monster.tiebreaker == player.tiebreaker){
          sym.play('boss-tie');
          }
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36209, function(sym, e) {
+         sym.stop(0);
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 37215, function(sym, e) {
+         sym.stop(0);
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36606, function(sym, e) {
+         var facedMonster = false;
+         for(var thisMonster in player.monsters){
+         			if(monster.title == thisMonster){
+         			facedMonster = true;
+         			}
+         			else{
+         			facedMonster = false;
+         			}
+         		}
+         		if(!facedMonster){
+         monster.status.html('You Defeated '+monster.title+' and won the game! Show your player card to a gallery docent to claim oyur prize!');
+         		}
+         		else{
+         		monster.status.html('You Defeated '+monster.title+' again!<br /> Maybe it\'s time to try a new character?');
+         
+         		}
+         player.addMonster(monster);
+         sym.stop();// insert code here
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36792, function(sym, e) {
+         sym.stop(0);
 
       });
       //Edge binding end
