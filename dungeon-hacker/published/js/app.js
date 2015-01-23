@@ -688,7 +688,7 @@ function Item(){
 						for(var attributeKey in dataSet[key]){ 
 							
 							for(var i = 0; i < dataSet[key][attributeKey]; i++){
-								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 							}
 						}
 					}

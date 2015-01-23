@@ -46,6 +46,7 @@ remove_action( 'init', 'wp_admin_bar_init' );
  <script type="text/javascript">
  //The global Javascript variables from the Layar client and WordPress go here
  var playerId = "<?php  echo $user_id; ?>";
+ alert(playerID);
  </script>
 
 <?php
