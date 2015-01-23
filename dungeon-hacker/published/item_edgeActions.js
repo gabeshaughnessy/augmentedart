@@ -10,7 +10,7 @@ else{sym.$('Equip-Button-text').html('Item Already Equipped');}});
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.$('Equip-Button-text').html('Cost: '+item.price);sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",250,function(sym,e){if(typeof item!='undefined'&&typeof player.id!='undefined'){if(player.cryptoCredits>=item.price){player.update('cryptoCredits',player.cryptoCredits-item.price);player.addItem(item,item.title,'charisma',1);}}
-else{alert('no player or item');console.log('whoops, no item or player object to work with here.');}});
+else{console.log('whoops, no item or player object to work with here.');}});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'

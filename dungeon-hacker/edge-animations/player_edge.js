@@ -27,65 +27,52 @@ var symbols = {
     content: {
             dom: [
             {
+                id: 'player-card-bg',
+                type: 'image',
+                rect: ['0', '0','399px','639px','auto', 'auto'],
+                fill: ["rgba(0,0,0,0)",im+"player-card-bg.jpg",'0px','0px']
+            },
+            {
+                id: 'Description',
+                type: 'text',
+                rect: ['46px', '393px','303px','73px','auto', 'auto'],
+                text: "This is the default player Description.",
+                align: "left",
+                font: ['Lucida Console, Monaco, monospace', 12, "rgba(0,0,0,1)", "400", "none", "normal"]
+            },
+            {
                 id: 'Player-Title',
                 type: 'text',
-                rect: ['0px', '15px','400px','auto','auto', 'auto'],
+                rect: ['47px', '363px','302px','30px','auto', 'auto'],
                 text: "Title",
-                font: ['Lucida Console, Monaco, monospace', 24, "rgba(0,0,0,1)", "700", "none", ""]
+                font: ['Lucida Console, Monaco, monospace', 17, "rgba(0,0,0,1)", "700", "none", ""]
             },
             {
                 id: 'Attributes',
                 type: 'rect',
-                rect: ['3px', '506px','437px','68px','auto', 'auto'],
+                rect: ['155px', '446px','194px','68px','auto', 'auto'],
                 fill: ["rgba(192,192,192,0.00)"],
                 stroke: [0,"rgb(0, 0, 0)","none"]
             },
             {
                 id: 'AttributesLabel',
                 type: 'text',
-                rect: ['1px', '481px','437px','auto','auto', 'auto'],
+                rect: ['49px', '460px','302px','auto','auto', 'auto'],
                 text: "Attributes",
-                font: ['Lucida Console, Monaco, monospace', 15, "rgba(0,0,0,1)", "700", "none", ""]
-            },
-            {
-                id: 'Description',
-                type: 'text',
-                rect: ['0px', '51px','400px','84px','auto', 'auto'],
-                text: "This is the default player Description.",
-                align: "left",
-                font: ['Lucida Console, Monaco, monospace', 16, "rgba(0,0,0,1)", "400", "none", "normal"]
+                font: ['Lucida Console, Monaco, monospace', 12, "rgba(0,0,0,1)", "700", "none", ""]
             },
             {
                 id: 'SelectButton',
                 type: 'rect',
-                rect: ['81', '77','auto','auto','auto', 'auto']
-            },
-            {
-                id: 'PlayerImage',
-                type: 'rect',
-                rect: ['28', '135','auto','auto','auto', 'auto']
+                rect: ['81', '77','auto','auto','auto', 'auto'],
+                transform: [[],[],[],['0.9262','0.9262']]
             },
             {
                 id: 'PlayerCardButton',
                 type: 'rect',
-                rect: ['40', '258','auto','auto','auto', 'auto']
-            },
-            {
-                id: 'Selected_Text',
-                type: 'text',
-                rect: ['19px', '190px','329px','68px','auto', 'auto'],
-                text: "Selected",
-                align: "center",
-                font: ['\'Lucida Console\', Monaco, monospace', 40, "rgba(0,0,0,1)", "400", "none", "normal"]
+                rect: ['43px', '516px','auto','auto','auto', 'auto']
             }],
             symbolInstances: [
-            {
-                id: 'PlayerImage',
-                symbolName: 'PlayerImage',
-                autoPlay: {
-
-                }
-            },
             {
                 id: 'PlayerCardButton',
                 symbolName: 'PlayerCardButton',
@@ -105,35 +92,31 @@ var symbols = {
     states: {
         "Base State": {
             "${_PlayerCardButton}": [
-                ["transform", "scaleX", '0'],
-                ["style", "opacity", '0.000000'],
-                ["transform", "scaleY", '0']
-            ],
-            "${_Selected_Text}": [
-                ["style", "top", '190px'],
+                ["style", "top", '516px'],
                 ["transform", "scaleY", '0'],
-                ["style", "height", '68px'],
                 ["transform", "scaleX", '0'],
                 ["style", "opacity", '0.000000'],
-                ["style", "left", '19px'],
-                ["style", "font-size", '40px']
+                ["style", "left", '43px']
             ],
             "${_Attributes}": [
-                ["style", "top", '506px'],
-                ["style", "left", '3px'],
-                ["color", "background-color", 'rgba(192,192,192,0.00)']
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
+                ["style", "top", '446px'],
+                ["style", "left", '155px'],
+                ["style", "width", '194px']
             ],
             "${_SelectButton}": [
-                ["style", "top", '579px'],
-                ["style", "left", '47px']
+                ["style", "top", '515px'],
+                ["transform", "scaleX", '0.9262'],
+                ["transform", "scaleY", '0.9262'],
+                ["style", "left", '45px']
             ],
             "${_AttributesLabel}": [
-                ["style", "top", '481px'],
-                ["style", "font-size", '15px'],
+                ["style", "top", '460px'],
+                ["style", "font-size", '12px'],
                 ["style", "font-weight", 'bold'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "left", '1px'],
-                ["style", "width", '437px']
+                ["style", "left", '49px'],
+                ["style", "width", '302px']
             ],
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,0.00)'],
@@ -141,27 +124,26 @@ var symbols = {
                 ["style", "height", '640px'],
                 ["style", "width", '400px']
             ],
-            "${_Player-Title}": [
-                ["style", "top", '15px'],
-                ["style", "font-weight", '700'],
-                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
-                ["style", "left", '0px'],
-                ["style", "width", '400px']
-            ],
             "${_Description}": [
-                ["style", "top", '51px'],
-                ["style", "width", '400px'],
-                ["style", "height", '84px'],
+                ["style", "top", '393px'],
+                ["style", "width", '303px'],
+                ["style", "height", '73px'],
                 ["style", "font-family", 'Lucida Console, Monaco, monospace'],
-                ["style", "left", '0px'],
-                ["style", "font-size", '16px']
+                ["style", "left", '46px'],
+                ["style", "font-size", '12px']
             ],
-            "${_PlayerImage}": [
-                ["style", "top", '69px'],
-                ["transform", "scaleY", '0.91394'],
-                ["transform", "scaleX", '0.91394'],
-                ["style", "opacity", '1'],
-                ["style", "left", '-18px']
+            "${_Player-Title}": [
+                ["style", "top", '363px'],
+                ["style", "width", '302px'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+                ["style", "height", '30px'],
+                ["style", "font-weight", '700'],
+                ["style", "left", '47px'],
+                ["style", "font-size", '17px']
+            ],
+            "${_player-card-bg}": [
+                ["style", "height", '639px'],
+                ["style", "width", '399px']
             ]
         }
     },
@@ -176,19 +158,11 @@ var symbols = {
                 "selected": 500
             },
             timeline: [
-                { id: "eid40", tween: [ "transform", "${_PlayerCardButton}", "scaleY", '1', { fromValue: '0'}], position: 0, duration: 500 },
-                { id: "eid18", tween: [ "transform", "${_PlayerImage}", "scaleX", '0.91394', { fromValue: '0.91394'}], position: 0, duration: 0 },
-                { id: "eid41", tween: [ "transform", "${_Selected_Text}", "scaleX", '1', { fromValue: '0'}], position: 0, duration: 500 },
-                { id: "eid39", tween: [ "transform", "${_PlayerCardButton}", "scaleX", '1', { fromValue: '0'}], position: 0, duration: 500 },
-                { id: "eid23", tween: [ "style", "${_SelectButton}", "left", '47px', { fromValue: '47px'}], position: 0, duration: 0 },
-                { id: "eid19", tween: [ "transform", "${_PlayerImage}", "scaleY", '0.91394', { fromValue: '0.91394'}], position: 0, duration: 0 },
-                { id: "eid27", tween: [ "style", "${_PlayerImage}", "opacity", '0.15837824901914', { fromValue: '1'}], position: 0, duration: 500 },
-                { id: "eid20", tween: [ "style", "${_PlayerImage}", "left", '-18px', { fromValue: '-18px'}], position: 0, duration: 0 },
-                { id: "eid22", tween: [ "style", "${_SelectButton}", "top", '579px', { fromValue: '579px'}], position: 0, duration: 0 },
-                { id: "eid21", tween: [ "style", "${_PlayerImage}", "top", '69px', { fromValue: '69px'}], position: 0, duration: 0 },
+                { id: "eid40", tween: [ "transform", "${_PlayerCardButton}", "scaleY", '0.98052', { fromValue: '0'}], position: 0, duration: 500 },
+                { id: "eid22", tween: [ "style", "${_SelectButton}", "top", '515px', { fromValue: '515px'}], position: 0, duration: 0 },
+                { id: "eid39", tween: [ "transform", "${_PlayerCardButton}", "scaleX", '0.98052', { fromValue: '0'}], position: 0, duration: 500 },
                 { id: "eid35", tween: [ "style", "${_PlayerCardButton}", "opacity", '1', { fromValue: '0.000000'}], position: 0, duration: 500 },
-                { id: "eid36", tween: [ "style", "${_Selected_Text}", "opacity", '1', { fromValue: '0.000000'}], position: 0, duration: 500 },
-                { id: "eid42", tween: [ "transform", "${_Selected_Text}", "scaleY", '1', { fromValue: '0'}], position: 0, duration: 500 },
+                { id: "eid23", tween: [ "style", "${_SelectButton}", "left", '45px', { fromValue: '45px'}], position: 0, duration: 0 },
                 { id: "eid9", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_SelectButton}', [] ], ""], position: 500 }            ]
         }
     }
@@ -277,7 +251,7 @@ var symbols = {
             "${_Button}": [
                 ["style", "top", '0px'],
                 ["style", "left", '0px'],
-                ["color", "background-color", 'rgba(210,210,210,1.00)']
+                ["color", "background-color", 'rgba(210,210,210,0.25)']
             ],
             "${_Text}": [
                 ["style", "top", '10px'],
@@ -300,7 +274,7 @@ var symbols = {
             duration: 250,
             autoPlay: false,
             timeline: [
-                { id: "eid2", tween: [ "color", "${_Button}", "background-color", 'rgba(136,136,136,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(210,210,210,1.00)'}], position: 0, duration: 250 },
+                { id: "eid2", tween: [ "color", "${_Button}", "background-color", 'rgba(136,136,136,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(210,210,210,0.25)'}], position: 0, duration: 250 },
                 { id: "eid4", tween: [ "color", "${_Text}", "color", 'rgba(255,255,255,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(0,0,0,1.00)'}], position: 0, duration: 250 }            ]
         }
     }
@@ -329,9 +303,9 @@ var symbols = {
                         font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
                         type: 'text',
                         id: 'Text4',
-                        text: 'View Player Card',
+                        text: 'Selected! - View Player Card',
                         align: 'center',
-                        rect: ['62px', '12px', 'auto', 'auto', 'auto', 'auto']
+                        rect: ['14px', '13px', 'auto', 'auto', 'auto', 'auto']
                     }]
                 }
             ],
@@ -346,8 +320,8 @@ var symbols = {
                 ["color", "background-color", 'rgba(210,210,210,1.00)']
             ],
             "${_Text4}": [
-                ["style", "top", '12px'],
-                ["style", "left", '62px'],
+                ["style", "top", '13px'],
+                ["style", "left", '14px'],
                 ["style", "font-size", '16px']
             ],
             "${symbolSelector}": [

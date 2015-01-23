@@ -94,7 +94,6 @@ if( $.urlParam('playerId') != null ){//first check if playerId is passed as a ur
 	   }
 	}
 
-alert(playerId);
 var player = new Player(playerId);
 
 

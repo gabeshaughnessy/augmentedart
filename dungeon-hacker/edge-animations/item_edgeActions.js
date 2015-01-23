@@ -60,7 +60,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          
          else {
-         alert('no player or item');
          console.log('whoops, no item or player object to work with here.');
          }
 
