@@ -14,7 +14,6 @@ else {
     $is_android = false;
 }
 $user_id = $_REQUEST['userId'];
-l
 
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
