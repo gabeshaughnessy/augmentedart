@@ -27,9 +27,9 @@ var symbols = {
     content: {
             dom: [
             {
-                id: 'kiosk-bg',
+                id: 'kiosk-bg2',
                 type: 'image',
-                rect: ['-4786px', '-5px','700px','609px','auto', 'auto'],
+                rect: ['0px', '-5px','700px','609px','auto', 'auto'],
                 fill: ["rgba(0,0,0,0)",im+"kiosk-bg.jpg",'0px','0px']
             },
             {
@@ -70,14 +70,10 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_kiosk-bg}": [
+            "${_kiosk-bg2}": [
                 ["style", "top", '-5px'],
-                ["transform", "scaleY", '1'],
-                ["transform", "scaleX", '1'],
-                ["style", "height", '609px'],
                 ["style", "opacity", '0'],
-                ["style", "left", '-4786px'],
-                ["style", "width", '700px']
+                ["style", "left", '0px']
             ],
             "${_Message}": [
                 ["style", "top", '314px'],
@@ -131,8 +127,8 @@ var symbols = {
                 { id: "eid25", tween: [ "style", "${_Message}", "opacity", '1', { fromValue: '0'}], position: 2500, duration: 500 },
                 { id: "eid26", tween: [ "style", "${_Message}", "opacity", '0', { fromValue: '1'}], position: 5618, duration: 500 },
                 { id: "eid19", tween: [ "style", "${_logo}", "height", '43px', { fromValue: '43px'}], position: 2118, duration: 0, easing: "easeOutBack" },
-                { id: "eid8", tween: [ "style", "${_kiosk-bg}", "opacity", '1', { fromValue: '0'}], position: 5618, duration: 500 },
-                { id: "eid7", tween: [ "style", "${_kiosk-bg}", "opacity", '0', { fromValue: '1'}], position: 11000, duration: 500 },
+                { id: "eid27", tween: [ "style", "${_kiosk-bg2}", "opacity", '1', { fromValue: '0'}], position: 5618, duration: 500 },
+                { id: "eid28", tween: [ "style", "${_kiosk-bg2}", "opacity", '0', { fromValue: '1'}], position: 11000, duration: 500 },
                 { id: "eid4", tween: [ "style", "${_dice-roll-sprite_symbol_1}", "opacity", '1', { fromValue: '0'}], position: 11000, duration: 500 },
                 { id: "eid6", tween: [ "style", "${_dice-roll-sprite_symbol_1}", "opacity", '0', { fromValue: '1'}], position: 15618, duration: 500 },
                 { id: "eid10", tween: [ "style", "${_logo}", "opacity", '1', { fromValue: '0'}], position: 1500, duration: 238, easing: "easeOutBack" },
