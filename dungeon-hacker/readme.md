@@ -1,6 +1,6 @@
 #Dungeon Hacker
-Dungeon Hacker is an Augmented Reality Dungeon Crawler. You play The game by Scanning a character card, then finding items and monsters and scanning them. [Check out the PDF Overview here](https://github.com/gabeshaughnessy/augmentedart/blob/dungeon-hacker/dungeon-hacker/pdfs/Game-Outline_small.pdf) 
-<img src="https://raw.githubusercontent.com/gabeshaughnessy/augmentedart/dungeon-hacker/dungeon-hacker/images/poster-sketch.jpg" width="100%"/>
+Dungeon Hacker is an Augmented Reality Dungeon Crawler. You play The game by Scanning a character card, then finding items and monsters and scanning them. [Check out the PDF Overview here](https://github.com/gabeshaughnessy/augmentedart/blob/dungeon-hacker/dungeon-hacker/pdfs/Game-Outline_small.pdf)
+<img src="http://www.augmentedart.com/wp-content/uploads/2015/01/dh-poster.jpg" width="100%"/>
 ##Overview
 Dungeon Hacker is a gallery installation at the [Diode gallery](http://www.jetsoncreative.com/diode) for electronic art that is both an illustration show and an game that visitors play on their smartphones by scanning the illustrations.
 
@@ -72,4 +72,4 @@ The site uses a [Firebase Database](https://dungeon-hacker.firebaseio.com/) to s
 - [x] Dice Roll
 	- [x] 20-sided sprite for the dice, much smaller and without the shadow.
 	- [x] text fields for your roll score, monster's roll score on the monster view.
-
+<img src="https://raw.githubusercontent.com/gabeshaughnessy/augmentedart/dungeon-hacker/dungeon-hacker/images/poster-sketch.jpg" width="100%"/>
