@@ -23,9 +23,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          item.syncData();
          player.getPlayerData();
          //player.syncData();
+         
+         
 
-        
-        
       });
       //Edge binding end
 

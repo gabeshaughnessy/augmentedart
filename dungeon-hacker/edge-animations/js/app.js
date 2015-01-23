@@ -82,13 +82,12 @@ var playerCardURL = 'http://augmentedart.com/dungeon-hacker/edge-animations/play
 }
 else{
 	var playerCardURL = 'player-card.html';
-
 }
 if( $.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
       var playerId = $.urlParam('playerId');
    }
    else{
-	if(typeof playerId == 'undefined'){//then if playerId is set globally elsewhere, like from the layar client, for example, then leave it be.
+	if(typeof playerId != 'undefined'){//then if playerId is set globally elsewhere, like from the layar client, for example, then leave it be.
 	   }
 	   else{
 	     var playerId = 'test-id';
@@ -689,7 +688,7 @@ function Item(){
 						for(var attributeKey in dataSet[key]){ 
 							
 							for(var i = 0; i < dataSet[key][attributeKey]; i++){
-								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 							}
 						}
 					}
