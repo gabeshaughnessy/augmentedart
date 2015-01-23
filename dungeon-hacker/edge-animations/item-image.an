@@ -75,7 +75,7 @@
 	"expanded:images/the-gibson.jpg":"nil",
 	"expanded:images/Poster.png":"nil",
 	"expanded:images/battle-axe.png":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"expanded:images/Poster6.png":"nil",
 	"symbol_stage":{
 		"dummyStageParentWidth":"500px",

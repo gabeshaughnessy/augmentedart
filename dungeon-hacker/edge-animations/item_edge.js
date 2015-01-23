@@ -109,7 +109,7 @@ var symbols = {
                 ["style", "width", '121px']
             ],
             "${_Stage}": [
-                ["color", "background-color", 'rgba(255,255,255,1)'],
+                ["color", "background-color", 'rgba(255,255,255,0.00)'],
                 ["style", "overflow", 'hidden'],
                 ["style", "height", '800px'],
                 ["style", "width", '500px']

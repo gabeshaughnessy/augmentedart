@@ -64,13 +64,12 @@ if( $.urlParam('playerId') != null ){//first check if playerId is passed as a ur
    }
    else{
 	if(typeof playerId == 'undefined'){//then if playerId is set globally elsewhere, like from the layar client, for example, then leave it be.
-	   
+	   }
 	   else{
 	     var playerId = 'test-id';
 	   }
 	}
- 
-};
+
 
 var player = new Player(playerId);
 
