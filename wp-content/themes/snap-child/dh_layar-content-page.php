@@ -46,11 +46,7 @@ remove_action( 'init', 'wp_admin_bar_init' );
  //The global Javascript variables from the Layar client and WordPress go here
  var playerId = "<?php  echo $user_id; ?>";
  </script>
- <?php 
-$intro_fields = get_field('intro_mural_fields');
-if(isset($intro_fields) && !empty($intro_fields[0])){
-?>
-<script type="text/javascript">
+
 <?php
   if(function_exists('edge_suite_view')){
     echo '<div class="large-10 large-offset-1 columns centered">';
