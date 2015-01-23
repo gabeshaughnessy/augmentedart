@@ -131,6 +131,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.monsters = {};
 	this.hits = false;
 	this.hitCount = 0;
+	this.secondBlock = false;
 	this.blocks = false;
 
 	
@@ -159,13 +160,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			 this.title = 'Developer';
 			 this.attributes = { charisma : 0, creativity : 1, knowledge : 2};
 			 this.description = 'The Developer builds the things';
-			 this.playerImg = 'images/project-manager.png';
+			 this.playerImg = 'images/developer.png';
 		}
 		else if(this.playerClass == 'executive'){
 			 this.title = 'Executive';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'The Executive runs the ship and stuff...';
-			 this.playerImg = 'images/designer.png';
+			 this.playerImg = 'images/executive.png';
 		}
 		else{
 			 this.title = 'Default Character Class';
@@ -229,6 +230,17 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 	this.addMonster = function(monster){
 		var monsterObj = {};
+		for(var thisMonster in player.monsters){
+			if(monster.title != thisMonster){
+				return false;
+			}
+			else{
+
+			}
+		}
+
+		this.update('cryptoCredits', this.cryptoCredits+1);
+		
 		monsterObj[monster.title] = {
 			'title' : monster.title,
 			'img' : monster.img,
@@ -289,11 +301,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		monsterObj = {};
 		monsterObj['currentFrame'] = frame;
 		monsterObj.hits = monster.hits;
+		monsterObj.boss = monster.boss;
 		monsterObj.blocks = monster.blocks;
 		monsterObj.playerHits = this.hits;
 		monsterObj.playerBlocks = this.blocks;
 		monsterObj.hitCount = monster.hitCount;
 		monsterObj.playerHitCount = this.hitCount;
+		monsterObj.secondAttack = monster.secondAttack;
 
 		firebaseRef.child('players').child(this.id).child('gameState').child(monster.title).update(monsterObj);
 		
@@ -346,11 +360,14 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							 if(_this.gameState.hasOwnProperty(monster.title)){
 							 	var currentFrame = _this.gameState[monster.title]['currentFrame'];
 							 	
+							 	monster.boss = _this.gameState[monster.title]['boss'];
 							 	monster.hits = _this.gameState[monster.title]['hits'];
 							 	monster.blocks = _this.gameState[monster.title]['blocks'];
+							 	monster.secondAttack = _this.gameState[monster.title]['secondAttack'];
 							 	monster.hitCount = _this.gameState[monster.title]['hitCount'];
 							 	player.hits = _this.gameState[monster.title]['playerHits'];
 							 	player.blocks = _this.gameState[monster.title]['playerBlocks'];
+							 	player.secondBlock = _this.gameState[monster.title]['playerSecondBlock'];
 							 	player.hitCount = _this.gameState[monster.title]['playerHitCount'];
 
 							 	monster.goToFrame(sym, currentFrame);
@@ -544,20 +561,38 @@ function Item(){
 		if(this.itemId == 'glove-of-power'){
 			this.title = 'Glove of Power';
 			this.description = 'The glove of power increases your charisma '
-			this.attributes = {'charisma' : 1};
+			this.attributes = {'knowledge' : 1};
 			this.img = 'images/glove-of-power.png';
 		}
-		if(this.itemId == 'bluetooth-axe'){
+		else if(this.itemId == 'bluetooth-axe'){
 			this.title = 'Blue Tooth Battle Axe';
 			this.description = 'Comes with a speaker so you can listen to Slayer while you slay. Also has a bottle opener for breaktime. '
 			this.attributes = {'creativity' : 1};
 			this.img = 'images/battle-axe.png';
 		}
-		if(this.itemId == 'mouse-of-nine-heads'){
+		else if(this.itemId == 'mouse-of-nine-heads'){
 			this.title = 'Mouse of Nine Heads';
 			this.description = 'Cat of Nine Tails, look the F out, there is no esc from this. '
 			this.attributes = {'charisma' : 1};
 			this.img = 'images/mouse-of-nine-heads.png';
+		}
+		else if(this.itemId == 'wifi-shield'){
+			this.title = 'Shield of WiFi';
+			this.description = 'Blocks excess data charges, but leaves you a bit exposed. '
+			this.attributes = {'knowledge' : 1};
+			this.img = 'images/wifi-shield.png';
+		}
+		else if(this.itemId == 'sword-calc'){
+			this.title = 'Sword of Calculating';
+			this.description = 'Just add this sword, subtract your enemy\'s limbs, divide their skull, and multiply the carnage.'
+			this.attributes = {'creativity' : 1};
+			this.img = 'images/sword-calc.png';
+		}
+		else if(this.itemId == 'blue-ribbon-potion'){
+			this.title = 'Blue Ribbon Potion';
+			this.description = 'Do you need a frosty sippy-poo of courage? Thish wool totally do-er bud.'
+			this.attributes = {'charisma' : 1};
+			this.img = 'images/potion.png';
 		}
 
 	}
@@ -656,6 +691,7 @@ function Monster(monsterId){
 	this.title = 'This Monster';
 	this.description = 'This is the Monster Description';
 	this.img = 'images/monster.png';
+	this.boss=false;
 	this.attributes = {
 		primary : 'charisma',
 		secondary : 'creativity'
@@ -664,6 +700,40 @@ function Monster(monsterId){
 	this.hits = false;
 	this.hitCount = 0;
 	this.blocks = false;
+	this.secondAttack = false;
+
+	this.getMonsterData = function(){//intial data for the item
+		if($.urlParam('monsterId') == null){
+			this.monsterId = 'This Monster';
+		}
+		else{
+			this.monsterId = $.urlParam('monsterId');
+
+		}
+		if(this.monsterId == 'the-gibson'){
+			this.id = monsterId;
+			this.title = 'The Gibson';
+			this.description = 'The most powerful (and evil) super-computer in all the land.';
+			this.img = 'images/the-gibson.jpg';
+			this.boss = true;
+			this.attributes = {
+				primary : 'knowledge',
+				secondary : 'creativity',
+				tertiary : 'charisma'
+			};
+		}
+		if(this.monsterId == 'social-media'){
+			this.id = monsterId;
+			this.title = 'The Social Media Monster';
+			this.description = 'You really don\'t want to like these things. It will only them stronger.';
+			this.img = 'images/social-media-monster.png';
+			this.boss = false;
+			this.attributes = {
+				primary : 'charisma',
+				secondary : 'creativity'
+			};
+		}
+	}
 
 	this.addMonster = function(){
 		//sets the database record with the monster data
@@ -673,13 +743,11 @@ function Monster(monsterId){
 			description : this.description,
 			img : this.img,
 			attributes : this.attributes,
-			attacks : this.attacks,
-			hits : this.hits,
-			blocks : this.blocks,
-			boss: false
+			boss: this.boss
 		});
 	}
 	this.syncData = function(){
+		
 		firebaseRef.child('monsters').child(this.id).on('value', function(snapshot){
 			console.log('syncing monster data');
 			var dataSet = snapshot.val();
@@ -708,8 +776,11 @@ function Monster(monsterId){
 						}
 						this.description = dataSet[key];
 					}
+					if(key == 'boss'){
+						this.boss = dataSet[key];	
+					}
 					
-					if(key == 'img'){ //update the item image 
+					if(key == 'img'){ //update the item image
 						if(sym && typeof sym.getSymbol('monster-image') != 'undefined' && sym.getSymbol('monster-image').$('image').length > 0){
 						sym.getSymbol('monster-image').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
 						}
@@ -727,7 +798,6 @@ function Monster(monsterId){
 									sym.$('AttackAttribute').html('');
 									//update primary attribute element
 									sym.$('AttackAttribute').append('<img class="'+dataSet[key][attributeKey]+'" src="images/'+dataSet[key][attributeKey]+'.png" />' );
-									sym.$('AttackAttribute').append('<img class="'+dataSet[key][attributeKey]+'" src="images/'+dataSet[key][attributeKey]+'.png" />' );
 								}
 							}
 							else if(attributeKey == 'secondary'){
@@ -736,7 +806,7 @@ function Monster(monsterId){
 									//update secondary attribute element
 									sym.$('DefenseAttribute').append('<img class="'+dataSet[key][attributeKey]+'" src="images/'+dataSet[key][attributeKey]+'.png" />' );
 								}
-							}		
+							}			
 						}
 						this.attributes = dataSet[key];	
 					}
@@ -755,20 +825,52 @@ function Monster(monsterId){
 	this.attack = function(player, diceRoll){
 
 	//attack the player with the monster's primary attribute. Rolls 20-attribute for a hit.
-		var attackScore = 10; //20 - primary attribute X 2;
-		var winner = false;
-		console.log('Monster Attributes: ');
-		console.log(this.attributes);
-		if(!this.boss){ this.hitCount = 0;} //bosses get multiple attacks
-		if(diceRoll >= attackScore){
-			this.hits = true;
-		}
-		else{
-			this.hits = false;
-		}
-		this.attacks = this.attacks - 1;
+			if(diceRoll == 20){
+					alert('What kind of monster rolls a nat 20?! Somebody must have rigged the dice...');
+				}
+			var attackScore = 10; //20 - primary attribute X 2;
+			var winner = false;
 
-		player.setFrame('monster-attack-start');
+			if(!this.boss){ 
+				this.hitCount = 0;
+			
+				if(diceRoll >= attackScore){
+					this.hits = true;
+				}
+				else{
+					this.hits = false;
+				}
+				this.attacks = this.attacks - 1;
+				
+				player.setFrame('monster-attack-start');
+			} //bosses get multiple attacks
+			
+			else if(this.boss == true){				
+				
+				attackScore = 5;
+				if(this.secondAttack === true){
+					if(diceRoll >= attackScore){
+						this.hits = true;
+					}
+					else{
+						this.hits = false;
+					}
+					player.setFrame('boss-attack-2-start');
+				}
+				else{
+					if(diceRoll >= attackScore){
+						this.hits = true;
+					}
+					else{
+						this.hits = false;
+					}
+	                player.setFrame('boss-attack-start');
+				}
+
+			}
+
+		
+
 		
 
 	//player attacks back
@@ -783,9 +885,13 @@ function Monster(monsterId){
 
 /* -------  Player Attack and Defend -------- */
 Player.prototype.blockAttack = function(monster, diceRoll){
+
 		var attributeId = monster.attributes.primary;
 		var defendScore = 20 - (this.attributes[attributeId] * 5);
 		console.log('block: ' + diceRoll+ ' : ' + defendScore);
+		if(diceRoll == 20){
+			alert('Whoa Dog! You rolled a nat 20! Y\'all got skills for sure.');
+		}
 		if(diceRoll >= defendScore){
 			this.blocks = true;
 		}
@@ -803,7 +909,9 @@ Player.prototype.attack = function(monster, diceRoll){
 		console.log('attack: '+ diceRoll + ' : ' +  attackScore);
 		monster.blocks == false;
 
-		
+		if(diceRoll == 20){
+			alert('Whoa Dog! You rolled a nat 20! Y\'all got skills for sure.');
+		}
 		if(diceRoll >= attackScore){
 			
 			this.hits = true;
@@ -844,21 +952,36 @@ function battleResults(monster, player, sym){
 	if(monster.hitCount > player.hitCount){
 		console.log(monster.title + ' Wins!');
 		//monster defeats you and you lose all your stuff.
-		sym.play('monster-wins');
+		if(monster.boss != true){
+		 sym.play('monster-wins');
+		}
+		else{
+			sym.play('boss-wins');
+		}
 
 	}
 	else if(monster.hitCount == player.hitCount){
 		console.log('Tie Game');
 		monster.status.html('Tie Game!');
 		
+		if(monster.boss != true){
 		sym.play();
+		}
+		else{
+			sym.play('boss-tie');
+		}
 
 		
 	}
 	else if(player.hitCount > monster.hitCount){
 		player.wins = true;
-		console.log('You Defeated the Monster!');
-		sym.play('player-wins');
+		if(monster.boss != true){
+			console.log('You Defeated the Monster!');
+			sym.play('player-wins');
+			}
+		else{
+			sym.play('player-beats-boss');
+		}
 			
 	}
 }
