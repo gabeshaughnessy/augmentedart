@@ -10,7 +10,6 @@ $.urlParam = function(name){
 }
 // usage: console.log($.urlParam('playerId'));
 
-
 /* Check if data exists in Firebase */
 function itemExistsCallback(itemId, exists) {
         if (exists) {
@@ -53,12 +52,38 @@ function isEmpty(obj) {
 
 /* --- Globals --- */
 
+
+var isLocal = false;
+var isProduction = new RegExp('[\?augmentedart]').exec(window.location.host);
+if(isProduction == null){
+	isLocal = true;
+	isProduction = false;
+}
+else{
+	isProduction = true;
+}
+console.log('isLocal? :' + isLocal);
+console.log('isProduction? :' + isProduction);
+
+
+if(isLocal){
+	var imgPath = 'images/';
+}
+else{
+	var imgPath = '/dungeon-hacker/edge-animations/images/';
+}
+
 /* Sets up connection to Firebase */
 var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
 
 /* Player Card URL */
+if(isProduction){
 var playerCardURL = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html';
+}
+else{
+	var playerCardURL = 'player-card.html';
 
+}
 if( $.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
       var playerId = $.urlParam('playerId');
    }
@@ -549,7 +574,7 @@ function Item(){
 	this.title = 'Default Item Title';
 	this.description = 'This is the default item description';
 	this.attributes = {'creativity' : 1};
-	this.img = 'images/default-item.png';
+	this.img = '/dungeon-hacker/edge-animations/images/default-item.png';
 	this.price = 1;
 
 	this.getItemData = function(){//intial data for the item
@@ -564,37 +589,37 @@ function Item(){
 			this.title = 'Glove of Power';
 			this.description = 'The glove of power increases your charisma '
 			this.attributes = {'knowledge' : 1};
-			this.img = 'images/glove-of-power.png';
+			this.img = imgPath+'glove-of-power.png';
 		}
 		else if(this.itemId == 'bluetooth-axe'){
 			this.title = 'Blue Tooth Battle Axe';
 			this.description = 'Comes with a speaker so you can listen to Slayer while you slay. Also has a bottle opener for breaktime. '
 			this.attributes = {'creativity' : 1};
-			this.img = 'images/battle-axe.png';
+			this.img = imgPath+'battle-axe.png';
 		}
 		else if(this.itemId == 'mouse-of-nine-heads'){
 			this.title = 'Mouse of Nine Heads';
 			this.description = 'Cat of Nine Tails, look the F out, there is no esc from this. '
 			this.attributes = {'charisma' : 1};
-			this.img = 'images/mouse-of-nine-heads.png';
+			this.img = imgPath+'mouse-of-nine-heads.png';
 		}
 		else if(this.itemId == 'wifi-shield'){
 			this.title = 'Shield of WiFi';
 			this.description = 'Blocks excess data charges, but leaves you a bit exposed. '
 			this.attributes = {'knowledge' : 1};
-			this.img = 'images/wifi-shield.png';
+			this.img = imgPath+'wifi-shield.png';
 		}
 		else if(this.itemId == 'sword-calc'){
 			this.title = 'Sword of Calculating';
 			this.description = 'Just add this sword, subtract your enemy\'s limbs, divide their skull, and multiply the carnage.'
 			this.attributes = {'creativity' : 1};
-			this.img = 'images/sword-calc.png';
+			this.img = imgPath+'sword-calc.png';
 		}
 		else if(this.itemId == 'blue-ribbon-potion'){
 			this.title = 'Blue Ribbon Potion';
 			this.description = 'Do you need a frosty sippy-poo of courage? Thish wool totally do-er bud.'
 			this.attributes = {'charisma' : 1};
-			this.img = 'images/potion.png';
+			this.img = imgPath+'potion.png';
 		}
 
 	}
