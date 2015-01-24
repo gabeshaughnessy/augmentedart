@@ -40,15 +40,11 @@ remove_action( 'init', 'wp_admin_bar_init' );
  p{
  	margin:0;
  }
- #mobile-toggle{
-  display: none !mportant;
- }
  </style>
-<script type="text/javascript">
+<script type="text/javascript">\
+//hide the menu
 jQuery(document).ready(function($){
-   alert($('#mobile-toggle').css('display'));
   $('#mobile-toggle').css('display', 'none');
-    alert($('#mobile-toggle').css('display'));
 });
 </script>
 <?php while ( have_posts() ) : the_post(); ?>
