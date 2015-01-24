@@ -13,7 +13,7 @@ if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
 else {
     $is_android = false;
 }
-$user_id = $_REQUEST['userId'];
+$user_id = 'layar_client_'.$_REQUEST['userId'];
 
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();
