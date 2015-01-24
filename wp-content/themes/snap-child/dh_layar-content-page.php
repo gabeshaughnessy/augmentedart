@@ -44,12 +44,15 @@ remove_action( 'init', 'wp_admin_bar_init' );
   display: none !mportant;
  }
  </style>
-
-<?php while ( have_posts() ) : the_post(); ?>
- <script type="text/javascript">
+<script type="text/javascript">
 jQuery(document).ready(function($){
    alert($('#mobile-toggle').css('display'));
+   alert($('#mobile-toggle').css('display', 'none'));
+    alert($('#mobile-toggle').css('display'));
 });
+</script>
+<?php while ( have_posts() ) : the_post(); ?>
+ <script type="text/javascript">
  //The global Javascript variables from the Layar client and WordPress go here
  var playerId = "<?php  echo $user_id; ?>";
  </script>
