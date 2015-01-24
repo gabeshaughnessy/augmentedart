@@ -20,7 +20,7 @@ var symbols = {
     build: "4.0.0.359",
     baseState: "Base State",
     scaleToFit: "none",
-    centerStage: "both",
+    centerStage: "none",
     initialState: "Base State",
     gpuAccelerate: false,
     resizeInstances: false,
@@ -45,16 +45,16 @@ var symbols = {
         "Base State": {
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "width", '400px'],
+                ["style", "overflow", 'hidden'],
                 ["style", "height", '400px'],
-                ["style", "overflow", 'hidden']
+                ["style", "width", '400px']
             ],
             "${_PlayerImage}": [
-                ["style", "top", '-18px'],
+                ["style", "top", '-13px'],
                 ["transform", "scaleY", '0.91394'],
                 ["transform", "scaleX", '0.91394'],
                 ["style", "opacity", '1'],
-                ["style", "left", '-18px']
+                ["style", "left", '-19px']
             ]
         }
     },
@@ -69,11 +69,11 @@ var symbols = {
                 "selected": 500
             },
             timeline: [
-                { id: "eid18", tween: [ "transform", "${_PlayerImage}", "scaleX", '0.91394', { fromValue: '0.91394'}], position: 0, duration: 0 },
                 { id: "eid19", tween: [ "transform", "${_PlayerImage}", "scaleY", '0.91394', { fromValue: '0.91394'}], position: 0, duration: 0 },
                 { id: "eid27", tween: [ "style", "${_PlayerImage}", "opacity", '0.15837824901914', { fromValue: '1'}], position: 0, duration: 500 },
-                { id: "eid20", tween: [ "style", "${_PlayerImage}", "left", '-18px', { fromValue: '-18px'}], position: 0, duration: 0 },
-                { id: "eid21", tween: [ "style", "${_PlayerImage}", "top", '-18px', { fromValue: '-18px'}], position: 0, duration: 0 }            ]
+                { id: "eid20", tween: [ "style", "${_PlayerImage}", "left", '-19px', { fromValue: '-19px'}], position: 0, duration: 0 },
+                { id: "eid18", tween: [ "transform", "${_PlayerImage}", "scaleX", '0.91394', { fromValue: '0.91394'}], position: 0, duration: 0 },
+                { id: "eid21", tween: [ "style", "${_PlayerImage}", "top", '-13px', { fromValue: '-13px'}], position: 0, duration: 0 }            ]
         }
     }
 },
@@ -102,8 +102,8 @@ var symbols = {
     states: {
         "Base State": {
             "${_image}": [
-                ["style", "height", '88.51%'],
                 ["style", "top", '0px'],
+                ["style", "height", '88.51%'],
                 ["style", "left", '0px'],
                 ["style", "width", '90.84%']
             ],
@@ -145,12 +145,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)']
                 },
                 {
-                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto'],
                     font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
+                    type: 'text',
                     id: 'Text',
                     text: 'Select This Character',
                     align: 'center',
-                    type: 'text'
+                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto']
                 }
             ],
             symbolInstances: [
@@ -210,12 +210,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)'],
                     c: [
                     {
-                        rect: ['14px', '13px', 'auto', 'auto', 'auto', 'auto'],
                         font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
+                        type: 'text',
                         id: 'Text4',
                         text: 'Selected! - View Player Card',
                         align: 'center',
-                        type: 'text'
+                        rect: ['14px', '13px', 'auto', 'auto', 'auto', 'auto']
                     }]
                 }
             ],
@@ -229,14 +229,14 @@ var symbols = {
                 ["style", "left", '0px'],
                 ["color", "background-color", 'rgba(210,210,210,1.00)']
             ],
-            "${symbolSelector}": [
-                ["style", "height", '47px'],
-                ["style", "width", '308px']
-            ],
             "${_Text4}": [
                 ["style", "top", '13px'],
                 ["style", "left", '14px'],
                 ["style", "font-size", '16px']
+            ],
+            "${symbolSelector}": [
+                ["style", "height", '47px'],
+                ["style", "width", '308px']
             ]
         }
     },

@@ -20,7 +20,7 @@ var symbols = {
     build: "4.0.0.359",
     baseState: "Base State",
     scaleToFit: "none",
-    centerStage: "both",
+    centerStage: "none",
     initialState: "Base State",
     gpuAccelerate: false,
     resizeInstances: false,
@@ -235,12 +235,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)']
                 },
                 {
+                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto'],
                     font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
-                    type: 'text',
                     id: 'Text',
                     text: 'Select This Character',
                     align: 'center',
-                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto']
+                    type: 'text'
                 }
             ],
             symbolInstances: [

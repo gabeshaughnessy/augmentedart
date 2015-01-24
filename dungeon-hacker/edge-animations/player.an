@@ -70,7 +70,7 @@
 	"expanded:images/kiosk-bg.jpg":"nil",
 	"expanded:images/Poster4.png":"nil",
 	"expanded:images/the-gibson.jpg":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
 	"usedBOM":"false",
 	"expanded:images/potion.png":"nil",
 	"expanded:images/default-item.png":"nil",

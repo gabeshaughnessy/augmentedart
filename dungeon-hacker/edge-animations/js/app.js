@@ -218,14 +218,22 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	this.loadData = function(sym){
 		//initial composition setup - populates data based on character classes, but does not interact with firebase yet.
-		sym.$('Player-Title').html( player.title );//update the title symbol
-		sym.$('Description').html( player.description ); //update the description symbol
-		sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+player.playerImg+')');
-		sym.$('Attributes').html('');
-		for(var attributeKey in player.attributes){ 
-			
-			for(var i = 0; i < player.attributes[attributeKey]; i++){
-				sym.$('Attributes').append('<img class="'+attributeKey+'" src="images/'+attributeKey+'.png" />' );
+		if(sym.$('Player-Title').length > 0){
+			sym.$('Player-Title').html( player.title );//update the title symbol
+		}
+		if(sym.$('Description').length > 0){
+			sym.$('Description').html( player.description ); //update the description symbol
+		}
+		if(sym.$('PlayerImage').length > 0){
+			sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+player.playerImg+')');
+		}
+		if(sym.$('Attributes').length > 0){
+			sym.$('Attributes').html('');
+			for(var attributeKey in player.attributes){ 
+				
+				for(var i = 0; i < player.attributes[attributeKey]; i++){
+					sym.$('Attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
+				}
 			}
 		}
 	}
@@ -756,6 +764,28 @@ function Monster(monsterId){
 			this.attributes = {
 				primary : 'charisma',
 				secondary : 'creativity'
+			};
+		}
+		if(this.monsterId == 'viral-swarm'){
+			this.id = monsterId;
+			this.title = 'The Virus Swarm';
+			this.description = 'Once defeated by these nasty bugs, you become a part of their botnet.';
+			this.img = imgPath+'viral-swarm.png';
+			this.boss = false;
+			this.attributes = {
+				primary : 'creativity',
+				secondary : 'knowledge'
+			};
+		}
+		if(this.monsterId == 'brogrammer'){
+			this.id = monsterId;
+			this.title = 'The Raging Brogrammer';
+			this.description = 'His brute-force attack is sure to overwhelm your system.';
+			this.img = imgPath+'brogrammer.png';
+			this.boss = false;
+			this.attributes = {
+				primary : 'knowledge',
+				secondary : 'charisma'
 			};
 		}
 	}
