@@ -47,7 +47,7 @@ remove_action( 'init', 'wp_admin_bar_init' );
 <script type="text/javascript">
 jQuery(document).ready(function($){
    alert($('#mobile-toggle').css('display'));
-   alert($('#mobile-toggle').css('display', 'none'));
+  $('#mobile-toggle').css('display', 'none');
     alert($('#mobile-toggle').css('display'));
 });
 </script>
