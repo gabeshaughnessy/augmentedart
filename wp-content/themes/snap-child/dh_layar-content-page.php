@@ -35,9 +35,13 @@ remove_action( 'init', 'wp_admin_bar_init' );
  <style type="text/css">
  html{
  	margin-top: 0 !important;
+
  }
  p{
  	margin:0;
+ }
+ #mobile-toggle{
+  display: none !mportant;
  }
  </style>
 
