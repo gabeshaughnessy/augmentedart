@@ -41,7 +41,7 @@ remove_action( 'init', 'wp_admin_bar_init' );
  	margin:0;
  }
  </style>
-<script type="text/javascript">\
+<script type="text/javascript">
 //hide the menu
 jQuery(document).ready(function($){
   $('#mobile-toggle').css('display', 'none');
