@@ -1,5 +1,5 @@
 /* Get URL PARAMS */
-$.urlParam = function(name){
+jQuery.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null){
        return null;
@@ -8,7 +8,7 @@ $.urlParam = function(name){
        return results[1] || 0;
     }
 }
-// usage: console.log($.urlParam('playerId'));
+// usage: console.log(jQuery.urlParam('playerId'));
 
 /* Check if data exists in Firebase */
 function itemExistsCallback(itemId, exists) {
@@ -54,10 +54,15 @@ function isEmpty(obj) {
 
 
 var isLocal = false;
-var isProduction = new RegExp('[\?augmentedart]').exec(window.location.host);
-if(isProduction == null){
+var isProduction = window.location.host.indexOf('.com');
+var isWordpress = window.location.host.indexOf('augmentedart');
+
+if(isProduction == -1){
 	isLocal = true;
 	isProduction = false;
+	if(isWordpress != -1){
+		isWordpress = true;
+	}
 }
 else{
 	isProduction = true;
@@ -68,6 +73,9 @@ console.log('isProduction? :' + isProduction);
 
 if(isLocal){
 	var imgPath = 'images/';
+	if(isWordpress){
+		imgPath = '/dungeon-hacker/edge-animations/images/';
+	}
 }
 else{
 	var imgPath = '/dungeon-hacker/edge-animations/images/';
@@ -83,8 +91,8 @@ var playerCardURL = 'http://augmentedart.com/dungeon-hacker/edge-animations/play
 else{
 	var playerCardURL = 'player-card.html';
 }
-if( $.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
-      var playerId = $.urlParam('playerId');
+if( jQuery.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
+      var playerId = jQuery.urlParam('playerId');
    }
    else{
 	if(typeof playerId != 'undefined'){//then if playerId is set globally elsewhere, like from the layar client, for example, then leave it be.
@@ -98,8 +106,8 @@ var player = new Player(playerId);
 
 
 if(typeof itemId == 'undefined'){
- if( $.urlParam('itemId') != null){
-   var itemId = $.urlParam('itemId');
+ if( jQuery.urlParam('itemId') != null){
+   var itemId = jQuery.urlParam('itemId');
   }
   else{
     var itemId = 'default-item';
@@ -108,8 +116,8 @@ if(typeof itemId == 'undefined'){
 var item = new Item(itemId);
 
 if(typeof monsterId == 'undefined'){
-	if($.urlParam('monsterId') != null){
-		var monsterId = $.urlParam('monsterId');
+	if(jQuery.urlParam('monsterId') != null){
+		var monsterId = jQuery.urlParam('monsterId');
 	}
 	else{
 		var monsterId = 'default-monster';
@@ -162,11 +170,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	
 
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
-		if($.urlParam('playerClass') == null){
+		if(jQuery.urlParam('playerClass') == null){
 			this.playerClass = 'Default Character Class';
 		}
 		else{
-			this.playerClass = $.urlParam('playerClass');
+			this.playerClass = jQuery.urlParam('playerClass');
 
 		}
 		if(this.playerClass == 'project-manager'){
@@ -218,16 +226,28 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	this.loadData = function(sym){
 		//initial composition setup - populates data based on character classes, but does not interact with firebase yet.
-		if(sym.$('Player-Title').length > 0){
+		if(sym && sym.$('Player-Title').length > 0){
 			sym.$('Player-Title').html( player.title );//update the title symbol
 		}
-		if(sym.$('Description').length > 0){
+		else if(jQuery('#player-title').length > 0){
+			jQuery('#player-title').html( player.title );//update the title symbol
+		}
+
+		if(sym && sym.$('Description').length > 0){
 			sym.$('Description').html( player.description ); //update the description symbol
 		}
-		if(sym.$('PlayerImage').length > 0){
+		else if(jQuery('#description').length > 0){
+			jQuery('#description').html( player.description );//update the title symbol
+		}
+
+		if(sym && sym.$('PlayerImage').length > 0){
 			sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+player.playerImg+')');
 		}
-		if(sym.$('Attributes').length > 0){
+		else if(jQuery('#player-image').length > 0){
+			jQuery('#player-image').find('img').attr( 'src',  player.playerImg );//update the title symbol
+		}
+
+		if(sym && sym.$('Attributes').length > 0){
 			sym.$('Attributes').html('');
 			for(var attributeKey in player.attributes){ 
 				
@@ -236,6 +256,16 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				}
 			}
 		}
+		else if(jQuery('#player-attributes').length > 0){
+			jQuery('#player-attributes').html('');
+			for(var attributeKey in player.attributes){ 
+				
+				for(var i = 0; i < player.attributes[attributeKey]; i++){
+					jQuery('#player-attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
+				}
+			}
+		}
+
 	}
 	
 	this.addPlayer = function(){ //create a new player entry in the db or replace existing player entry - this triggers when you select the player.
@@ -365,20 +395,26 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.id).once("value", function(snapshot){
 			var dataSet = snapshot.val();
 		    
-		    if(typeof AdobeEdge.getComposition('player') != 'undefined'){
-				var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+		    if(typeof AdobeEdge != 'undefined'){
+			    if(typeof AdobeEdge.getComposition('player') != 'undefined'){
+					var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+				}
+				else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
+					var sym = AdobeEdge.getComposition('item').getStage();
+				}
+				else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
+					var sym = AdobeEdge.getComposition('monster').getStage();
+				}
+				else {
+					console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+					var sym = false;
+			
+				}
 			}
-			else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
-				var sym = AdobeEdge.getComposition('item').getStage();
+			else{
+				sym = false;
 			}
-			else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
-				var sym = AdobeEdge.getComposition('monster').getStage();
-			}
-			else {
-				console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
-				var sym = false;
-		
-			}
+
 			for(var key in dataSet){
 				if (dataSet.hasOwnProperty(key)) {
 					if(key == 'gameState'){
@@ -408,7 +444,8 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						}	
 					}
 				}
-			}
+				}
+			
 		});
 		
 	  firebaseRef.child('players').child(this.id).on("value", function(snapshot) {
@@ -416,19 +453,24 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  	//The 'value' event fires once on load and whenever a value changes. 
 	  var dataSet = snapshot.val(); //js object with the complete data set for the player.
 	 
-	  if(typeof AdobeEdge.getComposition('player') != 'undefined'){
-		  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+	  if(typeof AdobeEdge != 'undefined'){
+		  if(typeof AdobeEdge.getComposition('player') != 'undefined'){
+			  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+			}
+			else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
+					var sym = AdobeEdge.getComposition('item').getStage();
+				}
+			else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
+					var sym = AdobeEdge.getComposition('monster').getStage();
+				}
+			else {
+				console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+				var sym = false;
+		
+			}
 		}
-		else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
-				var sym = AdobeEdge.getComposition('item').getStage();
-			}
-		else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
-				var sym = AdobeEdge.getComposition('monster').getStage();
-			}
-		else {
-			console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
-			var sym = false;
-	
+		else{
+			sym = false;
 		}
 
 		/* Clean things up first */
@@ -440,6 +482,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Player-Title') != 'undefined'){
 						sym.$('Player-Title').html( dataSet[key]);//update the title symbol
 					}
+					else if(jQuery('#player-title').length > 0){
+						jQuery('#player-title').html(dataSet[key]);
+					}
 					_this.title = dataSet[key];
 					
 				}
@@ -448,12 +493,18 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Description') != 'undefined'){
 						sym.$('Description').html( dataSet[key]); //update the description symbol
 					}
+					else if(jQuery('#description').length > 0){
+						jQuery('#description').html(dataSet[key]);
+					}
 					_this.description = dataSet[key];
 				}
 				
 				if(key == 'playerImg'){ //update the playerImg 
 					if(sym && typeof sym.getSymbol('PlayerImage') != 'undefined' && sym.getSymbol('PlayerImage').$('image').length > 0){
 					sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+					}
+					else if(jQuery('#player-image').length > 0){
+						jQuery('#player-image').find('img').attr('src', dataSet[key]);
 					}
 					_this.playerImg = dataSet[key];
 				}
@@ -470,6 +521,16 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							}
 						}
 					}
+					else if(jQuery('#player-attributes').length > 0){
+						jQuery('#player-attributes').html('');
+						for(var attributeKey in dataSet[key]){ 
+							
+							for(var i = 0; i < dataSet[key][attributeKey]; i++){
+								jQuery('#player-attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
+								
+							}
+						}
+					}
 					isDead = false;
 					_this.attributes = dataSet[key];
 
@@ -482,6 +543,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						sym.$('CryptoCredits').html('');
 						for(var credits = 0; credits < 	dataSet[key]; credits++){
 							sym.$('CryptoCredits').append( '<img class="crypto-credit" src="'+imgPath+'crypto-credit.png" />');//add another crypto credit
+						}
+					}
+					else if(jQuery('#crypto-credits').length > 0){
+						jQuery('#crypto-credits').html('');
+						for(var credits = 0; credits < 	dataSet[key]; credits++){
+							jQuery('#crypto-credits').append( '<img class="crypto-credit" src="'+imgPath+'crypto-credit.png" />');//add another crypto credit
 						}
 					}
 					_this.cryptoCredits = dataSet[key];
@@ -517,6 +584,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							console.log(itemSymbol.getSymbol('item-image-container').$('image').css('backgroundImage'));
 		
 							}
+						else if(jQuery('#inventory').length > 0 ){
+							jQuery('#inventory').html('');
+							jQuery('#inventory').append('<div class="inventory-item"><img class="item-image" width="20%" height="auto" src="'+dataSet[key][inventoryItem].img+'" /><div class="item-info"><h5 class="item-title">'+dataSet[key][inventoryItem].title+'</h5><p class="item-description">'+dataSet[key][inventoryItem].description+'</p></div></div>');
+
+	
+						}
 
 
 					}
@@ -546,7 +619,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 							monsterSymbol.getSymbol('monster-image-container').$('monster-image').css('backgroundImage', 'url('+dataSet[key][monsterItem].img+')');
 		
-							}
+						}
+
+						else if(jQuery('#monsters-defeated').length > 0){
+							jQuery('#monsters-defeated').html('');
+							jQuery('#monsters-defeated').append('<div class="monster"><img class="monster-image" width="20%" height="auto" src="'+dataSet[key][monsterItem].img+'" /><div class="monster-info"><h5 class="monster-title">'+dataSet[key][monsterItem].title+'</h5><p class="monster-description">'+dataSet[key][monsterItem].description+'</p></div></div>');
+
+						}
 
 
 					}
@@ -562,7 +641,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  /* check if player has attributes - otherwise they are dead*/
 		if(isDead){
 			_this.setFrame('dead');
-			sym.stop('dead');
+			if(sym){
+				sym.stop('dead');
+			}
+			else{
+				jQuery('#player-image').find('img').attr('src', imgPath+'zombie.png');
+			}
 		}
 	
 	}, function (errorObject) {//fires when firebase fails to read data.
@@ -584,11 +668,11 @@ function Item(){
 	this.price = 1;
 
 	this.getItemData = function(){//intial data for the item
-		if($.urlParam('itemId') == null){
+		if(jQuery.urlParam('itemId') == null){
 			this.itemId = 'Default Item Class';
 		}
 		else{
-			this.itemId = $.urlParam('itemId');
+			this.itemId = jQuery.urlParam('itemId');
 
 		}
 		if(this.itemId == 'glove-of-power'){
@@ -736,11 +820,11 @@ function Monster(monsterId){
 	this.secondAttack = false;
 
 	this.getMonsterData = function(){//intial data for the item
-		if($.urlParam('monsterId') == null){
+		if(jQuery.urlParam('monsterId') == null){
 			this.monsterId = 'This Monster';
 		}
 		else{
-			this.monsterId = $.urlParam('monsterId');
+			this.monsterId = jQuery.urlParam('monsterId');
 
 		}
 		if(this.monsterId == 'the-gibson'){
@@ -872,7 +956,8 @@ function Monster(monsterId){
 		});
 	}
 	this.goToFrame = function(sym, frameLabel){
-		if(typeof sym != 'undefined'){
+		if(sym && typeof sym != 'undefined'){
+
 			sym.play(frameLabel);
 		}
 	}
