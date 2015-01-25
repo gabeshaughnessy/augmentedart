@@ -20,17 +20,17 @@ var symbols = {
     build: "4.0.0.359",
     baseState: "Base State",
     scaleToFit: "none",
-    centerStage: "horizontal",
+    centerStage: "none",
     initialState: "Base State",
     gpuAccelerate: false,
     resizeInstances: false,
     content: {
             dom: [
             {
-                id: 'paper-bg',
+                id: 'player-card-paper-bg',
                 type: 'image',
-                rect: ['-80px', '-8px','600px','1600px','auto', 'auto'],
-                fill: ["rgba(0,0,0,0)",im+"paper-bg.jpg",'0px','0px']
+                rect: ['1', '0','100%','100%','auto', 'auto'],
+                fill: ["rgba(0,0,0,0)",im+"player-card-paper-bg.jpg",'0px','0px']
             },
             {
                 id: 'Monsters',
@@ -150,13 +150,13 @@ var symbols = {
         "Base State": {
             "${_CryptoCreditsLabel}": [
                 ["style", "top", '286px'],
-                ["style", "height", '22px'],
-                ["style", "font-size", '15px'],
-                ["style", "font-weight", 'bold'],
+                ["style", "width", '183px'],
                 ["color", "color", 'rgba(62,61,61,1.00)'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "height", '22px'],
+                ["style", "font-weight", 'bold'],
                 ["style", "left", '215px'],
-                ["style", "width", '183px']
+                ["style", "font-size", '15px']
             ],
             "${_PlayerImage}": [
                 ["style", "top", '71px'],
@@ -171,52 +171,28 @@ var symbols = {
             ],
             "${_AttributesLabel}": [
                 ["style", "top", '162px'],
-                ["style", "width", '185px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["color", "color", 'rgba(62,61,61,1.00)'],
+                ["style", "font-size", '15px'],
                 ["style", "font-weight", 'bold'],
+                ["color", "color", 'rgba(62,61,61,1.00)'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '215px'],
-                ["style", "font-size", '15px']
+                ["style", "width", '185px']
             ],
             "${_Description}": [
                 ["style", "top", '125px'],
-                ["style", "width", '395px'],
-                ["style", "height", '84px'],
+                ["style", "font-size", '16px'],
                 ["color", "color", 'rgba(62,61,61,1.00)'],
+                ["style", "height", '84px'],
                 ["style", "font-family", 'Lucida Console, Monaco, monospace'],
                 ["style", "left", '5px'],
-                ["style", "font-size", '16px']
+                ["style", "width", '395px']
             ],
             "${_logo}": [
                 ["style", "height", '3.59%'],
                 ["style", "width", '100%']
             ],
-            "${_CryptoCredits}": [
-                ["color", "background-color", 'rgba(192,192,192,0.00)'],
-                ["style", "height", '77px'],
-                ["style", "top", '308px'],
-                ["style", "left", '214px'],
-                ["style", "width", '181px']
-            ],
-            "${_page_label}": [
-                ["style", "top", '56px'],
-                ["style", "text-align", 'center'],
-                ["color", "color", 'rgba(60,60,60,1.00)'],
-                ["style", "width", '100%'],
-                ["style", "height", '2.01%'],
-                ["style", "font-size", '13px']
-            ],
-            "${_Attributes}": [
-                ["style", "top", '187px'],
-                ["color", "background-color", 'rgba(192,192,192,0)'],
-                ["style", "border-width", '1px'],
-                ["style", "height", '84px'],
-                ["style", "border-style", 'none'],
-                ["style", "left", '214px'],
-                ["style", "width", '184px']
-            ],
-            "${_MonstersLabel}": [
-                ["style", "top", '1117px'],
+            "${_SharingLabel}": [
+                ["style", "top", '1424px'],
                 ["style", "font-size", '15px'],
                 ["style", "font-weight", 'bold'],
                 ["color", "color", 'rgba(62,61,61,1)'],
@@ -224,33 +200,31 @@ var symbols = {
                 ["style", "left", '5px'],
                 ["style", "width", '390px']
             ],
-            "${_InventoryLabel}": [
-                ["style", "top", '424px'],
-                ["style", "width", '390px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["color", "color", 'rgba(62,61,61,1.00)'],
-                ["style", "font-weight", 'bold'],
-                ["style", "left", '5px'],
-                ["style", "font-size", '15px']
+            "${_page_label}": [
+                ["style", "top", '56px'],
+                ["style", "text-align", 'center'],
+                ["color", "color", 'rgba(60,60,60,1.00)'],
+                ["style", "font-size", '13px'],
+                ["style", "height", '2.01%'],
+                ["style", "width", '100%']
             ],
-            "${_SharingLabel}": [
-                ["style", "top", '1424px'],
+            "${_Attributes}": [
+                ["style", "top", '187px'],
+                ["color", "background-color", 'rgba(192,192,192,0)'],
+                ["style", "left", '214px'],
+                ["style", "height", '84px'],
+                ["style", "border-style", 'none'],
+                ["style", "border-width", '1px'],
+                ["style", "width", '184px']
+            ],
+            "${_MonstersLabel}": [
+                ["style", "top", '1117px'],
                 ["style", "width", '390px'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["color", "color", 'rgba(62,61,61,1)'],
                 ["style", "font-weight", 'bold'],
                 ["style", "left", '5px'],
                 ["style", "font-size", '15px']
-            ],
-            "${_Stage}": [
-                ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "overflow", 'hidden'],
-                ["style", "height", '1590px'],
-                ["style", "width", '400px']
-            ],
-            "${_Sharing}": [
-                ["style", "height", '84px'],
-                ["style", "top", '1338px']
             ],
             "${_Player-Title}": [
                 ["color", "color", 'rgba(62,61,61,1.00)'],
@@ -264,11 +238,31 @@ var symbols = {
                 ["style", "word-spacing", '0px'],
                 ["transform", "scaleX", '1']
             ],
-            "${_paper-bg}": [
-                ["style", "top", '-8px'],
-                ["style", "height", '1600px'],
-                ["style", "left", '-80px'],
-                ["style", "width", '600px']
+            "${_Stage}": [
+                ["color", "background-color", 'rgba(255,255,255,0.00)'],
+                ["style", "width", '400px'],
+                ["style", "height", '800px'],
+                ["style", "overflow", 'visible']
+            ],
+            "${_CryptoCredits}": [
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
+                ["style", "height", '77px'],
+                ["style", "top", '308px'],
+                ["style", "left", '214px'],
+                ["style", "width", '181px']
+            ],
+            "${_Sharing}": [
+                ["style", "height", '84px'],
+                ["style", "top", '1338px']
+            ],
+            "${_InventoryLabel}": [
+                ["style", "top", '424px'],
+                ["style", "font-size", '15px'],
+                ["style", "font-weight", 'bold'],
+                ["color", "color", 'rgba(62,61,61,1.00)'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["style", "left", '5px'],
+                ["style", "width", '390px']
             ]
         }
     },
@@ -282,35 +276,35 @@ var symbols = {
                 "default": 0
             },
             timeline: [
+                { id: "eid77", tween: [ "transform", "${_PlayerImage}", "scaleX", '0.46387', { fromValue: '0.46387'}], position: 0, duration: 0 },
+                { id: "eid56", tween: [ "style", "${_Player-Title}", "word-spacing", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
                 { id: "eid62", tween: [ "style", "${_Description}", "width", '395px', { fromValue: '395px'}], position: 0, duration: 0 },
+                { id: "eid54", tween: [ "color", "${_CryptoCreditsLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
+                { id: "eid65", tween: [ "style", "${_CryptoCredits}", "left", '214px', { fromValue: '214px'}], position: 0, duration: 0 },
+                { id: "eid59", tween: [ "style", "${_Player-Title}", "width", '97.5%', { fromValue: '97.5%'}], position: 0, duration: 0 },
                 { id: "eid78", tween: [ "transform", "${_PlayerImage}", "scaleY", '0.46387', { fromValue: '0.46387'}], position: 0, duration: 0 },
                 { id: "eid60", tween: [ "style", "${_Player-Title}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
+                { id: "eid79", tween: [ "style", "${_PlayerImage}", "left", '-117px', { fromValue: '-117px'}], position: 0, duration: 0 },
                 { id: "eid67", tween: [ "style", "${_InventoryLabel}", "top", '424px', { fromValue: '424px'}], position: 0, duration: 0 },
+                { id: "eid51", tween: [ "style", "${_Player-Title}", "top", '89px', { fromValue: '89px'}], position: 0, duration: 0 },
                 { id: "eid85", tween: [ "style", "${_CryptoCredits}", "height", '77px', { fromValue: '77px'}], position: 0, duration: 0 },
+                { id: "eid63", tween: [ "style", "${_CryptoCreditsLabel}", "left", '215px', { fromValue: '215px'}], position: 0, duration: 0 },
+                { id: "eid70", tween: [ "style", "${_InventoryLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
+                { id: "eid66", tween: [ "style", "${_CryptoCredits}", "width", '181px', { fromValue: '181px'}], position: 0, duration: 0 },
+                { id: "eid61", tween: [ "style", "${_Description}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
+                { id: "eid82", tween: [ "style", "${_CryptoCreditsLabel}", "height", '22px', { fromValue: '22px'}], position: 0, duration: 0 },
                 { id: "eid68", tween: [ "color", "${_InventoryLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
+                { id: "eid72", tween: [ "style", "${_AttributesLabel}", "top", '162px', { fromValue: '162px'}], position: 0, duration: 0 },
                 { id: "eid53", tween: [ "color", "${_Description}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
+                { id: "eid52", tween: [ "style", "${_CryptoCredits}", "top", '308px', { fromValue: '308px'}], position: 0, duration: 0 },
                 { id: "eid64", tween: [ "style", "${_CryptoCreditsLabel}", "width", '183px', { fromValue: '183px'}], position: 0, duration: 0 },
                 { id: "eid74", tween: [ "style", "${_AttributesLabel}", "left", '215px', { fromValue: '215px'}], position: 0, duration: 0 },
                 { id: "eid80", tween: [ "style", "${_PlayerImage}", "top", '71px', { fromValue: '71px'}], position: 0, duration: 0 },
                 { id: "eid55", tween: [ "color", "${_Player-Title}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
                 { id: "eid48", tween: [ "style", "${_Description}", "top", '125px', { fromValue: '125px'}], position: 0, duration: 0 },
-                { id: "eid50", tween: [ "style", "${_CryptoCreditsLabel}", "top", '286px', { fromValue: '286px'}], position: 0, duration: 0 },
-                { id: "eid77", tween: [ "transform", "${_PlayerImage}", "scaleX", '0.46387', { fromValue: '0.46387'}], position: 0, duration: 0 },
-                { id: "eid54", tween: [ "color", "${_CryptoCreditsLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
-                { id: "eid59", tween: [ "style", "${_Player-Title}", "width", '97.5%', { fromValue: '97.5%'}], position: 0, duration: 0 },
-                { id: "eid69", tween: [ "style", "${_InventoryLabel}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid73", tween: [ "color", "${_AttributesLabel}", "color", 'rgba(62,61,61,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(62,61,61,1.00)'}], position: 0, duration: 0 },
-                { id: "eid70", tween: [ "style", "${_InventoryLabel}", "width", '390px', { fromValue: '390px'}], position: 0, duration: 0 },
-                { id: "eid82", tween: [ "style", "${_CryptoCreditsLabel}", "height", '22px', { fromValue: '22px'}], position: 0, duration: 0 },
-                { id: "eid72", tween: [ "style", "${_AttributesLabel}", "top", '162px', { fromValue: '162px'}], position: 0, duration: 0 },
-                { id: "eid52", tween: [ "style", "${_CryptoCredits}", "top", '308px', { fromValue: '308px'}], position: 0, duration: 0 },
-                { id: "eid61", tween: [ "style", "${_Description}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
-                { id: "eid66", tween: [ "style", "${_CryptoCredits}", "width", '181px', { fromValue: '181px'}], position: 0, duration: 0 },
-                { id: "eid63", tween: [ "style", "${_CryptoCreditsLabel}", "left", '215px', { fromValue: '215px'}], position: 0, duration: 0 },
-                { id: "eid51", tween: [ "style", "${_Player-Title}", "top", '89px', { fromValue: '89px'}], position: 0, duration: 0 },
-                { id: "eid79", tween: [ "style", "${_PlayerImage}", "left", '-117px', { fromValue: '-117px'}], position: 0, duration: 0 },
-                { id: "eid65", tween: [ "style", "${_CryptoCredits}", "left", '214px', { fromValue: '214px'}], position: 0, duration: 0 },
-                { id: "eid56", tween: [ "style", "${_Player-Title}", "word-spacing", '0px', { fromValue: '0px'}], position: 0, duration: 0 },
+                { id: "eid50", tween: [ "style", "${_CryptoCreditsLabel}", "top", '286px', { fromValue: '286px'}], position: 0, duration: 0 },
+                { id: "eid69", tween: [ "style", "${_InventoryLabel}", "left", '5px', { fromValue: '5px'}], position: 0, duration: 0 },
                 { id: "eid75", tween: [ "style", "${_AttributesLabel}", "width", '185px', { fromValue: '185px'}], position: 0, duration: 0 }            ]
         }
     }
@@ -340,8 +334,8 @@ var symbols = {
     states: {
         "Base State": {
             "${_image}": [
-                ["style", "top", '0px'],
                 ["style", "height", '88.51%'],
+                ["style", "top", '0px'],
                 ["style", "left", '0px'],
                 ["style", "width", '90.84%']
             ],
@@ -383,12 +377,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)']
                 },
                 {
-                    type: 'text',
                     rect: ['32px', '10px', '240px', '37px', 'auto', 'auto'],
+                    font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
                     id: 'Text',
                     text: 'Select This Character',
                     align: 'center',
-                    font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal']
+                    type: 'text'
                 }
             ],
             symbolInstances: [
@@ -448,12 +442,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)'],
                     c: [
                     {
-                        type: 'text',
                         rect: ['62px', '12px', 'auto', 'auto', 'auto', 'auto'],
+                        font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
                         id: 'Text4',
                         text: 'View Player Card',
                         align: 'center',
-                        font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal']
+                        type: 'text'
                     }]
                 }
             ],
@@ -467,14 +461,14 @@ var symbols = {
                 ["style", "left", '0px'],
                 ["color", "background-color", 'rgba(210,210,210,1.00)']
             ],
+            "${symbolSelector}": [
+                ["style", "height", '47px'],
+                ["style", "width", '308px']
+            ],
             "${_Text4}": [
                 ["style", "top", '12px'],
                 ["style", "left", '62px'],
                 ["style", "font-size", '16px']
-            ],
-            "${symbolSelector}": [
-                ["style", "height", '47px'],
-                ["style", "width", '308px']
             ]
         }
     },
@@ -502,10 +496,10 @@ var symbols = {
     content: {
             dom: [
                 {
-                    rect: ['0px', '-79px', '382px', '265px', 'auto', 'auto'],
+                    type: 'rect',
                     id: 'background',
                     stroke: [0, 'rgb(0, 0, 0)', 'none'],
-                    type: 'rect',
+                    rect: ['0px', '-79px', '382px', '265px', 'auto', 'auto'],
                     fill: ['rgba(192,192,192,0)']
                 }
             ],
@@ -549,15 +543,15 @@ var symbols = {
     content: {
             dom: [
                 {
-                    rect: ['92px', '3px', '74.9%', '24%', 'auto', 'auto'],
+                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', '800', 'none', ''],
                     id: 'title',
                     text: 'Item Title',
-                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', '800', 'none', ''],
-                    type: 'text'
+                    type: 'text',
+                    rect: ['92px', '3px', '74.9%', '24%', 'auto', 'auto']
                 },
                 {
-                    rect: ['92px', '25px', '74.9%', '33%', 'auto', 'auto'],
                     font: ['Lucida Console, Monaco, monospace', 12, 'rgba(41,41,41,1.00)', 'normal', 'none', ''],
+                    rect: ['92px', '25px', '74.9%', '33%', 'auto', 'auto'],
                     id: 'description',
                     text: 'Item Description goes here<br>',
                     type: 'text',
@@ -580,27 +574,27 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_description}": [
-                ["style", "top", '25px'],
+            "${_title}": [
+                ["style", "top", '3px'],
                 ["style", "width", '74.87%'],
-                ["style", "min-width", '0%'],
-                ["color", "color", 'rgba(41,41,41,1)'],
-                ["style", "height", '33%'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["color", "color", 'rgba(41,41,41,1.00)'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+                ["style", "height", '23.8%'],
+                ["style", "font-weight", '800'],
                 ["style", "left", '92px'],
-                ["style", "font-size", '12px']
+                ["style", "font-size", '14px']
             ],
             "${symbolSelector}": [
                 ["style", "height", '100px'],
                 ["style", "width", '366px']
             ],
-            "${_title}": [
-                ["style", "top", '3px'],
-                ["style", "font-weight", '800'],
-                ["style", "font-size", '14px'],
-                ["style", "height", '23.8%'],
-                ["color", "color", 'rgba(41,41,41,1.00)'],
-                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+            "${_description}": [
+                ["style", "top", '25px'],
+                ["style", "font-size", '12px'],
+                ["style", "min-width", '0%'],
+                ["style", "height", '33%'],
+                ["color", "color", 'rgba(41,41,41,1)'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '92px'],
                 ["style", "width", '74.87%']
             ]
@@ -675,18 +669,18 @@ var symbols = {
     content: {
             dom: [
                 {
-                    type: 'text',
+                    rect: ['92px', '0px', '274px', '33px', 'auto', 'auto'],
                     id: 'title',
                     text: 'Monster Title',
-                    rect: ['92px', '0px', '274px', '33px', 'auto', 'auto'],
-                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', 'normal', 'none', '']
+                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', 'normal', 'none', ''],
+                    type: 'text'
                 },
                 {
-                    type: 'text',
+                    rect: ['92px', '32px', '274px', '33px', 'auto', 'auto'],
                     id: 'description',
                     text: 'Monster Description goes here<br>',
-                    rect: ['92px', '32px', '274px', '33px', 'auto', 'auto'],
-                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', 'normal', 'none', '']
+                    font: ['Lucida Console, Monaco, monospace', 14, 'rgba(41,41,41,1.00)', 'normal', 'none', ''],
+                    type: 'text'
                 },
                 {
                     id: 'monster-image-container',
@@ -705,12 +699,12 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_title}": [
-                ["style", "top", '0px'],
+            "${_description}": [
+                ["style", "top", '32px'],
                 ["style", "width", '274px'],
-                ["color", "color", 'rgba(41,41,41,1.00)'],
+                ["color", "color", 'rgba(41,41,41,1)'],
                 ["style", "height", '33px'],
-                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '92px'],
                 ["style", "font-size", '14px']
             ],
@@ -718,12 +712,12 @@ var symbols = {
                 ["style", "height", '83px'],
                 ["style", "width", '366px']
             ],
-            "${_description}": [
-                ["style", "top", '32px'],
+            "${_title}": [
+                ["style", "top", '0px'],
                 ["style", "font-size", '14px'],
                 ["style", "height", '33px'],
-                ["color", "color", 'rgba(41,41,41,1)'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
+                ["color", "color", 'rgba(41,41,41,1.00)'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
                 ["style", "left", '92px'],
                 ["style", "width", '274px']
             ]

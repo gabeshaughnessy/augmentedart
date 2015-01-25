@@ -55,13 +55,16 @@ function isEmpty(obj) {
 
 var isLocal = false;
 var isProduction = window.location.host.indexOf('.com');
-var isWordpress = window.location.host.indexOf('augmentedart');
+var isEdgeAnimate = window.location.host.indexOf('127.0.0.1');
 
 if(isProduction == -1){
 	isLocal = true;
 	isProduction = false;
-	if(isWordpress != -1){
-		isWordpress = true;
+	if(isEdgeAnimate != -1){
+		isEdgeAnimate = true;
+	}
+	else{
+		isEdgeAnimate = false;
 	}
 }
 else{
@@ -69,11 +72,12 @@ else{
 }
 console.log('isLocal? :' + isLocal);
 console.log('isProduction? :' + isProduction);
+console.log('isEdgeAnimate? :' + isEdgeAnimate);
 
 
 if(isLocal){
 	var imgPath = 'images/';
-	if(isWordpress){
+	if(!isEdgeAnimate){
 		imgPath = '/dungeon-hacker/edge-animations/images/';
 	}
 }
@@ -86,10 +90,12 @@ var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
 
 /* Player Card URL */
 if(isProduction){
-var playerCardURL = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html';
+var playerCardURL = 'http://www.augmentedart.com/hack-the-dungeon/player-card/';
+
 }
 else{
-	var playerCardURL = 'player-card.html';
+	var playerCardURL = 'http://augmentedart/dungeon-hacker-player-card/';
+
 }
 if( jQuery.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
       var playerId = jQuery.urlParam('playerId');
