@@ -186,7 +186,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		if(this.playerClass == 'project-manager'){
 			 this.title = 'Project Manager';
 			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
-			 this.description = 'A Project Manager is the all-around balanced character';
+			 this.description = 'A shapeshifting gypsy that wears many hats. Can they really see the future?';
 			 this.playerImg = imgPath+'project-manager.png';
 		}
 		else if(this.playerClass == 'designer'){
@@ -198,14 +198,62 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		else if(this.playerClass == 'developer'){
 			 this.title = 'Developer';
 			 this.attributes = { charisma : 0, creativity : 1, knowledge : 2};
-			 this.description = 'The Developer builds the things';
+			 this.description = 'Feed them coffee and they will build the things.';
 			 this.playerImg = imgPath+'developer.png';
 		}
 		else if(this.playerClass == 'executive'){
 			 this.title = 'Executive';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
-			 this.description = 'The Executive runs the ship and stuff...';
+			 this.description = 'They make turtlenecks cool. Kind of. They can fire you, so turtlenecks are cool.';
 			 this.playerImg = imgPath+'executive.png';
+		}
+		else if(this.playerClass == 'angel-investor'){
+			 this.title = 'Angel Investor';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'These mysterious benefactors could be anyone. Who knows, maybe even your grandma?';
+			 this.playerImg = imgPath+'angel-investor.png';
+		}
+		else if(this.playerClass == 'consultant'){
+			 this.title = 'Consultant';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'He\'s got some really good advice for you.';
+			 this.playerImg = imgPath+'consultant.png';
+		}
+		else if(this.playerClass == 'courier'){
+			 this.title = 'Courier';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'These mercurial sprites move exceptionally fast, just be sure to stay out of their path.';
+			 this.playerImg = imgPath+'courier.png';
+		}
+		else if(this.playerClass == 'copywriter'){
+			 this.title = 'Copywriter';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'Plenty of ninja skills are involved in turning that chicken scratch into something people will actually read.';
+			 this.playerImg = imgPath+'copywriter.png';
+		}
+		else if(this.playerClass == 'creative-director'){
+			 this.title = 'Creative Director';
+			 this.attributes = { charisma : 0, creativity : 3, knowledge : 0};
+			 this.description = 'Pure, raw, creative energy is a fearsome force. A creative director struggles with this beast every day.';
+			 this.playerImg = imgPath+'creative-director.png';
+		}
+		else if(this.playerClass == 'freelancer'){
+			 this.title = 'Freelancer';
+			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
+			 this.description = 'The rouges of the office, they can really help you out in a pinch, for a price, of course.';
+			 this.playerImg = imgPath+'freelancer.png';
+		}
+		else if(this.playerClass == 'security-guard'){
+			 this.title = 'Security Guard';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'Holding down the fort. On a Segway.';
+			 this.playerImg = imgPath+'security-guard.png';
+		}
+		else if(this.playerClass == 'systems-engineer'){
+			 this.title = 'Systems Engineer';
+			 this.attributes = { charisma : 0, creativity : 0, knowledge : 3};
+			 this.description = 'What they lack in social skills they make up for in knowledge and CAT-5 cable.';
+			 this.playerImg = imgPath+'systems-engineer.png';
 		}
 		else{
 			 this.title = 'Default Character Class';
@@ -681,13 +729,8 @@ function Item(){
 			this.itemId = jQuery.urlParam('itemId');
 
 		}
-		if(this.itemId == 'glove-of-power'){
-			this.title = 'Glove of Power';
-			this.description = 'The glove of power increases your charisma '
-			this.attributes = {'knowledge' : 1};
-			this.img = imgPath+'glove-of-power.png';
-		}
-		else if(this.itemId == 'bluetooth-axe'){
+		//ANDY's ITEMS
+		if(this.itemId == 'bluetooth-axe'){
 			this.title = 'Blue Tooth Battle Axe';
 			this.description = 'Comes with a speaker so you can listen to Slayer while you slay. Also has a bottle opener for breaktime. '
 			this.attributes = {'creativity' : 1};
@@ -697,7 +740,7 @@ function Item(){
 			this.title = 'Mouse of Nine Heads';
 			this.description = 'Cat of Nine Tails, look the F out, there is no esc from this. '
 			this.attributes = {'charisma' : 1};
-			this.img = imgPath+'mouse-of-nine-heads.png';
+			this.img = imgPath+'mouse-of-9.png';
 		}
 		else if(this.itemId == 'wifi-shield'){
 			this.title = 'Shield of WiFi';
@@ -705,17 +748,67 @@ function Item(){
 			this.attributes = {'knowledge' : 1};
 			this.img = imgPath+'wifi-shield.png';
 		}
-		else if(this.itemId == 'sword-calc'){
+		else if(this.itemId == 'sword'){
 			this.title = 'Sword of Calculating';
 			this.description = 'Just add this sword, subtract your enemy\'s limbs, divide their skull, and multiply the carnage.'
 			this.attributes = {'creativity' : 1};
-			this.img = imgPath+'sword-calc.png';
+			this.img = imgPath+'sword.png';
 		}
 		else if(this.itemId == 'blue-ribbon-potion'){
 			this.title = 'Blue Ribbon Potion';
 			this.description = 'Do you need a frosty sippy-poo of courage? Thish wool totally do-er bud.'
 			this.attributes = {'charisma' : 1};
-			this.img = imgPath+'potion.png';
+			this.img = imgPath+'blue-ribbon-potion.png';
+		}
+		else if(this.itemId == 'lamp'){
+			this.title = 'Lamp of Synergenie';
+			this.description = 'Grants yours bloody wishes, but you’ll have to work together.'
+			this.attributes = {'creativity' : 1};
+			this.img = imgPath+'lamp.png';
+		}
+		else if(this.itemId == 'floppies'){
+			this.title = 'Razor-Sharp Throwing Floppies';
+			this.description = '13,107 of these equals one Gigabyte.'
+			this.attributes = {'knowledge' : 1};
+			this.img = imgPath+'floppies.png';
+		}
+		else if(this.itemId == 'mace'){
+			this.title = 'Mace of Gore Competencies';
+			this.description = 'Take what you’re best at and bash your way into new Monsters/Markets'
+			this.attributes = {'charisma' : 1};
+			this.img = imgPath+'mace.png';
+		}
+
+		//RYAN's ITEMS
+		else if(this.itemId == 'chrome-pendant'){
+			this.title = 'Chrome Pendant of Finding';
+			this.description = 'You are pretty much lost without one.';
+			this.attributes = {'knowledge' : 1};
+			this.img = imgPath+'chrome-pendant.png';
+		}
+		else if(this.itemId == 'crystalline-usb'){
+			this.title = 'Crystalline Universal Spell Book (usb)';
+			this.description = 'It\'s always a good idea to back your spell book up on one of these, just in case.'
+			this.attributes = {'knowledge' : 1};
+			this.img = imgPath+'crystalline-usb.png';
+		}
+		else if(this.itemId == 'fedora'){
+			this.title = 'White Knight\'s Fedora';
+			this.description = 'Step up your game a notch with this stylish head-piece';
+			this.attributes = {'charisma' : 1};
+			this.img = imgPath+'fedora.png';
+		}
+		else if(this.itemId == 'phishing-rod'){
+			this.title = 'Chrome Pendant of Finding';
+			this.description = 'You are pretty much lost without one.';
+			this.attributes = {'creativity' : 1};
+			this.img = imgPath+'phishing-rod.png';
+		}
+		else if(this.itemId == 'troll-hammer'){
+			this.title = 'Troll Hammer';
+			this.description = 'If you troll, you WILL be down-voted.';
+			this.attributes = {'charisma' : 1};
+			this.img = imgPath+'troll-hammer.png';
 		}
 
 	}

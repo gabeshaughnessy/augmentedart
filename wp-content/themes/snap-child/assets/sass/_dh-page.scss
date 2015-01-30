@@ -12,6 +12,12 @@ $image-path : "/dungeon-hacker/edge-animations/images/";
 html, body{
 	background-color: transparent !important;
 	font-family : $base-font-family;
+	&.js{
+		margin-top: 0 !important;
+	}
+}
+.logged-in [role="main"]{
+	padding-top: 46px;
 }
 
 .dh-page{
