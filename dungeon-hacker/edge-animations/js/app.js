@@ -787,7 +787,7 @@ function Item(){
 			this.img = imgPath+'chrome-pendant.png';
 		}
 		else if(this.itemId == 'crystalline-usb'){
-			this.title = 'Crystalline Universal Spell Book (usb)';
+			this.title = 'Crystalline Universal Spell Book';
 			this.description = 'It\'s always a good idea to back your spell book up on one of these, just in case.'
 			this.attributes = {'knowledge' : 1};
 			this.img = imgPath+'crystalline-usb.png';
@@ -799,14 +799,14 @@ function Item(){
 			this.img = imgPath+'fedora.png';
 		}
 		else if(this.itemId == 'phishing-rod'){
-			this.title = 'Chrome Pendant of Finding';
-			this.description = 'You are pretty much lost without one.';
+			this.title = 'Phishing Rod';
+			this.description = 'Many fish bite if you got good bait.';
 			this.attributes = {'creativity' : 1};
 			this.img = imgPath+'phishing-rod.png';
 		}
 		else if(this.itemId == 'troll-hammer'){
 			this.title = 'Troll Hammer';
-			this.description = 'If you troll, you WILL be down-voted.';
+			this.description = 'If you troll, you will be downvoted.';
 			this.attributes = {'charisma' : 1};
 			this.img = imgPath+'troll-hammer.png';
 		}
