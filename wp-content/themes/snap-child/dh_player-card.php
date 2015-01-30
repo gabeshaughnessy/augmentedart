@@ -15,10 +15,11 @@ add_action('wp_enqueue_scripts', 'enqueue_dh_scripts');
 
 function dh_meta_tags(){
 
-	add_filter( 'jetpack_enable_open_graph', '__return_false' );
+	
 
 	echo '<meta name="description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">';
 }
+add_filter( 'jetpack_enable_open_graph', '__return_false' );
 add_action('wp_head', 'dh_meta_tags');
 
 get_header(); 
