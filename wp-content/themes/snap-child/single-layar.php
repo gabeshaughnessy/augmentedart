@@ -25,6 +25,12 @@ if(have_posts()) : while(have_posts()) : the_post();
                 //build hotspots here
                 $referenceImage = (isset($hotspot['layar_reference_image']) ? $hotspot['layar_reference_image'] : 'noimage');
                 $layarUrl = (isset($hotspot['layar_url']) ? $hotspot['layar_url']:'nouurl');
+                  if(strpos('?', $layarUrl) != -1){
+                    $user_param = '&userID=';
+                  }
+                  else{
+                     $user_param = '?userID=';
+                  }
                 $contentType = (isset($hotspot['layar_content_type'])?$hotspot['layar_content_type']:'nocontenttype');
                 $layarHeight = (isset($hotspot['layar_height'])?$hotspot['layar_height']:'noheight');
                 $layarWidth = (isset($hotspot['layar_width'])?$hotspot['layar_width']:'nowidth');
@@ -44,7 +50,7 @@ if(have_posts()) : while(have_posts()) : the_post();
 
                 $hotspots_output[$i] = array(
                     'object' => array(
-                                'url' => $layarUrl.'?userID='.$user_id, //this is the content for the layar.
+                                'url' => $layarUrl.$user_param.$user_id, //this is the content for the layar.
                                 'contentType' => $contentType,
                                 'viewport' => array(
                                     'height' => $layarHeight,

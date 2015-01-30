@@ -1,0 +1,100 @@
+
+{
+
+	"expanded:images/default-item.png":"nil",
+	"expanded:images/Poster7.png":"nil",
+	"expanded:images/diceroll_spritesheet.png":"nil",
+	"expanded:images/dice-roll-sprite3.png":"nil",
+	"symbol_dice-roll-sprite_symbol_1":{
+		"dummyStageParentWidth":"187px",
+		"dummyStageParentHeight":"198px",
+		"defaultStageParentWidth":"187px",
+		"defaultStageParentHeight":"198px",
+		"element_${_dice-roll-sprite}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"true",
+			"timelineColor":"0x50bd82"}},
+	"expanded:images/monster.png":"nil",
+	"TransitionIdCounter":"5",
+	"PosterImagePath":"images/Poster7.png",
+	"expanded:images/dice-roll-sprite.png":"nil",
+	"expanded:images/Poster6.png":"nil",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"expanded:images/logo.png":"nil",
+	"expanded:images/Poster2.png":"nil",
+	"expanded:images/paper-bg.jpg":"nil",
+	"dice-roll-sprite_symbol_1-Default Timeline_playhead_ms":"0",
+	"expanded:images/mouse-of-nine-heads.png":"nil",
+	"expanded:images/Poster4.png":"nil",
+	"PubWeb":"false",
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"100",
+	"pixelsPerMs":"0.2",
+	"expanded:images/project-manager.png":"nil",
+	"nextElementColorIndex":"4",
+	"stage-Default Timeline_playhead_ms":"0",
+	"expanded:images/glove-of-power.png":"nil",
+	"expanded:images/wifi-shield.png":"nil",
+	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
+	"HTMLFileName":"dice-roll-embeddable.html",
+	"expanded:images/sword-calc.png":"nil",
+	"expanded:images/knowledge.png":"nil",
+	"PosterCapturePos":"0",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"dice-roll-sprite_symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }}\
+}",
+	"expanded:images/creativity.png":"nil",
+	"expanded:images/dice-roll-sprite2.png":"nil",
+	"expanded:images/developer.png":"nil",
+	"expanded:images/charisma.png":"nil",
+	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"expanded:images/executive.png":"nil",
+	"expanded:images/kiosk-bg.jpg":"nil",
+	"expanded:images/Poster3.png":"nil",
+	"expanded:images/battle-axe.png":"nil",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"expanded:images/social-media-monster.png":"nil",
+	"expanded:images/crypto-credit.png":"nil",
+	"PreloadAudio":"auto",
+	"expanded:images/diceroll_spritesheet2.png":"nil",
+	"viewStartY":"0",
+	"usedBOM":"false",
+	"PubDPS":"true",
+	"expanded:images/Poster5.png":"nil",
+	"expanded:images/designer.png":"nil",
+	"symbol_stage":{
+		"dummyStageParentWidth":"200px",
+		"dummyStageParentHeight":"200px",
+		"defaultStageParentWidth":"200px",
+		"element_${_diceRoll}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"true",
+			"timelineColor":"0x91c767"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"defaultStageParentHeight":"200px"},
+	"expanded:images/potion.png":"nil"}

@@ -14,7 +14,9 @@ function enqueue_dh_scripts(){
 add_action('wp_enqueue_scripts', 'enqueue_dh_scripts');
 
 function dh_meta_tags(){
+
 	add_filter( 'jetpack_enable_open_graph', '__return_false' );
+
 	echo '<meta name="description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">';
 }
 add_action('wp_head', 'dh_meta_tags');
@@ -69,6 +71,7 @@ jQuery(document).ready(function($){
 				<p><a href="https://twitter.com/intent/tweet?text=<?php echo  $tweetMessage; ?>&url=<?php echo $tweetUrl; ?>" target="_blank" >Share your Player Card on Twitter</a></p>
 				<p>and/or</p>
 				<p><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $tweetUrl; ?>" target="_blank" >Post your Player Card to the Book of Faces</a></p>
+
 				</div>
 
 				

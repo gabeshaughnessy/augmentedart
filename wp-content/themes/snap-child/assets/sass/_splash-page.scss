@@ -7,12 +7,17 @@
 .page-template-layar-content-page-php #mobile-toggle, 
 .page-template-nike_layar-content-page-php #mobile-toggle, 
 .page-template-splash-page-php #mobile-toggle, 
+.page-template-dh_layar-content-page-php #mobile-toggle,
 .page-template-page-center-panel-php #mobile-toggle {
 	display: none !important;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 body.page-template-layar-content-page-php, 
 body.page-template-nike_layar-content-page-php,
 body.page-template-splash-page-php, 
-body.page-template-page-center-panel-php {
+body.page-template-page-center-panel-php,
+body.page-template-dh_layar-content-page-php, {
 	background: transparent;
 }
