@@ -2699,19 +2699,24 @@ input[type="button"]:hover,
   padding: 0;
 }
 
-/* line 10, ../sass/_splash-page.scss */
+/* line 11, ../sass/_splash-page.scss */
 .page-template-layar-content-page-php #mobile-toggle,
 .page-template-nike_layar-content-page-php #mobile-toggle,
 .page-template-splash-page-php #mobile-toggle,
+.page-template-dh_layar-content-page-php #mobile-toggle,
 .page-template-page-center-panel-php #mobile-toggle {
   display: none !important;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-/* line 16, ../sass/_splash-page.scss */
+/* line 21, ../sass/_splash-page.scss */
 body.page-template-layar-content-page-php,
 body.page-template-nike_layar-content-page-php,
 body.page-template-splash-page-php,
-body.page-template-page-center-panel-php {
+body.page-template-page-center-panel-php,
+body.page-template-dh_layar-content-page-php {
   background: transparent;
 }
 
@@ -3650,6 +3655,572 @@ a.menu-toggle.menu-close:after {
 }
 
 /* line 830, ../sass/_nike-page.scss */
+#mobile-toggle.hide {
+  display: none;
+}
+
+/* line 6, ../sass/_dh-page.scss */
+* {
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+
+/* line 12, ../sass/_dh-page.scss */
+html, body {
+  background-color: transparent !important;
+  font-family: "Courier New", Courier, Monaco, monospace;
+}
+/* line 15, ../sass/_dh-page.scss */
+html.js, body.js {
+  margin-top: 0 !important;
+}
+
+/* line 19, ../sass/_dh-page.scss */
+.logged-in [role="main"] {
+  padding-top: 46px;
+}
+
+/* line 23, ../sass/_dh-page.scss */
+.dh-page {
+  float: left;
+  width: 100%;
+}
+
+/* line 28, ../sass/_dh-page.scss */
+h1, h2, h3, h4, h5, h6, p, em, b, strong, span, blockquote {
+  font-family: "Courier New", Courier, Monaco, monospace;
+  text-transform: none;
+}
+
+/* line 33, ../sass/_dh-page.scss */
+h1 {
+  margin: 0;
+}
+
+/* line 37, ../sass/_dh-page.scss */
+[role="main"] {
+  transition: .2s margin;
+  width: 100%;
+  padding: 0;
+  margin-left: 0;
+  float: left;
+}
+
+/* line 46, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php {
+  background-image: url("/dungeon-hacker/edge-animations/images/paper-tile.jpg");
+  background-repeat: repeat;
+  color: #333;
+  /* Inventory */
+  /* MONSTERS DEFEATED */
+}
+/* line 51, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php footer {
+  display: none;
+}
+/* line 55, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .two-columns {
+  width: 100%;
+  float: left;
+}
+/* line 58, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .two-columns .column {
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 1em;
+  float: left;
+}
+@media screen and (max-width: 780px) {
+  /* line 67, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .two-columns.medium .column {
+    width: 100%;
+    padding-right: 1em;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 76, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .two-columns.small .column {
+    width: 100%;
+    padding-right: 1em;
+  }
+}
+/* line 87, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php ul {
+  margin-left: 1.5em;
+  list-style: disc;
+}
+/* line 91, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid {
+  list-style: none;
+  margin-left: 0;
+  float: left;
+  width: 100%;
+  clear: both;
+}
+/* line 98, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid li {
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  padding: 4px;
+  position: relative;
+}
+/* line 105, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid.two-up li {
+  width: 50%;
+}
+@media screen and (max-width: 480px) {
+  /* line 105, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.two-up li {
+    width: 100%;
+  }
+}
+/* line 111, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid.three-up li {
+  width: 33%;
+}
+@media screen and (max-width: 767px) {
+  /* line 111, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.three-up li {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 111, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.three-up li {
+    width: 100%;
+  }
+}
+/* line 120, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid.four-up li {
+  width: 25%;
+}
+@media screen and (max-width: 767px) {
+  /* line 120, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.four-up li {
+    width: 33%;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 120, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.four-up li {
+    width: 50%;
+  }
+}
+/* line 129, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid.five-up li {
+  width: 20%;
+}
+@media screen and (max-width: 480px) {
+  /* line 129, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.five-up li {
+    width: 50%;
+  }
+}
+/* line 135, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .block-grid.six-up li {
+  width: 16.66%;
+}
+@media screen and (max-width: 480px) {
+  /* line 135, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .block-grid.six-up li {
+    width: 50%;
+  }
+}
+/* line 142, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h1 {
+  font-size: 2rem;
+}
+/* line 147, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h2 {
+  font-family: "Courier New", Courier, Monaco, monospace;
+  color: #404040;
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: 0;
+  font-weight: 100;
+  margin-bottom: .2em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1024px) {
+  /* line 147, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php h2 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 780px) {
+  /* line 147, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php h2 {
+    font-size: 2.5rem;
+  }
+}
+/* line 162, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h2 a {
+  color: inherit;
+}
+/* line 166, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h3, .page-template-dh_player-card-php h4 {
+  font-family: "Courier New", Courier, Monaco, monospace;
+  color: #7e7e7e;
+  font-size: 1rem;
+  font-weight: 100;
+  margin: 0;
+  line-height: 1;
+  margin-bottom: .5em;
+}
+/* line 175, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h4 {
+  color: #404040;
+  font-size: 1rem;
+  font-weight: 100;
+}
+/* line 180, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h5 {
+  font-family: "Courier New", Courier, Monaco, monospace;
+  font-weight: 100;
+  color: #404040;
+  font-size: 1.3rem;
+}
+/* line 187, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h6 {
+  font-family: "Courier New", Courier, Monaco, monospace;
+  font-weight: 100;
+  color: #404040;
+  font-size: .9rem;
+}
+/* line 194, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .theme-container {
+  padding: 0;
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+/* line 200, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .theme-container.has-sidebar {
+  padding: 1em;
+}
+@media screen and (max-width: 480px) {
+  /* line 200, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .theme-container.has-sidebar {
+    padding: auto;
+  }
+}
+/* line 206, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .theme-container .section {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  display: block;
+  float: left;
+  width: 100%;
+  border-bottom: 1px dashed #666;
+}
+/* line 215, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php a {
+  color: #fff;
+  font-weight: 800;
+}
+/* line 218, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php a:hover, .page-template-dh_player-card-php a:active {
+  color: #ddd;
+}
+/* line 223, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .sidebar-container {
+  width: 20%;
+  float: left;
+  padding: 1em;
+  padding-top: 0;
+  padding-left: 0;
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+}
+@media screen and (max-width: 767px) {
+  /* line 223, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .sidebar-container {
+    width: 100%;
+    display: none;
+  }
+}
+/* line 236, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .content-container {
+  width: 80%;
+  float: left;
+  box-sizing: border-box;
+  padding: 0 1em;
+}
+@media screen and (max-width: 767px) {
+  /* line 236, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .content-container {
+    width: 100%;
+    padding: 2em 1em 4em;
+  }
+}
+/* line 248, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .item-image {
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+  width: 30%;
+  margin-bottom: 1em;
+}
+@media screen and (orientation: landscape) {
+  /* line 248, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .item-image {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 440px) {
+  /* line 248, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .item-image {
+    width: 100%;
+    margin-top: 1em;
+  }
+}
+/* line 262, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .item-info {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+  box-sizing: border-box;
+  padding-left: 1em;
+  float: left;
+}
+@media screen and (orientation: landscape) {
+  /* line 262, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .item-info {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 440px) {
+  /* line 262, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .item-info {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+/* line 277, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .item-info .item-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: .9em;
+  line-height: 1.3;
+  font-weight: 900;
+}
+/* line 284, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .item-info .item-description {
+  font-size: .8em;
+}
+/* line 292, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #monsters-defeated .monster-image {
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+  width: 30%;
+  margin-bottom: 1em;
+}
+@media screen and (orientation: landscape) {
+  /* line 292, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #monsters-defeated .monster-image {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 440px) {
+  /* line 292, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #monsters-defeated .monster-image {
+    width: 100%;
+    margin-top: 1em;
+  }
+}
+/* line 306, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #monsters-defeated .monster-info {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+  box-sizing: border-box;
+  padding-left: 1em;
+  float: left;
+}
+@media screen and (orientation: landscape) {
+  /* line 306, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #monsters-defeated .monster-info {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 440px) {
+  /* line 306, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #monsters-defeated .monster-info {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+/* line 321, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #monsters-defeated .monster-info .monster-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: .9em;
+  line-height: 1.3;
+  font-weight: 900;
+}
+/* line 328, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #monsters-defeated .monster-info .monster-description {
+  font-size: .8em;
+}
+/* line 333, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .img-wrapper {
+  float: left;
+}
+/* line 336, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .img-wrapper.right {
+  width: 20%;
+  float: right;
+  padding: .5em 2em;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1024px) {
+  /* line 336, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .img-wrapper.right {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 336, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .img-wrapper.right {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 336, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php .img-wrapper.right {
+    width: 50%;
+  }
+}
+/* line 353, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php button {
+  background-color: #40413e;
+  border: 1px solid #12515a;
+  font-family: "Courier New", Courier, Monaco, monospace;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  text-shadow: none;
+  box-shadow: none;
+  color: #aeb0a5;
+  border-radius: 0;
+  outline-color: #aeb0a5;
+  transition: color .25s;
+}
+/* line 365, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php button > * {
+  color: inherit;
+}
+/* line 368, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php button:hover {
+  color: #edf0f0;
+}
+/* line 372, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php button.primary {
+  background-color: #0d827e;
+  border: 1px solid #12515a;
+  color: #edf0f0;
+  outline-color: #38bb93;
+}
+/* line 377, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php button.primary:hover {
+  color: #38bb93;
+}
+/* line 381, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .button-row {
+  width: 100%;
+}
+/* line 383, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .button-row a {
+  float: left;
+  margin-right: 2%;
+  width: 49%;
+  text-align: center;
+}
+/* line 388, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .button-row a:last-child {
+  margin-right: 0;
+}
+/* line 391, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .button-row a button {
+  width: 100%;
+}
+/* line 397, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php hr.shaded {
+  width: 100%;
+  height: 40px;
+  float: left;
+  clear: both;
+  background-image: url(images/nike-fa15/hr_fade.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-top: none;
+  background-position: center;
+}
+/* line 408, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .wistia_embed {
+  float: left;
+  clear: both;
+}
+/* line 412, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php .header-wrapper {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  padding: 1em 2em;
+  padding-top: 14px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  float: left;
+  z-index: 5;
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+}
+/* line 429, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php h1.page-title {
+  float: left;
+  font-family: "Courier New", Courier, Monaco, monospace;
+  font-size: 4rem;
+  font-weight: 100;
+  color: #fff;
+  text-transform: uppercase;
+  clear: none;
+  margin-bottom: 0;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (max-width: 780px) {
+  /* line 429, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php h1.page-title {
+    font-size: 2em;
+    line-height: 2.5;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 429, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php h1.page-title {
+    font-size: 1.5em;
+    position: relative;
+  }
+}
+/* line 452, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #footer {
+  border: none;
+}
+
+/* line 457, ../sass/_dh-page.scss */
+#main-header.hide {
+  display: none;
+}
+
+/* line 460, ../sass/_dh-page.scss */
 #mobile-toggle.hide {
   display: none;
 }

@@ -52,6 +52,7 @@ if(document.addEventListener ){
    aLoader = [
       { load: "edge_includes/jquery-2.0.3.min.js"},
       { load: "edge_includes/edge.4.0.0.min.js"},
+      { load: "https://cdn.firebase.com/js/client/2.0.6/firebase.js", user: true },
       { load: "js/app.js", user: true },
       { load: "player_edge.js"},
       { load: "player_edgeActions.js"}];
@@ -60,7 +61,7 @@ if (AdobeEdge.bootstrapLoading) { signaledLoading = true; AdobeEdge.loadResource
 
 loadResources(aLoader, doDelayLoad);
 
-var plSTF="none",ctrPlS="both",minPlW="0",maxPlW=undefined,plWidth="500px",plHeight="500px";
+var plSTF="none",ctrPlS="none",minPlW="0",maxPlW=undefined,plWidth="400px",plHeight="640px";
 
 preContent={dom: [ ]};//simpleContent
 

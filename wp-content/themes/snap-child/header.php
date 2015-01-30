@@ -22,7 +22,7 @@ global $noheader;
 	
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<?php if(is_page_template('layar-content-page.php') || is_page_template('nike_layar-content-page.php') ||is_page_template('nike-fa15-page.php')){
+	<?php if(is_page_template('layar-content-page.php') || is_page_template('nike_layar-content-page.php') || is_page_template('nike-fa15-page.php') || is_page_template('dh_layar-content-page.php')){
 echo '<meta name="robots" content="noindex, nofollow">';
 		}
 	?>
@@ -38,7 +38,7 @@ echo '<meta name="robots" content="noindex, nofollow">';
 </div>
 <?php 
 
-if(is_page_template('splash-page.php') || is_page_template('layar-content-page.php') || is_page_template('page-center-panel.php') || is_page_template('nike_layar-content-page.php')){
+if(is_page_template('splash-page.php') || is_page_template('layar-content-page.php') || is_page_template('page-center-panel.php') || is_page_template('nike_layar-content-page.php') || is_page_template('dh_layar-content-page.php')){
 	?><div class="splash-content">
 <?php	
 }

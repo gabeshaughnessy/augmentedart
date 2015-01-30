@@ -1,6 +1,7 @@
 .htaccess
 wp-config.php
-wp-content/uploads/
+
+wp-content/uploads/*
 wp-content/blogs.dir/
 wp-content/upgrade/
 wp-content/backup-db/
@@ -14,6 +15,8 @@ wp-content/plugins/jetpack/
 wp-content/plugins/vaultpress/
 wp-content/plugins/wordpress-importer
 wp-content/plugins/post-type-switcher/
+wp-content/plugins/wp-photo-sphere/
+wp-content/themes/twentyeleven/
 wp-content/themes/twentyfourteen/
 wp-content/themes/twentythirteen/
 sitemap.xml.gz
