@@ -25,7 +25,7 @@ function dh_meta_tags(){
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Dungeon Hacker Player Card">
 	<meta property="og:site_name" content="Dungeon Hacker">
-	<meta property="og:description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">
+	<meta property="og:description" content="I Hacked and Slashed in Augmented Reality at the Diode Gallery, Check Out My Sweet Player Card!">
 	<meta property="og:image" content="http://www.augmentedart.com/wp-content/uploads/2015/01/dh-poster.jpg">
 	<meta name="twitter:image" content="http://www.augmentedart.com/wp-content/uploads/2015/01/dh-poster.jpg">
 	<meta name="twitter:card" content="summary">
