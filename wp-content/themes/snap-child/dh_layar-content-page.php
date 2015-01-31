@@ -51,7 +51,6 @@ jQuery(document).ready(function($){
  <script type="text/javascript">
  //The global Javascript variables from the Layar client and WordPress go here
  var playerId = "<?php  echo $user_id; ?>";
- alert('playerId: '+playerId);
  </script>
 
 <?php
