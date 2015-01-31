@@ -188,78 +188,92 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
 			 this.description = 'A shapeshifting gypsy that wears many hats. Can they really see the future?';
 			 this.playerImg = imgPath+'project-manager.png';
+			 this.deadImg = imgPath+'zombie-systems-engineer.png';
 		}
 		else if(this.playerClass == 'designer'){
 			 this.title = 'Designer';
 			 this.attributes = { charisma : 0, creativity : 2, knowledge : 1};
 			 this.description = 'A Designer is creative and knowledgeable';
 			 this.playerImg = imgPath+'designer.png';
+			 this.deadImg = imgPath+'zombie-systems-engineer.png';
 		}
 		else if(this.playerClass == 'developer'){
 			 this.title = 'Developer';
 			 this.attributes = { charisma : 0, creativity : 1, knowledge : 2};
 			 this.description = 'Feed them coffee and they will build the things.';
 			 this.playerImg = imgPath+'developer.png';
+			 this.deadImg = imgPath+'zombie-systems-engineer.png';
 		}
 		else if(this.playerClass == 'executive'){
 			 this.title = 'Executive';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'They make turtlenecks cool. Kind of. They can fire you, so turtlenecks are cool.';
 			 this.playerImg = imgPath+'executive.png';
+			 this.deadImg = imgPath+'zombie-executive.png';
 		}
 		else if(this.playerClass == 'angel-investor'){
 			 this.title = 'Angel Investor';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'These mysterious benefactors could be anyone. Who knows, maybe even your grandma?';
 			 this.playerImg = imgPath+'angel-investor.png';
+			 this.deadImg = imgPath+'zombie-angel-investor.png';
 		}
 		else if(this.playerClass == 'consultant'){
 			 this.title = 'Consultant';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'He\'s got some really good advice for you.';
 			 this.playerImg = imgPath+'consultant.png';
+			 this.deadImg = imgPath+'zombie-consultant.png';
 		}
 		else if(this.playerClass == 'courier'){
 			 this.title = 'Courier';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'These mercurial sprites move exceptionally fast, just be sure to stay out of their path.';
 			 this.playerImg = imgPath+'courier.png';
+			 this.deadImg = imgPath+'zombie-courier.png';
 		}
 		else if(this.playerClass == 'copywriter'){
 			 this.title = 'Copywriter';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'Plenty of ninja skills are involved in turning that chicken scratch into something people will actually read.';
 			 this.playerImg = imgPath+'copywriter.png';
+			 this.deadImg = imgPath+'zombie-copywriter.png';
 		}
 		else if(this.playerClass == 'creative-director'){
 			 this.title = 'Creative Director';
 			 this.attributes = { charisma : 0, creativity : 3, knowledge : 0};
 			 this.description = 'Pure, raw, creative energy is a fearsome force. A creative director struggles with this beast every day.';
 			 this.playerImg = imgPath+'creative-director.png';
+			 this.deadImg = imgPath+'zombie-creative-director.png';
 		}
 		else if(this.playerClass == 'freelancer'){
 			 this.title = 'Freelancer';
 			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
 			 this.description = 'The rouges of the office, they can really help you out in a pinch, for a price, of course.';
 			 this.playerImg = imgPath+'freelancer.png';
+			 this.deadImg = imgPath+'zombie-freelancer.png';
 		}
 		else if(this.playerClass == 'security-guard'){
 			 this.title = 'Security Guard';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
 			 this.description = 'Holding down the fort. On a Segway.';
 			 this.playerImg = imgPath+'security-guard.png';
+			 this.deadImg = imgPath+'zombie-security-guard.png';
 		}
 		else if(this.playerClass == 'systems-engineer'){
 			 this.title = 'Systems Engineer';
 			 this.attributes = { charisma : 0, creativity : 0, knowledge : 3};
 			 this.description = 'What they lack in social skills they make up for in knowledge and CAT-5 cable.';
 			 this.playerImg = imgPath+'systems-engineer.png';
+			 this.deadImg = imgPath+'zombie-systems-engineer.png';
 		}
 		else{
 			 this.title = 'Default Character Class';
 			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
 			 this.description = 'This is the default character class';
 			 this.playerImg = imgPath+'project-manager.png';
+			 this.deadImg = imgPath+'zombie-project-manager.png';
+			 
 		}
 	}
 
@@ -331,6 +345,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				'playerClass' : this.playerClass,
 				'description' : this.description,
 				'playerImg' : this.playerImg,
+				'deadImg' : this.deadImg,
 				'cryptoCredits' : 1,
 				'attributes' : this.attributes,
 				'inventory' : this.inventory,
@@ -352,7 +367,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 
 		this.update('cryptoCredits', this.cryptoCredits+1);
-		alert('you defeated '+monster.title+'!');
+		alert('You defeated '+monster.title+'!');
 		monsterObj[monster.title] = {
 			'title' : monster.title,
 			'img' : monster.img,
@@ -702,7 +717,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				sym.stop('dead');
 			}
 			else{
-				jQuery('#player-image').find('img').attr('src', imgPath+'zombie.png');
+				jQuery('#player-image').find('img').attr('src', _this.deadImg);
 			}
 		}
 	
