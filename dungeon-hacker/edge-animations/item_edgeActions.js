@@ -33,20 +33,23 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
        linkUrl = playerCardURL+'?playerId='+player.id;
          if(player.hasItem(item.title) === false && player.cryptoCredits >= item.price){
             sym.play('selected');// insert code for mouse click here
-            sym.$('Equip-Button-text').html('Item Equipped');
+       
+            sym.$('Equip-Button-text').html('Item Equipped<br /> Tap to view your player card.');
+             sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');
+             sym.unbind('click');
          }
-         
+       
          else if(player.cryptoCredits < item.price){
-         
+       
             sym.$('Equip-Button-text').html('Not enough credits.<br /> Tap to view your player card.');
             sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');
-
+       
          }
          else{
-         
+       
             sym.$('Equip-Button-text').html('Item already equipped.<br /> Tap to view your player card.');
             sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');
-
+       
          }
 
       });

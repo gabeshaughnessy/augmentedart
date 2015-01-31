@@ -349,14 +349,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 	this.addMonster = function(monster){
 		var monsterObj = {};
-		for(var thisMonster in this.monsters){
-			if(monster.title != thisMonster){
-				return false;
-			}
-			else{
-
-			}
-		}
+		
 
 		this.update('cryptoCredits', this.cryptoCredits+1);
 		

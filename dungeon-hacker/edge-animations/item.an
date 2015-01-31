@@ -177,7 +177,7 @@
 		"defaultStageParentHeight":"500px",
 		"dummyStageParentWidth":"500px",
 		"dummyStageParentHeight":"500px"},
-	"viewStartY":"28",
+	"viewStartY":"0",
 	"expanded:images/troll-hammer.png":"nil",
 	"expanded:images/battle-axe.png":"nil",
 	"TransitionIdCounter":"178",
