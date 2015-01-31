@@ -930,7 +930,7 @@ function Monster(monsterId){
 			this.id = monsterId;
 			this.title = 'The Gibson';
 			this.description = 'The most powerful (and evil) super-computer in all the land.';
-			this.img = imgPath+'the-gibson.jpg';
+			this.img = imgPath+'the-gibson.png';
 			this.boss = true;
 			this.attributes = {
 				primary : 'knowledge',
