@@ -295,6 +295,13 @@ h1{
 
 /* MONSTERS DEFEATED */
 #monsters-defeated{
+	.monster{
+		width: 100%;
+		display: block;
+		float: left;
+		clear: both;
+		margin-bottom: 1em;
+	}
 	.monster-image{
 		display: table-cell;
 		vertical-align: middle;
