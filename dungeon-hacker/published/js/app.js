@@ -352,6 +352,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 
 		this.update('cryptoCredits', this.cryptoCredits+1);
+		alert('you defeated '+monster.title+'!');
 		monsterObj[monster.title] = {
 			'title' : monster.title,
 			'img' : monster.img,

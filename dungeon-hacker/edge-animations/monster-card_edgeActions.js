@@ -94,7 +94,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          monster.status.html(monster.title + 'blocked your attack<br /> and defeated you!');
          
          if(typeof monster.tiebreaker != 'undefined'){
-         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated! Scan a new character to start over.');
          		player.reset();
          
          }
@@ -103,7 +103,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          else{
          monster.status.html(monster.title + ' defeated you!');
          if(typeof monster.tiebreaker != 'undefined'){
-         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');
+         		monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated! Scan a new character to start over.');
          		player.reset();
          
          }
@@ -119,6 +119,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13106, function(sym, e) {
          player.setFrame('player-wins');
          var facedMonster = false;
+         var linkUrl = playerCardURL+'?playerId='+player.id;
+         
          for(var thisMonster in player.monsters){
          			if(monster.title == thisMonster){
          			facedMonster = true;
@@ -128,10 +130,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			}
          		}
          		if(!facedMonster){
-                monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to face '+monster.title+' again.');
+                monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to view your player card. ');
+                sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');
          		}
          		else{
-         		monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> you can tap to face '+monster.title+' again.');
+         		monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> Tap to view your player card. ');
+         		sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');
          
          		}
          player.addMonster(monster);
@@ -615,9 +619,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36405, function(sym, e) {
-         alert('You hacked The Gibson and won the game!');
+         alert('You hacked The Gibson and won the game! <br /> Tap to view and share your player card.');
          player.addMonster(monster);
-         
+         var linkUrl = playerCardURL+'?playerId='+player.id;
+         sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');
          sym.stop();
 
       });

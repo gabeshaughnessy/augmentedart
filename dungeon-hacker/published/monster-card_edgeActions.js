@@ -16,14 +16,14 @@ sym.stop();});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Status}","click",function(sym,e){sym.play();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12792,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+'blocked your attack<br /> and defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}
-else{monster.status.html(monster.title+' defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12792,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+'blocked your attack<br /> and defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated! Scan a new character to start over.');player.reset();}}
+else{monster.status.html(monster.title+' defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated! Scan a new character to start over.');player.reset();}}
 player.reset();sym.stop('dead');});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13106,function(sym,e){player.setFrame('player-wins');var facedMonster=false;for(var thisMonster in player.monsters){if(monster.title==thisMonster){facedMonster=true;}
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13106,function(sym,e){player.setFrame('player-wins');var facedMonster=false;var linkUrl=playerCardURL+'?playerId='+player.id;for(var thisMonster in player.monsters){if(monster.title==thisMonster){facedMonster=true;}
 else{facedMonster=false;}}
-if(!facedMonster){monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to face '+monster.title+' again.');}
-else{monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> you can tap to face '+monster.title+' again.');}
+if(!facedMonster){monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to view your player card. ');sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');}
+else{monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> Tap to view your player card. ');sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');}
 player.addMonster(monster);sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",8882,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+' blocked your attack to tie the match!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');}
@@ -134,7 +134,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",36000,function(sym
 else{monster.status.html(monster.title+' defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}
 player.reset();sym.stop('dead');sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",36405,function(sym,e){alert('You hacked The Gibson and won the game!');player.addMonster(monster);sym.stop();});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",36405,function(sym,e){alert('You hacked The Gibson and won the game! <br /> Tap to view and share your player card.');player.addMonster(monster);var linkUrl=playerCardURL+'?playerId='+player.id;sym.$('Dead_Player').wrap('<a href="'+linkUrl+'">');sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",32077,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+' blocked your attack to tie the match!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');}
 monster.status.html('Tie Game!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');player.setFrame('boss-tie');sym.stop();});

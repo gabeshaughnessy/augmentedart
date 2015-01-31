@@ -256,7 +256,9 @@ var symbols = {
             timeline: [
                 { id: "eid204", tween: [ "style", "${_Attributes}", "left", '153px', { fromValue: '188px'}], position: 13106, duration: 22894 },
                 { id: "eid173", tween: [ "style", "${_Dead_Player}", "width", '0%', { fromValue: '0%'}], position: 0, duration: 0 },
+                { id: "eid219", tween: [ "style", "${_Dead_Player}", "width", '0%', { fromValue: '100%'}], position: 13106, duration: 112 },
                 { id: "eid194", tween: [ "style", "${_Dead_Player}", "width", '0%', { fromValue: '100%'}], position: 13514, duration: 112 },
+                { id: "eid223", tween: [ "style", "${_Dead_Player}", "width", '0%', { fromValue: '100%'}], position: 36398, duration: 52 },
                 { id: "eid183", tween: [ "style", "${_diceRoll}", "top", '149px', { fromValue: '149px'}], position: 13106, duration: 0 },
                 { id: "eid100", tween: [ "style", "${_diceRoll}", "left", '156px', { fromValue: '156px'}], position: 11260, duration: 0 },
                 { id: "eid187", tween: [ "transform", "${_Attributes}", "scaleX", '0.71214', { fromValue: '0.71214'}], position: 13106, duration: 0 },
@@ -277,7 +279,9 @@ var symbols = {
                 { id: "eid190", tween: [ "style", "${_diceRoll}", "opacity", '1', { fromValue: '0'}], position: 20177, duration: 68 },
                 { id: "eid188", tween: [ "transform", "${_Attributes}", "scaleY", '0.8', { fromValue: '0.8'}], position: 13106, duration: 0 },
                 { id: "eid174", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '0%'}], position: 0, duration: 0 },
-                { id: "eid195", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '100%'}], position: 13514, duration: 112 }            ]
+                { id: "eid218", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '100%'}], position: 13106, duration: 112 },
+                { id: "eid195", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '100%'}], position: 13514, duration: 112 },
+                { id: "eid222", tween: [ "style", "${_Dead_Player}", "height", '0%', { fromValue: '100%'}], position: 36398, duration: 52 }            ]
         }
     }
 },
