@@ -6,6 +6,10 @@
 
 $noheader = true;
 
+$tweetMessage = urlencode('Check out my sweet Dungeon Hacker Player Card:');
+global $tweetUrl;
+$tweetUrl = urlencode("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+
 //DUNGEON HACKER SCRIPTS
 function enqueue_dh_scripts(){
 	wp_enqueue_script('firebase', 'https://cdn.firebase.com/js/client/2.1.1/firebase.js', array(), '', false);
@@ -14,10 +18,21 @@ function enqueue_dh_scripts(){
 add_action('wp_enqueue_scripts', 'enqueue_dh_scripts');
 
 function dh_meta_tags(){
+$tweetUrl = urlencode("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
 	
 
-	echo '<meta name="description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">';
+	echo '<meta name="description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dungeon Hacker Player Card">
+	<meta property="og:url" content="'.$tweetUrl.'">
+	<meta property="og:site_name" content="Dungeon Hacker">
+	<meta property="og:description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">
+	<meta property="og:image" content="http://www.augmentedart.com/wp-content/uploads/2015/01/dh-poster.jpg">
+	<meta name="twitter:image" content="http://www.augmentedart.com/wp-content/uploads/2015/01/dh-poster.jpg">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@jetpack">';
+
 }
 add_filter( 'jetpack_enable_open_graph', '__return_false' );
 add_action('wp_head', 'dh_meta_tags');
@@ -63,10 +78,6 @@ jQuery(document).ready(function($){
 
 				<h4>Share your Player Card on the Interwebs:</h4>
 				<div id="sharing" class="section">
-					<?php 
-					$tweetMessage = urlencode('Check out my sweet Dungeon Hacker Player Card:');
-					$tweetUrl = urlencode("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-					?>
 				<h5>Tweet Your Feats</h3>
 					<p>Your bravery should not go unnoticed.</p>
 				<p><a href="https://twitter.com/intent/tweet?text=<?php echo  $tweetMessage; ?>&url=<?php echo $tweetUrl; ?>" target="_blank" >Share your Player Card on Twitter</a></p>
