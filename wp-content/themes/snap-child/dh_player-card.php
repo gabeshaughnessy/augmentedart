@@ -33,7 +33,12 @@ function dh_meta_tags(){
 
 }
 add_filter( 'jetpack_enable_open_graph', '__return_false' );
+if( function_exists( 'rel_canonical' ) )
+{
+    remove_action( 'wp_head', 'rel_canonical' );
+}
 add_action('wp_head', 'dh_meta_tags');
+
 
 get_header(); 
 ?>
