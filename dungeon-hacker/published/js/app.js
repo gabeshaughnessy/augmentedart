@@ -313,8 +313,10 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		else if(jQuery('#player-attributes').length > 0){
 			jQuery('#player-attributes').html('');
 			for(var attributeKey in player.attributes){ 
-				
+				console.log( player.attributes[attributeKey]);
 				for(var i = 0; i < player.attributes[attributeKey]; i++){
+					console.log('attribute-key: '+ attributeKey);
+					console.log('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />');
 					jQuery('#player-attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 				}
 			}
@@ -623,7 +625,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 							if(sym && typeof sym.$('Equip-Button-text') != 'undefined' ) {
 
-								sym.$('Equip-Button-text').html('Item Carried. <a href="">View Player.</a>');
+								sym.$('Equip-Button-text').html('Item equipped. <a href="">View your player card.</a>');
 							}
 
 						}
@@ -882,9 +884,13 @@ function Item(){
 				
 				if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
 					if(sym && typeof sym.$('Item-Attributes') != 'undefined' ){
+						sym.$('AttributesLabel').html('');
+						
+
+						
 						sym.$('Item-Attributes').html('');
 						for(var attributeKey in dataSet[key]){ 
-							
+							sym.$('AttributesLabel').html('Boosts your '+attributeKey+'.');
 							for(var i = 0; i < dataSet[key][attributeKey]; i++){
 								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 							}

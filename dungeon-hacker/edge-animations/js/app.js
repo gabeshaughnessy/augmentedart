@@ -884,9 +884,13 @@ function Item(){
 				
 				if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
 					if(sym && typeof sym.$('Item-Attributes') != 'undefined' ){
+						sym.$('AttributesLabel').html('');
+						
+
+						
 						sym.$('Item-Attributes').html('');
 						for(var attributeKey in dataSet[key]){ 
-							
+							sym.$('AttributesLabel').html('Boosts your '+attributeKey+'.');
 							for(var i = 0; i < dataSet[key][attributeKey]; i++){
 								sym.$('Item-Attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 							}
