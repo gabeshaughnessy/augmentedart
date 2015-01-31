@@ -1,5 +1,5 @@
 /* Get URL PARAMS */
-$.urlParam = function(name){
+jQuery.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null){
        return null;
@@ -8,7 +8,7 @@ $.urlParam = function(name){
        return results[1] || 0;
     }
 }
-// usage: console.log($.urlParam('playerId'));
+// usage: console.log(jQuery.urlParam('playerId'));
 
 /* Check if data exists in Firebase */
 function itemExistsCallback(itemId, exists) {
@@ -54,20 +54,32 @@ function isEmpty(obj) {
 
 
 var isLocal = false;
-var isProduction = new RegExp('[\?augmentedart]').exec(window.location.host);
-if(isProduction == null){
+var isProduction = window.location.host.indexOf('.com');
+var isEdgeAnimate = window.location.host.indexOf('127.0.0.1');
+
+if(isProduction == -1){
 	isLocal = true;
 	isProduction = false;
+	if(isEdgeAnimate != -1){
+		isEdgeAnimate = true;
+	}
+	else{
+		isEdgeAnimate = false;
+	}
 }
 else{
 	isProduction = true;
 }
 console.log('isLocal? :' + isLocal);
 console.log('isProduction? :' + isProduction);
+console.log('isEdgeAnimate? :' + isEdgeAnimate);
 
 
 if(isLocal){
 	var imgPath = 'images/';
+	if(!isEdgeAnimate){
+		imgPath = '/dungeon-hacker/edge-animations/images/';
+	}
 }
 else{
 	var imgPath = '/dungeon-hacker/edge-animations/images/';
@@ -78,13 +90,15 @@ var firebaseRef = new Firebase('https://dungeon-hacker.firebaseio.com/');
 
 /* Player Card URL */
 if(isProduction){
-var playerCardURL = 'http://augmentedart.com/dungeon-hacker/edge-animations/player-card.html';
+var playerCardURL = 'http://www.augmentedart.com/hack-the-dungeon/player-card/';
+
 }
 else{
-	var playerCardURL = 'player-card.html';
+	var playerCardURL = 'http://augmentedart/dungeon-hacker-player-card/';
+
 }
-if( $.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
-      var playerId = $.urlParam('playerId');
+if( jQuery.urlParam('playerId') != null ){//first check if playerId is passed as a url parameter
+      var playerId = jQuery.urlParam('playerId');
    }
    else{
 	if(typeof playerId != 'undefined'){//then if playerId is set globally elsewhere, like from the layar client, for example, then leave it be.
@@ -98,8 +112,8 @@ var player = new Player(playerId);
 
 
 if(typeof itemId == 'undefined'){
- if( $.urlParam('itemId') != null){
-   var itemId = $.urlParam('itemId');
+ if( jQuery.urlParam('itemId') != null){
+   var itemId = jQuery.urlParam('itemId');
   }
   else{
     var itemId = 'default-item';
@@ -108,8 +122,8 @@ if(typeof itemId == 'undefined'){
 var item = new Item(itemId);
 
 if(typeof monsterId == 'undefined'){
-	if($.urlParam('monsterId') != null){
-		var monsterId = $.urlParam('monsterId');
+	if(jQuery.urlParam('monsterId') != null){
+		var monsterId = jQuery.urlParam('monsterId');
 	}
 	else{
 		var monsterId = 'default-monster';
@@ -162,17 +176,17 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	
 
 	this.getPlayerClass = function(){ //setup player data based on url parameter for playerClasses.
-		if($.urlParam('playerClass') == null){
+		if(jQuery.urlParam('playerClass') == null){
 			this.playerClass = 'Default Character Class';
 		}
 		else{
-			this.playerClass = $.urlParam('playerClass');
+			this.playerClass = jQuery.urlParam('playerClass');
 
 		}
 		if(this.playerClass == 'project-manager'){
 			 this.title = 'Project Manager';
 			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
-			 this.description = 'A Project Manager is the all-around balanced character';
+			 this.description = 'A shapeshifting gypsy that wears many hats. Can they really see the future?';
 			 this.playerImg = imgPath+'project-manager.png';
 		}
 		else if(this.playerClass == 'designer'){
@@ -184,14 +198,62 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		else if(this.playerClass == 'developer'){
 			 this.title = 'Developer';
 			 this.attributes = { charisma : 0, creativity : 1, knowledge : 2};
-			 this.description = 'The Developer builds the things';
+			 this.description = 'Feed them coffee and they will build the things.';
 			 this.playerImg = imgPath+'developer.png';
 		}
 		else if(this.playerClass == 'executive'){
 			 this.title = 'Executive';
 			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
-			 this.description = 'The Executive runs the ship and stuff...';
+			 this.description = 'They make turtlenecks cool. Kind of. They can fire you, so turtlenecks are cool.';
 			 this.playerImg = imgPath+'executive.png';
+		}
+		else if(this.playerClass == 'angel-investor'){
+			 this.title = 'Angel Investor';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'These mysterious benefactors could be anyone. Who knows, maybe even your grandma?';
+			 this.playerImg = imgPath+'angel-investor.png';
+		}
+		else if(this.playerClass == 'consultant'){
+			 this.title = 'Consultant';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'He\'s got some really good advice for you.';
+			 this.playerImg = imgPath+'consultant.png';
+		}
+		else if(this.playerClass == 'courier'){
+			 this.title = 'Courier';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'These mercurial sprites move exceptionally fast, just be sure to stay out of their path.';
+			 this.playerImg = imgPath+'courier.png';
+		}
+		else if(this.playerClass == 'copywriter'){
+			 this.title = 'Copywriter';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'Plenty of ninja skills are involved in turning that chicken scratch into something people will actually read.';
+			 this.playerImg = imgPath+'copywriter.png';
+		}
+		else if(this.playerClass == 'creative-director'){
+			 this.title = 'Creative Director';
+			 this.attributes = { charisma : 0, creativity : 3, knowledge : 0};
+			 this.description = 'Pure, raw, creative energy is a fearsome force. A creative director struggles with this beast every day.';
+			 this.playerImg = imgPath+'creative-director.png';
+		}
+		else if(this.playerClass == 'freelancer'){
+			 this.title = 'Freelancer';
+			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
+			 this.description = 'The rouges of the office, they can really help you out in a pinch, for a price, of course.';
+			 this.playerImg = imgPath+'freelancer.png';
+		}
+		else if(this.playerClass == 'security-guard'){
+			 this.title = 'Security Guard';
+			 this.attributes = { charisma : 2, creativity : 0, knowledge : 1};
+			 this.description = 'Holding down the fort. On a Segway.';
+			 this.playerImg = imgPath+'security-guard.png';
+		}
+		else if(this.playerClass == 'systems-engineer'){
+			 this.title = 'Systems Engineer';
+			 this.attributes = { charisma : 0, creativity : 0, knowledge : 3};
+			 this.description = 'What they lack in social skills they make up for in knowledge and CAT-5 cable.';
+			 this.playerImg = imgPath+'systems-engineer.png';
 		}
 		else{
 			 this.title = 'Default Character Class';
@@ -218,16 +280,28 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	this.loadData = function(sym){
 		//initial composition setup - populates data based on character classes, but does not interact with firebase yet.
-		if(sym.$('Player-Title').length > 0){
+		if(sym && sym.$('Player-Title').length > 0){
 			sym.$('Player-Title').html( player.title );//update the title symbol
 		}
-		if(sym.$('Description').length > 0){
+		else if(jQuery('#player-title').length > 0){
+			jQuery('#player-title').html( player.title );//update the title symbol
+		}
+
+		if(sym && sym.$('Description').length > 0){
 			sym.$('Description').html( player.description ); //update the description symbol
 		}
-		if(sym.$('PlayerImage').length > 0){
+		else if(jQuery('#description').length > 0){
+			jQuery('#description').html( player.description );//update the title symbol
+		}
+
+		if(sym && sym.$('PlayerImage').length > 0){
 			sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+player.playerImg+')');
 		}
-		if(sym.$('Attributes').length > 0){
+		else if(jQuery('#player-image').length > 0){
+			jQuery('#player-image').find('img').attr( 'src',  player.playerImg );//update the title symbol
+		}
+
+		if(sym && sym.$('Attributes').length > 0){
 			sym.$('Attributes').html('');
 			for(var attributeKey in player.attributes){ 
 				
@@ -236,6 +310,16 @@ function Player(playerID){ //pass unique player ID to the constructor.
 				}
 			}
 		}
+		else if(jQuery('#player-attributes').length > 0){
+			jQuery('#player-attributes').html('');
+			for(var attributeKey in player.attributes){ 
+				
+				for(var i = 0; i < player.attributes[attributeKey]; i++){
+					jQuery('#player-attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
+				}
+			}
+		}
+
 	}
 	
 	this.addPlayer = function(){ //create a new player entry in the db or replace existing player entry - this triggers when you select the player.
@@ -365,20 +449,26 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.id).once("value", function(snapshot){
 			var dataSet = snapshot.val();
 		    
-		    if(typeof AdobeEdge.getComposition('player') != 'undefined'){
-				var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+		    if(typeof AdobeEdge != 'undefined'){
+			    if(typeof AdobeEdge.getComposition('player') != 'undefined'){
+					var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+				}
+				else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
+					var sym = AdobeEdge.getComposition('item').getStage();
+				}
+				else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
+					var sym = AdobeEdge.getComposition('monster').getStage();
+				}
+				else {
+					console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+					var sym = false;
+			
+				}
 			}
-			else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
-				var sym = AdobeEdge.getComposition('item').getStage();
+			else{
+				sym = false;
 			}
-			else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
-				var sym = AdobeEdge.getComposition('monster').getStage();
-			}
-			else {
-				console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
-				var sym = false;
-		
-			}
+
 			for(var key in dataSet){
 				if (dataSet.hasOwnProperty(key)) {
 					if(key == 'gameState'){
@@ -408,7 +498,8 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						}	
 					}
 				}
-			}
+				}
+			
 		});
 		
 	  firebaseRef.child('players').child(this.id).on("value", function(snapshot) {
@@ -416,19 +507,24 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  	//The 'value' event fires once on load and whenever a value changes. 
 	  var dataSet = snapshot.val(); //js object with the complete data set for the player.
 	 
-	  if(typeof AdobeEdge.getComposition('player') != 'undefined'){
-		  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+	  if(typeof AdobeEdge != 'undefined'){
+		  if(typeof AdobeEdge.getComposition('player') != 'undefined'){
+			  var sym = AdobeEdge.getComposition('player').getStage(); //get a reference to the edge animation stage
+			}
+			else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
+					var sym = AdobeEdge.getComposition('item').getStage();
+				}
+			else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
+					var sym = AdobeEdge.getComposition('monster').getStage();
+				}
+			else {
+				console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
+				var sym = false;
+		
+			}
 		}
-		else if(typeof AdobeEdge.getComposition('item') != 'undefined'){
-				var sym = AdobeEdge.getComposition('item').getStage();
-			}
-		else if(typeof AdobeEdge.getComposition('monster') != 'undefined'){
-				var sym = AdobeEdge.getComposition('monster').getStage();
-			}
-		else {
-			console.log('No symbol to sync data with. You must define a stage in this.syncData first.');
-			var sym = false;
-	
+		else{
+			sym = false;
 		}
 
 		/* Clean things up first */
@@ -440,6 +536,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Player-Title') != 'undefined'){
 						sym.$('Player-Title').html( dataSet[key]);//update the title symbol
 					}
+					else if(jQuery('#player-title').length > 0){
+						jQuery('#player-title').html(dataSet[key]);
+					}
 					_this.title = dataSet[key];
 					
 				}
@@ -448,12 +547,18 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Description') != 'undefined'){
 						sym.$('Description').html( dataSet[key]); //update the description symbol
 					}
+					else if(jQuery('#description').length > 0){
+						jQuery('#description').html(dataSet[key]);
+					}
 					_this.description = dataSet[key];
 				}
 				
 				if(key == 'playerImg'){ //update the playerImg 
 					if(sym && typeof sym.getSymbol('PlayerImage') != 'undefined' && sym.getSymbol('PlayerImage').$('image').length > 0){
 					sym.getSymbol('PlayerImage').$('image').css('backgroundImage', 'url('+dataSet[key]+')');
+					}
+					else if(jQuery('#player-image').length > 0){
+						jQuery('#player-image').find('img').attr('src', dataSet[key]);
 					}
 					_this.playerImg = dataSet[key];
 				}
@@ -466,6 +571,16 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							
 							for(var i = 0; i < dataSet[key][attributeKey]; i++){
 								sym.$('Attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
+								
+							}
+						}
+					}
+					else if(jQuery('#player-attributes').length > 0){
+						jQuery('#player-attributes').html('');
+						for(var attributeKey in dataSet[key]){ 
+							
+							for(var i = 0; i < dataSet[key][attributeKey]; i++){
+								jQuery('#player-attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 								
 							}
 						}
@@ -484,6 +599,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							sym.$('CryptoCredits').append( '<img class="crypto-credit" src="'+imgPath+'crypto-credit.png" />');//add another crypto credit
 						}
 					}
+					else if(jQuery('#crypto-credits').length > 0){
+						jQuery('#crypto-credits').html('');
+						for(var credits = 0; credits < 	dataSet[key]; credits++){
+							jQuery('#crypto-credits').append( '<img class="crypto-credit" src="'+imgPath+'crypto-credit.png" />');//add another crypto credit
+						}
+					}
 					_this.cryptoCredits = dataSet[key];
 				}
 
@@ -492,6 +613,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Inventory') != 'undefined'){ 
 						sym.$('Inventory').html(''); //clear the inventory first
 					}
+					if(jQuery('#inventory').length > 0 ){
+						jQuery('#inventory').html('');
+					}
 
 					for(var inventoryItem in dataSet[key]){
 						
@@ -499,7 +623,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 							if(sym && typeof sym.$('Equip-Button-text') != 'undefined' ) {
 
-								sym.$('Equip-Button-text').html('Item Carried');
+								sym.$('Equip-Button-text').html('Item Carried. <a href="">View Player.</a>');
 							}
 
 						}
@@ -517,6 +641,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 							console.log(itemSymbol.getSymbol('item-image-container').$('image').css('backgroundImage'));
 		
 							}
+						else if(jQuery('#inventory').length > 0 ){
+							
+							jQuery('#inventory').append('<div class="inventory-item"><img class="item-image" width="20%" height="auto" src="'+dataSet[key][inventoryItem].img+'" /><div class="item-info"><h5 class="item-title">'+dataSet[key][inventoryItem].title+'</h5><p class="item-description">'+dataSet[key][inventoryItem].description+'</p></div></div>');
+
+	
+						}
 
 
 					}
@@ -531,6 +661,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 						sym.$('Monsters').html( '');//add to the monster wall
 					}
+					
+						if(jQuery('#monsters-defeated').length > 0){
+							jQuery('#monsters-defeated').html('');
+						}
+					
 					for(var monsterItem in dataSet[key]){
 
 						if(monster.title == monsterItem.title){//is this monster the same as one already in the player data?
@@ -546,7 +681,13 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 							monsterSymbol.getSymbol('monster-image-container').$('monster-image').css('backgroundImage', 'url('+dataSet[key][monsterItem].img+')');
 		
-							}
+						}
+
+						else if(jQuery('#monsters-defeated').length > 0){
+							
+							jQuery('#monsters-defeated').append('<div class="monster"><img class="monster-image" width="20%" height="auto" src="'+dataSet[key][monsterItem].img+'" /><div class="monster-info"><h5 class="monster-title">'+dataSet[key][monsterItem].title+'</h5><p class="monster-description">'+dataSet[key][monsterItem].description+'</p></div></div>');
+
+						}
 
 
 					}
@@ -562,7 +703,12 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	  /* check if player has attributes - otherwise they are dead*/
 		if(isDead){
 			_this.setFrame('dead');
-			sym.stop('dead');
+			if(sym){
+				sym.stop('dead');
+			}
+			else{
+				jQuery('#player-image').find('img').attr('src', imgPath+'zombie.png');
+			}
 		}
 	
 	}, function (errorObject) {//fires when firebase fails to read data.
@@ -584,20 +730,15 @@ function Item(){
 	this.price = 1;
 
 	this.getItemData = function(){//intial data for the item
-		if($.urlParam('itemId') == null){
+		if(jQuery.urlParam('itemId') == null){
 			this.itemId = 'Default Item Class';
 		}
 		else{
-			this.itemId = $.urlParam('itemId');
+			this.itemId = jQuery.urlParam('itemId');
 
 		}
-		if(this.itemId == 'glove-of-power'){
-			this.title = 'Glove of Power';
-			this.description = 'The glove of power increases your charisma '
-			this.attributes = {'knowledge' : 1};
-			this.img = imgPath+'glove-of-power.png';
-		}
-		else if(this.itemId == 'bluetooth-axe'){
+		//ANDY's ITEMS
+		if(this.itemId == 'bluetooth-axe'){
 			this.title = 'Blue Tooth Battle Axe';
 			this.description = 'Comes with a speaker so you can listen to Slayer while you slay. Also has a bottle opener for breaktime. '
 			this.attributes = {'creativity' : 1};
@@ -607,7 +748,7 @@ function Item(){
 			this.title = 'Mouse of Nine Heads';
 			this.description = 'Cat of Nine Tails, look the F out, there is no esc from this. '
 			this.attributes = {'charisma' : 1};
-			this.img = imgPath+'mouse-of-nine-heads.png';
+			this.img = imgPath+'mouse-of-9.png';
 		}
 		else if(this.itemId == 'wifi-shield'){
 			this.title = 'Shield of WiFi';
@@ -615,17 +756,67 @@ function Item(){
 			this.attributes = {'knowledge' : 1};
 			this.img = imgPath+'wifi-shield.png';
 		}
-		else if(this.itemId == 'sword-calc'){
+		else if(this.itemId == 'sword'){
 			this.title = 'Sword of Calculating';
 			this.description = 'Just add this sword, subtract your enemy\'s limbs, divide their skull, and multiply the carnage.'
 			this.attributes = {'creativity' : 1};
-			this.img = imgPath+'sword-calc.png';
+			this.img = imgPath+'sword.png';
 		}
 		else if(this.itemId == 'blue-ribbon-potion'){
 			this.title = 'Blue Ribbon Potion';
 			this.description = 'Do you need a frosty sippy-poo of courage? Thish wool totally do-er bud.'
 			this.attributes = {'charisma' : 1};
-			this.img = imgPath+'potion.png';
+			this.img = imgPath+'blue-ribbon-potion.png';
+		}
+		else if(this.itemId == 'lamp'){
+			this.title = 'Lamp of Synergenie';
+			this.description = 'Grants yours bloody wishes, but you’ll have to work together.'
+			this.attributes = {'creativity' : 1};
+			this.img = imgPath+'lamp.png';
+		}
+		else if(this.itemId == 'floppies'){
+			this.title = 'Razor-Sharp Throwing Floppies';
+			this.description = '13,107 of these equals one Gigabyte.'
+			this.attributes = {'knowledge' : 1};
+			this.img = imgPath+'floppies.png';
+		}
+		else if(this.itemId == 'mace'){
+			this.title = 'Mace of Gore Competencies';
+			this.description = 'Take what you’re best at and bash your way into new Monsters/Markets'
+			this.attributes = {'charisma' : 1};
+			this.img = imgPath+'mace.png';
+		}
+
+		//RYAN's ITEMS
+		else if(this.itemId == 'chrome-pendant'){
+			this.title = 'Chrome Pendant of Finding';
+			this.description = 'You are pretty much lost without one.';
+			this.attributes = {'knowledge' : 1};
+			this.img = imgPath+'chrome-pendant.png';
+		}
+		else if(this.itemId == 'crystalline-usb'){
+			this.title = 'Crystalline Universal Spell Book';
+			this.description = 'It\'s always a good idea to back your spell book up on one of these, just in case.'
+			this.attributes = {'knowledge' : 1};
+			this.img = imgPath+'crystalline-usb.png';
+		}
+		else if(this.itemId == 'fedora'){
+			this.title = 'White Knight\'s Fedora';
+			this.description = 'Step up your game a notch with this stylish head-piece';
+			this.attributes = {'charisma' : 1};
+			this.img = imgPath+'fedora.png';
+		}
+		else if(this.itemId == 'phishing-rod'){
+			this.title = 'Phishing Rod';
+			this.description = 'Many fish bite if you got good bait.';
+			this.attributes = {'creativity' : 1};
+			this.img = imgPath+'phishing-rod.png';
+		}
+		else if(this.itemId == 'troll-hammer'){
+			this.title = 'Troll Hammer';
+			this.description = 'If you troll, you will be downvoted.';
+			this.attributes = {'charisma' : 1};
+			this.img = imgPath+'troll-hammer.png';
 		}
 
 	}
@@ -736,18 +927,18 @@ function Monster(monsterId){
 	this.secondAttack = false;
 
 	this.getMonsterData = function(){//intial data for the item
-		if($.urlParam('monsterId') == null){
+		if(jQuery.urlParam('monsterId') == null){
 			this.monsterId = 'This Monster';
 		}
 		else{
-			this.monsterId = $.urlParam('monsterId');
+			this.monsterId = jQuery.urlParam('monsterId');
 
 		}
 		if(this.monsterId == 'the-gibson'){
 			this.id = monsterId;
 			this.title = 'The Gibson';
 			this.description = 'The most powerful (and evil) super-computer in all the land.';
-			this.img = imgPath+'the-gibson.jpg';
+			this.img = imgPath+'the-gibson.png';
 			this.boss = true;
 			this.attributes = {
 				primary : 'knowledge',
@@ -872,7 +1063,8 @@ function Monster(monsterId){
 		});
 	}
 	this.goToFrame = function(sym, frameLabel){
-		if(typeof sym != 'undefined'){
+		if(sym && typeof sym != 'undefined'){
+
 			sym.play(frameLabel);
 		}
 	}

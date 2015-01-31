@@ -85,9 +85,12 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_item-bg}": [
-                ["style", "top", '0px'],
-                ["style", "left", '0px']
+            "${_Item-Description}": [
+                ["style", "top", '447px'],
+                ["style", "height", '101px'],
+                ["style", "font-size", '18px'],
+                ["style", "left", '37px'],
+                ["style", "width", '440px']
             ],
             "${_Item-Title}": [
                 ["style", "top", '402px'],
@@ -101,22 +104,20 @@ var symbols = {
             ],
             "${_AttributesLabel}": [
                 ["style", "top", '566px'],
-                ["style", "font-size", '14px'],
-                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
-                ["style", "height", '31px'],
+                ["style", "width", '121px'],
                 ["style", "font-weight", 'bold'],
+                ["style", "height", '31px'],
+                ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '37px'],
-                ["style", "width", '121px']
+                ["style", "font-size", '14px']
             ],
-            "${_Stage}": [
-                ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "overflow", 'hidden'],
-                ["style", "height", '800px'],
-                ["style", "width", '500px']
+            "${_item-bg}": [
+                ["style", "top", '0px'],
+                ["style", "left", '0px']
             ],
             "${_Item-Attributes}": [
-                ["color", "background-color", 'rgba(192,192,192,0.00)'],
                 ["style", "top", '548px'],
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
                 ["style", "left", '166px'],
                 ["style", "width", '298px']
             ],
@@ -128,12 +129,11 @@ var symbols = {
                 ["style", "left", '0px'],
                 ["style", "font-size", '32px']
             ],
-            "${_Item-Description}": [
-                ["style", "top", '447px'],
-                ["style", "height", '101px'],
-                ["style", "width", '440px'],
-                ["style", "left", '37px'],
-                ["style", "font-size", '18px']
+            "${_Stage}": [
+                ["color", "background-color", 'rgba(255,255,255,0.00)'],
+                ["style", "width", '500px'],
+                ["style", "height", '800px'],
+                ["style", "overflow", 'hidden']
             ]
         }
     },
@@ -147,16 +147,16 @@ var symbols = {
                 "selected": 250
             },
             timeline: [
-                { id: "eid42", tween: [ "style", "${_Equip-Item-Button}", "top", '635px', { fromValue: '635px'}], position: 0, duration: 0 },
                 { id: "eid43", tween: [ "style", "${_AttributesLabel}", "top", '566px', { fromValue: '566px'}], position: 0, duration: 0 },
                 { id: "eid41", tween: [ "style", "${_Item-Attributes}", "top", '548px', { fromValue: '548px'}], position: 0, duration: 0 },
                 { id: "eid9", tween: [ "style", "${_Equip-Item-Button}", "left", '32px', { fromValue: '32px'}], position: 0, duration: 0 },
                 { id: "eid29", tween: [ "style", "${_Item-Attributes}", "left", '166px', { fromValue: '166px'}], position: 0, duration: 0 },
-                { id: "eid24", tween: [ "style", "${_AttributesLabel}", "width", '121px', { fromValue: '121px'}], position: 0, duration: 0 },
                 { id: "eid23", tween: [ "style", "${_AttributesLabel}", "height", '31px', { fromValue: '31px'}], position: 0, duration: 0 },
-                { id: "eid38", tween: [ "style", "${_AttributesLabel}", "font-size", '14px', { fromValue: '14px'}], position: 0, duration: 0 },
+                { id: "eid40", tween: [ "style", "${_Item-Attributes}", "width", '298px', { fromValue: '298px'}], position: 0, duration: 0 },
                 { id: "eid32", tween: [ "style", "${_AttributesLabel}", "left", '37px', { fromValue: '37px'}], position: 0, duration: 0 },
-                { id: "eid40", tween: [ "style", "${_Item-Attributes}", "width", '298px', { fromValue: '298px'}], position: 0, duration: 0 }            ]
+                { id: "eid38", tween: [ "style", "${_AttributesLabel}", "font-size", '14px', { fromValue: '14px'}], position: 0, duration: 0 },
+                { id: "eid42", tween: [ "style", "${_Equip-Item-Button}", "top", '635px', { fromValue: '635px'}], position: 0, duration: 0 },
+                { id: "eid24", tween: [ "style", "${_AttributesLabel}", "width", '121px', { fromValue: '121px'}], position: 0, duration: 0 }            ]
         }
     }
 },

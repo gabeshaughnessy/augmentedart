@@ -20,6 +20,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          item.addItem();
          item.syncData();
          player.getPlayerData();
+         
+          
          //player.syncData();
          
          
@@ -62,6 +64,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          else {
          console.log('whoops, no item or player object to work with here.');
          }
+         
+         linkUrl = playerCardURL+'?playerId='+player.id;
+                  sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');
 
       });
       //Edge binding end
