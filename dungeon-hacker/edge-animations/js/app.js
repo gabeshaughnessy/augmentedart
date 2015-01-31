@@ -661,11 +661,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 						sym.$('Monsters').html( '');//add to the monster wall
 					}
-					if{
+					
 						if(jQuery('#monsters-defeated').length > 0){
 							if(jQuery('#monsters-defeated').length > 0).html('');
 						}
-					}
+					
 					for(var monsterItem in dataSet[key]){
 
 						if(monster.title == monsterItem.title){//is this monster the same as one already in the player data?
