@@ -20,7 +20,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",12792,function(sym
 else{monster.status.html(monster.title+' defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}
 player.reset();sym.stop('dead');});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13106,function(sym,e){var facedMonster=false;for(var thisMonster in player.monsters){if(monster.title==thisMonster){facedMonster=true;}
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13106,function(sym,e){player.setFrame('player-wins');var facedMonster=false;for(var thisMonster in player.monsters){if(monster.title==thisMonster){facedMonster=true;}
 else{facedMonster=false;}}
 if(!facedMonster){monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to face '+monster.title+' again.');}
 else{monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> you can tap to face '+monster.title+' again.');}

@@ -117,6 +117,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13106, function(sym, e) {
+         player.setFrame('player-wins');
          var facedMonster = false;
          for(var thisMonster in player.monsters){
          			if(monster.title == thisMonster){
@@ -127,7 +128,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          			}
          		}
          		if(!facedMonster){
-         monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to face '+monster.title+' again.');
+                monster.status.html('You Defeated '+monster.title+' and found 1 Crypto-credit!<br />Tap to face '+monster.title+' again.');
          		}
          		else{
          		monster.status.html('You Defeated '+monster.title+'!<br /> You already looted the room, but <br /> you can tap to face '+monster.title+' again.');
