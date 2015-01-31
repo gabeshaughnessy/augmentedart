@@ -625,7 +625,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 							if(sym && typeof sym.$('Equip-Button-text') != 'undefined' ) {
 
-								sym.$('Equip-Button-text').html('Item Carried. <a href="">View Player.</a>');
+								sym.$('Equip-Button-text').html('Item equipped. <a href="">View your player card.</a>');
 							}
 
 						}

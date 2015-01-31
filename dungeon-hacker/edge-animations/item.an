@@ -13,7 +13,7 @@
 	"expanded:images/mouse-of-nine-heads.png":"nil",
 	"CompZoomFactor":"100",
 	"expanded:images/project-manager.png":"nil",
-	"nextElementColorIndex":"14",
+	"nextElementColorIndex":"2",
 	"stage-Default Timeline_playhead_ms":"250",
 	"expanded:images/glove-of-power.png":"nil",
 	"expanded:images/wifi-shield.png":"nil",
@@ -47,7 +47,7 @@
 	"expanded:images/kiosk-bg.jpg":"nil",
 	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
 	"expanded:images/the-gibson.jpg":"nil",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"expanded:images/monster-card-bg.png":"nil",
 	"expanded:images/sword.png":"nil",
 	"usedBOM":"false",
@@ -59,8 +59,13 @@
 	"expanded:images/battle-ax.png":"nil",
 	"expanded:images/copywriter.png":"nil",
 	"expanded:images/dice-roll-sprite.png":"nil",
+	"expanded:images/item-card.jpg":"nil",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"symbol_stage":{
+		"element_${_item-card}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
 		"dummyStageParentWidth":"500px",
 		"element_${_Item-Attributes}":{
 			"timelineColor2":"0x5a558a",
@@ -71,7 +76,7 @@
 		"element_${_Item-Title}":{
 			"timelineColor2":"0x4fa275",
 			"timelineColor3":"0x456a55",
-			"animationEnabled":"false",
+			"animationEnabled":"true",
 			"timelineColor":"0x50bd82"},
 		"element_${_item-bg2}":{
 			"timelineColor2":"0xd8b467",
@@ -97,6 +102,7 @@
 		"element_${_item-bg}":{
 			"timelineColor2":"0xba5b89",
 			"timelineColor3":"0x734a5f",
+			"animationEnabled":"false",
 			"timelineColor":"0xdb619d"},
 		"element_${_Equip-Button-text}":{
 			"timelineColor2":"0x1aa38f",
@@ -107,7 +113,7 @@
 		"element_${_Item-Description}":{
 			"timelineColor2":"0xd35d6e",
 			"timelineColor3":"0x7e4b52",
-			"animationEnabled":"false",
+			"animationEnabled":"true",
 			"timelineColor":"0xfb657a"},
 		"element_${_Stage}":{
 			"timelineColor2":"0xcbbd71",
@@ -171,10 +177,10 @@
 		"defaultStageParentHeight":"500px",
 		"dummyStageParentWidth":"500px",
 		"dummyStageParentHeight":"500px"},
-	"viewStartY":"0",
+	"viewStartY":"20",
 	"expanded:images/troll-hammer.png":"nil",
 	"expanded:images/battle-axe.png":"nil",
-	"TransitionIdCounter":"70",
+	"TransitionIdCounter":"91",
 	"expanded:images/mouse-of-9.png":"nil",
 	"PubDPS":"true",
 	"expanded:images/Poster5.png":"nil",

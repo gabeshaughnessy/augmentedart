@@ -30,23 +30,30 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_Equip-Item-Button}", "click", function(sym, e) {
+       linkUrl = playerCardURL+'?playerId='+player.id;
          if(player.hasItem(item.title) === false && player.cryptoCredits >= item.price){
             sym.play('selected');// insert code for mouse click here
             sym.$('Equip-Button-text').html('Item Equipped');
          }
          
          else if(player.cryptoCredits < item.price){
-            sym.$('Equip-Button-text').html('Not Enough Credits');
+         
+            sym.$('Equip-Button-text').html('Not enough credits.<br /> Tap to view your player card.');
+            sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');
+
          }
          else{
-            sym.$('Equip-Button-text').html('Item Already Equipped');
+         
+            sym.$('Equip-Button-text').html('Item already equipped.<br /> Tap to view your player card.');
+            sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');
+
          }
 
       });
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         sym.$('Equip-Button-text').html('Cost: ' +  item.price);
+         sym.$('Equip-Button-text').html('Tap to purchase.');
          sym.stop();// insert code here
 
       });
@@ -56,7 +63,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          if(typeof item != 'undefined' && typeof player.id != 'undefined'){
             if(player.cryptoCredits >= item.price){
                  player.update('cryptoCredits', player.cryptoCredits - item.price );
-                 player.addItem(item, item.title, 'charisma', 1 );
+                 for(attribute in item.attributes){
+                 player.addItem(item, item.title, attribute, 1 );
+                 }
             }
          }
          

@@ -3958,7 +3958,14 @@ h1 {
   }
 }
 /* line 248, ../sass/_dh-page.scss */
-.page-template-dh_player-card-php #inventory .item-image {
+.page-template-dh_player-card-php #inventory .inventory-item {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+}
+/* line 253, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .inventory-item .item-image {
   display: table-cell;
   vertical-align: middle;
   float: left;
@@ -3966,20 +3973,20 @@ h1 {
   margin-bottom: 1em;
 }
 @media screen and (orientation: landscape) {
-  /* line 248, ../sass/_dh-page.scss */
-  .page-template-dh_player-card-php #inventory .item-image {
+  /* line 253, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .inventory-item .item-image {
     width: 40%;
   }
 }
 @media screen and (max-width: 440px) {
-  /* line 248, ../sass/_dh-page.scss */
-  .page-template-dh_player-card-php #inventory .item-image {
+  /* line 253, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .inventory-item .item-image {
     width: 100%;
     margin-top: 1em;
   }
 }
-/* line 262, ../sass/_dh-page.scss */
-.page-template-dh_player-card-php #inventory .item-info {
+/* line 267, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .inventory-item .item-info {
   display: table-cell;
   vertical-align: middle;
   width: 70%;
@@ -3988,31 +3995,31 @@ h1 {
   float: left;
 }
 @media screen and (orientation: landscape) {
-  /* line 262, ../sass/_dh-page.scss */
-  .page-template-dh_player-card-php #inventory .item-info {
+  /* line 267, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .inventory-item .item-info {
     width: 60%;
   }
 }
 @media screen and (max-width: 440px) {
-  /* line 262, ../sass/_dh-page.scss */
-  .page-template-dh_player-card-php #inventory .item-info {
+  /* line 267, ../sass/_dh-page.scss */
+  .page-template-dh_player-card-php #inventory .inventory-item .item-info {
     width: 100%;
     padding-left: 0;
   }
 }
-/* line 277, ../sass/_dh-page.scss */
-.page-template-dh_player-card-php #inventory .item-info .item-title {
+/* line 282, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .inventory-item .item-info .item-title {
   margin-top: 0;
   margin-bottom: 0;
   font-size: .9em;
   line-height: 1.3;
   font-weight: 900;
 }
-/* line 284, ../sass/_dh-page.scss */
-.page-template-dh_player-card-php #inventory .item-info .item-description {
+/* line 289, ../sass/_dh-page.scss */
+.page-template-dh_player-card-php #inventory .inventory-item .item-info .item-description {
   font-size: .8em;
 }
-/* line 292, ../sass/_dh-page.scss */
+/* line 298, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php #monsters-defeated .monster-image {
   display: table-cell;
   vertical-align: middle;
@@ -4021,19 +4028,19 @@ h1 {
   margin-bottom: 1em;
 }
 @media screen and (orientation: landscape) {
-  /* line 292, ../sass/_dh-page.scss */
+  /* line 298, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php #monsters-defeated .monster-image {
     width: 40%;
   }
 }
 @media screen and (max-width: 440px) {
-  /* line 292, ../sass/_dh-page.scss */
+  /* line 298, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php #monsters-defeated .monster-image {
     width: 100%;
     margin-top: 1em;
   }
 }
-/* line 306, ../sass/_dh-page.scss */
+/* line 312, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php #monsters-defeated .monster-info {
   display: table-cell;
   vertical-align: middle;
@@ -4043,19 +4050,19 @@ h1 {
   float: left;
 }
 @media screen and (orientation: landscape) {
-  /* line 306, ../sass/_dh-page.scss */
+  /* line 312, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php #monsters-defeated .monster-info {
     width: 60%;
   }
 }
 @media screen and (max-width: 440px) {
-  /* line 306, ../sass/_dh-page.scss */
+  /* line 312, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php #monsters-defeated .monster-info {
     width: 100%;
     padding-left: 0;
   }
 }
-/* line 321, ../sass/_dh-page.scss */
+/* line 327, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php #monsters-defeated .monster-info .monster-title {
   margin-top: 0;
   margin-bottom: 0;
@@ -4063,15 +4070,15 @@ h1 {
   line-height: 1.3;
   font-weight: 900;
 }
-/* line 328, ../sass/_dh-page.scss */
+/* line 334, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php #monsters-defeated .monster-info .monster-description {
   font-size: .8em;
 }
-/* line 333, ../sass/_dh-page.scss */
+/* line 339, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .img-wrapper {
   float: left;
 }
-/* line 336, ../sass/_dh-page.scss */
+/* line 342, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .img-wrapper.right {
   width: 20%;
   float: right;
@@ -4079,24 +4086,24 @@ h1 {
   box-sizing: border-box;
 }
 @media screen and (max-width: 1024px) {
-  /* line 336, ../sass/_dh-page.scss */
+  /* line 342, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php .img-wrapper.right {
     width: 30%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 336, ../sass/_dh-page.scss */
+  /* line 342, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php .img-wrapper.right {
     width: 40%;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 336, ../sass/_dh-page.scss */
+  /* line 342, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php .img-wrapper.right {
     width: 50%;
   }
 }
-/* line 353, ../sass/_dh-page.scss */
+/* line 359, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php button {
   background-color: #40413e;
   border: 1px solid #12515a;
@@ -4110,45 +4117,45 @@ h1 {
   outline-color: #aeb0a5;
   transition: color .25s;
 }
-/* line 365, ../sass/_dh-page.scss */
+/* line 371, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php button > * {
   color: inherit;
 }
-/* line 368, ../sass/_dh-page.scss */
+/* line 374, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php button:hover {
   color: #edf0f0;
 }
-/* line 372, ../sass/_dh-page.scss */
+/* line 378, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php button.primary {
   background-color: #0d827e;
   border: 1px solid #12515a;
   color: #edf0f0;
   outline-color: #38bb93;
 }
-/* line 377, ../sass/_dh-page.scss */
+/* line 383, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php button.primary:hover {
   color: #38bb93;
 }
-/* line 381, ../sass/_dh-page.scss */
+/* line 387, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .button-row {
   width: 100%;
 }
-/* line 383, ../sass/_dh-page.scss */
+/* line 389, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .button-row a {
   float: left;
   margin-right: 2%;
   width: 49%;
   text-align: center;
 }
-/* line 388, ../sass/_dh-page.scss */
+/* line 394, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .button-row a:last-child {
   margin-right: 0;
 }
-/* line 391, ../sass/_dh-page.scss */
+/* line 397, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .button-row a button {
   width: 100%;
 }
-/* line 397, ../sass/_dh-page.scss */
+/* line 403, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php hr.shaded {
   width: 100%;
   height: 40px;
@@ -4160,12 +4167,12 @@ h1 {
   border-top: none;
   background-position: center;
 }
-/* line 408, ../sass/_dh-page.scss */
+/* line 414, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .wistia_embed {
   float: left;
   clear: both;
 }
-/* line 412, ../sass/_dh-page.scss */
+/* line 418, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php .header-wrapper {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -4182,7 +4189,7 @@ h1 {
   -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
-/* line 429, ../sass/_dh-page.scss */
+/* line 435, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php h1.page-title {
   float: left;
   font-family: "Courier New", Courier, Monaco, monospace;
@@ -4197,30 +4204,30 @@ h1 {
   bottom: 0;
 }
 @media screen and (max-width: 780px) {
-  /* line 429, ../sass/_dh-page.scss */
+  /* line 435, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php h1.page-title {
     font-size: 2em;
     line-height: 2.5;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 429, ../sass/_dh-page.scss */
+  /* line 435, ../sass/_dh-page.scss */
   .page-template-dh_player-card-php h1.page-title {
     font-size: 1.5em;
     position: relative;
   }
 }
-/* line 452, ../sass/_dh-page.scss */
+/* line 458, ../sass/_dh-page.scss */
 .page-template-dh_player-card-php #footer {
   border: none;
 }
 
-/* line 457, ../sass/_dh-page.scss */
+/* line 463, ../sass/_dh-page.scss */
 #main-header.hide {
   display: none;
 }
 
-/* line 460, ../sass/_dh-page.scss */
+/* line 466, ../sass/_dh-page.scss */
 #mobile-toggle.hide {
   display: none;
 }
