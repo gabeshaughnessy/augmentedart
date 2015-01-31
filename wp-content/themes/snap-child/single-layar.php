@@ -13,7 +13,12 @@ if(isset($user_agent) && strpos($user_agent,'Android') !== false) {
 else {
     $is_android = false;
 }
+if(isset($_REQUEST['userId'])){
 $user_id = $_REQUEST['userId'];
+}
+else{
+    $user_id = 'test_user';
+}
 
 $hotspots_output = array();
 if(have_posts()) : while(have_posts()) : the_post();

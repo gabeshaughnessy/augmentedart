@@ -620,7 +620,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 							if(sym && typeof sym.$('Equip-Button-text') != 'undefined' ) {
 
-								sym.$('Equip-Button-text').html('Item Carried');
+								sym.$('Equip-Button-text').html('Item Carried. <a href="">View Player.</a>');
 							}
 
 						}
@@ -639,7 +639,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		
 							}
 						else if(jQuery('#inventory').length > 0 ){
-							jQuery('#inventory').html('');
+							
 							jQuery('#inventory').append('<div class="inventory-item"><img class="item-image" width="20%" height="auto" src="'+dataSet[key][inventoryItem].img+'" /><div class="item-info"><h5 class="item-title">'+dataSet[key][inventoryItem].title+'</h5><p class="item-description">'+dataSet[key][inventoryItem].description+'</p></div></div>');
 
 	
