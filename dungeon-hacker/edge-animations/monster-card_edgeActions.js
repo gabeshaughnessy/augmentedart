@@ -615,7 +615,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 36405, function(sym, e) {
-         alert('player wins');
+         alert('You hacked The Gibson and won the game!');
+         player.addMonster(monster);
          
          sym.stop();
 

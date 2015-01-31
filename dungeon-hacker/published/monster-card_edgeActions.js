@@ -134,7 +134,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",36000,function(sym
 else{monster.status.html(monster.title+' defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}
 player.reset();sym.stop('dead');sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",36405,function(sym,e){alert('player wins');sym.stop();});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",36405,function(sym,e){alert('You hacked The Gibson and won the game!');player.addMonster(monster);sym.stop();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",32077,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+' blocked your attack to tie the match!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');}
 monster.status.html('Tie Game!<br/>Roll to break the tie, highest roll wins. <br />Tap to continue.');player.setFrame('boss-tie');sym.stop();});
