@@ -676,7 +676,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						}
 
 						else if(jQuery('#monsters-defeated').length > 0){
-							jQuery('#monsters-defeated').html('');
+							
 							jQuery('#monsters-defeated').append('<div class="monster"><img class="monster-image" width="20%" height="auto" src="'+dataSet[key][monsterItem].img+'" /><div class="monster-info"><h5 class="monster-title">'+dataSet[key][monsterItem].title+'</h5><p class="monster-description">'+dataSet[key][monsterItem].description+'</p></div></div>');
 
 						}
