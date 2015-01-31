@@ -18,14 +18,12 @@ function enqueue_dh_scripts(){
 add_action('wp_enqueue_scripts', 'enqueue_dh_scripts');
 
 function dh_meta_tags(){
-$tweetUrl = urlencode("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
 	
 
 	echo '<meta name="description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Dungeon Hacker Player Card">
-	<meta property="og:url" content="'.$tweetUrl.'">
 	<meta property="og:site_name" content="Dungeon Hacker">
 	<meta property="og:description" content="Hack and Slash in Augmented Reality at the Diode Gallery.">
 	<meta property="og:image" content="http://www.augmentedart.com/wp-content/uploads/2015/01/dh-poster.jpg">
