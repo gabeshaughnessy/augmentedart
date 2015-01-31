@@ -313,8 +313,10 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		else if(jQuery('#player-attributes').length > 0){
 			jQuery('#player-attributes').html('');
 			for(var attributeKey in player.attributes){ 
-				
+				console.log( player.attributes[attributeKey]);
 				for(var i = 0; i < player.attributes[attributeKey]; i++){
+					console.log('attribute-key: '+ attributeKey);
+					console.log('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />);
 					jQuery('#player-attributes').append('<img class="'+attributeKey+'" src="'+imgPath+attributeKey+'.png" />' );
 				}
 			}
