@@ -613,6 +613,9 @@ function Player(playerID){ //pass unique player ID to the constructor.
 					if(sym && typeof sym.$('Inventory') != 'undefined'){ 
 						sym.$('Inventory').html(''); //clear the inventory first
 					}
+					if(if(jQuery('#inventory').length > 0 )){
+						if(jQuery('#inventory').length > 0 ).html('');
+					}
 
 					for(var inventoryItem in dataSet[key]){
 						
@@ -657,6 +660,11 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						//clear the monster wall element first
 
 						sym.$('Monsters').html( '');//add to the monster wall
+					}
+					if{
+						if(jQuery('#monsters-defeated').length > 0){
+							if(jQuery('#monsters-defeated').length > 0).html('');
+						}
 					}
 					for(var monsterItem in dataSet[key]){
 
