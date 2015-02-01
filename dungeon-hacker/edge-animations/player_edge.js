@@ -91,6 +91,16 @@ var symbols = {
         },
     states: {
         "Base State": {
+            "${_SelectButton}": [
+                ["transform", "scaleX", '0.9262'],
+                ["style", "left", '45px'],
+                ["transform", "scaleY", '0.9262'],
+                ["style", "top", '515px']
+            ],
+            "${_player-card-bg}": [
+                ["style", "height", '639px'],
+                ["style", "width", '399px']
+            ],
             "${_PlayerCardButton}": [
                 ["style", "top", '516px'],
                 ["transform", "scaleY", '0'],
@@ -98,52 +108,42 @@ var symbols = {
                 ["style", "opacity", '0.000000'],
                 ["style", "left", '43px']
             ],
-            "${_Attributes}": [
-                ["color", "background-color", 'rgba(192,192,192,0.00)'],
-                ["style", "top", '446px'],
-                ["style", "left", '155px'],
-                ["style", "width", '194px']
-            ],
-            "${_SelectButton}": [
-                ["style", "top", '515px'],
-                ["transform", "scaleX", '0.9262'],
-                ["transform", "scaleY", '0.9262'],
-                ["style", "left", '45px']
-            ],
             "${_AttributesLabel}": [
                 ["style", "top", '460px'],
-                ["style", "font-size", '12px'],
+                ["style", "width", '302px'],
                 ["style", "font-weight", 'bold'],
                 ["style", "font-family", '\'Lucida Console\', Monaco, monospace'],
                 ["style", "left", '49px'],
-                ["style", "width", '302px']
+                ["style", "font-size", '12px']
             ],
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,0.00)'],
-                ["style", "overflow", 'hidden'],
+                ["style", "width", '400px'],
                 ["style", "height", '640px'],
-                ["style", "width", '400px']
+                ["style", "overflow", 'hidden']
+            ],
+            "${_Attributes}": [
+                ["style", "top", '446px'],
+                ["color", "background-color", 'rgba(192,192,192,0.00)'],
+                ["style", "left", '155px'],
+                ["style", "width", '194px']
             ],
             "${_Description}": [
                 ["style", "top", '393px'],
-                ["style", "width", '303px'],
+                ["style", "font-size", '12px'],
                 ["style", "height", '73px'],
                 ["style", "font-family", 'Lucida Console, Monaco, monospace'],
                 ["style", "left", '46px'],
-                ["style", "font-size", '12px']
+                ["style", "width", '303px']
             ],
             "${_Player-Title}": [
                 ["style", "top", '363px'],
-                ["style", "width", '302px'],
-                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
-                ["style", "height", '30px'],
+                ["style", "font-size", '17px'],
                 ["style", "font-weight", '700'],
+                ["style", "height", '30px'],
+                ["style", "font-family", 'Lucida Console, Monaco, monospace'],
                 ["style", "left", '47px'],
-                ["style", "font-size", '17px']
-            ],
-            "${_player-card-bg}": [
-                ["style", "height", '639px'],
-                ["style", "width", '399px']
+                ["style", "width", '302px']
             ]
         }
     },
@@ -159,10 +159,10 @@ var symbols = {
             },
             timeline: [
                 { id: "eid40", tween: [ "transform", "${_PlayerCardButton}", "scaleY", '0.98052', { fromValue: '0'}], position: 0, duration: 500 },
-                { id: "eid22", tween: [ "style", "${_SelectButton}", "top", '515px', { fromValue: '515px'}], position: 0, duration: 0 },
                 { id: "eid39", tween: [ "transform", "${_PlayerCardButton}", "scaleX", '0.98052', { fromValue: '0'}], position: 0, duration: 500 },
                 { id: "eid35", tween: [ "style", "${_PlayerCardButton}", "opacity", '1', { fromValue: '0.000000'}], position: 0, duration: 500 },
                 { id: "eid23", tween: [ "style", "${_SelectButton}", "left", '45px', { fromValue: '45px'}], position: 0, duration: 0 },
+                { id: "eid22", tween: [ "style", "${_SelectButton}", "top", '515px', { fromValue: '515px'}], position: 0, duration: 0 },
                 { id: "eid9", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['play', '${_SelectButton}', [] ], ""], position: 500 }            ]
         }
     }
@@ -192,8 +192,8 @@ var symbols = {
     states: {
         "Base State": {
             "${_image}": [
-                ["style", "top", '0px'],
                 ["style", "height", '88.51%'],
+                ["style", "top", '0px'],
                 ["style", "left", '0px'],
                 ["style", "width", '90.84%']
             ],
@@ -235,12 +235,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)']
                 },
                 {
-                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto'],
                     font: ['Lucida Console, Monaco, monospace', 24, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
+                    type: 'text',
                     id: 'Text',
                     text: 'Select This Character',
                     align: 'center',
-                    type: 'text'
+                    rect: ['32px', '10px', '240px', '37px', 'auto', 'auto']
                 }
             ],
             symbolInstances: [
@@ -300,12 +300,12 @@ var symbols = {
                     fill: ['rgba(192,192,192,1)'],
                     c: [
                     {
-                        font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal'],
                         type: 'text',
+                        rect: ['14px', '13px', 'auto', 'auto', 'auto', 'auto'],
                         id: 'Text4',
                         text: 'Selected! - View Player Card',
                         align: 'center',
-                        rect: ['14px', '13px', 'auto', 'auto', 'auto', 'auto']
+                        font: ['\'Lucida Console\', Monaco, monospace', 40, 'rgba(0,0,0,1)', '400', 'none', 'normal']
                     }]
                 }
             ],
@@ -319,14 +319,14 @@ var symbols = {
                 ["style", "left", '0px'],
                 ["color", "background-color", 'rgba(210,210,210,1.00)']
             ],
+            "${symbolSelector}": [
+                ["style", "height", '47px'],
+                ["style", "width", '308px']
+            ],
             "${_Text4}": [
                 ["style", "top", '13px'],
                 ["style", "left", '14px'],
                 ["style", "font-size", '16px']
-            ],
-            "${symbolSelector}": [
-                ["style", "height", '47px'],
-                ["style", "width", '308px']
             ]
         }
     },
