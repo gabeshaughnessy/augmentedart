@@ -362,20 +362,20 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.id).update(attributeObj);
 
 	}
-	this.addMonster = function(monster){
-		var monsterObj = {};
-		
-		var facedMonster = false;
-		for(var thisMonster in this.monsters){
-			if(monster.title == thisMonster){
-			facedMonster = true;
-			}
-			else{
-			facedMonster = false;
+	function foughtMonster(playerMonsters, monsterObjTitle){
+		for(var thisMonster in playerMonsters){
+			if(monsterObjTitle == thisMonster){
+			return true;
 			}
 		}
+		return false;
+	}
+	this.addMonster = function(monster){
+		var monsterObj = {};
+		console.log(foughtMonster(this.monsters, monster.title));
+	
 		
-		if(facedMonster == false){
+		if(foughtMonster(this.monsters, monster.title) == false){
 			if(monster.boss){
 				this.update('cryptoCredits', this.cryptoCredits+2);
 				alert('You defeated '+monster.title+' and won the game! Show this message to claim your prize!');

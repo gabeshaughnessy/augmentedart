@@ -362,19 +362,43 @@ function Player(playerID){ //pass unique player ID to the constructor.
 		firebaseRef.child('players').child(this.id).update(attributeObj);
 
 	}
+	function foughtMonster(playerMonsters, monsterObjTitle){
+		for(var thisMonster in playerMonsters){
+			if(monsterObjTitle == thisMonster){
+			return true;
+			}
+		}
+		return false;
+	}
 	this.addMonster = function(monster){
 		var monsterObj = {};
+		console.log(foughtMonster(this.monsters, monster.title));
+	
 		
+		if(foughtMonster(this.monsters, monster.title) == false){
+			if(monster.boss){
+				this.update('cryptoCredits', this.cryptoCredits+2);
+				alert('You defeated '+monster.title+' and won the game! Show this message to claim your prize!');
+			}
+			else{
+				this.update('cryptoCredits', this.cryptoCredits+1);
+				alert('You defeated '+monster.title+'!');
+			}
 
-		this.update('cryptoCredits', this.cryptoCredits+1);
-		alert('You defeated '+monster.title+'!');
+		}
+		
 		monsterObj[monster.title] = {
 			'title' : monster.title,
 			'img' : monster.img,
 			'description' : monster.description
 		}
 		firebaseRef.child('players').child(this.id).child('monsters').update(monsterObj);
+		if(!monster.boss){
 		firebaseRef.child('players').child(this.id).child('gameState').child(monster.title).update({currentFrame : 'player-wins'});
+		}
+		else{
+			firebaseRef.child('players').child(this.id).child('gameState').child(monster.title).update({currentFrame : 'player-beats-boss'});
+		}
 	};
 
 	this.addItem = function(item, itemTitle, itemAttribute, attAmount){ //pass an item title and an attribute amount
