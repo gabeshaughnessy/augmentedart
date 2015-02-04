@@ -372,7 +372,6 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 	this.addMonster = function(monster){
 		var monsterObj = {};
-		console.log(foughtMonster(this.monsters, monster.title));
 	
 		
 		if(foughtMonster(this.monsters, monster.title) == false){
