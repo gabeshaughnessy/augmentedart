@@ -440,8 +440,6 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	this.reset = function(){
 		this.update('attributes', {});
-        this.update('inventory', {});
-        this.update('monsters', {});
         this.update('gameState', {});
         this.update('cryptoCredits', {});
 	}
