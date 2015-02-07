@@ -789,7 +789,7 @@ function Item(){
 		else if(this.itemId == 'wifi-shield'){
 			this.title = 'Shield of WiFi';
 			this.description = 'Blocks excess data charges, but leaves you a bit exposed. '
-			this.attributes = {'knowledge' : 1};
+			this.attributes = {'knowledge' : 2};
 			this.img = imgPath+'wifi-shield.png';
 		}
 		else if(this.itemId == 'sword'){
