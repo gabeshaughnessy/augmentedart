@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+<style type="text/css">
+.button{
+    padding: 1em;
+    text-transform: uppercase;
+    padding: 1em;
+    color: #3D9;
+    border: 1px outset #3d9;
+    background: #3A9;
+}
+button.disabled{
+    color: #d33;
+    border: 1px outset #d33;
+    background: #955;
+}
+</style>
+</head>
+
+<body>
+<p>Send to port 3333, listen at port 3334 </p>
+
+<hr />
+
+Received from an OSC app/device at : <div id="status"> </div>
+
+
+<hr />
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/1.1.2/firebase.js"></script>
+<script src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+
+<script>
+//setup firebase connection
+var oscFirebase;
+var dataSnap;
+
+var testing = true;
+if (testing == true){
+    userID = 'test_user';
+}
+
+if (typeof userID == 'undefined'){
+    userID = 'user_'+Math.floor((Math.random() * 10) + 1);
+}
+
+else{
+    userID = 'user_' + userID;
+}
+
+//Connect to Firebase Database
+//oscFirebase = new Firebase("https://osc-controller.firebaseio.com/");
+
+
+//socket.io connection to firebase relays OSC to the client using osc-web
+   socket = io.connect('http://127.0.0.1', { port: 8081, rememberTransport: false});
+   console.log('io');
+
+   socket.on('connect', function() {
+    console.log('connected');
+        // sends to socket.io server the host/port of oscServer
+        // and oscClient
+        socket.emit('config',
+            {
+                server: {
+                    port: 3333,
+                    host: '127.0.0.1'
+                },
+                client: {
+                    port: 3334,
+                    host: '127.0.0.1'
+                }
+            }
+        );
+    });
+
+    socket.on('message', function(obj) {
+        console.log('message');
+
+        var status = document.getElementById("status");
+       
+        status.innerHTML = obj[0];
+       // oscFirebase.child(userID).child('control1').child('address').set(obj[0]);
+        //oscFirebase.child(userID).child('control1').child('args').set(obj[1]);
+
+    });
+
+    
+ function sendOSC(msg){
+    
+    socket.emit('message', msg);
+    console.log(msg);
+
+
+ } 
+
+nikeFirebase = new Firebase("https://nike-fa15-murals.firebaseio.com/");
+
+nikeFirebase.child('led-controls').on("value", function(snapshot){
+    rgbValues = snapshot.val(); 
+    socket.emit('message', {'args' : [rgbValues['red'], rgbValues['green'], rgbValues['blue']], 'address' : '/lg' });
+         
+});
+
+ $(document).ready(function(){  
+ 
+});
+</script>
+
+<button class="button" data-address="/button1" >Button 1</button>
+<button class="button" data-address="/button2" >Button 2</button>
+
+</body> </html>
