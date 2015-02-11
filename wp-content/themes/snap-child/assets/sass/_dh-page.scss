@@ -9,9 +9,17 @@ $image-path : "/dungeon-hacker/edge-animations/images/";
   -webkit-hyphens: none;
   hyphens: none;
 }
+body.page-template-dh_player-card{
+	font-family : $base-font-family;
+	h1, h2, h3, h4, h5,h6, p, em, b, strong, span, blockquote{
+	font-family : $base-font-family;
+	text-transform : none;
+}
+
+}
 html, body{
 	background-color: transparent !important;
-	font-family : $base-font-family;
+	
 	&.js{
 		margin-top: 0 !important;
 	}
@@ -25,10 +33,6 @@ html, body{
 	width: 100%;
 }
 
-h1, h2, h3, h4, h5,h6, p, em, b, strong, span, blockquote{
-	font-family : $base-font-family;
-	text-transform : none;
-}
 
 h1{
 	margin: 0;
