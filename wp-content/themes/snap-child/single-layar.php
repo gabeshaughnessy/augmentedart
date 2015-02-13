@@ -30,7 +30,7 @@ if(have_posts()) : while(have_posts()) : the_post();
                 //build hotspots here
                 $referenceImage = (isset($hotspot['layar_reference_image']) ? $hotspot['layar_reference_image'] : 'noimage');
                 $layarUrl = (isset($hotspot['layar_url']) ? $hotspot['layar_url']:'nouurl');
-                  if(strpos('?', $layarUrl) != false){
+                  if(strpos($layarUrl, '?' ) !== false){
                     $user_param = '&userID=';
                     
                   }
