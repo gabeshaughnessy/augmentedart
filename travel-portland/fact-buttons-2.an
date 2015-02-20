@@ -1,0 +1,88 @@
+
+{
+
+	"expanded:images/images/backgrounds_02.png":"nil",
+	"PosterImagePath":"images/Poster2.png",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"symbol_factButton":{
+		"element_${_button}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"animationEnabled":"true",
+			"timelineColor":"0x2f73ad"}},
+	"expanded:images/Poster2.png":"nil",
+	"expanded:images/":"nil",
+	"expanded:images/button-2.png":"nil",
+	"PubWeb":"false",
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"100",
+	"pixelsPerMs":"0.2",
+	"factButton-Default Timeline_playhead_ms":"0",
+	"nextElementColorIndex":"7",
+	"stage-Default Timeline_playhead_ms":"2250",
+	"HTMLFileName":"fact-buttons-2.html",
+	"PosterCapturePos":"0",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }},\
+\"factButton\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }}\
+}",
+	"expanded:images/images/backgrounds_03.png":"nil",
+	"expanded:images/images/backgrounds_01.png":"nil",
+	"factButton-Default Timeline_mark_ms":"-1",
+	"PubDPSDir":"./packages/",
+	"expanded:images/Poster.png":"nil",
+	"viewStartMs":"-25",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"symbol_stage":{
+		"dummyStageParentWidth":"170px",
+		"dummyStageParentHeight":"140px",
+		"defaultStageParentHeight":"140px",
+		"element_${_button}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"animationEnabled":"false",
+			"timelineColor":"0x00bda4"},
+		"element_${_factButton1}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82",
+			"timelineTreeOpened":"true",
+			"animationEnabled":"true"},
+		"defaultStageParentWidth":"170px",
+		"element_${_factButton2}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"animationEnabled":"true",
+			"timelineColor":"0x00a096"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"}},
+	"PreloadAudio":"auto",
+	"stage-Default Timeline_mark_ms":"-1",
+	"viewStartY":"0",
+	"expanded:images/Poster3.png":"nil",
+	"expanded:images/TP_logo.png":"nil",
+	"pref__general__AutoKeyframeProperties":"false",
+	"usedBOM":"false",
+	"PubDPS":"true",
+	"TransitionIdCounter":"73",
+	"pref__general__GenerateSmoothTransitions":"true",
+	"expanded:images/button.png":"nil",
+	"expanded:images/images/backgrounds_04.jpg":"nil"}

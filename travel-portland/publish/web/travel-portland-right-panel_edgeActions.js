@@ -9,4 +9,10 @@
 //Edge symbol: 'background'
 (function(symbolName){})("background");
 //Edge symbol end:'background'
+
+//=========================================================
+
+//Edge symbol: 'instructions'
+(function(symbolName){})("instructions");
+//Edge symbol end:'instructions'
 })(jQuery,AdobeEdge,"EDGE-221343168");

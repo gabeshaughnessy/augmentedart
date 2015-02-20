@@ -77,16 +77,16 @@ var symbols = {
     content: {
             dom: [
                 {
-                    id: 'Panel-1_02',
+                    id: 'Panel-2_01',
                     type: 'image',
-                    rect: ['0px', '72px', '500px', '425px', 'auto', 'auto'],
-                    fill: ['rgba(0,0,0,0)', 'images/images/Panel-1_02.jpg', '0px', '0px']
+                    rect: ['0', '0', '500px', '133px', 'auto', 'auto'],
+                    fill: ['rgba(0,0,0,0)', 'images/images/Panel-2_01.png', '0px', '0px']
                 },
                 {
-                    id: 'Panel-1_01',
+                    id: 'Panel-2_02',
                     type: 'image',
-                    rect: ['0px', '-3px', '500px', '75px', 'auto', 'auto'],
-                    fill: ['rgba(0,0,0,0)', 'images/images/Panel-1_01.png', '0px', '0px']
+                    rect: ['0', '133', '500px', '364px', 'auto', 'auto'],
+                    fill: ['rgba(0,0,0,0)', 'images/images/Panel-2_02.jpg', '0px', '0px']
                 }
             ],
             symbolInstances: [
@@ -94,20 +94,8 @@ var symbols = {
         },
     states: {
         "Base State": {
-            "${_Panel-1_01}": [
-                ["style", "height", '75px'],
-                ["style", "top", '-3px'],
-                ["style", "left", '0px'],
-                ["style", "width", '500px']
-            ],
             "${symbolSelector}": [
                 ["style", "height", '497px'],
-                ["style", "width", '500px']
-            ],
-            "${_Panel-1_02}": [
-                ["style", "top", '72px'],
-                ["style", "height", '425px'],
-                ["style", "left", '0px'],
                 ["style", "width", '500px']
             ]
         }

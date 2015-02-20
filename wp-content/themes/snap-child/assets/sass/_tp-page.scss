@@ -77,7 +77,14 @@ body.page-template-tp_fact_page{
 			float: left;
 			clear: both;
 			text-align : center;
+			img{
+				width: 50%;
+				@media screen and (orientation: portrait ){
+					width: 100%;
+				}
+			}
 		}
+
 		.logo{
 			
 			margin : 0 auto;
