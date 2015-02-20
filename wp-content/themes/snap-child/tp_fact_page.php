@@ -66,6 +66,7 @@ get_header();
 			}
 		?>
 			<div id="page-<?php the_ID(); ?>" class="tp-page">
+				<div class="fact-button"></div>
 				<h2 class="did-you-know">Did You Know?</h2>
 				<?php if(isset($fact) && !empty($fact)){
 					echo '<p class="fact">'.$fact.'</p>';

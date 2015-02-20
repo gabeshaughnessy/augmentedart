@@ -67,6 +67,26 @@ body.page-template-tp_fact_page{
 		min-height: 100%;
 		position : relative;
 		z-index: 2;
+
+		.fact-button{
+			display: block;
+			position: absolute;
+			width: 175px;
+			height: 153px;
+			float:right;
+			z-index: 4;
+			background-repeat : no-repeat;
+			background-image : url('travel-portland/button.png');
+			background-size: contain;
+			top: -78px;
+			right: 10px;
+			@media screen and (max-width:500px){
+				transform : scale(.5);
+				right: -10px;
+
+			}
+
+		}
 		h2{
 			margin: 0 0 1.22222rem;
 			font-size : 2em;
