@@ -74,7 +74,7 @@ get_header();
 					echo '<p class="fact-comparison">'.$fact_comparison.'</p>';
 				}
 				?>
-				<div class="logo-wrapper"><img class="logo" src="<?php bloginfo('stylesheet_directory'); ?>/travel-portland/tp_logo.svg" width="50%" height="auto" alt="Travel Portland" /></div>
+				<a target="_blank" href="http://www.travelportland.com/" class="logo-wrapper"><img class="logo" src="<?php bloginfo('stylesheet_directory'); ?>/travel-portland/tp_logo.svg" width="50%" height="auto" alt="Travel Portland" /></a>
 				
 				<?php if ( empty( $post->post_content) && current_user_can( 'edit_page', get_the_ID() ) ) : ?>
 					
