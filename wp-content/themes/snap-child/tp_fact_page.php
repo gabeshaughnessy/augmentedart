@@ -10,7 +10,8 @@ $tweetMessage = urlencode('I learned a fun fact about Portland!');
 global $tweetUrl, $facebookUrl;
 
 $tweetUrl = urlencode("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-$facebookUrl = $tweetUrl;
+$facebookUrl = 'https://www.facebook.com/sharer/sharer.php?'.'u='.$tweetUrl;
+
 
 $fact = get_field('fact');
 $fact_comparison = get_field('fact_comparison');
@@ -23,6 +24,7 @@ global $fact;
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Travel Portland - Facts about Portland">
 	<meta property="og:site_name" content="Travel Portland">
+	<meta property="og:url" content="'.get_permalink().'"/>
 	<meta property="og:description" content="'.$fact.'">
 	<meta property="og:image" content="http://www.augmentedart.com/wp-content/uploads/2015/02/TP_Illustration_social.jpg">
 	<meta name="twitter:image" content="http://www.augmentedart.com/wp-content/uploads/2015/02/TP_Illustration_social.jpg">
@@ -85,11 +87,11 @@ get_header();
 			</div>
 			<div class="sharing-wrapper">
 					<h3 class="sharing-title">Share This Fun Fact</h3>
-					<a class="share-item" href="<?php echo $facebookUrl; ?>">
+					<a class="share-item" target="_blank" href="<?php echo $facebookUrl; ?>">
 						<img class="share-icon" src="<?php bloginfo('stylesheet_directory'); ?>/travel-portland/facebook.png" width="60px" height="auto" alt="facebook share icon" />
 						<p>Share on Facebook</p>
 					</a>
-					<a class="share-item" href="<?php echo $tweetUrl; ?>">
+					<a class="share-item" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo  $tweetMessage; ?>&url=<?php echo $tweetUrl; ?>">
 						<img class="share-icon" src="<?php bloginfo('stylesheet_directory'); ?>/travel-portland/twitter.png" width="60px" height="auto" alt="twitter share icon" />
 						<p>Post to Twitter</p>
 					</a>
