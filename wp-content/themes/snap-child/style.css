@@ -4312,7 +4312,7 @@ body.page-template-tp_fact_page h1, body.page-template-tp_fact_page h2, body.pag
   top: -78px;
   right: 10px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (orientation: portrait) {
   /* line 71, ../sass/_tp-page.scss */
   .page-template-tp_fact_page .tp-page .fact-button {
     transform: scale(0.5);
