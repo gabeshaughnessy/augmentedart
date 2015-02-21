@@ -83,7 +83,7 @@ body.page-template-tp_fact_page{
 			background-size: contain;
 			top: -78px;
 			right: 10px;
-			@media screen and (orientation:portrait){
+			@media screen and (max-width:500px;){
 				-webkit-transform : scale(.5);
 				-moz-transform : scale(.5);
 				-o-transform : scale(.5);
