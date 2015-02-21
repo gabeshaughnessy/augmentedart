@@ -4315,14 +4315,14 @@ body.page-template-tp_fact_page h1, body.page-template-tp_fact_page h2, body.pag
   top: -78px;
   right: 10px;
 }
-@media screen and (orientation: portrait) {
+@media screen and (max-width: 500px) {
   /* line 74, ../sass/_tp-page.scss */
   .page-template-tp_fact_page .tp-page .fact-button {
     -webkit-transform: scale(0.5);
     -moz-transform: scale(0.5);
     -o-transform: scale(0.5);
     transform: scale(0.5);
-    right: -10px;
+    right: -40px;
   }
 }
 /* line 97, ../sass/_tp-page.scss */
