@@ -162,6 +162,7 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	this.title = "Default Player Title";
 	this.description = "The default player description.";
 	this.playerImg = imgPath+'project-manager.png';
+	this.deadImg = imgPath+'zombie-project-manager.png';
 	this.playerClass = 'Default Player Class';
 	this.cryptoCredits = 0;
 	this.gameState = {};
@@ -188,21 +189,21 @@ function Player(playerID){ //pass unique player ID to the constructor.
 			 this.attributes = { charisma : 1, creativity : 1, knowledge : 1};
 			 this.description = 'A shapeshifting gypsy that wears many hats. Can they really see the future?';
 			 this.playerImg = imgPath+'project-manager.png';
-			 this.deadImg = imgPath+'zombie-systems-engineer.png';
+			 this.deadImg = imgPath+'zombie-project-manager.png';
 		}
 		else if(this.playerClass == 'designer'){
 			 this.title = 'Designer';
 			 this.attributes = { charisma : 0, creativity : 2, knowledge : 1};
 			 this.description = 'A Designer is creative and knowledgeable';
 			 this.playerImg = imgPath+'designer.png';
-			 this.deadImg = imgPath+'zombie-systems-engineer.png';
+			 this.deadImg = imgPath+'zombie-designer.png';
 		}
 		else if(this.playerClass == 'developer'){
 			 this.title = 'Developer';
 			 this.attributes = { charisma : 0, creativity : 1, knowledge : 2};
 			 this.description = 'Feed them coffee and they will build the things.';
 			 this.playerImg = imgPath+'developer.png';
-			 this.deadImg = imgPath+'zombie-systems-engineer.png';
+			 this.deadImg = imgPath+'zombie-developer.png';
 		}
 		else if(this.playerClass == 'executive'){
 			 this.title = 'Executive';
@@ -372,7 +373,6 @@ function Player(playerID){ //pass unique player ID to the constructor.
 	}
 	this.addMonster = function(monster){
 		var monsterObj = {};
-		console.log(foughtMonster(this.monsters, monster.title));
 	
 		
 		if(foughtMonster(this.monsters, monster.title) == false){
@@ -441,8 +441,6 @@ function Player(playerID){ //pass unique player ID to the constructor.
 
 	this.reset = function(){
 		this.update('attributes', {});
-        this.update('inventory', {});
-        this.update('monsters', {});
         this.update('gameState', {});
         this.update('cryptoCredits', {});
 	}
@@ -595,6 +593,10 @@ function Player(playerID){ //pass unique player ID to the constructor.
 						jQuery('#player-image').find('img').attr('src', dataSet[key]);
 					}
 					_this.playerImg = dataSet[key];
+				}
+				
+				if(key == 'deadImg'){ //update the deadImg 
+					_this.deadImg = dataSet[key];
 				}
 				
 				if(key == 'attributes'){ //loop through the attributes and display the correct number for each.
@@ -787,7 +789,7 @@ function Item(){
 		else if(this.itemId == 'wifi-shield'){
 			this.title = 'Shield of WiFi';
 			this.description = 'Blocks excess data charges, but leaves you a bit exposed. '
-			this.attributes = {'knowledge' : 1};
+			this.attributes = {'knowledge' : 2};
 			this.img = imgPath+'wifi-shield.png';
 		}
 		else if(this.itemId == 'sword'){
@@ -1132,7 +1134,7 @@ function Monster(monsterId){
 			
 			else if(this.boss == true){				
 				
-				attackScore = 5;
+				attackScore = 10;
 				if(this.secondAttack === true){
 					if(diceRoll >= attackScore){
 						this.hits = true;

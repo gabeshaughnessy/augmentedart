@@ -10,7 +10,7 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",6931,function(sym,
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13292,function(sym,e){sym.stop(0);});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){monster.status=sym.$('Status');if(monster.boss===true){monster.status.html('<strong>Boss Mode!!!</strong><br />'+monster.title+' attacks twice and needs an to roll an 5 or higher to hit. Tap to continue.');}
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){monster.status=sym.$('Status');if(monster.boss===true){monster.status.html('<strong>Boss Mode!!!</strong><br />'+monster.title+' attacks twice and needs an to roll an 10 or higher to hit. Tap to continue.');}
 else{monster.status.html(monster.title+' attacks first.<br/>It needs to roll a 10 or higher to hit. <br />Tap to continue.');}
 sym.stop();});
 //Edge binding end
@@ -128,7 +128,9 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",34595,function(sym
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",34831,function(sym,e){player.setFrame('boss-battle-results');battleResults(monster,player,sym);});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",23,function(sym,e){if(monster.boss==true){sym.play('boss-start');}});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",23,function(sym,e){if(monster.boss==true){var monsterCount=0;for(defeatedMonster in player.monsters){monsterCount++;}
+if(monsterCount>=3){sym.play('boss-start');}
+else{sym.stop(0);monster.status.html('<strong>You\'re not ready to face The Gibson yet!</strong><br />You need to defeat the other monsters before you can fight the boss.');}}});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",39000,function(sym,e){if(monster.blocks==true){monster.status.html(monster.title+'blocked your attack<br /> and defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}
 else{monster.status.html(monster.title+' defeated you!');if(typeof monster.tiebreaker!='undefined'){monster.status.html(monster.title+' rolls a '+monster.tiebreaker+' and wins the tiebreaker, <br /> You have been defeated!');player.reset();}}

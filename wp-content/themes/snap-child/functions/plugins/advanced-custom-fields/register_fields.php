@@ -1,4 +1,4 @@
-<?php
+<?php 
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -643,6 +643,59 @@ if(function_exists("register_field_group"))
 		'options' => array (
 			'position' => 'normal',
 			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_travel-portland-facts',
+		'title' => 'Travel Portland Facts',
+		'fields' => array (
+			array (
+				'key' => 'field_54e6a862520c8',
+				'label' => 'Fact Image',
+				'name' => 'fact_image',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_54e6a872520c9',
+				'label' => 'Fact',
+				'name' => 'fact',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54e6a882520ca',
+				'label' => 'Fact Comparison',
+				'name' => 'fact_comparison',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'formatting' => 'br',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'tp_fact_page.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
 			'hide_on_screen' => array (
 			),
 		),

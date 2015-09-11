@@ -10,36 +10,101 @@
 	"expanded:images/monster.png":"nil",
 	"expanded:images/security-guard.png":"nil",
 	"PosterImagePath":"images/Poster5.png",
-	"pref__general__codeView":"fullView",
+	"pref__general__codeView":"sectionalView",
 	"expanded:images/brogrammer.png":"nil",
-	"expanded:images/blue-ribbon-potion.png":"nil",
+	"expanded:images/crystalline-usb.png":"nil",
 	"expanded:images/phishing-rod.png":"nil",
 	"expanded:images/player-img-default.png":"nil",
 	"expanded:images/mouse-of-nine-heads.png":"nil",
 	"expanded:images/executive.png":"nil",
 	"expanded:images/project-manager.png":"nil",
+	"expanded:images/zombie-systems-engineer.png":"nil",
 	"expanded:images/player-img-default.jpg":"nil",
 	"expanded:images/freelancer.png":"nil",
 	"expanded:images/glove-of-power.png":"nil",
 	"expanded:images/wifi-shield.png":"nil",
 	"expanded:images/mace.png":"nil",
 	"HTMLFileName":"monster-card.html",
+	"viewStartMs":"12328.885742188",
+	"expanded:images/zombie-security-guard.png":"nil",
 	"PosterCapturePos":"0",
 	"expanded:images/consultant.png":"nil",
 	"mediagroup_audio/bowser-theme.m4a":"bowser-theme",
+	"expanded:images/zombie-copywriter.png":"nil",
+	"expanded:images/zombie-consultant.png":"nil",
 	"expanded:images/developer.png":"nil",
+	"expanded:images/zombie-courier.png":"nil",
 	"expanded:images/dungeon-hacker-logo.jpg":"nil",
+	"CompZoomFactor":"100",
 	"expanded:images/charisma.png":"nil",
 	"expanded:images/Poster4.png":"nil",
 	"expanded:images/the-gibson.jpg":"nil",
+	"expanded:images/zombie-designer.png":"nil",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"dice-roll-sprite_symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"monster-image\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"PlayerAttributes\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
 	"pref__general__AutoKeyframePropertiesArmed":"false",
+	"expanded:images/zombie-developer.png":"nil",
 	"PlayerAttributes-Default Timeline_playhead_ms":"0",
 	"expanded:images/monster-card-bg.png":"nil",
 	"expanded:images/sword.png":"nil",
+	"expanded:images/zombie-project-manager.png":"nil",
 	"monster-image-Default Timeline_playhead_ms":"0",
+	"expanded:images/zombie-freelancer.png":"nil",
+	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
 	"usedBOM":"false",
 	"expanded:images/paper-tile.jpg":"nil",
-	"expanded:images/Poster7.png":"nil",
+	"symbol_dice-roll-sprite_symbol_1":{
+		"defaultStageParentHeight":"198px",
+		"dummyStageParentHeight":"198px",
+		"defaultStageParentWidth":"187px",
+		"dummyStageParentWidth":"187px",
+		"element_${_dice-roll-sprite}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"animationEnabled":"true",
+			"timelineColor":"0xffd46d"}},
+	"expanded:images/dice-roll-sprite3.png":"nil",
+	"expanded:images/the-gibson.png":"nil",
+	"expanded:images/potion.png":"nil",
+	"expanded:images/Poster5.png":"nil",
+	"expanded:images/default-item.png":"nil",
+	"expanded:images/item-bg.png":"nil",
+	"pref__general__AutoKeyframeProperties":"false",
+	"expanded:images/diceroll_spritesheet.png":"nil",
+	"PubDPS":"true",
+	"nextElementColorIndex":"3",
+	"expanded:images/chrome-pendant.png":"nil",
+	"pref__general__GenerateSmoothTransitions":"false",
+	"expanded:images/player-card-paper-bg.jpg":"nil",
+	"expanded:images/copywriter.png":"nil",
 	"symbol_monster-image":{
 		"element_${_image}":{
 			"timelineColor2":"0x1aa38f",
@@ -47,27 +112,53 @@
 			"timelineColor":"0x00bda4",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"true"}},
-	"expanded:images/designer.png":"nil",
-	"expanded:images/potion.png":"nil",
-	"expanded:images/logo.png":"nil",
-	"expanded:images/default-item.png":"nil",
-	"expanded:images/item-bg.png":"nil",
-	"pref__general__AutoKeyframeProperties":"false",
-	"expanded:images/diceroll_spritesheet.png":"nil",
-	"ShowRulers":"false",
-	"nextElementColorIndex":"3",
-	"PubDPSDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/packages/",
-	"mediagroup_audio/bowser-theme.wav":"bowser-theme",
-	"expanded:images/player-card-paper-bg.jpg":"nil",
-	"expanded:images/copywriter.png":"nil",
-	"expanded:images/dice-roll-sprite.png":"nil",
-	"expanded:images/crystalline-usb.png":"nil",
+	"stage-Default Timeline_mark_ms":"-1",
 	"pref__general__FilterNonAnimatedElements":"false",
-	"viewStartY":"199",
+	"expanded:images/angel-investor.png":"nil",
 	"expanded:images/Poster2.png":"nil",
 	"expanded:images/paper-bg.jpg":"nil",
 	"dice-roll-sprite_symbol_1-Default Timeline_playhead_ms":"0",
-	"TransitionIdCounter":"257",
+	"expanded:images/floppies.png":"nil",
+	"symbol_diceroll_spritesheet_symbol_1":{
+		"dummyStageParentWidth":"615px",
+		"dummyStageParentHeight":"738px",
+		"defaultStageParentWidth":"615px",
+		"element_${_diceroll_spritesheet}":{
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"animationEnabled":"true",
+			"timelineColor":"0xdb619d"},
+		"defaultStageParentHeight":"738px"},
+	"expanded:images/crypto-credit.png":"nil",
+	"diceroll_spritesheet_symbol_1-Default Timeline_playhead_ms":"0",
+	"StageZoomFactor":"50",
+	"pixelsPerMs":"0.37744677401059",
+	"expanded:images/social-media-monster.png":"nil",
+	"expanded:images/Poster6.png":"nil",
+	"mediagroup_audio/bowser-theme.wav":"bowser-theme",
+	"expanded:images/knowledge.png":"nil",
+	"expanded:images/Poster.png":"nil",
+	"expanded:images/kiosk-bg.jpg":"nil",
+	"expanded:images/fedora.png":"nil",
+	"expanded:images/lamp.png":"nil",
+	"expanded:images/sword-calc.png":"nil",
+	"expanded:images/zombie-executive.png":"nil",
+	"expanded:images/viral-swarm.png":"nil",
+	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
+	"expanded:images/zombie-creative-director.png":"nil",
+	"expanded:images/creativity.png":"nil",
+	"expanded:images/dice-roll-sprite2.png":"nil",
+	"expanded:images/dungeon-hacker-logo.png":"nil",
+	"mediagroup_audio/bowser-theme.mp3":"bowser-theme",
+	"expanded:images/systems-engineer.png":"nil",
+	"expanded:images/item-card.jpg":"nil",
+	"PreloadAudio":"auto",
+	"expanded:images/Poster3.png":"nil",
+	"stage-Default Timeline_playhead_ms":"0",
+	"expanded:images/player-card-bg.jpg":"nil",
+	"expanded:images/battle-axe.png":"nil",
+	"expanded:images/courier.png":"nil",
+	"expanded:images/diceroll_spritesheet2.png":"nil",
 	"symbol_stage":{
 		"element_${_AttackAttribute}":{
 			"timelineColor2":"0x1095d2",
@@ -157,11 +248,12 @@
 			"timelineColor":"0xceaef4",
 			"timelineTreeOpened":"true",
 			"animationEnabled":"true"},
-		"element_${_DefenseAttributeLabel}":{
-			"timelineColor2":"0x5a558a",
-			"timelineColor3":"0x4a485e",
+		"element_${_paper-bg}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"timelineColor":"0xffd46d",
 			"timelineTreeOpened":"false",
-			"timelineColor":"0x63599f"},
+			"animationEnabled":"false"},
 		"element_${_SecondaryAttLabel}":{
 			"timelineColor2":"0x107faa",
 			"timelineColor3":"0x295a6d",
@@ -209,31 +301,30 @@
 			"timelineColor3":"0x385063",
 			"timelineTreeOpened":"false",
 			"timelineColor":"0x2f73ad"},
-		"element_${_bowser-theme5}":{
-			"timelineColor2":"0xb099ce",
-			"timelineColor3":"0x70657c",
-			"animationEnabled":"false",
-			"timelineColor":"0xceaef4"},
-		"element_${_paper-bg}":{
-			"timelineColor2":"0xd8b467",
-			"timelineColor3":"0x81714f",
-			"timelineColor":"0xffd46d",
-			"timelineTreeOpened":"false",
-			"animationEnabled":"false"},
-		"defaultStageParentHeight":"800px",
-		"element_${_bowser-theme3}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"animationEnabled":"false",
-			"timelineColor":"0x008dc8"},
-		"dummyStageParentWidth":"500px",
-		"defaultStageParentWidth":"500px",
 		"element_${_PrimaryAttLabel}":{
 			"timelineColor2":"0x81aa62",
 			"timelineColor3":"0x5b6c4d",
 			"timelineColor":"0x91c767",
 			"timelineTreeOpened":"false",
 			"animationEnabled":"false"},
+		"defaultStageParentHeight":"800px",
+		"dummyStageParentWidth":"500px",
+		"element_${_bowser-theme3}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"animationEnabled":"false",
+			"timelineColor":"0x008dc8"},
+		"element_${_DefenseAttributeLabel}":{
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"timelineTreeOpened":"false",
+			"timelineColor":"0x63599f"},
+		"defaultStageParentWidth":"500px",
+		"element_${_bowser-theme5}":{
+			"timelineColor2":"0xb099ce",
+			"timelineColor3":"0x70657c",
+			"animationEnabled":"false",
+			"timelineColor":"0xceaef4"},
 		"element_${_Stage}":{
 			"timelineColor2":"0xcbbd71",
 			"timelineColor3":"0x7b7652",
@@ -245,94 +336,15 @@
 			"timelineColor":"0x91c767",
 			"timelineTreeOpened":"true",
 			"animationEnabled":"true"}},
-	"expanded:images/diceroll_spritesheet2.png":"nil",
-	"diceroll_spritesheet_symbol_1-Default Timeline_playhead_ms":"0",
-	"StageZoomFactor":"75",
-	"pixelsPerMs":"0.37744677401059",
-	"expanded:images/knowledge.png":"nil",
-	"expanded:images/battle-axe.png":"nil",
-	"stage-Default Timeline_mark_ms":"-1",
-	"expanded:images/player-card-bg.jpg":"nil",
+	"TransitionIdCounter":"257",
 	"mediagroup_audio/bowser-theme.ogg":"bowser-theme",
-	"expanded:images/Poster6.png":"nil",
-	"stage-Default Timeline_playhead_ms":"0",
-	"expanded:images/fedora.png":"nil",
-	"expanded:images/lamp.png":"nil",
-	"expanded:images/sword-calc.png":"nil",
-	"PreloadAudio":"auto",
-	"PubWebDir":"/Users/gabe/Dropbox/Sites/augmentedart/dungeon-hacker/published/",
-	"expanded:images/item-card.jpg":"nil",
-	"CompZoomFactor":"100",
-	"expanded:images/creativity.png":"nil",
-	"expanded:images/dice-roll-sprite2.png":"nil",
-	"expanded:images/dungeon-hacker-logo.png":"nil",
-	"mediagroup_audio/bowser-theme.mp3":"bowser-theme",
-	"expanded:images/systems-engineer.png":"nil",
-	"expanded:images/viral-swarm.png":"nil",
-	"ModelData":"{\
-\"stage\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"dice-roll-sprite_symbol_1\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"monster-image\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"PlayerAttributes\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
-   }},\
-\"Preloader\": {\
-   \"timelines\": {\
-\
-   }},\
-\"Down-level\": {\
-   \"timelines\": {\
-\
-   }}\
-}",
-	"expanded:images/Poster3.png":"nil",
-	"expanded:images/kiosk-bg.jpg":"nil",
-	"expanded:images/Poster.png":"nil",
-	"viewStartMs":"-13.246900872598",
-	"expanded:images/courier.png":"nil",
-	"expanded:images/social-media-monster.png":"nil",
-	"expanded:images/crypto-credit.png":"nil",
-	"symbol_diceroll_spritesheet_symbol_1":{
-		"dummyStageParentWidth":"615px",
-		"dummyStageParentHeight":"738px",
-		"defaultStageParentWidth":"615px",
-		"element_${_diceroll_spritesheet}":{
-			"timelineColor2":"0xba5b89",
-			"timelineColor3":"0x734a5f",
-			"animationEnabled":"true",
-			"timelineColor":"0xdb619d"},
-		"defaultStageParentHeight":"738px"},
-	"expanded:images/floppies.png":"nil",
-	"expanded:images/angel-investor.png":"nil",
+	"viewStartY":"199",
 	"expanded:images/troll-hammer.png":"nil",
-	"pref__general__GenerateSmoothTransitions":"false",
-	"expanded:images/chrome-pendant.png":"nil",
+	"expanded:images/zombie-angel-investor.png":"nil",
+	"expanded:images/blue-ribbon-potion.png":"nil",
 	"expanded:images/mouse-of-9.png":"nil",
-	"PubDPS":"true",
-	"expanded:images/Poster5.png":"nil",
-	"expanded:images/the-gibson.png":"nil",
-	"expanded:images/dice-roll-sprite3.png":"nil",
-	"symbol_dice-roll-sprite_symbol_1":{
-		"dummyStageParentWidth":"187px",
-		"dummyStageParentHeight":"198px",
-		"defaultStageParentWidth":"187px",
-		"defaultStageParentHeight":"198px",
-		"element_${_dice-roll-sprite}":{
-			"timelineColor2":"0xd8b467",
-			"timelineColor3":"0x81714f",
-			"animationEnabled":"true",
-			"timelineColor":"0xffd46d"}}}
+	"ShowRulers":"false",
+	"expanded:images/logo.png":"nil",
+	"expanded:images/dice-roll-sprite.png":"nil",
+	"expanded:images/designer.png":"nil",
+	"expanded:images/Poster7.png":"nil"}
