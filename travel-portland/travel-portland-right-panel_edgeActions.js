@@ -21,6 +21,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'background'
    (function(symbolName) {   
    
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 30000, function(sym, e) {
+         sym.play('loop');
+
+      });
+      //Edge binding end
+
    })("background");
    //Edge symbol end:'background'
 
@@ -31,5 +37,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    
    })("instructions");
    //Edge symbol end:'instructions'
+
+   //=========================================================
+   
+   //Edge symbol: 'Red-light'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 31000, function(sym, e) {
+         sym.play('loop');
+
+      });
+      //Edge binding end
+
+   })("Red-light");
+   //Edge symbol end:'Red-light'
 
 })(jQuery, AdobeEdge, "EDGE-221343168");

@@ -3,7 +3,7 @@
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){item.getItemData();item.addItem();item.syncData();player.getPlayerData();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Equip-Item-Button}","click",function(sym,e){linkUrl=playerCardURL+'?playerId='+player.id;if(player.hasItem(item.title)===false&&player.cryptoCredits>=item.price){sym.play('selected');sym.$('Equip-Button-text').html('Item Equipped');}
+Symbol.bindElementAction(compId,symbolName,"${_Equip-Item-Button}","click",function(sym,e){linkUrl=playerCardURL+'?playerId='+player.id;if(player.hasItem(item.title)===false&&player.cryptoCredits>=item.price){sym.play('selected');sym.$('Equip-Button-text').html('Item Equipped<br /> Tap to view your player card.');sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');sym.unbind('click');}
 else if(player.cryptoCredits<item.price){sym.$('Equip-Button-text').html('Not enough credits.<br /> Tap to view your player card.');sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');}
 else{sym.$('Equip-Button-text').html('Item already equipped.<br /> Tap to view your player card.');sym.$('Equip-Item-Button').wrap('<a href="'+linkUrl+'">');}});
 //Edge binding end

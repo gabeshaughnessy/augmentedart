@@ -20,10 +20,24 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          fact1URL = 'http://augmentedart.com/travel-portland/fact-3/';
-         sym.getSymbol('factButton1').$('button').wrap('<a href="'+fact1URL+'" style="z-index:1000; width:120px; height:105px; display: block;" ></a>');
+         sym.$('factButton1').append('<a class="trigger" href="'+fact1URL+'" style=" z-index:10000; width: 100%; height: 105px; display: block; " ></a>');
          
          fact2URL = 'http://augmentedart.com/travel-portland/fact-4/';
-         sym.getSymbol('factButton2').$('button').wrap('<a href="'+fact2URL+'" style="z-index:1000; width:120px; height:105px; display: block;" ></a>');
+         sym.$('factButton2').append('<a class="trigger" href="'+fact2URL+'" style=" z-index:10000; width: 100%; height: 105px; display: block;" ></a>');
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_factButton1}", "click", function(sym, e) {
+         sym.getSymbol('factButton1').find('.trigger').trigger('click');
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_factButton2}", "click", function(sym, e) {
+         sym.getSymbol('factButton2').find('.trigger').trigger('click');
+         
 
       });
       //Edge binding end
@@ -44,5 +58,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    })("factButton");
    //Edge symbol end:'factButton'
+
+   //=========================================================
+   
+   //Edge symbol: 'factButton_1'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 13000, function(sym, e) {
+         sym.play('loop');
+
+      });
+         //Edge binding end
+
+      })("factButton_1");
+   //Edge symbol end:'factButton_1'
 
 })(jQuery, AdobeEdge, "fact-buttons");

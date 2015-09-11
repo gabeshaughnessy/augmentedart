@@ -21,6 +21,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'background'
    (function(symbolName) {   
    
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 12000, function(sym, e) {
+         sym.play('loop');
+
+      });
+      //Edge binding end
+
    })("background");
    //Edge symbol end:'background'
 

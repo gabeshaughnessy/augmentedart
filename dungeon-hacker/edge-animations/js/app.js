@@ -1134,7 +1134,7 @@ function Monster(monsterId){
 			
 			else if(this.boss == true){				
 				
-				attackScore = 5;
+				attackScore = 10;
 				if(this.secondAttack === true){
 					if(diceRoll >= attackScore){
 						this.hits = true;

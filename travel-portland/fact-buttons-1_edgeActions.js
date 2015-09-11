@@ -20,13 +20,35 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          fact1URL = 'http://augmentedart.com/travel-portland/fact-1/';
-         sym.getSymbol('factButton1').$('button').wrap('<a href="'+fact1URL+'" style="z-index:1000; width:120px; height:105px; display: block;" ></a>');
+         //sym.$('button1').append('<a class="trigger" id="button1trigger" href="'+fact1URL+'" style="display:none;" ></a>');
          
          fact2URL = 'http://augmentedart.com/travel-portland/fact-2/';
-         sym.getSymbol('factButton2').$('button').wrap('<a href="'+fact2URL+'" style="z-index:1000; width:120px; height:105px; display: block;" ></a>');
+         //sym.$('button2').append('<a class="trigger" id="button2trigger" href="'+fact2URL+'" style="display:none;" ></a>');
          
          tpURL = 'http://www.travelportland.com/';
-         sym.getSymbol('logo').$('TP_logo').wrap('<a href="'+tpURL+'" style="z-index:1000; width:200px; height:42px; display: block;" ></a>');
+         //sym.$('button3').append('<a class="trigger" id="button3trigger" href="'+tpURL+'" style="display:none; " ></a>');
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_logo}", "click", function(sym, e) {
+         //document.getElementById('button3trigger').click();
+         alert('logo');
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_factButton1}", "click", function(sym, e) {
+         //document.getElementById('button1trigger').click();
+         alert('button1');
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_factButton2}", "click", function(sym, e) {
+         //document.getElementById('button2trigger').click();
+         alert('button2');
 
       });
       //Edge binding end
@@ -53,7 +75,37 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'logo'
    (function(symbolName) {   
    
+      Symbol.bindElementAction(compId, symbolName, "${_TP_logo}", "click", function(sym, e) {
+         
+
+      });
+      //Edge binding end
+
    })("logo");
    //Edge symbol end:'logo'
+
+   //=========================================================
+   
+   //Edge symbol: 'button1'
+   (function(symbolName) {   
+   
+   })("button1");
+   //Edge symbol end:'button1'
+
+   //=========================================================
+   
+   //Edge symbol: 'button2'
+   (function(symbolName) {   
+   
+   })("button2");
+   //Edge symbol end:'button2'
+
+   //=========================================================
+   
+   //Edge symbol: 'button3'
+   (function(symbolName) {   
+   
+   })("button3");
+   //Edge symbol end:'button3'
 
 })(jQuery, AdobeEdge, "fact-buttons");

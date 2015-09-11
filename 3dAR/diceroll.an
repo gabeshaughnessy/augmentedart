@@ -1,0 +1,64 @@
+
+{
+
+	"HTMLFileName":"diceroll.html",
+	"PosterCapturePos":"0",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }},\
+\"dice-roll-sprite_symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }}\
+}",
+	"PosterImagePath":"images/Poster.png",
+	"expanded:images/dice-roll-sprite.png":"nil",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"pref__general__codeView":"fullView",
+	"expanded:images/Poster.png":"nil",
+	"PubDPSDir":"./packages/",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"dice-roll-sprite_symbol_1-Default Timeline_playhead_ms":"0",
+	"symbol_stage":{
+		"dummyStageParentWidth":"200px",
+		"dummyStageParentHeight":"200px",
+		"defaultStageParentWidth":"200px",
+		"element_${_dice}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"true",
+			"timelineColor":"0x91c767"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"defaultStageParentHeight":"200px"},
+	"PubWeb":"false",
+	"CompZoomFactor":"100",
+	"viewStartY":"0",
+	"pixelsPerMs":"0.2",
+	"TransitionIdCounter":"3",
+	"PreloadAudio":"auto",
+	"usedBOM":"false",
+	"nextElementColorIndex":"4",
+	"stage-Default Timeline_playhead_ms":"0",
+	"StageZoomFactor":"100",
+	"PubDPS":"true",
+	"symbol_dice-roll-sprite_symbol_1":{
+		"element_${_dice-roll-sprite}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"true",
+			"timelineColor":"0x50bd82"}}}

@@ -67,7 +67,9 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          monster.status = sym.$('Status');
          if(monster.boss === true){
-         monster.status.html('<strong>Boss Mode!!!</strong><br />'+monster.title+' attacks twice and needs an to roll an 5 or higher to hit. Tap to continue.');
+         
+           monster.status.html('<strong>Boss Mode!!!</strong><br />'+monster.title+' attacks twice and needs an to roll an 10 or higher to hit. Tap to continue.');
+         
          }
          else{
          monster.status.html(monster.title + ' attacks first.<br/>It needs to roll a 10 or higher to hit. <br />Tap to continue.');
@@ -585,7 +587,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 23, function(sym, e) {
          if(monster.boss == true){
-         sym.play('boss-start');
+         //check if the player has defeated the monster
+         var monsterCount = 0;
+         
+          for(defeatedMonster in player.monsters){
+           monsterCount++;
+          }
+          if(monsterCount >= 3){
+           sym.play('boss-start');
+          }
+          else{
+           sym.stop(0);
+            monster.status.html('<strong>You\'re not ready to face The Gibson yet!</strong><br />You need to defeat the other monsters before you can fight the boss.');
+          }
          }
 
       });

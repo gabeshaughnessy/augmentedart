@@ -1,22 +1,104 @@
 
 {
 
-	"pref__general__AutoKeyframeProperties":"true",
-	"expanded:images/images/Panel-1_01.png":"nil",
+	"expanded:images/red-lights.png":"nil",
+	"expanded:images/images/Instructions_06.jpg":"nil",
+	"expanded:images/cloud2.png":"nil",
+	"symbol_background":{
+		"element_${_bridge}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"animationEnabled":"false",
+			"timelineColor":"0xfb657a"},
+		"element_${_Panel-1_01}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"animationEnabled":"false",
+			"timelineColor":"0x00bda4"},
+		"element_${_Panel-2_01}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"animationEnabled":"false",
+			"timelineColor":"0x008dc8"},
+		"element_${_Panel-2_022}":{
+			"timelineColor2":"0xb099ce",
+			"timelineColor3":"0x70657c",
+			"timelineColor":"0xceaef4"},
+		"element_${_Sky}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_bridge3}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"animationEnabled":"true",
+			"timelineColor":"0xffd46d"},
+		"element_${_cloud}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"},
+		"element_${_Panel-1_02}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"false",
+			"timelineColor":"0x50bd82"},
+		"element_${_bridge2}":{
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"timelineColor":"0xdb619d"},
+		"element_${_Panel-2_02}":{
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"animationEnabled":"false",
+			"timelineColor":"0x63599f"},
+		"element_${_cloud3}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"},
+		"element_${_cloud2}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82",
+			"timelineTreeOpened":"false",
+			"animationEnabled":"true"}},
+	"expanded:images/images/Panel-3_01.png":"nil",
+	"expanded:images/Gondola.png":"nil",
+	"expanded:images/images/images/left_sky_01.png":"nil",
 	"pref__general__FilterNonAnimatedElements":"false",
-	"expanded:images/TP_logo.png":"nil",
+	"expanded:images/images/sky_01.png":"nil",
 	"expanded:images/Poster2.png":"nil",
+	"expanded:images/hawthorne.png":"nil",
+	"expanded:images/images/images/left_sky_02.jpg":"nil",
+	"expanded:images/images/Instructions_05.jpg":"nil",
 	"expanded:images/button-2.png":"nil",
+	"expanded:images/Panel-1.jpg":"nil",
 	"CompZoomFactor":"100",
 	"StageZoomFactor":"100",
-	"pixelsPerMs":"0.2",
+	"expanded:images/cloud.png":"nil",
+	"expanded:images/images/Panel-1_01.png":"nil",
+	"expanded:images/Poster3.png":"nil",
 	"stage-Default Timeline_mark_ms":"-1",
-	"nextElementColorIndex":"10",
-	"stage-Default Timeline_playhead_ms":"500",
+	"nextElementColorIndex":"5",
+	"expanded:images/Sky.png":"nil",
+	"expanded:images/TP_logo.png":"nil",
+	"expanded:images/instructions-bg.png":"nil",
+	"expanded:images/button.png":"nil",
 	"HTMLFileName":"travel-portland-middle-panel.html",
+	"pref__general__AutoKeyframeProperties":"true",
+	"expanded:images/images/Instructions_03.jpg":"nil",
 	"PosterCapturePos":"1867",
+	"expanded:images/images/backgrounds_02.png":"nil",
 	"ModelData":"{\
 \"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"background\": {\
    \"timelines\": {\
       \"Default Timeline\": {\
       }\
@@ -28,22 +110,21 @@
 \"Down-level\": {\
    \"timelines\": {\
 \
-   }},\
-\"background\": {\
-   \"timelines\": {\
-      \"Default Timeline\": {\
-      }\
    }}\
 }",
 	"expanded:images/images/backgrounds_03.png":"nil",
 	"expanded:images/images/backgrounds_01.png":"nil",
-	"expanded:images/images/Panel-1_02.jpg":"nil",
-	"PubDPSDir":"./packages/",
-	"expanded:images/images/Panel-2_01.png":"nil",
-	"expanded:images/Poster.png":"nil",
+	"expanded:images/bridge.png":"nil",
+	"viewStartY":"0",
 	"expanded:images/images/Panel-2_02.jpg":"nil",
+	"PosterImagePath":"images/Poster.png",
+	"expanded:images/cloud3.png":"nil",
+	"PubDPSDir":"./packages/",
+	"PreloadAudio":"auto",
+	"expanded:images/Poster.png":"nil",
+	"viewStartMs":"7862.7856445312",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
-	"background-Default Timeline_playhead_ms":"0",
+	"expanded:images/images/backgrounds_04.jpg":"nil",
 	"symbol_stage":{
 		"dummyStageParentWidth":"500px",
 		"element_${_background}":{
@@ -51,8 +132,8 @@
 			"timelineColor3":"0x2a605c",
 			"animationEnabled":"true",
 			"timelineColor":"0x00a096"},
-		"dummyStageParentHeight":"500px",
-		"defaultStageParentHeight":"500px",
+		"dummyStageParentHeight":"537px",
+		"defaultStageParentHeight":"537px",
 		"element_${_Panel-1_02}":{
 			"timelineColor2":"0x1095d2",
 			"timelineColor3":"0x29647e",
@@ -73,33 +154,15 @@
 			"timelineColor3":"0x385063",
 			"animationEnabled":"false",
 			"timelineColor":"0x2f73ad"}},
-	"PreloadAudio":"auto",
-	"symbol_background":{
-		"element_${_Panel-2_02}":{
-			"timelineColor2":"0x5a558a",
-			"timelineColor3":"0x4a485e",
-			"timelineColor":"0x63599f"},
-		"element_${_Panel-2_01}":{
-			"timelineColor2":"0x107faa",
-			"timelineColor3":"0x295a6d",
-			"timelineColor":"0x008dc8"},
-		"element_${_Panel-1_01}":{
-			"timelineColor2":"0x1aa38f",
-			"timelineColor3":"0x2a6a61",
-			"animationEnabled":"false",
-			"timelineColor":"0x00bda4"},
-		"element_${_Panel-1_02}":{
-			"timelineColor2":"0x4fa275",
-			"timelineColor3":"0x456a55",
-			"animationEnabled":"false",
-			"timelineColor":"0x50bd82"}},
-	"viewStartY":"0",
-	"expanded:images/Poster3.png":"nil",
-	"expanded:images/images/backgrounds_02.png":"nil",
-	"expanded:images/button.png":"nil",
+	"TransitionIdCounter":"42",
+	"expanded:images/images/Panel-1_02.jpg":"nil",
+	"expanded:images/Moon.png":"nil",
+	"background-Default Timeline_playhead_ms":"0",
+	"expanded:images/images/Panel-3_02.jpg":"nil",
+	"expanded:images/images/Panel-2_01.png":"nil",
 	"usedBOM":"false",
 	"PubDPS":"true",
-	"PosterImagePath":"images/Poster.png",
-	"TransitionIdCounter":"16",
 	"pref__general__GenerateSmoothTransitions":"true",
-	"expanded:images/images/backgrounds_04.jpg":"nil"}
+	"pixelsPerMs":"0.021405529984553",
+	"stage-Default Timeline_playhead_ms":"500",
+	"background-Default Timeline_mark_ms":"-1"}
