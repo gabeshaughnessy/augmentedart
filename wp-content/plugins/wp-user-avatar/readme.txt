@@ -3,8 +3,8 @@
 Contributors: flippercode
 Tags: author image, author photo, author avatar, avatar, bbPress, profile avatar, profile image, user avatar, user image, user photo, widget
 Requires at least: 3.6
-Tested up to: 3.9
-Stable tag: 1.9.13
+Tested up to: 4.2
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,9 +14,6 @@ Use any image from your WordPress Media Library as a custom user avatar. Add you
 
 WordPress currently only allows you to use custom avatars that are uploaded through [Gravatar](http://gravatar.com/). **WP User Avatar** enables you to use any photo uploaded into your Media Library as an avatar. This means you use the same uploader and library as your posts. No extra folders or image editing functions are necessary.
 
-**Maintained and Supported by Flipper Code**
-
-Flipper Code has been providing WordPress Services since 2008. Flipper Code expertise in [custom plugins development](http://codecanyon.net/user/flippercode/portfolio) and [wordpress websites development](http://www.flippercode.com/our-portfolio/).
 
 **WP User Avatar** also lets you:
 
@@ -28,7 +25,31 @@ Flipper Code has been providing WordPress Services since 2008. Flipper Code expe
 * Allow Contributors and Subscribers to upload their own avatars.
 * Limit upload file size and image dimensions for Contributors and Subscribers.
 
-Visit [WP User Avatar](http://wpuseravatar.com/) for more information and documentation.
+**Introducing Support Desk**
+
+We're at [FlipperCode](http://www.flippercode.com/), committed to excellent support to make every download worth for the user. Happily announcing [Support Desk](http://www.flippercode.com/forums/) for our valuable users to engaged with multiple support desk person for fast turnout.
+
+**Introducing Pro Version of WP USER AVATAR**
+
+We have developed a [Pro Version](http://www.flippercode.com/product/wp-user-avatar/)  of WP USER AVATAR by getting valuable features request from thousands of users especially about Storage options and how user upload the avatar. Here is a quick highlight on the numerous customizable features offered by the [WP USER AVATAR PRO](http://www.flippercode.com/product/wp-user-avatar/) .
+
+<ul>
+<li>Easy Upload and Capture functionality with crop  avatar options.</li>
+<li>Use Webcam to get Avatar instantly.</li>
+<li>Allow user to upload avatar on Registration Page.</li>
+<li>Easy to adjust avatar dimensions.</li>
+<li>Enable to add or edit avatar while adding existing user to the blog in multi-site network.</li>
+<li>Keep Avatars in Custom Folder instead of Media Manager.</li>
+<li>Keep Avatars on Amazon S3 Storage</li>
+<li>Keep Avatars on Dropbox</li>
+<li>Keep Avatars in Media Manager</li>
+<li>Easy to use Settings to control every functionality.</li>
+<li>Multi-lingual, Multi-Site, BBPRESS and Buddypress Supported.</li>
+</ul>
+
+Innovative Way to Setup User Avatar : 
+[youtube https://www.youtube.com/watch?v=Ee2K7YpsAnM]
+
 
 == Installation ==
 
@@ -383,6 +404,43 @@ This would output:
 4. After you've chosen a WP User Avatar image, you will see the option to remove it.
 
 == Changelog ==
+
+= 2.0.3 =
+* Improvement Fix: Added missing translation strings in English version of po file.
+
+
+= 2.0.0 =
+* Improvement Fix: Added missing translation strings in English version of po file.
+* Bug Fix: Missing $user = $current_user is added in class-wp-user-avatar.php on line 156.
+
+
+= 1.9.19 =
+* Improvement Fix: Fixed add_query_arg() and remove_query_arg() usage to avoid XSS Vulnerability.
+
+
+= 1.9.18 =
+* Bug Fix: Removed cron job dependency for excellent performance.
+* Bug Fix: Resolved gravatar was not showing on some special cases.
+* Bug Fix: Resolved speed problem in case of large number of users for multisite, bbpress and buddy press.
+* Bug Fix: Resolved display custom avatar problem when default and customer avatar is same choosen.
+
+
+= 1.9.17 =
+* Bug Fix: Removed the looping through all users on admin_init action.
+
+= 1.9.16 =
+* Bug Fix: lots of entries in wp_options table resolved.
+
+= 1.9.15 =
+* Bug Fix: Multiple Cron job added bug resolved.
+
+
+= 1.9.14 =
+* Bug Fix: Speed Issues due to check many times if gravatar exist.
+* Bug Fix: Default gravatar issue for mustache and gravatar logo at front end and at buddypress pages
+* Bug Fix: Avatar while adding for existing user.
+* Bug Fix: UI issue when Gravatar option is enable/disable.
+
 
 = 1.9.13 =
 * Bug Fix: Load _load_wp_includes mostly only on front pages

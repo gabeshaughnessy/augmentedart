@@ -69,16 +69,16 @@ class WP_User_Avatar_Profile_Widget extends WP_Widget {
   ?>
     <p>
       <label for="<?php echo $this->get_field_id('title'); ?>">
-        <?php _e('Title:'); ?>
+        <?php _e('Title:','wp-user-avatar'); ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
     </p>
-    <label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Description:'); ?></label>
+    <label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Description:','wp-user-avatar'); ?></label>
     <textarea class="widefat" rows="3" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
     <p>
       <input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />
       <label for="<?php echo $this->get_field_id('filter'); ?>">
-        <?php _e('Automatically add paragraphs'); ?>
+        <?php _e('Automatically add paragraphs','wp-user-avatar'); ?>
       </label>
     </p>
   <?php

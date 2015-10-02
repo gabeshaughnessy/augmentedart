@@ -139,7 +139,7 @@ class WP_User_Avatar_List_Table extends WP_List_Table {
    */
   public function get_bulk_actions() {
     $actions = array();
-    $actions['delete'] = __('Delete Permanently');
+    $actions['delete'] = __('Delete Permanently','wp-user-avatar');
     return $actions;
   }
 
@@ -168,7 +168,7 @@ class WP_User_Avatar_List_Table extends WP_List_Table {
    * @since 1.8
    */
   public function no_items() {
-    _e('No media attachments found.');
+    _e('No media attachments found.','wp-user-avatar');
   }
 
   /**
@@ -181,7 +181,7 @@ class WP_User_Avatar_List_Table extends WP_List_Table {
     $columns['cb'] = '<input type="checkbox" />';
     $columns['icon'] = "";
     $columns['title'] = _x('File', 'column name');
-    $columns['author'] = __('Author');
+    $columns['author'] = __('Author','wp-user-avatar');
     $columns['parent'] = _x('Uploaded to', 'column name');
     $columns['date'] = _x('Date', 'column name');
     return $columns;
@@ -250,7 +250,7 @@ class WP_User_Avatar_List_Table extends WP_List_Table {
             ?>
               <th scope="row" class="check-column">
                 <?php if($user_can_edit) { ?>
-                  <label class="screen-reader-text" for="cb-select-<?php the_ID(); ?>"><?php echo sprintf(__('Select %s'), $att_title);?></label>
+                  <label class="screen-reader-text" for="cb-select-<?php the_ID(); ?>"><?php echo sprintf(__('Select %s','wp-user-avatar'), $att_title);?></label>
                   <input type="checkbox" name="media[]" id="cb-select-<?php the_ID(); ?>" value="<?php the_ID(); ?>" />
                 <?php } ?>
               </th>
@@ -310,17 +310,17 @@ class WP_User_Avatar_List_Table extends WP_List_Table {
         break;
         case 'date':
           if('0000-00-00 00:00:00' == $post->post_date) {
-            $h_time = __('Unpublished');
+            $h_time = __('Unpublished','wp-user-avatar');
           } else {
             $m_time = $post->post_date;
             $time = get_post_time('G', true, $post, false);
             if ((abs($t_diff = time() - $time)) < DAY_IN_SECONDS) {
               if ($t_diff < 0)
-                $h_time = sprintf(__('%s from now'), human_time_diff($time));
+                $h_time = sprintf(__('%s from now','wp-user-avatar'), human_time_diff($time));
               else
-                $h_time = sprintf(__('%s ago'), human_time_diff($time));
+                $h_time = sprintf(__('%s ago','wp-user-avatar'), human_time_diff($time));
             } else {
-              $h_time = mysql2date(__('Y/m/d'), $m_time);
+              $h_time = mysql2date(__('Y/m/d','wp-user-avatar'), $m_time);
             }
           }
       ?>
@@ -378,22 +378,22 @@ class WP_User_Avatar_List_Table extends WP_List_Table {
   public function _get_row_actions($post, $att_title) {
     $actions = array();
     if(current_user_can('edit_post', $post->ID) && !$this->is_trash) {
-      $actions['edit'] = '<a href="'.get_edit_post_link($post->ID, true).'">'.__('Edit').'</a>';
+      $actions['edit'] = '<a href="'.get_edit_post_link($post->ID, true).'">'.__('Edit','wp-user-avatar').'</a>';
     }
     if(current_user_can('delete_post', $post->ID)) {
       if($this->is_trash) {
-        $actions['untrash'] = "<a class='submitdelete' href='".wp_nonce_url("post.php?action=untrash&amp;post=$post->ID", 'untrash-post_'.$post->ID)."'>".__('Restore')."</a>";
+        $actions['untrash'] = "<a class='submitdelete' href='".wp_nonce_url("post.php?action=untrash&amp;post=$post->ID", 'untrash-post_'.$post->ID)."'>".__('Restore','wp-user-avatar')."</a>";
       } elseif (EMPTY_TRASH_DAYS && MEDIA_TRASH) {
-        $actions['trash'] = "<a class='submitdelete' href='".wp_nonce_url("post.php?action=trash&amp;post=$post->ID", 'trash-post_'.$post->ID)."'>".__('Trash')."</a>";
+        $actions['trash'] = "<a class='submitdelete' href='".wp_nonce_url("post.php?action=trash&amp;post=$post->ID", 'trash-post_'.$post->ID)."'>".__('Trash','wp-user-avatar')."</a>";
       }
       if($this->is_trash || !EMPTY_TRASH_DAYS || !MEDIA_TRASH) {
         $delete_ays = (!$this->is_trash && !MEDIA_TRASH) ? " onclick='return showNotice.warn();'" : "";
-        $actions['delete'] = "<a class='submitdelete'$delete_ays href='".wp_nonce_url("post.php?action=delete&amp;post=$post->ID", 'delete-post_'.$post->ID)."'>".__('Delete Permanently')."</a>";
+        $actions['delete'] = "<a class='submitdelete'$delete_ays href='".wp_nonce_url("post.php?action=delete&amp;post=$post->ID", 'delete-post_'.$post->ID)."'>".__('Delete Permanently','wp-user-avatar')."</a>";
       }
     }
     if(!$this->is_trash) {
       $title = _draft_or_post_title($post->post_parent);
-      $actions['view'] = '<a href="'.get_permalink($post->ID).'" title="'.esc_attr(sprintf(__('View &#8220;%s&#8221;'), $title)).'" rel="permalink">'.__('View').'</a>';
+      $actions['view'] = '<a href="'.get_permalink($post->ID).'" title="'.esc_attr(sprintf(__('View &#8220;%s&#8221;'), $title)).'" rel="permalink">'.__('View','wp-user-avatar').'</a>';
     }
     return $actions;
   }

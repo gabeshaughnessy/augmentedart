@@ -36,7 +36,7 @@
   require_once(ABSPATH.'wp-admin/admin.php');
 
   if(!current_user_can('upload_files'))
-    wp_die(__('You do not have permission to upload files.'));
+    wp_die(__('You do not have permission to upload files.','wp-user-avatar'));
 
   global $wpua_admin;
 
@@ -68,13 +68,13 @@
         }
         foreach((array) $post_ids as $post_id_del) {
           if(!current_user_can('delete_post', $post_id_del)) {
-            wp_die(__('You are not allowed to delete this post.'));
+            wp_die(__('You are not allowed to delete this post.','wp-user-avatar'));
           }
           if(!wp_delete_attachment($post_id_del)) {
-            wp_die(__('Error in deleting.'));
+            wp_die(__('Error in deleting.','wp-user-avatar'));
           }
         }
-      $location = add_query_arg('deleted', count($post_ids), $location);
+      $location = esc_url_raw(add_query_arg('deleted', count($post_ids), $location));
       break;
     }
     wp_redirect($location);
@@ -90,9 +90,9 @@
 ?>
 <div class="wrap">
   <h2>
-    <?php _e('Avatars');
+    <?php _e('Avatars','wp-user-avatar');
       if(!empty($_REQUEST['s'])) {
-        printf('<span class="subtitle">'.__('Search results for &#8220;%s&#8221;').'</span>', get_search_query());
+        printf('<span class="subtitle">'.__('Search results for &#8220;%s&#8221;','wp-user-avatar').'</span>', get_search_query());
       }
     ?>
   </h2>
@@ -107,7 +107,7 @@
   <?php endif; ?>
   <?php $wp_list_table->views(); ?>
   <form id="posts-filter" action="" method="get">
-    <?php $wp_list_table->search_box(__('Search'), 'media'); ?>
+    <?php $wp_list_table->search_box(__('Search','wp-user-avatar'), 'media'); ?>
     <?php $wp_list_table->display(); ?>
     <div id="ajax-response"></div>
     <?php find_posts_div(); ?>
