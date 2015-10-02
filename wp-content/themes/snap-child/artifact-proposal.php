@@ -20,7 +20,7 @@ $image_dir = get_bloginfo('stylesheet_directory'). '/artifact/images/';
 			</div>
 			<div class="page-content">
 				<div class="section teal">
-					<div class="panel large-6 columns">This is the panel</div>
+					<div class="panel large-6 columns"><img src="<?php echo $image_dir; ?>animation.gif" alt="animation" width="100%" height="auto" /></div>
 					<div class="copy large-6 columns">
 						<h2>What is The Artifact?</h2><p class="lead">The Artifact is a combination augmented reality scavenger hunt and interactive, musical light sculpture that a large group of people can all participate in at once.</p>
 						<p>A centrally-located pyramid comes to life when you scan it with the augmented reality app Layar, but only if you have already scanned one of the four key-like shards found around the festival grounds.</p>
