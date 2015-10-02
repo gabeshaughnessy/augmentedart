@@ -4291,3 +4291,250 @@ img#wpstats {
   height: 0px;
   overflow: hidden;
 }
+
+/* line 9, ../sass/_artifact-proposal.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 12, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #000 !important;
+  background-image: url("artifact/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top right;
+}
+@media screen and (orientation: landscape) {
+  /* line 12, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal {
+    background-size: 50vw 125vh;
+    background-position: 50vw -15vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  /* line 12, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal {
+    background-size: 125vw 50vh;
+    background-position: 10vw -5vh;
+  }
+}
+/* line 29, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .columns {
+  float: left;
+  display: block;
+  margin-right: 2%;
+}
+/* line 33, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .columns:last-child {
+  margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+  /* line 29, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .columns {
+    margin-right: 0;
+  }
+}
+/* line 40, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-12 {
+  width: 100%;
+}
+/* line 43, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-12 + .large-12 {
+  margin-top: 2em;
+}
+/* line 46, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-6 {
+  width: 48%;
+}
+@media screen and (max-width: 768px) {
+  /* line 46, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-6 {
+    width: 100%;
+  }
+}
+/* line 52, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-4 {
+  width: 32%;
+}
+@media screen and (max-width: 768px) {
+  /* line 52, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-4 {
+    width: 100%;
+  }
+}
+/* line 58, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-3 {
+  width: 23.33333%;
+}
+@media screen and (max-width: 768px) {
+  /* line 58, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-3 {
+    width: 48%;
+    margin-right: 2%;
+  }
+  /* line 63, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-3:nth-child(even) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 58, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-3 {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+/* line 72, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-2 {
+  width: 16%;
+}
+@media screen and (max-width: 768px) {
+  /* line 72, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-2 {
+    width: 48%;
+    margin-right: 2%;
+  }
+  /* line 77, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-2:nth-child(even) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 72, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-2 {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 88, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal * + .large-12, .page-template-artifact-proposal * + .large-6, .page-template-artifact-proposal * + .large-4 {
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 93, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal * + .large-3, .page-template-artifact-proposal * + .large-2 {
+    margin-top: 1em;
+  }
+}
+/* line 98, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal h1, .page-template-artifact-proposal h2, .page-template-artifact-proposal h3, .page-template-artifact-proposal h4, .page-template-artifact-proposal h5, .page-template-artifact-proposal h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+/* line 103, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal * + h2, .page-template-artifact-proposal * + h3, .page-template-artifact-proposal * + h4, .page-template-artifact-proposal * + h5, .page-template-artifact-proposal * + h6 {
+  margin-top: 1em;
+}
+/* line 106, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal p, .page-template-artifact-proposal em, .page-template-artifact-proposal blockquote, .page-template-artifact-proposal span, .page-template-artifact-proposal div, .page-template-artifact-proposal b, .page-template-artifact-proposal strong, .page-template-artifact-proposal ul, .page-template-artifact-proposal ol, .page-template-artifact-proposal li, .page-template-artifact-proposal a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+}
+/* line 110, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal p.lead {
+  font-size: 1.4em;
+}
+/* line 114, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section {
+  margin: 1em auto;
+  width: 100%;
+  float: left;
+  clear: both;
+}
+/* line 120, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal {
+  color: #62d5d5;
+}
+/* line 122, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal h2, .page-template-artifact-proposal .section.teal h3, .page-template-artifact-proposal .section.teal h4, .page-template-artifact-proposal .section.teal h5, .page-template-artifact-proposal .section.teal h6 {
+  color: #e05870;
+}
+/* line 125, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal .panel {
+  border: 3px solid #62d5d5;
+}
+/* line 129, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red {
+  color: #e05870;
+}
+/* line 131, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red h2, .page-template-artifact-proposal .section.red h3, .page-template-artifact-proposal .section.red h4, .page-template-artifact-proposal .section.red h5, .page-template-artifact-proposal .section.red h6 {
+  color: #db7fd7;
+}
+/* line 134, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red .panel {
+  border: 3px solid #e05870;
+}
+/* line 138, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink {
+  color: #db7fd7;
+}
+/* line 140, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink h2, .page-template-artifact-proposal .section.pink h3, .page-template-artifact-proposal .section.pink h4, .page-template-artifact-proposal .section.pink h5, .page-template-artifact-proposal .section.pink h6 {
+  color: #62d5d5;
+}
+/* line 143, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink .panel {
+  border: 3px solid #db7fd7;
+}
+/* line 151, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal #main-header[role=banner] {
+  background-color: #000;
+  display: none;
+}
+/* line 155, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .theme-container {
+  background-color: transparent;
+  max-width: 1440px;
+}
+/* line 160, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal #footer {
+  border-top: none;
+}
+/* line 165, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .page-header .logo h1 {
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-indent: -9000%;
+  width: 350px;
+  height: 70px;
+  display: block;
+  position: absolute;
+  float: left;
+}
+@media screen and (max-width: 480px) {
+  /* line 165, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .logo h1 {
+    top: 100px;
+    width: 250px;
+  }
+}
+/* line 179, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .page-header .header-image {
+  position: relative;
+  margin-top: 250px;
+  right: -30vw;
+}
+@media screen and (max-width: 1024px) {
+  /* line 179, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .header-image {
+    margin-top: 220px;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 179, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .header-image {
+    margin-top: 150px;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 179, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .header-image {
+    margin-top: 50px;
+  }
+}
