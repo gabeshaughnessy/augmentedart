@@ -24,7 +24,6 @@ class WP_User_Avatar_Admin {
     // Settings saved to wp_options
     add_action('admin_init', array($this, 'wpua_options'));
     // Remove subscribers edit_posts capability
-    register_deactivation_hook(WPUA_DIR.'wp-user-avatar.php', array($this, 'wpua_deactivate'));
     // Translations
     load_plugin_textdomain('wp-user-avatar', "", WPUA_FOLDER.'/lang');
     // Admin menu settings
@@ -43,6 +42,7 @@ class WP_User_Avatar_Admin {
     }
     // Media states
     add_filter('display_media_states', array($this, 'wpua_add_media_state'), 10, 1);
+	
   }
 
   /**
@@ -51,6 +51,7 @@ class WP_User_Avatar_Admin {
    * @uses add_option()
    */
   public function wpua_options() {
+    
     add_option('avatar_default_wp_user_avatar', "");
     add_option('wp_user_avatar_allow_upload', '0');
     add_option('wp_user_avatar_disable_gravatar', '0');
@@ -60,7 +61,24 @@ class WP_User_Avatar_Admin {
     add_option('wp_user_avatar_resize_upload', '0');
     add_option('wp_user_avatar_resize_w', '96');
     add_option('wp_user_avatar_tinymce', '1');
-    add_option('wp_user_avatar_upload_size_limit', '0');
+    add_option('wp_user_avatar_upload_size_limit', '0');	
+
+    if(wp_next_scheduled( 'wpua_has_gravatar_cron_hook' )){
+      $cron=get_option('cron');
+      $new_cron='';
+      foreach($cron as $key=>$value)
+      {
+        if(is_array($value))
+        {
+        if(array_key_exists('wpua_has_gravatar_cron_hook',$value))
+        unset($cron[$key]);
+        }
+      }
+      update_option('cron',$cron);
+  }
+
+
+
   }
 
   /**
@@ -82,6 +100,7 @@ class WP_User_Avatar_Admin {
     update_option($wp_user_roles, $user_roles);
     // Reset all default avatars to Mystery Man
     update_option('avatar_default', 'mystery');
+	
   }
 
   /**
@@ -91,9 +110,9 @@ class WP_User_Avatar_Admin {
    * @uses add_submenu_page()
    */
   public function wpua_admin() {
-    add_menu_page(__('WP User Avatar', 'wp-user-avatar'), __('Avatars'), 'manage_options', 'wp-user-avatar', array($this, 'wpua_options_page'), WPUA_URL.'images/wpua-icon.png');
-    add_submenu_page('wp-user-avatar', __('Settings'), __('Settings'), 'manage_options', 'wp-user-avatar', array($this, 'wpua_options_page'));
-    $hook = add_submenu_page('wp-user-avatar', __('Library'), __('Library'), 'manage_options', 'wp-user-avatar-library', array($this, 'wpua_media_page'));
+    add_menu_page(__('WP User Avatar', 'wp-user-avatar'), __('Avatars', 'wp-user-avatar'), 'manage_options', 'wp-user-avatar', array($this, 'wpua_options_page'), WPUA_URL.'images/wpua-icon.png');
+    add_submenu_page('wp-user-avatar', __('Settings' , 'wp-user-avatar'), __('Settings' , 'wp-user-avatar'), 'manage_options', 'wp-user-avatar', array($this, 'wpua_options_page'));
+    $hook = add_submenu_page('wp-user-avatar', __('Library','wp-user-avatar'), __('Library', 'wp-user-avatar'), 'manage_options', 'wp-user-avatar-library', array($this, 'wpua_media_page'));
     add_action("load-$hook", array($this, 'wpua_media_screen_option'));
     add_filter('set-screen-option', array($this, 'wpua_set_media_screen_option'), 10, 3);
   }
@@ -126,7 +145,7 @@ class WP_User_Avatar_Admin {
   public function wpua_media_screen_option() {
     $option = 'per_page';
     $args = array(
-      'label' => __('Avatars'),
+      'label' => __('Avatars','wp-user-avatar'),
       'default' => 10,
       'option' => 'upload_per_page'
     );
@@ -207,13 +226,13 @@ class WP_User_Avatar_Admin {
     $avatar_list = "";
     // Set avatar defaults
     $avatar_defaults = array(
-      'mystery' => __('Mystery Man'),
-      'blank' => __('Blank'),
-      'gravatar_default' => __('Gravatar Logo'),
-      'identicon' => __('Identicon (Generated)'),
-      'wavatar' => __('Wavatar (Generated)'),
-      'monsterid' => __('MonsterID (Generated)'),
-      'retro' => __('Retro (Generated)')
+      'mystery' => __('Mystery Man','wp-user-avatar'),
+      'blank' => __('Blank','wp-user-avatar'),
+      'gravatar_default' => __('Gravatar Logo','wp-user-avatar'),
+      'identicon' => __('Identicon (Generated)','wp-user-avatar'),
+      'wavatar' => __('Wavatar (Generated)','wp-user-avatar'),
+      'monsterid' => __('MonsterID (Generated)','wp-user-avatar'),
+      'retro' => __('Retro (Generated)','wp-user-avatar')
     );
     // No Default Avatar, set to Mystery Man
     if(empty($avatar_default)) {
@@ -245,14 +264,14 @@ class WP_User_Avatar_Admin {
     $wpua_list = "\n\t<label><input type='radio' name='avatar_default' id='wp_user_avatar_radio' value='wp_user_avatar'$selected_avatar /> ";
     $wpua_list .= preg_replace("/src='(.+?)'/", "src='\$1'", $avatar_thumb_img);
     $wpua_list .= ' '.__('WP User Avatar', 'wp-user-avatar').'</label>';
-    $wpua_list .= '<p id="wpua-edit"><button type="button" class="button" id="wpua-add" name="wpua-add" data-avatar_default="true" data-title="'._('Choose Image').': '._('Default Avatar').'">'.__('Choose Image').'</button>';
-    $wpua_list .= '<span id="wpua-remove-button"'.$hide_remove.'><a href="#" id="wpua-remove">'.__('Remove').'</a></span><span id="wpua-undo-button"><a href="#" id="wpua-undo">'.__('Undo').'</a></span></p>';
+    $wpua_list .= '<p id="wpua-edit"><button type="button" class="button" id="wpua-add" name="wpua-add" data-avatar_default="true" data-title="'._('Choose Image').': '._('Default Avatar').'">'.__('Choose Image','wp-user-avatar').'</button>';
+    $wpua_list .= '<span id="wpua-remove-button"'.$hide_remove.'><a href="#" id="wpua-remove">'.__('Remove','wp-user-avatar').'</a></span><span id="wpua-undo-button"><a href="#" id="wpua-undo">'.__('Undo','wp-user-avatar').'</a></span></p>';
     $wpua_list .= '<input type="hidden" id="wp-user-avatar" name="avatar_default_wp_user_avatar" value="'.$wpua_avatar_default.'">';
     $wpua_list .= '<div id="wpua-modal"></div>';
     if((bool) $wpua_disable_gravatar != 1) {
       return $wpua_list.'<div id="wp-avatars">'.$avatar_list.'</div>';
     } else {
-      return $wpua_list;
+      return $wpua_list.'<div id="wp-avatars" style="display:none;">'.$avatar_list.'</div>';
     }
   }
 
@@ -276,7 +295,7 @@ class WP_User_Avatar_Admin {
    */
   public function wpua_action_links($links, $file) { 
     if(basename(dirname($file)) == 'wp-user-avatar') {
-      $links[] = '<a href="'.add_query_arg(array('page' => 'wp-user-avatar'), admin_url('admin.php')).'">'.__('Settings').'</a>';
+      $links[] = '<a href="'.esc_url(add_query_arg(array('page' => 'wp-user-avatar'), admin_url('admin.php'))).'">'.__('Settings','wp-user-avatar').'</a>';
     }
     return $links;
   }
@@ -290,8 +309,7 @@ class WP_User_Avatar_Admin {
    */
   public function wpua_row_meta($links, $file) {
     if(basename(dirname($file)) == 'wp-user-avatar') {
-      $links[] = '<a href="http://wordpress.org/support/plugin/wp-user-avatar" target="_blank">'.__('Support Forums').'</a>';
-      $links[] = '<a href="http://siboliban.org/donate" target="_blank">'.__('Donate', 'wp-user-avatar').'</a>';
+      $links[] = '<a href="http://wordpress.org/support/plugin/wp-user-avatar" target="_blank">'.__('Support Forums','wp-user-avatar').'</a>';
     }
     return $links;
   }
@@ -303,7 +321,7 @@ class WP_User_Avatar_Admin {
    * @return array
    */
   public function wpua_add_column($columns) {
-    return $columns + array('wp-user-avatar' => __('Avatar'));
+    return $columns + array('wp-user-avatar' => __('Avatar','wp-user-avatar'));
   }
 
   /**
@@ -357,10 +375,10 @@ class WP_User_Avatar_Admin {
     global $post, $wpua_avatar_default;
     $is_wpua = get_post_custom_values('_wp_attachment_wp_user_avatar', $post->ID);
     if(!empty($is_wpua)) {
-      $states[] = __('Avatar');
+      $states[] = __('Avatar','wp-user-avatar');
     }
     if(!empty($wpua_avatar_default) && ($wpua_avatar_default == $post->ID)) {
-      $states[] = __('Default Avatar');
+      $states[] = __('Default Avatar','wp-user-avatar');
     }
     /**
      * Filter media states
@@ -369,6 +387,7 @@ class WP_User_Avatar_Admin {
      */
     return apply_filters('wpua_add_media_state', $states);
   }
+  
 }
 
 /**

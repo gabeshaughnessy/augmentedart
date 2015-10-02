@@ -96,7 +96,7 @@ class WP_User_Avatar_Subscriber {
     $offlimits = apply_filters('wpua_subscriber_offlimits', $offlimits);
     if(in_array($pagenow, $offlimits)) {
       do_action('admin_page_access_denied');
-      wp_die(__('You do not have sufficient permissions to access this page.'));
+      wp_die(__('You do not have sufficient permissions to access this page.','wp-user-avatar'));
     }
   }
 

@@ -146,7 +146,7 @@ class WP_User_Avatar_Shortcode {
     }
     if($update) {
       // Redirect with updated variable
-      $redirect_url = add_query_arg(array('updated' => '1'), wp_get_referer());
+      $redirect_url = esc_url_raw(add_query_arg(array('updated' => '1'), wp_get_referer()));
       /**
        * Filter redirect URL
        * @since 1.9.12
@@ -209,7 +209,7 @@ class WP_User_Avatar_Shortcode {
         if(isset($errors) && is_wp_error($errors)) {
           echo '<div class="error"><p>'.implode("</p>\n<p>", $errors->get_error_messages()).'</p></div>';
         } elseif(isset($_GET['updated']) && $_GET['updated'] == '1') {
-          echo '<div class="updated"><p><strong>'.__('Profile updated.').'</strong></p></div>';
+          echo '<div class="updated"><p><strong>'.__('Profile updated.','wp-user-avatar').'</strong></p></div>';
         }
         // Edit form
         return $this->wpua_edit_form($valid_user);
@@ -233,7 +233,7 @@ class WP_User_Avatar_Shortcode {
       <input type="hidden" name="action" value="update" />
       <input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr($user->ID); ?>" />
       <?php wp_nonce_field('update-user_'.$user->ID); ?>
-      <?php submit_button(__('Update Profile')); ?>
+      <?php submit_button(__('Update Profile','wp-user-avatar')); ?>
     </form>
   <?php
     return ob_get_clean();

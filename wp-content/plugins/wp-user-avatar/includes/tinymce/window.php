@@ -115,13 +115,13 @@ if(!defined('ABSPATH')) {
 <body id="link" class="wp-core-ui" onload="document.body.style.display='';" style="display:none;">
   <div id="wpua-tabs">
     <ul>
-      <li><a href="#wpua"><?php _e('Avatar'); ?></a></li>
-      <li><a href="#wpua-upload"><?php _e('Upload'); ?></a></li>
+      <li><a href="#wpua"><?php _e('Avatar','wp-user-avatar'); ?></a></li>
+      <li><a href="#wpua-upload"><?php _e('Upload','wp-user-avatar'); ?></a></li>
     </ul>
     <form name="wpUserAvatar" action="#">
       <div id="wpua">
         <p>
-          <label for="<?php esc_attr_e('wp_user_avatar_user'); ?>"><strong><?php _e('User Name'); ?>:</strong></label>
+          <label for="<?php esc_attr_e('wp_user_avatar_user'); ?>"><strong><?php _e('User Name','wp-user-avatar'); ?>:</strong></label>
           <select id="<?php esc_attr_e('wp_user_avatar_user'); ?>" name="<?php esc_attr_e('wp_user_avatar_user'); ?>">
             <option value=""></option>
             <?php $users = get_users(); foreach($users as $user) : ?>
@@ -134,26 +134,26 @@ if(!defined('ABSPATH')) {
           <label for="<?php esc_attr_e('wp_user_avatar_size'); ?>"><strong><?php _e('Size'); ?>:</strong></label>
           <select id="<?php esc_attr_e('wp_user_avatar_size'); ?>" name="<?php esc_attr_e('wp_user_avatar_size'); ?>">
             <option value=""></option>
-            <option value="original"><?php _e('Original Size'); ?></option>
-            <option value="large"><?php _e('Large'); ?></option>
-            <option value="medium"><?php _e('Medium'); ?></option>
-            <option value="thumbnail"><?php _e('Thumbnail'); ?></option>
-            <option value="custom"><?php _e('Custom'); ?></option>
+            <option value="original"><?php _e('Original Size','wp-user-avatar'); ?></option>
+            <option value="large"><?php _e('Large','wp-user-avatar'); ?></option>
+            <option value="medium"><?php _e('Medium','wp-user-avatar'); ?></option>
+            <option value="thumbnail"><?php _e('Thumbnail','wp-user-avatar'); ?></option>
+            <option value="custom"><?php _e('Custom','wp-user-avatar'); ?></option>
           </select>
         </p>
 
         <p id="<?php esc_attr_e('wp_user_avatar_size_number_section'); ?>">
-          <label for="<?php esc_attr_e('wp_user_avatar_size_number'); ?>"><?php _e('Size'); ?>:</label>
+          <label for="<?php esc_attr_e('wp_user_avatar_size_number'); ?>"><?php _e('Size','wp-user-avatar'); ?>:</label>
           <input type="text" size="8" id="<?php esc_attr_e('wp_user_avatar_size_number'); ?>" name="<?php esc_attr_e('wp_user_avatar_size'); ?>" value="" />
         </p>
 
         <p>
-          <label for="<?php esc_attr_e('wp_user_avatar_align'); ?>"><strong><?php _e('Alignment'); ?>:</strong></label>
+          <label for="<?php esc_attr_e('wp_user_avatar_align'); ?>"><strong><?php _e('Alignment','wp-user-avatar'); ?>:</strong></label>
           <select id="<?php esc_attr_e('wp_user_avatar_align'); ?>" name="<?php esc_attr_e('wp_user_avatar_align'); ?>">
             <option value=""></option>
-            <option value="center"><?php _e('Center'); ?></option>
-            <option value="left"><?php _e('Left'); ?></option>
-            <option value="right"><?php _e('Right'); ?></option>
+            <option value="center"><?php _e('Center','wp-user-avatar'); ?></option>
+            <option value="left"><?php _e('Left','wp-user-avatar'); ?></option>
+            <option value="right"><?php _e('Right','wp-user-avatar'); ?></option>
           </select>
         </p>
 
@@ -161,24 +161,24 @@ if(!defined('ABSPATH')) {
           <label for="<?php esc_attr_e('wp_user_avatar_link'); ?>"><strong><?php _e('Link To'); ?>:</strong></label>
           <select id="<?php esc_attr_e('wp_user_avatar_link'); ?>" name="<?php esc_attr_e('wp_user_avatar_link'); ?>">
             <option value=""></option>
-            <option value="file"><?php _e('Image File'); ?></option>
-            <option value="attachment"><?php _e('Attachment Page'); ?></option>
-            <option value="custom-url"><?php _e('Custom URL'); ?></option>
+            <option value="file"><?php _e('Image File','wp-user-avatar'); ?></option>
+            <option value="attachment"><?php _e('Attachment Page','wp-user-avatar'); ?></option>
+            <option value="custom-url"><?php _e('Custom URL','wp-user-avatar'); ?></option>
           </select>
         </p>
 
         <p id="<?php esc_attr_e('wp_user_avatar_link_external_section'); ?>">
-          <label for="<?php esc_attr_e('wp_user_avatar_link_external'); ?>"><?php _e('URL'); ?>:</label>
+          <label for="<?php esc_attr_e('wp_user_avatar_link_external'); ?>"><?php _e('URL','wp-user-avatar'); ?>:</label>
           <input type="text" size="36" id="<?php esc_attr_e('wp_user_avatar_link_external'); ?>" name="<?php esc_attr_e('wp_user_avatar_link_external'); ?>" value="" />
         </p>
 
         <p>
           <label for="<?php esc_attr_e('wp_user_avatar_target'); ?>"></label>
-          <input type="checkbox" id="<?php esc_attr_e('wp_user_avatar_target'); ?>" name="<?php esc_attr_e('wp_user_avatar_target'); ?>" value="_blank" /> <strong><?php _e('Open link in a new window'); ?></strong>
+          <input type="checkbox" id="<?php esc_attr_e('wp_user_avatar_target'); ?>" name="<?php esc_attr_e('wp_user_avatar_target'); ?>" value="_blank" /> <strong><?php _e('Open link in a new window','wp-user-avatar'); ?></strong>
         </p>
 
         <p>
-          <label for="<?php esc_attr_e('wp_user_avatar_caption'); ?>"><strong><?php _e('Caption'); ?>:</strong></label>
+          <label for="<?php esc_attr_e('wp_user_avatar_caption'); ?>"><strong><?php _e('Caption','wp-user-avatar'); ?>:</strong></label>
           <textarea cols="36" rows="2" id="<?php esc_attr_e('wp_user_avatar_caption'); ?>" name="<?php esc_attr_e('wp_user_avatar_size'); ?>"></textarea>
         </p>
 
@@ -188,12 +188,12 @@ if(!defined('ABSPATH')) {
       </div>
       <div id="wpua-upload">
         <p id="<?php esc_attr_e('wp_user_avatar_upload'); ?>">
-          <label for="<?php esc_attr_e('wp_user_avatar_upload'); ?>"><strong><?php _e('Upload'); ?>:</strong></label>
+          <label for="<?php esc_attr_e('wp_user_avatar_upload'); ?>"><strong><?php _e('Upload','wp-user-avatar'); ?>:</strong></label>
           <input type="text" size="36" id="<?php esc_attr_e('wp_user_avatar_upload'); ?>" name="<?php esc_attr_e('wp_user_avatar_upload'); ?>" value="<?php esc_attr_e('[avatar_upload]'); ?>" readonly="readonly" />
         </p>
 
         <div class="mceActionPanel">
-          <input type="submit" id="insert" class="button-primary" name="insert" value="<?php _e('Insert into Post'); ?>" onclick="wpuaInsertAvatarUpload();" />
+          <input type="submit" id="insert" class="button-primary" name="insert" value="<?php _e('Insert into Post','wp-user-avatar'); ?>" onclick="wpuaInsertAvatarUpload();" />
         </div>
       </div>
     </form>

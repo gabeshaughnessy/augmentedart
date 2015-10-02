@@ -76,7 +76,7 @@ function wpua_after_avatar() {
  * @uses wpuf_has_shortcode()
  */
 function wpua_do_before_avatar() {
-  $wpua_profile_title = '<h3>'.__('Avatar').'</h3>';
+  $wpua_profile_title = '<h3>'.__('Avatar','wp-user-avatar').'</h3>';
   /**
    * Filter profile title
    * @since 1.9.4
@@ -85,15 +85,15 @@ function wpua_do_before_avatar() {
   $wpua_profile_title = apply_filters('wpua_profile_title', $wpua_profile_title);
 ?>
   <?php if(class_exists('bbPress') && bbp_is_edit()) : // Add to bbPress profile with same style ?>
-    <h2 class="entry-title"><?php _e('Avatar'); ?></h2>
+    <h2 class="entry-title"><?php _e('Avatar','wp-user-avatar'); ?></h2>
     <fieldset class="bbp-form">
-      <legend><?php _e('Image'); ?></legend>
+      <legend><?php _e('Image','wp-user-avatar'); ?></legend>
   <?php elseif(class_exists('WPUF_Main') && wpuf_has_shortcode('wpuf_editprofile')) : // Add to WP User Frontend profile with same style ?>
     <fieldset>
-      <legend><?php _e('Avatar') ?></legend>
+      <legend><?php _e('Avatar','wp-user-avatar') ?></legend>
       <table class="wpuf-table">
         <tr>
-          <th><label for="wp_user_avatar"><?php _e('Image'); ?></label></th>
+          <th><label for="wp_user_avatar"><?php _e('Image','wp-user-avatar'); ?></label></th>
           <td>
   <?php else : // Add to profile without table ?>
     <div class="wpua-edit-container">
@@ -152,7 +152,7 @@ function wpua_do_before_avatar_admin() {
   <h3><?php _e('Avatar') ?></h3>
   <table class="form-table">
     <tr>
-      <th><label for="wp_user_avatar"><?php _e('Image'); ?></label></th>
+      <th><label for="wp_user_avatar"><?php _e('Image','wp-user-avatar'); ?></label></th>
       <td>
   <?php
 }
@@ -185,12 +185,9 @@ function wpua_donation_message() {
  * @since 1.6.6
  */
 function wpua_do_donation_message() { ?>
-   <div class="updated">
-    <p><?php _e('Do you like WP User Avatar?', 'wp-user-avatar'); ?> <a href="http://wordpress.org/plugins/wp-google-map-plugin/" target="_blank"><?php _e('Try our Google Maps Plugin.', 'wp-user-avatar'); ?></a></p> 
-  </div>
  <?php 
 }
-add_action('wpua_donation_message', 'wpua_do_donation_message');
+//add_action('wpua_donation_message', 'wpua_do_donation_message');
 
 /**
  * Register widget
