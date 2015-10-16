@@ -32,6 +32,7 @@ $image_dir = get_bloginfo('stylesheet_directory'). '/artifact/images/';
 						<h2>What is The Artifact?</h2><p class="lead">The Artifact is a combination augmented reality scavenger hunt and interactive, musical light sculpture that a large group of people can all participate in at once.</p>
 						<p>A centrally-located pyramid comes to life when you scan it with the augmented reality app Layar, but only if you have already scanned one of the four key-like shards found around the festival grounds.</p>
 						<p>The pyramid lights up and makes music and sounds when it detects a device scanning it. The more people that interact with it, the more it comes to life.</p>
+						<p>Learn more about the Layar app and see it in use in <a class="icon-external-link-icon" href="https://www.youtube.com/watch?v=bxSPb3htcrg">this short video</a></p>
 					</div>
 				</div>
 				<div class="section red">
@@ -90,7 +91,125 @@ $image_dir = get_bloginfo('stylesheet_directory'). '/artifact/images/';
 					<div class="large-12 columns center-text">
 						<hr />
 					</div>
+				</div>
+				<div class="section pink">
 
+					<div class="large-6 columns">
+						<div class="panel">
+							<img src="<?php echo $image_dir; ?>scan-shard.png" alt="scan a shard" width="100%" height="auto" />
+						</div>
+						<div class="caption">
+							<p>Scan a shard to unlock your device. Each shard unlocks one side of the pyramid.</p>
+						</div>
+					</div>
+					<div class="copy large-6 columns">
+						<h3>Find a Shard and Scan it with Layar</h3>
+						<p class="lead">Now you are ready to activate The Artifact.</p>
+						<p>You must find and scan at least one of the shards, located around the festival grounds. Each shard activates one side of the pyramid.</p>
+						<p class="teal">Download Layar at <a class="icon-external-link-icon" href="http://get.layar.com">Get.Layar.Com</a></p>
+					</div>
+
+				</div>
+
+				<div class="section pink">
+					<div class="large-12 columns">
+						<hr />
+					</div>
+				</div>
+
+				<div class="section teal">
+					
+					<div class="large-4 columns">
+						<div class="">
+							<img src="<?php echo $image_dir; ?>scan-pyramid.png" alt="scan the pyramid" width="100%" height="auto" />
+						</div>
+						<div class="caption">
+							<p>Scan one of the sides of the pyramid with Layar to activate it.</p>
+						</div>
+					</div>
+					<div class="large-4 columns">
+						<div class="">
+							<img src="<?php echo $image_dir; ?>database.png" alt="scan the pyramid" width="100%" height="auto" />
+						</div>
+						<div class="caption">
+							<p>The server inside the pyramid is the control center, sending and receiving signals.</p>
+						</div>
+					</div>
+					<div class="copy large-4 columns">
+						<h3>Scan the Pyramid with Layar</h3>
+						<p class="lead">When an unlocked device scans one of the sides of the pyramid, it sends a signal to the database. The pyramid has a server inside it, listening and responding to changes to the database.</p><p>The server in turn sends s signal to the lighting and music controllers inside the pyramid.</p>
+					</div>
+
+					
+				</div>
+
+				<div class="section red">
+					<div class="large-12 columns">
+						<hr />
+					</div>
+				</div>
+
+				<div class="section red">
+					<div class="large-3 columns">
+						<div class="">
+							<img src="<?php echo $image_dir; ?>sounds.png" alt="Bass, Drums, Melody and Ambiant Sounds" width="100%" height="auto" />
+						</div>
+						<!-- <div class="caption">
+							<p>Each sound corresponds to a shard and a side of the pyramid.</p>
+						</div> -->
+					</div>
+					
+					<div class="copy large-9 columns">
+						<h3>Each side of The Artifact makes a Different Type of Sound</h3>
+						<p class="lead">Bass, Melody, Ambiant and Drums</p>
+						<p>Together they create a complete composition, but they each stand alone as well. Find all four shards and then scan all four sides of the pyramid with layar to create the complete composition. 
+					</div>
+
+				</div>
+
+				<div class="section red">
+					<div class="large-12 columns">
+						<hr />
+					</div>
+				</div>
+
+				<div class="section teal">
+					
+					<div class="copy large-9 columns">
+						<h3>Get your Friends On Board to Bring up the Intensity.</h3>
+						<p class="lead">As more people interact with  The Artifact, the intensity of the music and lighting increases.</p>
+						<p>Each additional person scanning the pyramid raises an intensity level that controls the music and lighting tracks. The Artifact builds toward a peak experience if enough people activate it simultaneously.</p>
+					</div>
+					<div class="large-3 columns">
+						<div class="">
+							<img src="<?php echo $image_dir; ?>intensity-knob.png" alt="Intensity Knob Goes to 11" width="100%" height="auto" />
+						</div>
+						<!-- <div class="caption">
+							<p>It goes to 11.</p>
+						</div>  -->
+					</div>
+				</div>
+
+				<div class="section red">
+					<div class="large-12 columns ">
+						<h3 class="big center-text">How Will We Build It?</h3>
+						<p class="lead">The Artifact’s components will be designed and fabricated using a combination of fine art aesthetics and cutting edge automated technologies such as computer assisted 3-D modeling, laser cutting, CnC routing, etc. We are working with an experienced 3D modeler to take our sketches and transform them into designs that can easily be turned into fabricated elements at a production house. We will insure that the structures are built to structural standards, keeping in mind ways to minimize waste. </p>
+					</div>
+				</div>
+				
+				<div class="section pink">
+					<p class="lead">Our choice of materials can vary accordingly with the budget. We would ideally use a number of materials such as a steel for the frame, and a combination of translucent acrylic & extruded PVC sheet for the surface. We can also include such materials as glass or stone if appropriate.
+					The surface will also feature multiple layers of cut and layered components to give the feeling of alien technology and provide texture and surface interest. </p>
+				</div>
+
+				<div class="section teal">
+
+					<p class="lead">Our team of lighting and sound experts will wire the Artifact in such a way that the functionality behind the experience is hidden from view, maintaining a clean aesthetic and the illusion of ancient alien tech.</p>
+
+					<p class="lead">We will use our proprietary approach to augmented reality, whereas the AR interface not only overlays digital information onto reality, but can directly affect it as well.</p>
+				</div>
+				<div class="section red">
+					<p class="lead">By combining a sci-fi narrative, fine art aesthetics, cutting edge fabrication, sound and lighting design and bi-directional interactivity, we aim to give the viewer a never seen before fusion of art and technology.</p>
 				</div>
 			</div>
 		</div>

@@ -6,6 +6,80 @@ $phone-break : 480px;
 $teal: #62D5D5;
 $pink: #DB7FD7;
 $red: #E05870;
+//FONTS
+@charset "UTF-8";
+
+@font-face {
+  font-family: "icon-font";
+  src:url("fonts/icon-font/fonts/icon-font.eot");
+  src:url("fonts/icon-font/fonts/icon-font.eot?#iefix") format("embedded-opentype"),
+    url("fonts/icon-font/fonts/icon-font.woff") format("woff"),
+    url("fonts/icon-font/fonts/icon-font.ttf") format("truetype"),
+    url("fonts/icon-font/fonts/icon-font.svg#icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "icon-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:after,
+[class*=" icon-"]:after {
+  font-family: "icon-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  margin-left: 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-left-arrow:after {
+  content: "\ab";
+}
+.icon-dot:after {
+  content: "\2022";
+}
+.icon-open-dot:after {
+  content: "\ba";
+}
+.icon-right-arrow-thin:after {
+  content: "\203a";
+}
+.icon-left-arrow-thin:after {
+  content: "\2039";
+}
+.icon-right-arrow:after {
+  content: "\bb";
+}
+.icon-external-link-icon:after {
+  content: "\2197";
+}
+.icon-share:after {
+  content: "\279a";
+}
+.icon-video:after {
+  content: "\27b2";
+}
+.icon-print:after {
+  content: "p";
+}
+//endfonts
+
 *{
 	box-sizing: border-box;
 }
@@ -42,6 +116,18 @@ $red: #E05870;
 	}
 	.large-12 + .large-12{
 		margin-top: 2em;
+	}
+	.large-9{
+		width: 70%;
+		@media screen and (max-width: $tablet-break){
+			width: 100%;
+		}
+	}
+	.large-8{
+		width: 64%;
+		@media screen and (max-width: $tablet-break){
+			width: 100%;
+		}
 	}
 	.large-6{
 		width: 48%;
@@ -116,6 +202,9 @@ $red: #E05870;
 	.big{
 		font-size: 1.5em;
 	}
+	.caption{
+		font-style: italic;
+	}
 
 	.section{
 		margin: 1em auto;
@@ -127,6 +216,9 @@ $red: #E05870;
 			color: $teal;
 			h2, h3, h4, h5, h6 {
 				color: $red;
+			}
+			a{
+				color: lighten($teal, 20%);
 			}
 			.panel{
 				border: 3px solid $teal;
@@ -140,6 +232,9 @@ $red: #E05870;
 			h2, h3, h4, h5, h6 {
 				color: $pink;
 			}
+			a{
+				color: lighten($red, 20%);
+			}
 			.panel{
 				border: 3px solid $red;
 			}
@@ -151,6 +246,9 @@ $red: #E05870;
 			color: $pink;
 			h2, h3, h4, h5, h6 {
 				color: $teal;
+			}
+			a{
+				color: lighten($pink, 20%);
 			}
 			.panel{
 				border: 3px solid $pink;
