@@ -4439,64 +4439,84 @@ img#wpstats {
 .page-template-artifact-proposal p.lead {
   font-size: 1.4em;
 }
-/* line 114, ../sass/_artifact-proposal.scss */
+/* line 113, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .center-text {
+  text-align: center;
+}
+/* line 116, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .big {
+  font-size: 1.5em;
+}
+/* line 120, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section {
   margin: 1em auto;
   width: 100%;
   float: left;
   clear: both;
 }
-/* line 120, ../sass/_artifact-proposal.scss */
+/* line 126, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.teal {
   color: #62d5d5;
 }
-/* line 122, ../sass/_artifact-proposal.scss */
+/* line 128, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.teal h2, .page-template-artifact-proposal .section.teal h3, .page-template-artifact-proposal .section.teal h4, .page-template-artifact-proposal .section.teal h5, .page-template-artifact-proposal .section.teal h6 {
   color: #e05870;
 }
-/* line 125, ../sass/_artifact-proposal.scss */
+/* line 131, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.teal .panel {
   border: 3px solid #62d5d5;
 }
-/* line 129, ../sass/_artifact-proposal.scss */
+/* line 134, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal hr {
+  border-color: #db7fd7;
+}
+/* line 138, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.red {
   color: #e05870;
 }
-/* line 131, ../sass/_artifact-proposal.scss */
+/* line 140, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.red h2, .page-template-artifact-proposal .section.red h3, .page-template-artifact-proposal .section.red h4, .page-template-artifact-proposal .section.red h5, .page-template-artifact-proposal .section.red h6 {
   color: #db7fd7;
 }
-/* line 134, ../sass/_artifact-proposal.scss */
+/* line 143, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.red .panel {
   border: 3px solid #e05870;
 }
-/* line 138, ../sass/_artifact-proposal.scss */
+/* line 146, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red hr {
+  border-color: #62d5d5;
+}
+/* line 150, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.pink {
   color: #db7fd7;
 }
-/* line 140, ../sass/_artifact-proposal.scss */
+/* line 152, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.pink h2, .page-template-artifact-proposal .section.pink h3, .page-template-artifact-proposal .section.pink h4, .page-template-artifact-proposal .section.pink h5, .page-template-artifact-proposal .section.pink h6 {
   color: #62d5d5;
 }
-/* line 143, ../sass/_artifact-proposal.scss */
+/* line 155, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .section.pink .panel {
   border: 3px solid #db7fd7;
 }
-/* line 151, ../sass/_artifact-proposal.scss */
+/* line 158, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink hr {
+  border-color: #e05870;
+}
+/* line 166, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal #main-header[role=banner] {
   background-color: #000;
   display: none;
 }
-/* line 155, ../sass/_artifact-proposal.scss */
+/* line 170, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .theme-container {
   background-color: transparent;
   max-width: 1440px;
 }
-/* line 160, ../sass/_artifact-proposal.scss */
+/* line 175, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal #footer {
   border-top: none;
 }
-/* line 165, ../sass/_artifact-proposal.scss */
+/* line 180, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .page-header .logo h1 {
   background-repeat: no-repeat;
   background-size: contain;
@@ -4508,32 +4528,32 @@ img#wpstats {
   float: left;
 }
 @media screen and (max-width: 480px) {
-  /* line 165, ../sass/_artifact-proposal.scss */
+  /* line 180, ../sass/_artifact-proposal.scss */
   .page-template-artifact-proposal .page-header .logo h1 {
     top: 100px;
     width: 250px;
   }
 }
-/* line 179, ../sass/_artifact-proposal.scss */
+/* line 194, ../sass/_artifact-proposal.scss */
 .page-template-artifact-proposal .page-header .header-image {
   position: relative;
   margin-top: 250px;
   right: -30vw;
 }
 @media screen and (max-width: 1024px) {
-  /* line 179, ../sass/_artifact-proposal.scss */
+  /* line 194, ../sass/_artifact-proposal.scss */
   .page-template-artifact-proposal .page-header .header-image {
     margin-top: 220px;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 179, ../sass/_artifact-proposal.scss */
+  /* line 194, ../sass/_artifact-proposal.scss */
   .page-template-artifact-proposal .page-header .header-image {
     margin-top: 150px;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 179, ../sass/_artifact-proposal.scss */
+  /* line 194, ../sass/_artifact-proposal.scss */
   .page-template-artifact-proposal .page-header .header-image {
     margin-top: 50px;
   }
