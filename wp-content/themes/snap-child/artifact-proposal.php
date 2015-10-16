@@ -137,7 +137,7 @@ $image_dir = get_bloginfo('stylesheet_directory'). '/artifact/images/';
 					</div>
 					<div class="copy large-4 columns">
 						<h3>Scan the Pyramid with Layar</h3>
-						<p class="lead">When an unlocked device scans one of the sides of the pyramid, it sends a signal to the database. The pyramid has a server inside it, listening and responding to changes to the database.</p><p>The server in turn sends s signal to the lighting and music controllers inside the pyramid.</p>
+						<p class="lead">When an unlocked device scans one of the sides of the pyramid, it sends a signal to the database. The pyramid has a server inside it, listening and responding to changes to the database.</p><p>The server in turn sends a signal to the lighting and music controllers inside the pyramid.</p>
 					</div>
 
 					
