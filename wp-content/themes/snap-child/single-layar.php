@@ -30,6 +30,7 @@ if(have_posts()) : while(have_posts()) : the_post();
                 //build hotspots here
                 $referenceImage = (isset($hotspot['layar_reference_image']) ? $hotspot['layar_reference_image'] : 'noimage');
                 $layarUrl = (isset($hotspot['layar_url']) ? $hotspot['layar_url']:'nouurl');
+
                   if(strpos($layarUrl, '?' ) !== false){
                     $user_param = '&userID=';
                     
@@ -53,6 +54,14 @@ if(have_posts()) : while(have_posts()) : the_post();
                 $translateZ = (isset($hotspot['layar_translate_z'])? $hotspot['layar_translate_z'] : 0);
                // $translateZ = ($is_android === true ? 0-$translateZ : $translateZ );
                 $layarScale = (isset($hotspot['layar_scale'])? $hotspot['layar_scale'] : 1);
+
+//DH HOTFIX
+                if(strpos($layarUrl, 'dh-item-image' ) !== false){
+                    $layarHeight = 500;
+                     $translateY = .3;
+                     $translateZ = .15;
+                     $layarScale = .75;
+                }
 
                 $hotspots_output[$i] = array(
                     'object' => array(

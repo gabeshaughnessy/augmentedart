@@ -24,7 +24,7 @@ add_action( 'admin_init', 'mtphr_post_duplicator_initialize_settings' );
 /**
  * Initializes the options page.
  *
- * @since 2.2
+ * @since 2.6
  */ 
 function mtphr_post_duplicator_initialize_settings() {
 
@@ -37,7 +37,7 @@ function mtphr_post_duplicator_initialize_settings() {
 			'publish' => __('Published', 'post-duplicator'),
 			'pending' => __('Pending', 'post-duplicator')	
 		),
-		'default' => 'same'
+		'default' => 'draft'
 	);
 	
 	$settings['timestamp'] = array(
@@ -48,7 +48,7 @@ function mtphr_post_duplicator_initialize_settings() {
 			'current' => __('Current Time', 'post-duplicator')
 		),
 		'display' => 'inline',
-		'default' => 'duplicate'
+		'default' => 'current'
 	);
 	
 	$settings['time_offset'] = array(
@@ -157,7 +157,7 @@ function mtphr_post_duplicator_settings_display() {
  * @since 2.0
  */ 
 function mtphr_post_duplicator_settings_callback() {
-	echo '<h4>Customize the settings for duplicated posts.</h4>';
+	echo '<h4>' . __( 'Customize the settings for duplicated posts.', 'post-duplicator' ) . '</h4>';
 }
 
 

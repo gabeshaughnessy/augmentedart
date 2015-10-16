@@ -1,1 +1,123 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(3($){2.5.p={H:3(){E 2.5.W.P.8.v},M:3(a){q b=2.5.W.P;b.8.v=a;b.8.D=$(\'K.f-Z\').9(\'c\').d(\'k\');u(b.8.v&&b.8.D){$(\'#2-m-n\').o(b.8.v);$(\'#0-T, #0-s-h\').t();$(\'#0-r\').9(\'c\').d(\'k\',b.8.D).O(\'X\',"");$(\'#0-g-h, #0-z\').x();$(\'#C\').w(\'6\')}2.5.p.A().1j()},A:3(){u(4.7){E 4.7}4.7=2.5({S:{12:\'13\'},15:1f,U:$(\'#0-B\').J(\'U\')});4.7.l(\'L\',3(){q a=$(\'#2-m-n\').o();u(a==""){$(\'K.5-14\').9(\'a:y\').w(\'6\')}17{q b=4.N().H(\'j\');f=2.5.f(a);f.Y();b.B(f?[f]:[])}},4.7);4.7.N(\'S\').l(\'F\',4.F);E 4.7},F:3(a){j=4.H(\'j\').10();2.5.p.M(j?j.Q:-1)},R:3(){$(\'G\').l(\'6\',\'#0-B\',3(e){e.I();e.16();2.5.p.A().L()})}}})(V);V(3($){u(18(2)!=\'19\'){2.5.p.R()}$(\'#1a-1b\').d(\'1c\',\'1d/1e-J\');q a=$(\'#2-m-n\').o();q b=$(\'#0-r\').9(\'c\').d(\'k\');$(\'G\').l(\'6\',\'#0-g\',3(e){e.I();$(\'#0-i\').g();$(\'#0-g-h, #0-z\').x();$(\'#0-r\').9(\'c:y\').x();$(\'#0-r\').1g(\'<c Q="0-i" />\');$(\'#0-i\').d(\'k\',1h.1i);$(\'#2-m-n\').o("");$(\'#0-i, #0-s-h\').t();$(\'#C\').w(\'6\')});$(\'G\').l(\'6\',\'#0-s\',3(e){e.I();$(\'#0-i\').g();$(\'#0-T\').O(\'11\');$(\'#0-s-h\').x();$(\'#0-g-h, #0-z\').t();$(\'#0-r\').9(\'c:y\').d(\'k\',b).t();$(\'#2-m-n\').o(a);$(\'#C\').w(\'6\')})});',62,82,'wpua||wp|function|this|media|click|_frame|post|find|||img|attr||attachment|remove|button|original|selection|src|on|user|avatar|val|wpUserAvatar|var|preview|undo|show|if|wpUserAvatarId|trigger|hide|first|thumbnail|frame|add|wp_user_avatar_radio|wpUserAvatarSrc|return|select|body|get|preventDefault|data|div|open|set|state|removeAttr|settings|id|init|library|images|title|jQuery|view|height|fetch|info|single|style|type|image|router|multiple|stopPropagation|else|typeof|undefined|your|profile|enctype|multipart|form|false|prepend|wpua_custom|avatar_thumb|close'.split('|'),0,{}))
+(function($) {
+	var id;
+    wp.media.wpUserAvatar = {
+		
+        get: function() {
+            return wp.media.view.settings.post.wpUserAvatarId
+        },
+        set: function(a) {
+            var b = wp.media.view.settings;
+            b.post.wpUserAvatarId = a;
+            b.post.wpUserAvatarSrc = $('div.attachment-info').find('img').attr('src');
+            if (b.post.wpUserAvatarId && b.post.wpUserAvatarSrc) {
+                $('#wp-user-avatar'+id).val(b.post.wpUserAvatarId);
+                $('#wpua-images'+id+', #wpua-undo-button'+id).show();
+                $('#wpua-preview'+id).find('img').attr('src', b.post.wpUserAvatarSrc).removeAttr('height', "");
+                $('#wpua-remove-button'+id+', #wpua-thumbnail'+id).hide();
+                $('#wp_user_avatar_radio').trigger('click')
+            }
+            wp.media.wpUserAvatar.frame().close()
+        },
+        frame: function() {
+            if (this._frame) {
+                return this._frame
+            }
+            this._frame = wp.media({
+                library: {
+                    type: 'image'
+                },
+                multiple: false,
+                title: $('#wpua-add'+id).data('title')
+            });
+            this._frame.on('open', function() {
+                var a = $('#wp-user-avatar'+id).val();
+                if (a == "") {
+                    $('div.media-router').find('a:first').trigger('click')
+                } else {
+                    var b = this.state().get('selection');
+                    attachment = wp.media.attachment(a);
+                    attachment.fetch();
+                    b.add(attachment ? [attachment] : [])
+                }
+            }, this._frame);
+            this._frame.state('library').on('select', this.select);
+            return this._frame
+        },
+        select: function(a) {
+            selection = this.get('selection').single();
+            wp.media.wpUserAvatar.set(selection ? selection.id : -1)
+        },
+        init: function() {
+            $('body').on('click', '#wpua-add', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+				id='';
+                wp.media.wpUserAvatar.frame().open()
+            })
+            $('body').on('click', '#wpua-add-existing', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+				id='-existing';
+                wp.media.wpUserAvatar.frame().open()
+            })
+        }
+    }
+})(jQuery);
+jQuery(function($) {
+    if (typeof(wp) != 'undefined') {
+        wp.media.wpUserAvatar.init()
+    }
+    $('#your-profile').attr('enctype', 'multipart/form-data');
+    var a = $('#wp-user-avatar').val();
+    var b = $('#wpua-preview').find('img').attr('src');
+    $('body').on('click', '#wpua-remove', function(e) {
+        e.preventDefault();
+        $('#wpua-original').remove();
+        $('#wpua-remove-button, #wpua-thumbnail').hide();
+        $('#wpua-preview').find('img:first').hide();
+        $('#wpua-preview').prepend('<img id="wpua-original" />');
+        $('#wpua-original').attr('src', wpua_custom.avatar_thumb);
+        $('#wp-user-avatar').val("");
+        $('#wpua-original, #wpua-undo-button').show();
+        $('#wp_user_avatar_radio').trigger('click')
+    });
+    $('body').on('click', '#wpua-undo', function(e) {
+        e.preventDefault();
+        $('#wpua-original').remove();
+        $('#wpua-images').removeAttr('style');
+        $('#wpua-undo-button').hide();
+        $('#wpua-remove-button, #wpua-thumbnail').show();
+        $('#wpua-preview').find('img:first').attr('src', b).show();
+        $('#wp-user-avatar').val(a);
+        $('#wp_user_avatar_radio').trigger('click')
+    })
+});
+jQuery(function($) {
+    if (typeof(wp) != 'undefined') {
+        wp.media.wpUserAvatar.init()
+    }
+    $('#your-profile').attr('enctype', 'multipart/form-data');
+    var a = $('#wp-user-avatar-existing').val();
+    var b = $('#wpua-preview-existing').find('img').attr('src');
+    $('body').on('click', '#wpua-remove-existing', function(e) {
+        e.preventDefault();
+        $('#wpua-original-existing').remove();
+        $('#wpua-remove-button-existing, #wpua-thumbnail-existing').hide();
+        $('#wpua-preview-existing').find('img:first').hide();
+        $('#wpua-preview-existing').prepend('<img id="wpua-original-existing" />');
+        $('#wpua-original-existing').attr('src', wpua_custom.avatar_thumb);
+        $('#wp-user-avatar-existing').val("");
+        $('#wpua-original-existing, #wpua-undo-button-existing').show();
+        $('#wp_user_avatar_radio').trigger('click')
+    });
+    $('body').on('click', '#wpua-undo-existing', function(e) {
+        e.preventDefault();
+        $('#wpua-original-existing').remove();
+        $('#wpua-images-existing').removeAttr('style');
+        $('#wpua-undo-button-existing').hide();
+        $('#wpua-remove-button-existing, #wpua-thumbnail-existing').show();
+        $('#wpua-preview-existing').find('img:first').attr('src', b).show();
+        $('#wp-user-avatar-existing').val(a);
+        $('#wp_user_avatar_radio').trigger('click')
+    })
+});
