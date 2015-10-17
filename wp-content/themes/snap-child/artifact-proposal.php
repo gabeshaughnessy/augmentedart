@@ -211,6 +211,16 @@ $image_dir = get_bloginfo('stylesheet_directory'). '/artifact/images/';
 				<div class="section red">
 					<p class="lead">By combining a sci-fi narrative, fine art aesthetics, cutting edge fabrication, sound and lighting design and bi-directional interactivity, we aim to give the viewer a never seen before fusion of art and technology.</p>
 				</div>
+				<div class="section red">
+					<div class="large-12 columns">
+						<div class="bottom-image center-text">
+							<img style=" margin: 3em auto;" src="<?php echo $image_dir; ?>rotate-spin.gif" alt="Rotating" width="350px" height="263px" />
+						</div>
+						<!-- <div class="caption">
+							<p>It goes to 11.</p>
+						</div>  -->
+					</div>
+				</div>
 			</div>
 		</div>
 	<?php endwhile; ?>
