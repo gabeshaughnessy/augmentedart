@@ -1,0 +1,307 @@
+$desktop-break : 1200px;
+$medium-break : 1024px;
+$tablet-break : 768px;
+$phone-break : 480px;
+
+$teal: #62D5D5;
+$pink: #DB7FD7;
+$red: #E05870;
+//FONTS
+@charset "UTF-8";
+
+@font-face {
+  font-family: "icon-font";
+  src:url("fonts/icon-font/fonts/icon-font.eot");
+  src:url("fonts/icon-font/fonts/icon-font.eot?#iefix") format("embedded-opentype"),
+    url("fonts/icon-font/fonts/icon-font.woff") format("woff"),
+    url("fonts/icon-font/fonts/icon-font.ttf") format("truetype"),
+    url("fonts/icon-font/fonts/icon-font.svg#icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "icon-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:after,
+[class*=" icon-"]:after {
+  font-family: "icon-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  margin-left: 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-left-arrow:after {
+  content: "\ab";
+}
+.icon-dot:after {
+  content: "\2022";
+}
+.icon-open-dot:after {
+  content: "\ba";
+}
+.icon-right-arrow-thin:after {
+  content: "\203a";
+}
+.icon-left-arrow-thin:after {
+  content: "\2039";
+}
+.icon-right-arrow:after {
+  content: "\bb";
+}
+.icon-external-link-icon:after {
+  content: "\2197";
+}
+.icon-share:after {
+  content: "\279a";
+}
+.icon-video:after {
+  content: "\27b2";
+}
+.icon-print:after {
+  content: "p";
+}
+//endfonts
+
+*{
+	box-sizing: border-box;
+}
+.page-template-artifact-proposal{
+	font-family: 'Josefin Sans', sans-serif;
+	background-color: #000 !important;
+	background-image: url('artifact/images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: top right;
+	@media screen and (orientation: landscape){
+		background-size: 50vw 125vh;
+		background-position: 50vw -15vh;
+	}
+	@media screen and (orientation: portrait){
+		background-size: 125vw 50vh;
+		background-position: 10vw -5vh;
+
+	}
+	
+	.columns{
+		float: left;
+		display: block;
+		margin-right: 2%;
+		&:last-child{
+			margin-right: 0;
+		}
+		@media screen and (max-width: $tablet-break){
+			margin-right: 0;
+		}
+	}
+	.large-12{
+			width: 100%;
+	}
+	.large-12 + .large-12{
+		margin-top: 2em;
+	}
+	.large-9{
+		width: 70%;
+		@media screen and (max-width: $tablet-break){
+			width: 100%;
+		}
+	}
+	.large-8{
+		width: 64%;
+		@media screen and (max-width: $tablet-break){
+			width: 100%;
+		}
+	}
+	.large-6{
+		width: 48%;
+		@media screen and (max-width: $tablet-break){
+			width: 100%;
+		}
+	}
+	.large-4{
+		width: 32%;
+		@media screen and (max-width: $tablet-break){
+			width: 100%;
+		}
+	}
+	.large-3{
+		width: 23.33333%;
+		@media screen and (max-width: $tablet-break){
+			width: 48%;
+			margin-right: 2%;
+			&:nth-child(even){
+				margin-right: 0;
+			}
+		}
+		@media screen and (max-width: $phone-break){
+			margin-right: 0;
+			width: 100%;
+		}
+	}
+	.large-2{
+		width: 16%;
+		@media screen and (max-width: $tablet-break){
+			width: 48%;
+			margin-right: 2%;
+			&:nth-child(even){
+				margin-right: 0;
+			}
+		}
+		@media screen and (max-width: $phone-break){
+			width: 100%;
+			margin-right: 0;
+		}
+	}
+
+	@media screen and (max-width: $tablet-break){
+		* + .large-12, * + .large-6, * + .large-4{
+		margin-top: 1em;
+		}
+	}
+	@media screen and (max-width: $phone-break){
+		* + .large-3, * + .large-2{
+		margin-top: 1em;
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6{
+		 font-family: 'Josefin Sans', sans-serif;
+		 font-weight: 700;
+		 margin-top: 0;
+	}
+	* + h2, * + h3, * + h4, * + h5, * + h6{
+		margin-top: 1em;
+	}
+	p, em, blockquote, span, div, b, strong, ul, ol, li, a{
+		font-family: 'Josefin Sans', sans-serif;
+		font-weight: 400;
+	}
+	p.lead{
+		font-size: 1.4em;
+	}
+	.center-text{
+		text-align: center;
+	}
+	.big{
+		font-size: 1.5em;
+	}
+	.caption{
+		font-style: italic;
+	}
+
+	.section{
+		margin: 1em auto;
+		width: 100%;
+		float: left;
+		clear: both;
+
+		&.teal{
+			color: $teal;
+			h2, h3, h4, h5, h6 {
+				color: $red;
+			}
+			a{
+				color: lighten($teal, 20%);
+			}
+			.panel{
+				border: 3px solid $teal;
+			}
+			hr{
+				border-color: $pink;
+			}
+		}
+		&.red{
+			color: $red;
+			h2, h3, h4, h5, h6 {
+				color: $pink;
+			}
+			a{
+				color: lighten($red, 20%);
+			}
+			.panel{
+				border: 3px solid $red;
+			}
+			hr{
+				border-color: $teal;
+			}
+		}
+		&.pink{
+			color: $pink;
+			h2, h3, h4, h5, h6 {
+				color: $teal;
+			}
+			a{
+				color: lighten($pink, 20%);
+			}
+			.panel{
+				border: 3px solid $pink;
+			}
+			hr{
+				border-color: $red;
+			}
+		}
+	}
+
+
+
+	#main-header[role=banner]{
+		background-color: #000;
+		display: none;
+	}
+	.theme-container{
+		background-color: transparent;
+		max-width: 1440px;
+		
+	}
+	#footer{
+		border-top: none;
+	}
+
+.page-header{
+	.logo h1{
+		background-repeat: no-repeat;
+		background-size: contain;
+		text-indent: -9000%;
+		width: 350px;
+		height: 70px;
+		display: block;
+		position: absolute;
+		float: left;
+		@media screen and (max-width: $phone-break){
+			top: 100px;
+			width: 250px;
+		}
+	}
+	.header-image{
+		position: relative;
+		margin-top: 250px;
+		right: -30vw;
+		@media screen and (max-width: $medium-break){
+			margin-top: 220px;
+		}
+		@media screen and (max-width: $tablet-break){
+			margin-top: 150px;
+		}
+		@media screen and (max-width: $phone-break){
+			margin-top: 50px;
+		}
+	}
+}
+}

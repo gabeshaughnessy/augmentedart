@@ -25,7 +25,13 @@ global $noheader;
 	<?php if(is_page_template('layar-content-page.php') || is_page_template('nike_layar-content-page.php') || is_page_template('nike-fa15-page.php') || is_page_template('dh_layar-content-page.php')){
 echo '<meta name="robots" content="noindex, nofollow">';
 		}
+
+		//The Artifact Styles and JS
+		if(is_page_template('artifact-proposal.php')){
+			echo "<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,700,400italic,700italic,100italic' rel='stylesheet' type='text/css'>";
+		}
 	?>
+
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 	<?php wp_head(); ?>
