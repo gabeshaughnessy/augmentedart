@@ -63,9 +63,10 @@
 			    		answerObj = {};
 			    		answerObj[answer] = newValue;
 			    		mySurvey.child(question).update(answerObj);
-
+			    		location.reload();
 			    	}); 	
 			    });
+			    
 			});
 
 			$.each(snapshot.val(), function(question, answers) {
