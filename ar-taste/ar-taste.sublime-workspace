@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"surve",
+				"surveyName"
+			],
+			[
+				"anse",
+				"answerObj"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"answer",
+				"answerRef"
+			],
+			[
+				"question",
+				"questionID"
+			],
+			[
+				"survey",
+				"surveyName"
+			],
+			[
+				"sur",
+				"surveyRef"
+			],
+			[
 				"dismi",
 				"dismiss_text"
 			],
@@ -486,34 +514,6 @@
 			[
 				"gallery",
 				"gallery_meta"
-			],
-			[
-				"product",
-				"product_images"
-			],
-			[
-				"pro",
-				"product_images"
-			],
-			[
-				"pr",
-				"product_images"
-			],
-			[
-				"annotate",
-				"annotateFontColor"
-			],
-			[
-				"jquery",
-				"jquery-ui"
-			],
-			[
-				"wp_enque",
-				"wp_enqueue_script"
-			],
-			[
-				"port",
-				"portfolio-content"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 398,
+				"buffer_size": 3421,
 				"line_ending": "Unix",
 				"name": "<head>"
 			}
@@ -553,6 +553,8 @@
 	},
 	"file_history":
 	[
+		"/Users/gabe/Dropbox/Sites/augmentedart/ar-taste/static-server.js",
+		"/Users/gabe/Dropbox/Sites/augmentedart/ar-taste/css/app.css",
 		"/Applications/MAMP/conf/apache/httpd.conf",
 		"/Applications/MAMP/logs/apache_error.log",
 		"/Users/gabe/Dropbox/Sites/augmentedart/.htaccess",
@@ -678,9 +680,7 @@
 		"/Users/gabe/Library/Application Support/Sublime Text 2/Packages/User/bloginfo-stylesheet_dir.sublime-snippet",
 		"/Users/gabe/Dropbox/Sites/envision_interiors/wp-content/themes/envision2015/scss/patterns/_content.scss",
 		"/Users/gabe/Library/Application Support/Sublime Text 2/Packages/User/hipster-ipsum.sublime-snippet",
-		"/Users/gabe/Dropbox/Sites/envision_interiors/wp-content/themes/envision2015/functions/functions-enqueue.php",
-		"/Users/gabe/Dropbox/Sites/envision_interiors/wp-content/themes/envision2015/functions.php",
-		"/Users/gabe/Downloads/Jive2015-master/wp-content/themes/jive2015/scss/site/_classes.scss"
+		"/Users/gabe/Dropbox/Sites/envision_interiors/wp-content/themes/envision2015/functions/functions-enqueue.php"
 	],
 	"find":
 	{
@@ -865,24 +865,25 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 398,
+						"buffer_size": 3421,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								2347,
+								2347
 							]
 						],
 						"settings":
 						{
 							"auto_name": "<head>",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 799.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
