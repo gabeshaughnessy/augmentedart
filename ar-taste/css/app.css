@@ -19,5 +19,8 @@ input[type=submit]{
 }
 .answer{
 	font-weight: bold;
-
+}
+.answer input{
+    margin: .4em .65em 1em 0;
+    vertical-align: top;
 }
