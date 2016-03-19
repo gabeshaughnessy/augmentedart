@@ -1,0 +1,11 @@
+@include keyframes(scale) {
+  0% {
+    @include transform(scale(1));
+    opacity: 0;
+  }
+
+  100% {
+    @include transform(scale(0));
+    opacity: 1;
+  }
+}
