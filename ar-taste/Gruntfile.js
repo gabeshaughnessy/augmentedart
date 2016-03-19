@@ -58,7 +58,10 @@ module.exports = function(grunt) {
     },
       dist: {
         files: {
-          'js/app.min.js': ['js/app.js']
+          'js/app.min.js': ['js/app.js'],
+          'js/visualization-1.min.js': ['js/visualization-1.js'],
+          'js/visualization-2.min.js': ['js/visualization-2.js']
+
         }
       }
   });
@@ -85,7 +88,7 @@ module.exports = function(grunt) {
     },
     grunt: { files: ['Gruntfile.js'] },
     scripts: {
-      files: ['js/main.js'],
+      files: ['js/main.js', 'js/visualization-1.js', 'js/visualization-2.js'],
       tasks: ['concat']
     },
     compress: {

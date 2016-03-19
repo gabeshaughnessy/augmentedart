@@ -1,0 +1,83 @@
+.vis-wrapper-1{
+	width: 100vw;
+	height: 100vh;
+	background-color: $black;
+	color: $white;
+
+	@for $answers from 1 through length($bright-colors){
+		.answer:nth-child(#{$answers}){
+			$color : nth($bright-colors, $answers);
+			.bg{ 
+				background-color: $color; 
+			}
+			.label{
+				color:  lighten(nth($bright-colors, $answers), $lighten-percentage);
+			}
+
+
+			
+			@include animation(scale #{($answers/10)}s ease-in-out);
+		}
+	}
+	.question-wrapper{
+		width: 100%;
+		clear: both;
+	}
+	.answer-wrapper{
+		position: relative;
+		max-width: 80vw;
+
+	}
+	.answer.circle{
+		position: absolute;
+		text-align: center;
+		margin: auto;
+		overflow: visible;
+		float: left;
+		font-size: 6px;
+		@include transition(font-size .3s);
+
+
+		.label{
+			position: absolute;
+			z-index: 1;
+			top:0;
+			left: 0; 
+			@include transition(all .3s);
+
+		}
+		.bg{
+			position: absolute;
+			z-index: 0;
+			top: 0;
+			left: 0;
+			@include transition(all .3s);
+		}
+
+
+		@for $i from 1 to 100{
+			&.size-#{$i}{
+				$size : percentage($i/100);
+				width: #{$i}vw;
+				height: #{$i}vh;
+				@if($i > 6){
+					font-size: #{1.5*$i}px;
+				}
+				@if($i > 24){
+					font-size: #{1.5*$i}px;
+				}
+				
+				.bg{
+					height: #{$i}vh;
+					width: #{$i}vw;
+					-webkit-clip-path : circle($size at center);
+
+				}
+				.label{
+					top: $size;
+					left: $size;
+				}
+			}
+		}
+	}
+}

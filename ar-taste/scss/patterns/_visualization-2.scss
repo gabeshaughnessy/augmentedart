@@ -1,0 +1,87 @@
+.vis-wrapper-2{
+	width: 100vw;
+	height: 100vh;
+	background-color: $black;
+	color: $white;
+
+	h3.question{
+		text-align: center;
+		padding-top: 1em;
+
+	}
+
+	@for $answers from 1 through length($bright-colors){
+		.answer.color-#{$answers}{
+			$color : nth($bright-colors, $answers);
+			@include transform-origin(center center);
+			@include animation(scale #{($answers/10)}s);
+			
+			circle.color-#{$answers}{
+				fill:rgba($color, .5);
+				stroke:$color;
+			}
+		}
+		.label.color-#{$answers}{
+			color:  lighten(nth($bright-colors, $answers), $lighten-percentage);
+		}
+	}
+	.question-wrapper{
+		width: 100%;
+		clear: both;
+	}
+	.answer-wrapper{
+		position: relative;
+		max-width: 100vw;
+
+		.label{
+			text-align : center;
+			display: block;
+			padding-top: 1em;
+			@include transition(all .3s);
+			@for $i from 1 to 100{
+				&.size-#{$i}{
+
+					@if($i > 6){
+						font-size: #{1.5*$i}px;
+					}
+					@if($i > 24){
+						font-size: #{1.5*$i}px;
+					}
+				}
+			}
+		}
+	}
+	.answer.circle{
+		position: absolute;
+		text-align: center;
+		margin: auto;
+		overflow: visible;
+		font-size: 6px;
+		width: 100%;
+		height: 100%;
+		@include transform-origin(center center);
+		@include transition(all .3s);
+
+
+		
+		circle{
+			@include transition(all .3s);
+		}
+
+		@for $i from 1 to 100{
+			&.size-#{$i}{
+				$size : percentage($i/100);
+				@include transform-origin(center center);
+				@include transform(scale(#{$i/100}));
+				
+
+				@if($i > 6){
+					font-size: #{1.5*$i}px;
+				}
+				@if($i > 24){
+					font-size: #{1.5*$i}px;
+				}
+			}
+		}
+	}
+}

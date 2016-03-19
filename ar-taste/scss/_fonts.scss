@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Akkurat;
+    src: url(../fonts/Akkurat-Regular.otf);
+}
+@font-face {
+    font-family: AkkuratBold;
+    src: url(../fonts/Akkurat-Bold.otf);
+}
+
+$base-font-family: "Akkurat", helvetica, sans-serif; 
+$bold-font-family: "AkkuratBold", helvetica, sans-serif; 
+
+body{
+	font-family: $base-font-family;
+}
+
+.bold, strong, h1, h2, h3 {
+	font-family: $bold-font-family;
+}
