@@ -1,6 +1,6 @@
 <?php
 /*
- * WP Photo Sphere v3.4.2
+ * WP Photo Sphere v3.5.1
  * http://jeremyheleine.me
  *
  * Copyright (c) 2013-2015 Jérémy Heleine
@@ -28,7 +28,7 @@
 Plugin Name: WP Photo Sphere
 Plugin URI: http://jeremyheleine.me
 Description: A filter that displays 360×180 degree panoramas. Please read the readme file for instructions.
-Version: 3.4.1
+Version: 3.5.2
 Author: Jérémy Heleine
 Author URI: http://jeremyheleine.me
 Text Domain: wp-photo-sphere
@@ -38,7 +38,7 @@ License: MIT
 
 // Current version number
 if (!defined('WP_PHOTO_SPHERE_VERSION'))
-	define('WP_PHOTO_SPHERE_VERSION', '3.4.1');
+	define('WP_PHOTO_SPHERE_VERSION', '3.5.2');
 
 function wpps_activation() {
 	update_option('wpps_version', WP_PHOTO_SPHERE_VERSION);
@@ -67,7 +67,8 @@ function wpps_activation() {
 		'min_long' => 0,
 		'max_long' => 360,
 		'reverse_anim' => 1,
-		'xmp' => 1
+		'xmp' => 1,
+		'eyes_offset' => 5
 	);
 
 	$settings = get_option('wpps_settings');
@@ -91,8 +92,8 @@ register_deactivation_hook(__FILE__, 'wpps_deactivation');
 
 function wpps_register_scripts() {
 	wp_register_script('wpps-three', plugin_dir_url(__FILE__) . 'lib/three.min.js', array(), '3.3', true);
-	wp_register_script('wpps-psv', plugin_dir_url(__FILE__) . 'lib/photo-sphere-viewer.min.js', array('wpps-three'), '2.4.1', true);
-	wp_register_script('wp-photo-sphere', plugin_dir_url(__FILE__) . 'wp-photo-sphere.js', array('jquery', 'wpps-psv'), '3.4.1', true);
+	wp_register_script('wpps-psv', plugin_dir_url(__FILE__) . 'lib/photo-sphere-viewer.min.js', array('wpps-three'), '2.5', true);
+	wp_register_script('wp-photo-sphere', plugin_dir_url(__FILE__) . 'wp-photo-sphere.js', array('jquery', 'wpps-psv'), '3.5', true);
 }
 add_action('plugins_loaded', 'wpps_register_scripts');
 
@@ -124,7 +125,7 @@ function wpps_shortcode_attributes($atts) {
 	if (!empty($atts)) {
 		$sizes = array('width', 'max_width');
 		$numbers = array('height', 'anim_after', 'full_width', 'full_height', 'cropped_width', 'cropped_height');
-		$floats = array('min_fov', 'max_fov', 'zoom_level', 'long', 'lat', 'vertical_anim_target', 'tilt_up_max', 'tilt_down_max', 'min_long', 'max_long', 'cropped_x', 'cropped_y');
+		$floats = array('min_fov', 'max_fov', 'zoom_level', 'long', 'lat', 'vertical_anim_target', 'tilt_up_max', 'tilt_down_max', 'min_long', 'max_long', 'eyes_offset', 'cropped_x', 'cropped_y');
 		$booleans = array('navbar', 'reverse_anim', 'xmp');
 
 		foreach ($atts as $att => $value) {
@@ -196,6 +197,7 @@ function wpps_handle_shortcode($atts) {
 		'max_long' => $settings['max_long'],
 		'reverse_anim' => $settings['reverse_anim'],
 		'xmp' => $settings['xmp'],
+		'eyes_offset' => $settings['eyes_offset'],
 		'full_width' => 'default',
 		'full_height' => 'default',
 		'cropped_width' => 'default',
@@ -209,7 +211,12 @@ function wpps_handle_shortcode($atts) {
 
 	if ($atts['id'] != 0) {
 		$id = $atts['id'];
-		$url = wp_get_attachment_url($id);
+		if  (floatval(get_bloginfo('version')) >= 4.4 && wp_is_mobile()) {
+			$url = wp_get_attachment_url($id, 'large');
+		}
+		else {
+			$url = wp_get_attachment_url($id);
+		}
 		$text = str_replace('%title%', get_the_title($id), $title);
 	}
 
@@ -245,6 +252,7 @@ function wpps_handle_shortcode($atts) {
 		'max_long=' . $atts['max_long'],
 		'reverse_anim=' . $atts['reverse_anim'],
 		'xmp=' . $atts['xmp'],
+		'eyes_offset=' . $atts['eyes_offset'],
 		'full_width=' . $atts['full_width'],
 		'full_height=' . $atts['full_height'],
 		'cropped_width=' . $atts['cropped_width'],
@@ -433,6 +441,11 @@ function wpps_options_page() {
 					<th><label for="wpps_settings_xmp"><?php _e('Read XMP data', 'wp-photo-sphere'); ?></label></th>
 					<td><input type="checkbox" id="wpps_settings_xmp" name="wpps_settings[xmp]" value="1" <?php checked($settings['xmp'], 1); ?> /></td>
 				</tr>
+
+				<tr valign="top">
+					<th><label for="wpps_settings_eyes_offset"><?php _e('Eyes offset in VR mode', 'wp-photo-sphere'); ?></label></th>
+					<td><input type="text" id="wpps_settings_eyes_offset" name="wpps_settings[eyes_offset]" size="5" value="<?php echo $settings['eyes_offset']; ?>" /></td>
+				</tr>
 			</table>
 			<?php submit_button(); ?>
 		</form>
@@ -489,6 +502,7 @@ function wpps_sanitize_settings($values) {
 	$values['max_long'] = floatval($values['max_long']);
 	$values['reverse_anim'] = (!!$values['reverse_anim']) ? 1 : 0;
 	$values['xmp'] = (!!$values['xmp']) ? 1 : 0;
+	$values['eyes_offset'] = floatval($values['eyes_offset']);
 
 	// Animation speed
 	$values['anim_speed'] = wpps_sanitize_speed($values['anim_speed_value'], $values['anim_speed_unit']);

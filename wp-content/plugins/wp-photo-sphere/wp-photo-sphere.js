@@ -1,5 +1,5 @@
 /*
- * This file is part of WP Photo Sphere v3.4.2
+ * This file is part of WP Photo Sphere v3.5.1
  * http://jeremyheleine.me
  *
  * Copyright (c) 2013-2015 Jérémy Heleine
@@ -46,7 +46,7 @@ jQuery(function($) {
 			}
 
 			return false;
-		}
+		};
 
 		/**
 		 * Parses the parameters
@@ -73,7 +73,7 @@ jQuery(function($) {
 			}
 
 			return params;
-		}
+		};
 
 		/**
 		 * Loads the panorama
@@ -112,6 +112,7 @@ jQuery(function($) {
 				max_longitude: params.max_long + 'deg',
 				reverse_anim: params.reverse_anim,
 				usexmpdata: params.xmp,
+				eyes_offset: params.eyes_offset,
 				size: {height: params.height}
 			};
 
@@ -138,7 +139,7 @@ jQuery(function($) {
 
 			// Object
 			new PhotoSphereViewer(options);
-		}
+		};
 
 		// Parameters
 		var params = parse(params_str);
@@ -150,7 +151,7 @@ jQuery(function($) {
 		// Autoload?
 		if (params.autoload)
 			setTimeout(load, 1000);
-	}
+	};
 
 	$(document).ready(function() {
 			// For each WP Photo Sphere link

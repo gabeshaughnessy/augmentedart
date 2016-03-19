@@ -22,9 +22,6 @@ if(!defined('ABSPATH')) {
   <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
   <base target="_self" />
   <script type="text/javascript" src="<?php echo site_url(); ?>/wp-includes/js/jquery/jquery.js"></script>
-  <script type="text/javascript" src="<?php echo site_url(); ?>/wp-includes/js/jquery/ui/jquery.ui.core.min.js"></script>
-  <script type="text/javascript" src="<?php echo site_url(); ?>/wp-includes/js/jquery/ui/jquery.ui.widget.min.js"></script>
-  <script type="text/javascript" src="<?php echo site_url(); ?>/wp-includes/js/jquery/ui/jquery.ui.tabs.min.js"></script>
   <script type="text/javascript" src="<?php echo site_url(); ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
   <script type="text/javascript" src="<?php echo site_url(); ?>/wp-includes/js/tinymce/utils/form_utils.js"></script>
   <script type="text/javascript">
@@ -94,8 +91,16 @@ if(!defined('ABSPATH')) {
       $('#wp_user_avatar_size').change(function() {
         $('#wp_user_avatar_size_number_section').toggle($('#wp_user_avatar_size').val() == 'custom');
       });
+	  
+	  $("#wpua-tabs li a").click(function(){
+		 tab_id = $(this).attr('href');
+		 if( tab_id == '#wpua')
+		 $("#wpua-upload").hide();
+		 else 
+		 $('#wpua').hide();
+		 $(tab_id).show();  
+	  })
       // Tabs
-      $('#wpua-tabs').tabs();
     });
   </script>
   <style type="text/css">
@@ -186,7 +191,7 @@ if(!defined('ABSPATH')) {
           <input type="submit" id="insert" class="button-primary" name="insert" value="<?php _e('Insert into Post'); ?>" onclick="wpuaInsertAvatar();" />
         </div>
       </div>
-      <div id="wpua-upload">
+      <div id="wpua-upload" style="display:none;">
         <p id="<?php esc_attr_e('wp_user_avatar_upload'); ?>">
           <label for="<?php esc_attr_e('wp_user_avatar_upload'); ?>"><strong><?php _e('Upload','wp-user-avatar'); ?>:</strong></label>
           <input type="text" size="36" id="<?php esc_attr_e('wp_user_avatar_upload'); ?>" name="<?php esc_attr_e('wp_user_avatar_upload'); ?>" value="<?php esc_attr_e('[avatar_upload]'); ?>" readonly="readonly" />

@@ -1,0 +1,34 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+@import "mixins";
+
+body{
+	font-family: helvetica, sans-serif;
+	color: #333;
+	background: #efefef;
+}
+.page-wrapper{
+	max-width: 800px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 1em;
+	border-top: 12px solid $blue;
+	@include paperShadow(1, rgba(0,0,0,.2));
+}
+
+.question{
+	font-size: 1.1rem;
+	color: #444;
+
+}
+.answers{
+	@include columns(2);
+}
+.answer{
+	font-weight: bold;
+}
+.answer input{
+    margin: .4em .65em 1em 0;
+    vertical-align: top;
+}

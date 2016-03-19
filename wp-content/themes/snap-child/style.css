@@ -4856,3 +4856,393 @@ img#wpstats {
   height: 0px;
   overflow: hidden;
 }
+
+@font-face {
+  font-family: "icon-font";
+  src: url("fonts/icon-font/fonts/icon-font.eot");
+  src: url("fonts/icon-font/fonts/icon-font.eot?#iefix") format("embedded-opentype"), url("fonts/icon-font/fonts/icon-font.woff") format("woff"), url("fonts/icon-font/fonts/icon-font.ttf") format("truetype"), url("fonts/icon-font/fonts/icon-font.svg#icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 24, ../sass/_artifact-proposal.scss */
+[data-icon]:before {
+  font-family: "icon-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 38, ../sass/_artifact-proposal.scss */
+[class^="icon-"]:after,
+[class*=" icon-"]:after {
+  font-family: "icon-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  margin-left: 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 51, ../sass/_artifact-proposal.scss */
+.icon-left-arrow:after {
+  content: "\ab";
+}
+
+/* line 54, ../sass/_artifact-proposal.scss */
+.icon-dot:after {
+  content: "\2022";
+}
+
+/* line 57, ../sass/_artifact-proposal.scss */
+.icon-open-dot:after {
+  content: "\ba";
+}
+
+/* line 60, ../sass/_artifact-proposal.scss */
+.icon-right-arrow-thin:after {
+  content: "\203a";
+}
+
+/* line 63, ../sass/_artifact-proposal.scss */
+.icon-left-arrow-thin:after {
+  content: "\2039";
+}
+
+/* line 66, ../sass/_artifact-proposal.scss */
+.icon-right-arrow:after {
+  content: "\bb";
+}
+
+/* line 69, ../sass/_artifact-proposal.scss */
+.icon-external-link-icon:after {
+  content: "\2197";
+}
+
+/* line 72, ../sass/_artifact-proposal.scss */
+.icon-share:after {
+  content: "\279a";
+}
+
+/* line 75, ../sass/_artifact-proposal.scss */
+.icon-video:after {
+  content: "\27b2";
+}
+
+/* line 78, ../sass/_artifact-proposal.scss */
+.icon-print:after {
+  content: "p";
+}
+
+/* line 83, ../sass/_artifact-proposal.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 86, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #000 !important;
+  background-image: url("artifact/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top right;
+}
+@media screen and (orientation: landscape) {
+  /* line 86, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal {
+    background-size: 50vw 125vh;
+    background-position: 50vw -15vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  /* line 86, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal {
+    background-size: 125vw 50vh;
+    background-position: 10vw -5vh;
+  }
+}
+/* line 103, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .columns {
+  float: left;
+  display: block;
+  margin-right: 2%;
+}
+/* line 107, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .columns:last-child {
+  margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+  /* line 103, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .columns {
+    margin-right: 0;
+  }
+}
+/* line 114, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-12 {
+  width: 100%;
+}
+/* line 117, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-12 + .large-12 {
+  margin-top: 2em;
+}
+/* line 120, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-9 {
+  width: 70%;
+}
+@media screen and (max-width: 768px) {
+  /* line 120, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-9 {
+    width: 100%;
+  }
+}
+/* line 126, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-8 {
+  width: 64%;
+}
+@media screen and (max-width: 768px) {
+  /* line 126, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-8 {
+    width: 100%;
+  }
+}
+/* line 132, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-6 {
+  width: 48%;
+}
+@media screen and (max-width: 768px) {
+  /* line 132, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-6 {
+    width: 100%;
+  }
+}
+/* line 138, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-4 {
+  width: 32%;
+}
+@media screen and (max-width: 768px) {
+  /* line 138, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-4 {
+    width: 100%;
+  }
+}
+/* line 144, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-3 {
+  width: 23.33333%;
+}
+@media screen and (max-width: 768px) {
+  /* line 144, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-3 {
+    width: 48%;
+    margin-right: 2%;
+  }
+  /* line 149, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-3:nth-child(even) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 144, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-3 {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+/* line 158, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .large-2 {
+  width: 16%;
+}
+@media screen and (max-width: 768px) {
+  /* line 158, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-2 {
+    width: 48%;
+    margin-right: 2%;
+  }
+  /* line 163, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-2:nth-child(even) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 158, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .large-2 {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 174, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal * + .large-12, .page-template-artifact-proposal * + .large-6, .page-template-artifact-proposal * + .large-4 {
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 179, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal * + .large-3, .page-template-artifact-proposal * + .large-2 {
+    margin-top: 1em;
+  }
+}
+/* line 184, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal h1, .page-template-artifact-proposal h2, .page-template-artifact-proposal h3, .page-template-artifact-proposal h4, .page-template-artifact-proposal h5, .page-template-artifact-proposal h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+/* line 189, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal * + h2, .page-template-artifact-proposal * + h3, .page-template-artifact-proposal * + h4, .page-template-artifact-proposal * + h5, .page-template-artifact-proposal * + h6 {
+  margin-top: 1em;
+}
+/* line 192, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal p, .page-template-artifact-proposal em, .page-template-artifact-proposal blockquote, .page-template-artifact-proposal span, .page-template-artifact-proposal div, .page-template-artifact-proposal b, .page-template-artifact-proposal strong, .page-template-artifact-proposal ul, .page-template-artifact-proposal ol, .page-template-artifact-proposal li, .page-template-artifact-proposal a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+}
+/* line 196, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal p.lead {
+  font-size: 1.4em;
+}
+/* line 199, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .center-text {
+  text-align: center;
+}
+/* line 202, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .big {
+  font-size: 1.5em;
+}
+/* line 205, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .caption {
+  font-style: italic;
+}
+/* line 209, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section {
+  margin: 1em auto;
+  width: 100%;
+  float: left;
+  clear: both;
+}
+/* line 215, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal {
+  color: #62d5d5;
+}
+/* line 217, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal h2, .page-template-artifact-proposal .section.teal h3, .page-template-artifact-proposal .section.teal h4, .page-template-artifact-proposal .section.teal h5, .page-template-artifact-proposal .section.teal h6 {
+  color: #e05870;
+}
+/* line 220, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal a {
+  color: #b2ebeb;
+}
+/* line 223, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal .panel {
+  border: 3px solid #62d5d5;
+}
+/* line 226, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.teal hr {
+  border-color: #db7fd7;
+}
+/* line 230, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red {
+  color: #e05870;
+}
+/* line 232, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red h2, .page-template-artifact-proposal .section.red h3, .page-template-artifact-proposal .section.red h4, .page-template-artifact-proposal .section.red h5, .page-template-artifact-proposal .section.red h6 {
+  color: #db7fd7;
+}
+/* line 235, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red a {
+  color: #f0aeba;
+}
+/* line 238, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red .panel {
+  border: 3px solid #e05870;
+}
+/* line 241, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.red hr {
+  border-color: #62d5d5;
+}
+/* line 245, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink {
+  color: #db7fd7;
+}
+/* line 247, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink h2, .page-template-artifact-proposal .section.pink h3, .page-template-artifact-proposal .section.pink h4, .page-template-artifact-proposal .section.pink h5, .page-template-artifact-proposal .section.pink h6 {
+  color: #62d5d5;
+}
+/* line 250, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink a {
+  color: #f1cff0;
+}
+/* line 253, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink .panel {
+  border: 3px solid #db7fd7;
+}
+/* line 256, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .section.pink hr {
+  border-color: #e05870;
+}
+/* line 264, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal #main-header[role=banner] {
+  background-color: #000;
+  display: none;
+}
+/* line 268, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .theme-container {
+  background-color: transparent;
+  max-width: 1440px;
+}
+/* line 273, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal #footer {
+  border-top: none;
+}
+/* line 278, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .page-header .logo h1 {
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-indent: -9000%;
+  width: 350px;
+  height: 70px;
+  display: block;
+  position: absolute;
+  float: left;
+}
+@media screen and (max-width: 480px) {
+  /* line 278, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .logo h1 {
+    top: 100px;
+    width: 250px;
+  }
+}
+/* line 292, ../sass/_artifact-proposal.scss */
+.page-template-artifact-proposal .page-header .header-image {
+  position: relative;
+  margin-top: 250px;
+  right: -30vw;
+}
+@media screen and (max-width: 1024px) {
+  /* line 292, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .header-image {
+    margin-top: 220px;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 292, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .header-image {
+    margin-top: 150px;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 292, ../sass/_artifact-proposal.scss */
+  .page-template-artifact-proposal .page-header .header-image {
+    margin-top: 50px;
+  }
+}

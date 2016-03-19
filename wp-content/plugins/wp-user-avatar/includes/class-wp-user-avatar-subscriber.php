@@ -118,7 +118,9 @@ class WP_User_Avatar_Subscriber {
     if((bool) $wpua_allow_upload == 1 && (bool) $wpua_edit_avatar == 1) {
       $user_roles['subscriber']['capabilities']['edit_posts'] = true;
     } else {
-      unset($user_roles['subscriber']['capabilities']['edit_posts']);
+     if(isset($user_roles['subscriber']['capabilities']['edit_posts'])){
+     	unset($user_roles['subscriber']['capabilities']['edit_posts']);
+     }
     }
     update_option($wp_user_roles, $user_roles);
   }
