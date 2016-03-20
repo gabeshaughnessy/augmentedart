@@ -80,139 +80,137 @@ body { font-size: 2em; margin: 0; color: #333; background: #efefef; }
   100% { -moz-transform: scale(0); opacity: 1; } }
 @keyframes scale { 0% { -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); opacity: 0; }
   100% { -webkit-transform: scale(0); -moz-transform: scale(0); -ms-transform: scale(0); -o-transform: scale(0); transform: scale(0); opacity: 1; } }
-.survey-wrapper { max-width: 800px; margin: 0 auto; background: #fff; padding: 1em; border-top: 12px solid #00b0dc; -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); -o-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+.survey-wrapper { max-width: 800px; margin: 0 auto; background: #fff; padding: 1em; border-top: 12px solid #0065c3; -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); -o-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
 .survey-wrapper .question { font-size: 1.1rem; color: #444; }
 .survey-wrapper .answers { -webkit-columns: 2; -moz-columns: 2; columns: 2; }
 .survey-wrapper .answer { font-weight: bold; }
 .survey-wrapper .answer input { margin: .4em .65em 1em 0; vertical-align: top; }
 
-.vis-wrapper-2 { width: 100vw; height: 100vh; background-color: #1a1919; color: #fff; }
-.vis-wrapper-2 h3.question { text-align: center; padding-top: 1em; }
-.vis-wrapper-2 .answer.color-1 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.1s; -moz-animation: scale 0.1s; animation: scale 0.1s; }
-.vis-wrapper-2 .answer.color-1 circle.color-1 { fill: rgba(67, 217, 255, 0.5); stroke: #43d9ff; }
-.vis-wrapper-2 .label.color-1 { color: #a9eeff; }
-.vis-wrapper-2 .answer.color-2 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.2s; -moz-animation: scale 0.2s; animation: scale 0.2s; }
-.vis-wrapper-2 .answer.color-2 circle.color-2 { fill: rgba(0, 176, 220, 0.5); stroke: #00b0dc; }
-.vis-wrapper-2 .label.color-2 { color: #43d9ff; }
-.vis-wrapper-2 .answer.color-3 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.3s; -moz-animation: scale 0.3s; animation: scale 0.3s; }
-.vis-wrapper-2 .answer.color-3 circle.color-3 { fill: rgba(0, 94, 118, 0.5); stroke: #005e76; }
-.vis-wrapper-2 .label.color-3 { color: #00b0dc; }
-.vis-wrapper-2 .answer.color-4 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.4s; -moz-animation: scale 0.4s; animation: scale 0.4s; }
-.vis-wrapper-2 .answer.color-4 circle.color-4 { fill: rgba(188, 221, 142, 0.5); stroke: #bcdd8e; }
-.vis-wrapper-2 .label.color-4 { color: #eaf5dc; }
-.vis-wrapper-2 .answer.color-5 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.5s; -moz-animation: scale 0.5s; animation: scale 0.5s; }
-.vis-wrapper-2 .answer.color-5 circle.color-5 { fill: rgba(141, 198, 63, 0.5); stroke: #8dc63f; }
-.vis-wrapper-2 .label.color-5 { color: #bcdd8e; }
-.vis-wrapper-2 .answer.color-6 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.6s; -moz-animation: scale 0.6s; animation: scale 0.6s; }
-.vis-wrapper-2 .answer.color-6 circle.color-6 { fill: rgba(86, 123, 36, 0.5); stroke: #567b24; }
-.vis-wrapper-2 .label.color-6 { color: #8dc63f; }
-.vis-wrapper-2 .answer.color-7 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.7s; -moz-animation: scale 0.7s; animation: scale 0.7s; }
-.vis-wrapper-2 .answer.color-7 circle.color-7 { fill: rgba(255, 241, 125, 0.5); stroke: #fff17d; }
-.vis-wrapper-2 .label.color-7 { color: #fffce3; }
-.vis-wrapper-2 .answer.color-8 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.8s; -moz-animation: scale 0.8s; animation: scale 0.8s; }
-.vis-wrapper-2 .answer.color-8 circle.color-8 { fill: rgba(255, 230, 23, 0.5); stroke: #ffe617; }
-.vis-wrapper-2 .label.color-8 { color: #fff17d; }
-.vis-wrapper-2 .answer.color-9 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.9s; -moz-animation: scale 0.9s; animation: scale 0.9s; }
-.vis-wrapper-2 .answer.color-9 circle.color-9 { fill: rgba(176, 157, 0, 0.5); stroke: #b09d00; }
-.vis-wrapper-2 .label.color-9 { color: #ffe617; }
+.vis-wrapper-2 { width: 100vw; height: 100vh; background-color: #1a1919; color: #fff; padding: 1em; }
+.vis-wrapper-2 h3.question { text-align: left; padding-top: 0; }
+.vis-wrapper-2 .answer.color-1 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.1s 1; -moz-animation: scale 0.1s 1; animation: scale 0.1s 1; }
+.vis-wrapper-2 .answer.color-1 circle.color-1, .vis-wrapper-2 .answer.color-1 ellipse, .vis-wrapper-2 .answer.color-1 path { fill: rgba(238, 58, 67, 0.5); stroke: #ee3a43; }
+.vis-wrapper-2 .label.color-1 { color: #ee3a43; }
+.vis-wrapper-2 .answer.color-2 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.2s 1; -moz-animation: scale 0.2s 1; animation: scale 0.2s 1; }
+.vis-wrapper-2 .answer.color-2 circle.color-2, .vis-wrapper-2 .answer.color-2 ellipse, .vis-wrapper-2 .answer.color-2 path { fill: rgba(255, 230, 23, 0.5); stroke: #ffe617; }
+.vis-wrapper-2 .label.color-2 { color: #ffe617; }
+.vis-wrapper-2 .answer.color-3 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.3s 1; -moz-animation: scale 0.3s 1; animation: scale 0.3s 1; }
+.vis-wrapper-2 .answer.color-3 circle.color-3, .vis-wrapper-2 .answer.color-3 ellipse, .vis-wrapper-2 .answer.color-3 path { fill: rgba(141, 198, 63, 0.5); stroke: #8dc63f; }
+.vis-wrapper-2 .label.color-3 { color: #8dc63f; }
+.vis-wrapper-2 .answer.color-4 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.4s 1; -moz-animation: scale 0.4s 1; animation: scale 0.4s 1; }
+.vis-wrapper-2 .answer.color-4 circle.color-4, .vis-wrapper-2 .answer.color-4 ellipse, .vis-wrapper-2 .answer.color-4 path { fill: rgba(0, 101, 195, 0.5); stroke: #0065c3; }
+.vis-wrapper-2 .label.color-4 { color: #0065c3; }
+.vis-wrapper-2 .answer.color-5 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-animation: scale 0.5s 1; -moz-animation: scale 0.5s 1; animation: scale 0.5s 1; }
+.vis-wrapper-2 .answer.color-5 circle.color-5, .vis-wrapper-2 .answer.color-5 ellipse, .vis-wrapper-2 .answer.color-5 path { fill: rgba(0, 76, 151, 0.5); stroke: #004C97; }
+.vis-wrapper-2 .label.color-5 { color: #004C97; }
 .vis-wrapper-2 .question-wrapper { width: 100%; clear: both; }
+.vis-wrapper-2 .key { float: left; }
+.vis-wrapper-2 .key .label { display: block; padding-top: 10px; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+.vis-wrapper-2 .key .label.size-0 { font-size: 0; padding-top: 0; }
+.vis-wrapper-2 .key .label.size-1 { font-size: 2px; }
+.vis-wrapper-2 .key .label.size-2 { font-size: 4px; }
+.vis-wrapper-2 .key .label.size-3 { font-size: 6px; }
+.vis-wrapper-2 .key .label.size-4 { font-size: 8px; }
+.vis-wrapper-2 .key .label.size-5 { font-size: 10px; }
+.vis-wrapper-2 .key .label.size-6 { font-size: 12px; }
+.vis-wrapper-2 .key .label.size-7 { font-size: 14px; font-size: 14px; }
+.vis-wrapper-2 .key .label.size-8 { font-size: 16px; font-size: 16px; }
+.vis-wrapper-2 .key .label.size-9 { font-size: 18px; font-size: 18px; }
+.vis-wrapper-2 .key .label.size-10 { font-size: 20px; font-size: 20px; }
+.vis-wrapper-2 .key .label.size-11 { font-size: 22px; font-size: 22px; }
+.vis-wrapper-2 .key .label.size-12 { font-size: 24px; font-size: 24px; }
+.vis-wrapper-2 .key .label.size-13 { font-size: 26px; font-size: 26px; }
+.vis-wrapper-2 .key .label.size-14 { font-size: 28px; font-size: 28px; }
+.vis-wrapper-2 .key .label.size-15 { font-size: 30px; font-size: 30px; }
+.vis-wrapper-2 .key .label.size-16 { font-size: 32px; font-size: 32px; }
+.vis-wrapper-2 .key .label.size-17 { font-size: 34px; font-size: 34px; }
+.vis-wrapper-2 .key .label.size-18 { font-size: 36px; font-size: 36px; }
+.vis-wrapper-2 .key .label.size-19 { font-size: 38px; font-size: 38px; }
+.vis-wrapper-2 .key .label.size-20 { font-size: 40px; font-size: 40px; }
+.vis-wrapper-2 .key .label.size-21 { font-size: 42px; font-size: 42px; }
+.vis-wrapper-2 .key .label.size-22 { font-size: 44px; font-size: 44px; }
+.vis-wrapper-2 .key .label.size-23 { font-size: 46px; font-size: 46px; }
+.vis-wrapper-2 .key .label.size-24 { font-size: 48px; font-size: 48px; }
+.vis-wrapper-2 .key .label.size-25 { font-size: 50px; font-size: 50px; font-size: 37.5px; }
+.vis-wrapper-2 .key .label.size-26 { font-size: 52px; font-size: 52px; font-size: 39px; }
+.vis-wrapper-2 .key .label.size-27 { font-size: 54px; font-size: 54px; font-size: 40.5px; }
+.vis-wrapper-2 .key .label.size-28 { font-size: 56px; font-size: 56px; font-size: 42px; }
+.vis-wrapper-2 .key .label.size-29 { font-size: 58px; font-size: 58px; font-size: 43.5px; }
+.vis-wrapper-2 .key .label.size-30 { font-size: 60px; font-size: 60px; font-size: 45px; }
+.vis-wrapper-2 .key .label.size-31 { font-size: 62px; font-size: 62px; font-size: 46.5px; }
+.vis-wrapper-2 .key .label.size-32 { font-size: 64px; font-size: 64px; font-size: 48px; }
+.vis-wrapper-2 .key .label.size-33 { font-size: 66px; font-size: 66px; font-size: 49.5px; }
+.vis-wrapper-2 .key .label.size-34 { font-size: 68px; font-size: 68px; font-size: 51px; }
+.vis-wrapper-2 .key .label.size-35 { font-size: 70px; font-size: 70px; font-size: 52.5px; }
+.vis-wrapper-2 .key .label.size-36 { font-size: 72px; font-size: 72px; font-size: 54px; }
+.vis-wrapper-2 .key .label.size-37 { font-size: 74px; font-size: 74px; font-size: 55.5px; }
+.vis-wrapper-2 .key .label.size-38 { font-size: 76px; font-size: 76px; font-size: 57px; }
+.vis-wrapper-2 .key .label.size-39 { font-size: 78px; font-size: 78px; font-size: 58.5px; }
+.vis-wrapper-2 .key .label.size-40 { font-size: 80px; font-size: 80px; font-size: 60px; }
+.vis-wrapper-2 .key .label.size-41 { font-size: 82px; font-size: 82px; font-size: 61.5px; }
+.vis-wrapper-2 .key .label.size-42 { font-size: 84px; font-size: 84px; font-size: 63px; }
+.vis-wrapper-2 .key .label.size-43 { font-size: 86px; font-size: 86px; font-size: 64.5px; }
+.vis-wrapper-2 .key .label.size-44 { font-size: 88px; font-size: 88px; font-size: 66px; }
+.vis-wrapper-2 .key .label.size-45 { font-size: 90px; font-size: 90px; font-size: 67.5px; }
+.vis-wrapper-2 .key .label.size-46 { font-size: 92px; font-size: 92px; font-size: 69px; }
+.vis-wrapper-2 .key .label.size-47 { font-size: 94px; font-size: 94px; font-size: 70.5px; }
+.vis-wrapper-2 .key .label.size-48 { font-size: 96px; font-size: 96px; font-size: 72px; }
+.vis-wrapper-2 .key .label.size-49 { font-size: 98px; font-size: 98px; font-size: 73.5px; }
+.vis-wrapper-2 .key .label.size-50 { font-size: 100px; font-size: 100px; font-size: 75px; }
+.vis-wrapper-2 .key .label.size-51 { font-size: 102px; font-size: 102px; font-size: 76.5px; }
+.vis-wrapper-2 .key .label.size-52 { font-size: 104px; font-size: 104px; font-size: 78px; }
+.vis-wrapper-2 .key .label.size-53 { font-size: 106px; font-size: 106px; font-size: 79.5px; }
+.vis-wrapper-2 .key .label.size-54 { font-size: 108px; font-size: 108px; font-size: 81px; }
+.vis-wrapper-2 .key .label.size-55 { font-size: 110px; font-size: 110px; font-size: 82.5px; }
+.vis-wrapper-2 .key .label.size-56 { font-size: 112px; font-size: 112px; font-size: 84px; }
+.vis-wrapper-2 .key .label.size-57 { font-size: 114px; font-size: 114px; font-size: 85.5px; }
+.vis-wrapper-2 .key .label.size-58 { font-size: 116px; font-size: 116px; font-size: 87px; }
+.vis-wrapper-2 .key .label.size-59 { font-size: 118px; font-size: 118px; font-size: 88.5px; }
+.vis-wrapper-2 .key .label.size-60 { font-size: 120px; font-size: 120px; font-size: 90px; }
+.vis-wrapper-2 .key .label.size-61 { font-size: 122px; font-size: 122px; font-size: 91.5px; }
+.vis-wrapper-2 .key .label.size-62 { font-size: 124px; font-size: 124px; font-size: 93px; }
+.vis-wrapper-2 .key .label.size-63 { font-size: 126px; font-size: 126px; font-size: 94.5px; }
+.vis-wrapper-2 .key .label.size-64 { font-size: 128px; font-size: 128px; font-size: 96px; }
+.vis-wrapper-2 .key .label.size-65 { font-size: 130px; font-size: 130px; font-size: 97.5px; }
+.vis-wrapper-2 .key .label.size-66 { font-size: 132px; font-size: 132px; font-size: 99px; }
+.vis-wrapper-2 .key .label.size-67 { font-size: 134px; font-size: 134px; font-size: 100.5px; }
+.vis-wrapper-2 .key .label.size-68 { font-size: 136px; font-size: 136px; font-size: 102px; }
+.vis-wrapper-2 .key .label.size-69 { font-size: 138px; font-size: 138px; font-size: 103.5px; }
+.vis-wrapper-2 .key .label.size-70 { font-size: 140px; font-size: 140px; font-size: 105px; }
+.vis-wrapper-2 .key .label.size-71 { font-size: 142px; font-size: 142px; font-size: 106.5px; }
+.vis-wrapper-2 .key .label.size-72 { font-size: 144px; font-size: 144px; font-size: 108px; }
+.vis-wrapper-2 .key .label.size-73 { font-size: 146px; font-size: 146px; font-size: 109.5px; }
+.vis-wrapper-2 .key .label.size-74 { font-size: 148px; font-size: 148px; font-size: 111px; }
+.vis-wrapper-2 .key .label.size-75 { font-size: 150px; font-size: 150px; font-size: 112.5px; }
+.vis-wrapper-2 .key .label.size-76 { font-size: 152px; font-size: 152px; font-size: 114px; }
+.vis-wrapper-2 .key .label.size-77 { font-size: 154px; font-size: 154px; font-size: 115.5px; }
+.vis-wrapper-2 .key .label.size-78 { font-size: 156px; font-size: 156px; font-size: 117px; }
+.vis-wrapper-2 .key .label.size-79 { font-size: 158px; font-size: 158px; font-size: 118.5px; }
+.vis-wrapper-2 .key .label.size-80 { font-size: 160px; font-size: 160px; font-size: 120px; }
+.vis-wrapper-2 .key .label.size-81 { font-size: 162px; font-size: 162px; font-size: 121.5px; }
+.vis-wrapper-2 .key .label.size-82 { font-size: 164px; font-size: 164px; font-size: 123px; }
+.vis-wrapper-2 .key .label.size-83 { font-size: 166px; font-size: 166px; font-size: 124.5px; }
+.vis-wrapper-2 .key .label.size-84 { font-size: 168px; font-size: 168px; font-size: 126px; }
+.vis-wrapper-2 .key .label.size-85 { font-size: 170px; font-size: 170px; font-size: 127.5px; }
+.vis-wrapper-2 .key .label.size-86 { font-size: 172px; font-size: 172px; font-size: 129px; }
+.vis-wrapper-2 .key .label.size-87 { font-size: 174px; font-size: 174px; font-size: 130.5px; }
+.vis-wrapper-2 .key .label.size-88 { font-size: 176px; font-size: 176px; font-size: 132px; }
+.vis-wrapper-2 .key .label.size-89 { font-size: 178px; font-size: 178px; font-size: 133.5px; }
+.vis-wrapper-2 .key .label.size-90 { font-size: 180px; font-size: 180px; font-size: 135px; }
+.vis-wrapper-2 .key .label.size-91 { font-size: 182px; font-size: 182px; font-size: 136.5px; }
+.vis-wrapper-2 .key .label.size-92 { font-size: 184px; font-size: 184px; font-size: 138px; }
+.vis-wrapper-2 .key .label.size-93 { font-size: 186px; font-size: 186px; font-size: 139.5px; }
+.vis-wrapper-2 .key .label.size-94 { font-size: 188px; font-size: 188px; font-size: 141px; }
+.vis-wrapper-2 .key .label.size-95 { font-size: 190px; font-size: 190px; font-size: 142.5px; }
+.vis-wrapper-2 .key .label.size-96 { font-size: 192px; font-size: 192px; font-size: 144px; }
+.vis-wrapper-2 .key .label.size-97 { font-size: 194px; font-size: 194px; font-size: 145.5px; }
+.vis-wrapper-2 .key .label.size-98 { font-size: 196px; font-size: 196px; font-size: 147px; }
+.vis-wrapper-2 .key .label.size-99 { font-size: 198px; font-size: 198px; font-size: 148.5px; }
 .vis-wrapper-2 .answer-wrapper { position: relative; max-width: 100vw; }
-.vis-wrapper-2 .answer-wrapper .label { text-align: center; display: block; padding-top: 1em; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
-.vis-wrapper-2 .answer-wrapper .label.size-7 { font-size: 10.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-8 { font-size: 12px; }
-.vis-wrapper-2 .answer-wrapper .label.size-9 { font-size: 13.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-10 { font-size: 15px; }
-.vis-wrapper-2 .answer-wrapper .label.size-11 { font-size: 16.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-12 { font-size: 18px; }
-.vis-wrapper-2 .answer-wrapper .label.size-13 { font-size: 19.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-14 { font-size: 21px; }
-.vis-wrapper-2 .answer-wrapper .label.size-15 { font-size: 22.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-16 { font-size: 24px; }
-.vis-wrapper-2 .answer-wrapper .label.size-17 { font-size: 25.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-18 { font-size: 27px; }
-.vis-wrapper-2 .answer-wrapper .label.size-19 { font-size: 28.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-20 { font-size: 30px; }
-.vis-wrapper-2 .answer-wrapper .label.size-21 { font-size: 31.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-22 { font-size: 33px; }
-.vis-wrapper-2 .answer-wrapper .label.size-23 { font-size: 34.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-24 { font-size: 36px; }
-.vis-wrapper-2 .answer-wrapper .label.size-25 { font-size: 37.5px; font-size: 37.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-26 { font-size: 39px; font-size: 39px; }
-.vis-wrapper-2 .answer-wrapper .label.size-27 { font-size: 40.5px; font-size: 40.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-28 { font-size: 42px; font-size: 42px; }
-.vis-wrapper-2 .answer-wrapper .label.size-29 { font-size: 43.5px; font-size: 43.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-30 { font-size: 45px; font-size: 45px; }
-.vis-wrapper-2 .answer-wrapper .label.size-31 { font-size: 46.5px; font-size: 46.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-32 { font-size: 48px; font-size: 48px; }
-.vis-wrapper-2 .answer-wrapper .label.size-33 { font-size: 49.5px; font-size: 49.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-34 { font-size: 51px; font-size: 51px; }
-.vis-wrapper-2 .answer-wrapper .label.size-35 { font-size: 52.5px; font-size: 52.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-36 { font-size: 54px; font-size: 54px; }
-.vis-wrapper-2 .answer-wrapper .label.size-37 { font-size: 55.5px; font-size: 55.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-38 { font-size: 57px; font-size: 57px; }
-.vis-wrapper-2 .answer-wrapper .label.size-39 { font-size: 58.5px; font-size: 58.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-40 { font-size: 60px; font-size: 60px; }
-.vis-wrapper-2 .answer-wrapper .label.size-41 { font-size: 61.5px; font-size: 61.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-42 { font-size: 63px; font-size: 63px; }
-.vis-wrapper-2 .answer-wrapper .label.size-43 { font-size: 64.5px; font-size: 64.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-44 { font-size: 66px; font-size: 66px; }
-.vis-wrapper-2 .answer-wrapper .label.size-45 { font-size: 67.5px; font-size: 67.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-46 { font-size: 69px; font-size: 69px; }
-.vis-wrapper-2 .answer-wrapper .label.size-47 { font-size: 70.5px; font-size: 70.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-48 { font-size: 72px; font-size: 72px; }
-.vis-wrapper-2 .answer-wrapper .label.size-49 { font-size: 73.5px; font-size: 73.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-50 { font-size: 75px; font-size: 75px; }
-.vis-wrapper-2 .answer-wrapper .label.size-51 { font-size: 76.5px; font-size: 76.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-52 { font-size: 78px; font-size: 78px; }
-.vis-wrapper-2 .answer-wrapper .label.size-53 { font-size: 79.5px; font-size: 79.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-54 { font-size: 81px; font-size: 81px; }
-.vis-wrapper-2 .answer-wrapper .label.size-55 { font-size: 82.5px; font-size: 82.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-56 { font-size: 84px; font-size: 84px; }
-.vis-wrapper-2 .answer-wrapper .label.size-57 { font-size: 85.5px; font-size: 85.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-58 { font-size: 87px; font-size: 87px; }
-.vis-wrapper-2 .answer-wrapper .label.size-59 { font-size: 88.5px; font-size: 88.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-60 { font-size: 90px; font-size: 90px; }
-.vis-wrapper-2 .answer-wrapper .label.size-61 { font-size: 91.5px; font-size: 91.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-62 { font-size: 93px; font-size: 93px; }
-.vis-wrapper-2 .answer-wrapper .label.size-63 { font-size: 94.5px; font-size: 94.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-64 { font-size: 96px; font-size: 96px; }
-.vis-wrapper-2 .answer-wrapper .label.size-65 { font-size: 97.5px; font-size: 97.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-66 { font-size: 99px; font-size: 99px; }
-.vis-wrapper-2 .answer-wrapper .label.size-67 { font-size: 100.5px; font-size: 100.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-68 { font-size: 102px; font-size: 102px; }
-.vis-wrapper-2 .answer-wrapper .label.size-69 { font-size: 103.5px; font-size: 103.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-70 { font-size: 105px; font-size: 105px; }
-.vis-wrapper-2 .answer-wrapper .label.size-71 { font-size: 106.5px; font-size: 106.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-72 { font-size: 108px; font-size: 108px; }
-.vis-wrapper-2 .answer-wrapper .label.size-73 { font-size: 109.5px; font-size: 109.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-74 { font-size: 111px; font-size: 111px; }
-.vis-wrapper-2 .answer-wrapper .label.size-75 { font-size: 112.5px; font-size: 112.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-76 { font-size: 114px; font-size: 114px; }
-.vis-wrapper-2 .answer-wrapper .label.size-77 { font-size: 115.5px; font-size: 115.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-78 { font-size: 117px; font-size: 117px; }
-.vis-wrapper-2 .answer-wrapper .label.size-79 { font-size: 118.5px; font-size: 118.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-80 { font-size: 120px; font-size: 120px; }
-.vis-wrapper-2 .answer-wrapper .label.size-81 { font-size: 121.5px; font-size: 121.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-82 { font-size: 123px; font-size: 123px; }
-.vis-wrapper-2 .answer-wrapper .label.size-83 { font-size: 124.5px; font-size: 124.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-84 { font-size: 126px; font-size: 126px; }
-.vis-wrapper-2 .answer-wrapper .label.size-85 { font-size: 127.5px; font-size: 127.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-86 { font-size: 129px; font-size: 129px; }
-.vis-wrapper-2 .answer-wrapper .label.size-87 { font-size: 130.5px; font-size: 130.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-88 { font-size: 132px; font-size: 132px; }
-.vis-wrapper-2 .answer-wrapper .label.size-89 { font-size: 133.5px; font-size: 133.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-90 { font-size: 135px; font-size: 135px; }
-.vis-wrapper-2 .answer-wrapper .label.size-91 { font-size: 136.5px; font-size: 136.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-92 { font-size: 138px; font-size: 138px; }
-.vis-wrapper-2 .answer-wrapper .label.size-93 { font-size: 139.5px; font-size: 139.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-94 { font-size: 141px; font-size: 141px; }
-.vis-wrapper-2 .answer-wrapper .label.size-95 { font-size: 142.5px; font-size: 142.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-96 { font-size: 144px; font-size: 144px; }
-.vis-wrapper-2 .answer-wrapper .label.size-97 { font-size: 145.5px; font-size: 145.5px; }
-.vis-wrapper-2 .answer-wrapper .label.size-98 { font-size: 147px; font-size: 147px; }
-.vis-wrapper-2 .answer-wrapper .label.size-99 { font-size: 148.5px; font-size: 148.5px; }
-.vis-wrapper-2 .answer.circle { position: absolute; text-align: center; margin: auto; overflow: visible; font-size: 6px; width: 100%; height: 100%; -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+.vis-wrapper-2 .answer.circle { position: absolute; margin: auto; overflow: visible; font-size: 6px; width: 100%; height: 100%; -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; overflow: visible; }
+.vis-wrapper-2 .answer.circle svg { overflow: visible; }
 .vis-wrapper-2 .answer.circle circle { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+.vis-wrapper-2 .answer.circle.size-0 { -webkit-transform: scale(0); -moz-transform: scale(0); -ms-transform: scale(0); -o-transform: scale(0); transform: scale(0); font-size: 0px; }
 .vis-wrapper-2 .answer.circle.size-1 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-transform: scale(0.01); -moz-transform: scale(0.01); -ms-transform: scale(0.01); -o-transform: scale(0.01); transform: scale(0.01); }
 .vis-wrapper-2 .answer.circle.size-2 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-transform: scale(0.02); -moz-transform: scale(0.02); -ms-transform: scale(0.02); -o-transform: scale(0.02); transform: scale(0.02); }
 .vis-wrapper-2 .answer.circle.size-3 { -webkit-transform-origin: center center; -moz-transform-origin: center center; -ms-transform-origin: center center; -o-transform-origin: center center; transform-origin: center center; -webkit-transform: scale(0.03); -moz-transform: scale(0.03); -ms-transform: scale(0.03); -o-transform: scale(0.03); transform: scale(0.03); }
@@ -315,32 +313,20 @@ body { font-size: 2em; margin: 0; color: #333; background: #efefef; }
 
 .vis-wrapper-1 { width: 100vw; height: 100vh; background-color: #1a1919; color: #fff; }
 .vis-wrapper-1 .answer:nth-child(1) { -webkit-animation: scale 0.1s ease-in-out; -moz-animation: scale 0.1s ease-in-out; animation: scale 0.1s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(1) .bg { background-color: #43d9ff; }
-.vis-wrapper-1 .answer:nth-child(1) .label { color: #a9eeff; }
+.vis-wrapper-1 .answer:nth-child(1) .bg { background-color: #ee3a43; }
+.vis-wrapper-1 .answer:nth-child(1) .label { color: #f6989d; }
 .vis-wrapper-1 .answer:nth-child(2) { -webkit-animation: scale 0.2s ease-in-out; -moz-animation: scale 0.2s ease-in-out; animation: scale 0.2s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(2) .bg { background-color: #00b0dc; }
-.vis-wrapper-1 .answer:nth-child(2) .label { color: #43d9ff; }
+.vis-wrapper-1 .answer:nth-child(2) .bg { background-color: #ffe617; }
+.vis-wrapper-1 .answer:nth-child(2) .label { color: #fff17d; }
 .vis-wrapper-1 .answer:nth-child(3) { -webkit-animation: scale 0.3s ease-in-out; -moz-animation: scale 0.3s ease-in-out; animation: scale 0.3s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(3) .bg { background-color: #005e76; }
-.vis-wrapper-1 .answer:nth-child(3) .label { color: #00b0dc; }
+.vis-wrapper-1 .answer:nth-child(3) .bg { background-color: #8dc63f; }
+.vis-wrapper-1 .answer:nth-child(3) .label { color: #bcdd8e; }
 .vis-wrapper-1 .answer:nth-child(4) { -webkit-animation: scale 0.4s ease-in-out; -moz-animation: scale 0.4s ease-in-out; animation: scale 0.4s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(4) .bg { background-color: #bcdd8e; }
-.vis-wrapper-1 .answer:nth-child(4) .label { color: #eaf5dc; }
+.vis-wrapper-1 .answer:nth-child(4) .bg { background-color: #0065c3; }
+.vis-wrapper-1 .answer:nth-child(4) .label { color: #2a98ff; }
 .vis-wrapper-1 .answer:nth-child(5) { -webkit-animation: scale 0.5s ease-in-out; -moz-animation: scale 0.5s ease-in-out; animation: scale 0.5s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(5) .bg { background-color: #8dc63f; }
-.vis-wrapper-1 .answer:nth-child(5) .label { color: #bcdd8e; }
-.vis-wrapper-1 .answer:nth-child(6) { -webkit-animation: scale 0.6s ease-in-out; -moz-animation: scale 0.6s ease-in-out; animation: scale 0.6s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(6) .bg { background-color: #567b24; }
-.vis-wrapper-1 .answer:nth-child(6) .label { color: #8dc63f; }
-.vis-wrapper-1 .answer:nth-child(7) { -webkit-animation: scale 0.7s ease-in-out; -moz-animation: scale 0.7s ease-in-out; animation: scale 0.7s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(7) .bg { background-color: #fff17d; }
-.vis-wrapper-1 .answer:nth-child(7) .label { color: #fffce3; }
-.vis-wrapper-1 .answer:nth-child(8) { -webkit-animation: scale 0.8s ease-in-out; -moz-animation: scale 0.8s ease-in-out; animation: scale 0.8s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(8) .bg { background-color: #ffe617; }
-.vis-wrapper-1 .answer:nth-child(8) .label { color: #fff17d; }
-.vis-wrapper-1 .answer:nth-child(9) { -webkit-animation: scale 0.9s ease-in-out; -moz-animation: scale 0.9s ease-in-out; animation: scale 0.9s ease-in-out; }
-.vis-wrapper-1 .answer:nth-child(9) .bg { background-color: #b09d00; }
-.vis-wrapper-1 .answer:nth-child(9) .label { color: #ffe617; }
+.vis-wrapper-1 .answer:nth-child(5) .bg { background-color: #004C97; }
+.vis-wrapper-1 .answer:nth-child(5) .label { color: #007ffd; }
 .vis-wrapper-1 .question-wrapper { width: 100%; clear: both; }
 .vis-wrapper-1 .answer-wrapper { position: relative; max-width: 80vw; }
 .vis-wrapper-1 .answer.circle { position: absolute; text-align: center; margin: auto; overflow: visible; float: left; font-size: 6px; -webkit-transition: font-size 0.3s; -moz-transition: font-size 0.3s; transition: font-size 0.3s; }
