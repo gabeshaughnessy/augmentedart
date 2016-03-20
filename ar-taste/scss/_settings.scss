@@ -7,14 +7,18 @@ $white : #fff;
 $black : #1a1919;
 	$light-black : lighten($black, $lighten-percentage);
 	$dark-black : darken($black, $darken-percentage);
-
 $gray : #9e9f9e;
 	$light-gray : lighten($gray, $lighten-percentage);
 	$dark-gray : darken($gray, $darken-percentage);
-
-$blue : #00b0dc;
+$blue : #0065c3;
 	$light-blue : lighten($blue, $lighten-percentage);
 	$dark-blue : darken($blue, $darken-percentage);
+$second-blue : #004C97;
+	$light-second-blue : lighten($second-blue, $lighten-percentage);
+	$dark-second-blue : darken($second-blue, $darken-percentage);
+$red : #ee3a43;
+	$light-red : lighten($red, $lighten-percentage);
+	$dark-red : darken($red, $darken-percentage);
 
 $yellow : #ffe617;
 	$light-yellow : lighten($yellow, $lighten-percentage);
@@ -25,4 +29,5 @@ $green : #8dc63f;
 $yellow-shades: $yellow $light-yellow $dark-yellow;
 $blue-shades : $blue $light-blue $dark-blue;
 $green-shades :   $green $light-green $dark-green;
-$bright-colors: $light-blue $blue  $dark-blue $light-green $green $dark-green  $light-yellow $yellow $dark-yellow;
+
+$vis-colors: $red $yellow $green $blue $second-blue;

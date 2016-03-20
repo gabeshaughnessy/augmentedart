@@ -4,14 +4,14 @@
 	background-color: $black;
 	color: $white;
 
-	@for $answers from 1 through length($bright-colors){
+	@for $answers from 1 through length($vis-colors){
 		.answer:nth-child(#{$answers}){
-			$color : nth($bright-colors, $answers);
+			$color : nth($vis-colors, $answers);
 			.bg{ 
 				background-color: $color; 
 			}
 			.label{
-				color:  lighten(nth($bright-colors, $answers), $lighten-percentage);
+				color:  lighten(nth($vis-colors, $answers), $lighten-percentage);
 			}
 
 
