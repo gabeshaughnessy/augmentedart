@@ -7,7 +7,7 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 		//add questions to the survey
 		if(typeof questions == 'undefined' || questions == ''){
 			var questions =  {
-				"How do it taste?" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0},
+				"How do it taste?" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0, 'other':''},
 				"Do I like it?" : { 'yes' : 0, 'no':0}
 			};
 		}
@@ -49,21 +49,43 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 
 			    ev.preventDefault(); // to stop the form from submitting
 
+			    
+
 			    $(this).find('input[type="checkbox"]:checked').each(function(){
 			    	var question = $("label[for='"+$(this).attr('data-question')+"']").text();
 			    	var answer = $(this).val();
 			    	mySurvey.once('value', function(snapshot){
 			    		answerRef = snapshot.child(question).child(answer);
-			    		currentValue = answerRef.val();
-			    		newValue = currentValue;
 			    		answerObj = {};
+			    	
+			    		
+			    		
+			    		currentValue = answerRef.val();
+			    		newValue = currentValue; //could iterate here but we are doing it on click instead
 			    		answerObj[answer] = newValue;
+				    	
 			    		mySurvey.child(question).update(answerObj);
 			    		location.reload();
+			    		
 			    	}); 	
 			    });
-			    $('body .survey-wrapper').html('');
-				$('body .survey-wrapper').append('<div class="loading"><p>Loading...</p></div>');
+				//Set the Other Text
+			    var otherText = $("#other-text").val();
+			    var otherTextID = otherText.replace(/ /g, "-").replace("?", "");
+			    var questionID = $("#other-text").data('question');
+			    answerRef = mySurvey.child(questionID).child('other');
+			    answerObj = {};
+			    answerObj[otherTextID] = otherText;
+			    answerRef.update(answerObj); 
+			    if($(this).find('input[type="checkbox"]:checked').length == 0){
+			    	mySurvey.once('value', function(snapshot){
+			    		location.reload();
+			    	});
+			    }
+
+			   // $('body .survey-wrapper').html('');
+				//$('body .survey-wrapper').append('<div class="loading"><p>Loading...</p></div>');
+
 			    
 			});
 			//button press
@@ -104,8 +126,14 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 			    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question"><label for="'+questionID+'"><h3>'+question+'</h3></label><div class="answers"></div></div>');
 
 			    $.each(answers, function(answer, answerCount){
-			    	answerID = answer.replace(/ /g, "-").replace("?", "");
+			    	if(answer != "other"){
+				    	answerID = answer.replace(/ /g, "-").replace("?", "");
 				    	jQuery("#question_"+questionID).find('.answers').append('<div class="answer"><input type="checkbox" placeholder="Type your answer here" data-question="'+questionID+'" name="'+questionID+answerID+'" value="'+answer+'">'+answer+' : <span class="answerCount">' +answerCount+'</span></div>');
+				    }
+				    else{
+				    	answerID = "other";
+				    	jQuery('#question_'+questionID).append('<input type="text" value="" name="other-text" id="other-text" data-question="'+question+'" placeholder="Something else entirely?">');
+				    }
 			    });
 			});
 

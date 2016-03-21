@@ -66,18 +66,21 @@ $(document).ready(function(){
 			}
 			var n = 1;
 			$.each(answers, function(answer, count){
-				console.log(answer+' : '+count);
-				var answerID = answer.replace(/ /g, "-").replace("?", "");
-				if(jQuery('#'+answerID).length > 0 ){
-					jQuery('#'+answerID).attr("class", "answer circle size-"+count+" "+"color-"+n);
-					jQuery('.label[for="'+answerID+'"]').attr("class", "label size-"+count+" "+"color-"+n);
+				if(answer != 'other'){
 
-				}else{
-					var aEl = $('<div class="answer-wrapper"><div id="'+answerID+'" class="answer circle size-'+count+' color-'+n+'">'+svgDesign+'</div></div>');
-					aEl.find('svg circle').addClass('color-'+n);
-					var answerLabel = $('<span for="'+answerID+'" class="label color-'+n+' size-'+count+'">'+answer+'</span>');
-					aEl.appendTo($('.vis-wrapper-2'));
-					answerLabel.appendTo('.key');
+					console.log(answer+' : '+count);
+					var answerID = answer.replace(/ /g, "-").replace("?", "");
+					if(jQuery('#'+answerID).length > 0 ){
+						jQuery('#'+answerID).attr("class", "answer circle size-"+count+" "+"color-"+n);
+						jQuery('.label[for="'+answerID+'"]').attr("class", "label size-"+count+" "+"color-"+n);
+
+					}else{
+						var aEl = $('<div class="answer-wrapper"><div id="'+answerID+'" class="answer circle size-'+count+' color-'+n+'">'+svgDesign+'</div></div>');
+						aEl.find('svg circle').addClass('color-'+n);
+						var answerLabel = $('<span for="'+answerID+'" class="label color-'+n+' size-'+count+'">'+answer+'</span>');
+						aEl.appendTo($('.vis-wrapper-2'));
+						answerLabel.appendTo('.key');
+					}
 				}
 			n++;
 

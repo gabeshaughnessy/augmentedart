@@ -30,4 +30,8 @@ $yellow-shades: $yellow $light-yellow $dark-yellow;
 $blue-shades : $blue $light-blue $dark-blue;
 $green-shades :   $green $light-green $dark-green;
 
-$vis-colors: $red $yellow $green $blue $second-blue;
+$vis-colors: $red $yellow $green $blue $second-blue $second-blue;
+
+//BREAKS
+$phone-break : 480px;
+$tablet-break : 720px;
