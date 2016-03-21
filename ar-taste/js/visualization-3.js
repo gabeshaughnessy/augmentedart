@@ -2,7 +2,7 @@ var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey";
 //function to draw a visualization when the ref dataset gets updated
 
-var wordArray = ['foo', 'bar'];
+var wordArray = [''];
 var fill = d3.scale.ordinal().range(["#0065c3", "#004c97", "#ee3a43"/*, "#ffe617", "#8dc63f"*/]);
 
 var layout = d3.layout.cloud()
@@ -30,7 +30,7 @@ function draw(words) {
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")
-      .style("fill", function(d, i) { console.log(d, i); return fill(i); })
+      .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
