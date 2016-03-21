@@ -21,19 +21,26 @@ var layout = d3.layout.cloud()
 
 
 function draw(words) {
- d3.select('svg').remove();
-  d3.select("body .vis-wrapper-3").append("svg")
-      .attr("width", layout.size()[0])
+
+ var wordContainer = d3.select('svg');
+	 if(wordContainer.empty()){
+		 wordContainer = d3.select("body .vis-wrapper-3").append("svg");
+	}else{
+		wordContainer.select('g').remove();
+	}
+      wordContainer.attr("width", layout.size()[0])
       .attr("height", layout.size()[1])
     .append("g")
       .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
     .selectAll("text")
       .data(words)
     .enter().append("text")
+
       .style("font-size", function(d) { return d.size + "px"; })
-      .style("font-family", "AkkuratBold")
-      .style("fill", function(d, i) { return fill(i); })
+      .style("font-family", "AkkuratBold")	
       .attr("text-anchor", "middle")
+      .transition()//.duration(1e3)
+      .style("fill", function(d, i) { return fill(i); })
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
       })
@@ -66,7 +73,7 @@ $(document).ready(function(){
 			else{
 				//new question, create it.
 				var qEl = $('<div class="question-wrapper" id="'+questionID+'"></div>');
-				$(qEl).appendTo('.vis-wrapper-3').html('<h3 class="question">'+question+'</h3>');
+				$(qEl).prependTo('.vis-wrapper-3').html('<h3 class="question">'+question+'</h3>');
 			}
 			var n = 1;
 			$.each(answers, function(answer, count){
