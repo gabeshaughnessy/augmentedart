@@ -1,17 +1,19 @@
 var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey";
 //function to draw a visualization when the ref dataset gets updated
-
+//word cloud https://www.jasondavies.com/wordcloud/
+//github repo https://github.com/jasondavies/d3-cloud
 var wordArray = [''];
 var fill = d3.scale.ordinal().range(["#0065c3", "#004c97", "#ee3a43"/*, "#ffe617", "#8dc63f"*/]);
 
+
 var layout = d3.layout.cloud()
-    .size([500, 500])
     .words(wordArray.map(function(d) {
       return {text: d, size: 10 + Math.random() * 90, test: "haha"};
     }))
     .padding(5)
-    .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    .rotate(function() { return (~~(Math.random() * 6) -3) * 30; })
+    .spiral('rectangular')
     .font("AkkuratBold")
     .fontSize(function(d) { return d.size; })
     .on("end", draw);
@@ -46,8 +48,10 @@ function generate(wordsArray) {
 }
 
 $(document).ready(function(){
+	var outerWidth = $('.vis-wrapper-3').width();
+	var outerHeight = $('.vis-wrapper-3').height() - $('.question-wrapper').outerHeight();
 	
-	layout.start();
+	layout.size([outerWidth, outerHeight-100]).start();
 	
 	firebaseRef.child(surveyName).on('value', function(snapshot){
 
