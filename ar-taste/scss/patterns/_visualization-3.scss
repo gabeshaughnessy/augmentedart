@@ -11,5 +11,8 @@
 
 	}
 
-	
+	svg text.fade-in{
+		opacity: .5;
+		@include transition(all .3s);
+	}
 }
