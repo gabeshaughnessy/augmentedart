@@ -9,7 +9,7 @@ var fill = d3.scale.ordinal().range(["#0065c3", "#004c97", "#ee3a43"/*, "#ffe617
 
 var layout = d3.layout.cloud()
     .words(wordArray.map(function(d) {
-      return {text: d, size: 10 + Math.random() * 90, test: "haha"};
+      return {text: d, size: 10 + Math.random() * 90, test: "yum"};
     }))
     .padding(5)
     .rotate(function() { return (~~(Math.random() * 6) -3) * 30; })
@@ -39,7 +39,7 @@ function draw(words) {
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")	
       .attr("text-anchor", "middle")
-      .transition()//.duration(1e3)
+      .transition().duration(1e3)
       .style("fill", function(d, i) { return fill(i); })
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
@@ -48,13 +48,39 @@ function draw(words) {
 }
 
 function generate(wordsArray) {
+
 	words = [];
     layout.stop().words(wordsArray.map(function(d) {
       return {text: d, size: 10 + Math.random() * 90, test: "haha"};
     })).start();
 }
 
+
+
 $(document).ready(function(){
+	
+	$('body').on('click', function(e){
+		$('body svg g').animate({'opacity' : 0}, 300, function(){
+
+			firebaseRef.child(surveyName).once('value', function(snapshot){
+			
+				$.each(snapshot.val(), function(question, answers) {
+					
+					$.each(answers, function(answer, count){
+						if(answer == 'other'){
+							answerRef = snapshot.child(question).child(answer).val();
+							var wordArray = [];
+							for(word in answerRef){
+								wordArray.push(answerRef[word]);
+							}
+							generate(wordArray);
+						}
+					});
+				});
+			});
+		});
+	});
+
 	var outerWidth = $('.vis-wrapper-3').width();
 	var outerHeight = $('.vis-wrapper-3').height() - $('.question-wrapper').outerHeight();
 	
@@ -85,7 +111,9 @@ $(document).ready(function(){
 					for(word in answerRef){
 						wordArray.push(answerRef[word]);
 					}
-					generate(wordArray);
+					$('body svg g').animate({'opacity' : 0}, 300, function(){
+						generate(wordArray);
+					});
 
 					
 
@@ -101,3 +129,5 @@ $(document).ready(function(){
 	});//end firebase listener
 
 });//end dom ready
+
+

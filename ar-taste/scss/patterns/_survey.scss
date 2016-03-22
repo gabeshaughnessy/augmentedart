@@ -2,7 +2,8 @@ body{
 	font-size: 2em;
 	margin: 0;
 	color: $second-blue;
-	background: $gray;
+	background: $black;
+	border-top: 12px solid $second-blue;
 }
 .survey-wrapper{
 	max-width: 800px;
@@ -10,9 +11,10 @@ body{
 	background: $black;
 	color: $white;
 	padding: 1em;
-	border-top: 12px solid $second-blue;
-	@include paperShadow(1, rgba($black,.2));
-
+	margin-top: -12px;
+	border-top: 11px solid $blue;
+	
+	@include paperShadow(2, rgba(0,0,0,.5));
 	
 	.question{
 		font-size: 1.1rem;
@@ -20,6 +22,7 @@ body{
 
 		}
 		.answers{
+			margin: 1em 0;
 			@include columns(3);
 			@media screen and (max-width: $tablet-break){
 				@include columns(2);
@@ -32,10 +35,14 @@ body{
 		}
 		.answer{
 			font-weight: bold;
+			margin: 1em 0;
 		}
 		.answer input{
 		    margin: .4em .65em 1em 0;
 		    vertical-align: top;
+		}
+		input[type="text"]{
+			margin: 2em 0;
 		}
 
 		input[type="submit"]{
