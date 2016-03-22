@@ -84,15 +84,16 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
   100% { opacity: 1; } }
 @keyframes fade-in { 0% { opacity: 0; }
   100% { opacity: 1; } }
-body { font-size: 2em; margin: 0; color: #004C97; background: #9e9f9e; }
+body { font-size: 2em; margin: 0; color: #004C97; background: #1a1919; border-top: 12px solid #004C97; }
 
-.survey-wrapper { max-width: 800px; margin: 0 auto; background: #1a1919; color: #fff; padding: 1em; border-top: 12px solid #004C97; -webkit-box-shadow: 0 2px 2px 0 rgba(26, 25, 25, 0.14), 0 1px 5px 0 rgba(26, 25, 25, 0.12), 0 3px 1px -2px rgba(26, 25, 25, 0.2); -moz-box-shadow: 0 2px 2px 0 rgba(26, 25, 25, 0.14), 0 1px 5px 0 rgba(26, 25, 25, 0.12), 0 3px 1px -2px rgba(26, 25, 25, 0.2); -o-box-shadow: 0 2px 2px 0 rgba(26, 25, 25, 0.14), 0 1px 5px 0 rgba(26, 25, 25, 0.12), 0 3px 1px -2px rgba(26, 25, 25, 0.2); box-shadow: 0 2px 2px 0 rgba(26, 25, 25, 0.14), 0 1px 5px 0 rgba(26, 25, 25, 0.12), 0 3px 1px -2px rgba(26, 25, 25, 0.2); }
+.survey-wrapper { max-width: 800px; margin: 0 auto; background: #1a1919; color: #fff; padding: 1em; margin-top: -12px; border-top: 11px solid #0065c3; -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); -o-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }
 .survey-wrapper .question { font-size: 1.1rem; color: #fff; }
-.survey-wrapper .answers { -webkit-columns: 3; -moz-columns: 3; columns: 3; }
+.survey-wrapper .answers { margin: 1em 0; -webkit-columns: 3; -moz-columns: 3; columns: 3; }
 @media screen and (max-width: 720px) { .survey-wrapper .answers { -webkit-columns: 2; -moz-columns: 2; columns: 2; } }
 @media screen and (max-width: 480px) { .survey-wrapper .answers { -webkit-columns: 1; -moz-columns: 1; columns: 1; } }
-.survey-wrapper .answer { font-weight: bold; }
+.survey-wrapper .answer { font-weight: bold; margin: 1em 0; }
 .survey-wrapper .answer input { margin: .4em .65em 1em 0; vertical-align: top; }
+.survey-wrapper input[type="text"] { margin: 2em 0; }
 .survey-wrapper input[type="submit"] { width: 100%; font-size: 18px; }
 
 .vis-wrapper-2 { width: 100vw; height: 100vh; background-color: #1a1919; color: #fff; padding: 1em; }
