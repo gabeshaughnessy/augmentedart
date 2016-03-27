@@ -1,5 +1,5 @@
 var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
-var surveyName = "testSurvey";
+var surveyName = "testSurvey3";
 //function to draw a visualization when the ref dataset gets updated
 //word cloud https://www.jasondavies.com/wordcloud/
 //github repo https://github.com/jasondavies/d3-cloud
@@ -189,7 +189,84 @@ function generate(wordsArray, angle, layout) {
 
 
 $(document).ready(function(){
+	var outerWidth = $('.vis-wrapper-4').width();
+	var outerHeight = $('.vis-wrapper-4').height();
 	
+	layout1.size([outerWidth/2, outerHeight/2]).start();
+	layout2.size([outerWidth/2, outerHeight/2]).start();
+	layout3.size([outerWidth/2, outerHeight/2]).start();
+	layout4.size([outerWidth/2, outerHeight/2]).start();
+	
+	firebaseRef.child(surveyName).on('value', function(snapshot){
+		var i = 0;
+		$.each(snapshot.val(), function(question, answers) {
+			
+			
+			var questionID = question.replace(/ /g, "-").replace("?", "");
+			if(jQuery('#'+questionID).length > 0 ){
+				//question exists, update it
+
+			}
+			else{
+				//new question, create it.
+				var qEl = $('<div class="question-wrapper" id="'+questionID+'"></div>');
+				$(qEl).prependTo('.vis-wrapper-4 #vis-1');
+			}
+			var answerTotal = 0;
+			var n = 1;
+			$.each(answers, function(answer, count){
+
+				if(answer == 'other'){
+					answerRef = snapshot.child(question).child(answer).val();
+					
+					for(word in answerRef){
+						answerTotal++;
+						wordArray.push({ text : answerRef[word], size : 18});
+					}
+					
+				}else{
+
+					answerCount = snapshot.child(question).child(answer).val();
+					answerTotal = Number(answerCount) + Number(answerTotal);
+					wordArray.push({ text : answer, size : 2 * answerCount});
+
+				}
+
+			n++;
+
+			});//end each answer
+			switch(questionID){
+				case "Sigil1" :
+			    generate(wordArray, 45, layout1);
+
+			    $('#vis-1').css({'background-size' :  answerTotal+'%'});
+			    break;
+			    case "Sigil2" :
+			    generate(wordArray, -45, layout2);
+
+			    $('#vis-2').css({'background-size' : answerTotal+'%'});
+			    break;
+			    case "Sigil3" :
+			    generate(wordArray, -45, layout3);
+			    $('#vis-3').css({'background-size' :  answerTotal+'%'});
+			    break;
+			    case "Sigil4" :
+			    generate(wordArray, 45, layout4);
+			    $('#vis-4').css({'background-size' :  answerTotal+'%'});
+			    break;
+			    default:
+			    generate(wordArray, -45, layout1);
+			}
+
+			allwords = typeof allwords !== 'undefined' ? allwords.concat(wordArray) : wordArray;
+			wordArray = [""];
+			answerCount = 0;
+			
+			i++;
+		});//end each question
+		
+	});//end firebase listener
+
 	$('body .vis').on('click', function(e){
 		layoutID = $(this).attr('id');
 		switch (layoutID) {
@@ -242,63 +319,11 @@ $(document).ready(function(){
 		});
 	});
 
-	var outerWidth = $('.vis-wrapper-4').width();
-	var outerHeight = $('.vis-wrapper-4').height();
-	
-
-	layout1.size([outerWidth/2, outerHeight/2]).start();
-	layout2.size([outerWidth/2, outerHeight/2]).start();
-	layout3.size([outerWidth/2, outerHeight/2]).start();
-	layout4.size([outerWidth/2, outerHeight/2]).start();
-	
-	firebaseRef.child(surveyName).on('value', function(snapshot){
-
-		$.each(snapshot.val(), function(question, answers) {
-			
-			
-			var questionID = question.replace(/ /g, "-").replace("?", "");
-			if(jQuery('#'+questionID).length > 0 ){
-				//question exists, update it
-
-			}
-			else{
-				//new question, create it.
-				var qEl = $('<div class="question-wrapper" id="'+questionID+'"></div>');
-				$(qEl).prependTo('.vis-wrapper-4 #vis-1');
-			}
-			var n = 1;
-			$.each(answers, function(answer, count){
-				if(answer == 'other'){
-					answerRef = snapshot.child(question).child(answer).val();
-					
-					for(word in answerRef){
-						wordArray.push({ text : answerRef[word], size : 18});
-					}
-					
-				}else{
-					answerCount = snapshot.child(question).child(answer).val();
-					wordArray.push({ text : answer, size : 2 * answerCount});
-
-				}
-
-			n++;
-
-			});//end each answer
-			$('#vis-1 svg g').animate({'opacity' : 0}, 300, function(){
-				/*var angle = angles[Math.floor(Math.random() * angles.length)];*/
-
-				generate(wordArray, 45, layout1);
-				generate(wordArray, -45, layout2);
-				generate(wordArray, -45, layout3);
-				generate(wordArray, 45, layout4);
-			});
-
-
-		});//end each question
-
-				
-	});//end firebase listener
-
 });//end dom ready
 
-
+$(window).resize(function(){
+	layout1.stop().size([outerWidth/2, outerHeight/2]).start();
+	layout2.stop().size([outerWidth/2, outerHeight/2]).start();
+	layout3.stop().size([outerWidth/2, outerHeight/2]).start();
+	layout4.stop().size([outerWidth/2, outerHeight/2]).start();
+});

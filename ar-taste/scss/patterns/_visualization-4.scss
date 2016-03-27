@@ -1,3 +1,6 @@
+body{
+	border-top: none;
+}
 .vis-wrapper-4{
 	width: 100vw;
 	height: 100vh;
@@ -11,30 +14,26 @@
     	background-repeat: no-repeat;
     	background-size: 80%;
     	background-position: center;
+    	@include animation(fade-in 2s 1);
+    	@include transition(background-size 1s ease-out);
 
     }
-    @for $vises from 1 through 4{
-		#vis-#{$vises}{
-			//@include animation(bg-scale #{(5 + $vises)}s 1);
-			//@include animation(bg-scale #{(4 + $vises)}s infinite);
-			@include animation-direction(alternate);
-		}
-	}
+
     #vis-1{
     	background-image: url('../images/sigil-01.svg');
-    	background-position: top left;
+    	background-position: bottom right;
     }
     #vis-2{
     	background-image: url('../images/sigil-02.svg');
-    	background-position: top right;
+    	background-position: bottom left;
     }
     #vis-3{
     	background-image: url('../images/sigil-03.svg');
-    	background-position: bottom left;
+    	background-position: top right;
     }
     #vis-4{
     	background-image: url('../images/sigil-04.svg');
-    	background-position: bottom right;
+    	background-position: top left;
     }
 
 	h3.question{
