@@ -61,7 +61,8 @@ module.exports = function(grunt) {
           'js/app.min.js': ['js/app.js'],
           'js/visualization-1.min.js': ['js/visualization-1.js'],
           'js/visualization-2.min.js': ['js/visualization-2.js'],
-          'js/visualization-3.min.js': ['js/visualization-3.js']
+          'js/visualization-3.min.js': ['js/visualization-3.js'],
+          'js/visualization-4.min.js': ['js/visualization-4.js']
 
         }
       }
@@ -89,7 +90,7 @@ module.exports = function(grunt) {
     },
     grunt: { files: ['Gruntfile.js'] },
     scripts: {
-      files: ['js/main.js', 'js/visualization-1.js', 'js/visualization-2.js','js/visualization-3.js'],
+      files: ['js/main.js','js/d3.cloud.js', 'js/visualization-1.js', 'js/visualization-2.js','js/visualization-3.js','js/visualization-4.js'],
       tasks: ['concat']
     },
     compress: {

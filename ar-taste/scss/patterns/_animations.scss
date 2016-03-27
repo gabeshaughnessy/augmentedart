@@ -19,3 +19,14 @@
     opacity: 1;
   }
 }
+
+@include keyframes(bg-scale) {
+  0% {
+    background-size: 0%;
+  }
+
+  100% {
+    background-size: 80%;
+  }
+}
+

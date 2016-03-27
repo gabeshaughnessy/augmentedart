@@ -1,0 +1,50 @@
+.vis-wrapper-4{
+	width: 100vw;
+	height: 100vh;
+	background-color: $black;
+	color: $white;
+    .vis{
+    	float: left;
+    	width: 50%;
+    	height: 50vh;
+    	//border: 1px solid $blue;
+    	background-repeat: no-repeat;
+    	background-size: 80%;
+    	background-position: center;
+
+    }
+    @for $vises from 1 through 4{
+		#vis-#{$vises}{
+			//@include animation(bg-scale #{(5 + $vises)}s 1);
+			//@include animation(bg-scale #{(4 + $vises)}s infinite);
+			@include animation-direction(alternate);
+		}
+	}
+    #vis-1{
+    	background-image: url('../images/sigil-01.svg');
+    	background-position: top left;
+    }
+    #vis-2{
+    	background-image: url('../images/sigil-02.svg');
+    	background-position: top right;
+    }
+    #vis-3{
+    	background-image: url('../images/sigil-03.svg');
+    	background-position: bottom left;
+    }
+    #vis-4{
+    	background-image: url('../images/sigil-04.svg');
+    	background-position: bottom right;
+    }
+
+	h3.question{
+		text-align: left;
+		padding-top: 0;
+
+	}
+
+	svg text.fade-in{
+		opacity: .5;
+		@include transition(all .3s);
+	}
+}

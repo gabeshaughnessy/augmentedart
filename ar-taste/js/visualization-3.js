@@ -4,16 +4,18 @@ var surveyName = "testSurvey";
 //word cloud https://www.jasondavies.com/wordcloud/
 //github repo https://github.com/jasondavies/d3-cloud
 var wordArray = [''];
-var fill = d3.scale.ordinal().range(["#0065c3", "#004c97", "#ee3a43"/*, "#ffe617", "#8dc63f"*/]);
+var fill = d3.scale.ordinal().range(["#0065c3", "#004c97", "#ee3a43", "#ffe617", "#8dc63f"]);
 
+var i = 1;
 
 var layout = d3.layout.cloud()
-    .words(wordArray.map(function(d) {
-      return {text: d, size: 10 + Math.random() * 90, test: "yum"};
-    }))
+    .words(wordArray)
+    //.text(function(d){ console.log(d.text);  return d.text;})
     .padding(5)
-    .rotate(function() { return (~~(Math.random() * 6) -3) * 30; })
-    .spiral('rectangular')
+    .rotate(function() {
+      return 45;
+    })
+    .spiral('archimedean')
     .font("AkkuratBold")
     .fontSize(function(d) { return d.size; })
     .on("end", draw);
@@ -21,7 +23,7 @@ var layout = d3.layout.cloud()
 
 
 function draw(words) {
-
+ var rotation = 1;
  var wordContainer = d3.select('svg');
 	 if(wordContainer.empty()){
 		 wordContainer = d3.select("body .vis-wrapper-3").append("svg");
@@ -42,17 +44,14 @@ function draw(words) {
       .transition().duration(1e3)
       .style("fill", function(d, i) { return fill(i); })
       .attr("transform", function(d) {
-        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        return "translate(" + [d.x, d.y] + ")rotate(" +  d.rotate  + ")";
       })
       .text(function(d) { return d.text; });
 }
 
 function generate(wordsArray) {
-
 	words = [];
-    layout.stop().words(wordsArray.map(function(d) {
-      return {text: d, size: 10 + Math.random() * 90, test: "haha"};
-    })).start();
+    layout.stop().words(wordsArray).start();
 }
 
 
@@ -65,17 +64,24 @@ $(document).ready(function(){
 			firebaseRef.child(surveyName).once('value', function(snapshot){
 			
 				$.each(snapshot.val(), function(question, answers) {
-					
+					var wordArray = [];
 					$.each(answers, function(answer, count){
+						
 						if(answer == 'other'){
 							answerRef = snapshot.child(question).child(answer).val();
-							var wordArray = [];
+							
 							for(word in answerRef){
-								wordArray.push(answerRef[word]);
+								wordArray.push({ text : answerRef[word], size : 18});
 							}
-							generate(wordArray);
+							
+						}else{
+							answerCount = snapshot.child(question).child(answer).val();
+							console.log(wordArray);
+							wordArray.push({ text : answer, size : 2 * answerCount});
+
 						}
 					});
+					generate(wordArray);
 				});
 			});
 		});
@@ -99,29 +105,30 @@ $(document).ready(function(){
 			else{
 				//new question, create it.
 				var qEl = $('<div class="question-wrapper" id="'+questionID+'"></div>');
-				$(qEl).prependTo('.vis-wrapper-3').html('<h3 class="question">'+question+'</h3>');
+				$(qEl).prependTo('.vis-wrapper-3');
 			}
 			var n = 1;
 			$.each(answers, function(answer, count){
-				if(answer != 'other'){
-
-				}else{
+				if(answer == 'other'){
 					answerRef = snapshot.child(question).child(answer).val();
-					var wordArray = [];
+					
 					for(word in answerRef){
-						wordArray.push(answerRef[word]);
+						wordArray.push({ text : answerRef[word], size : 18});
 					}
-					$('body svg g').animate({'opacity' : 0}, 300, function(){
-						generate(wordArray);
-					});
-
 					
+				}else{
+					answerCount = snapshot.child(question).child(answer).val();
+					wordArray.push({ text : answer, size : 2 * answerCount});
 
-					
 				}
+
 			n++;
 
 			});//end each answer
+			$('body svg g').animate({'opacity' : 0}, 300, function(){
+				generate(wordArray);
+			});
+
 
 		});//end each question
 

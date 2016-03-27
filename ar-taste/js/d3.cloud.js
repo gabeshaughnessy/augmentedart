@@ -17,6 +17,7 @@ module.exports = function() {
       fontWeight = cloudFontNormal,
       rotate = cloudRotate,
       padding = cloudPadding,
+      anchor = cloudAnchor,
       spiral = archimedeanSpiral,
       words = [],
       timeInterval = Infinity,
@@ -45,6 +46,7 @@ module.exports = function() {
           d.rotate = rotate.call(this, d, i);
           d.size = ~~fontSize.call(this, d, i);
           d.padding = padding.call(this, d, i);
+          d.anchor = anchor.call(this, d, i);
           return d;
         }).sort(function(a, b) { return b.size - a.size; });
 
@@ -58,8 +60,8 @@ module.exports = function() {
       var start = Date.now();
       while (Date.now() - start < timeInterval && ++i < n && timer) {
         var d = data[i];
-        d.x = (size[0] * (random() + .5)) >> 1;
-        d.y = (size[1] * (random() + .5)) >> 1;
+        d.x = d.anchor[0];//(size[0] * (random() + .5)) >> 1;
+        d.y = d.anchor[1];//(size[1] * (random() + .5)) >> 1;
         cloudSprite(contextAndRatio, d, data, i);
         if (d.hasText && place(board, d, bounds)) {
           tags.push(d);
@@ -192,6 +194,9 @@ module.exports = function() {
   cloud.padding = function(_) {
     return arguments.length ? (padding = functor(_), cloud) : padding;
   };
+  cloud.anchor = function(_) {
+    return arguments.length ? (anchor =  functor(_), cloud) : anchor;
+  };
 
   cloud.random = function(_) {
     return arguments.length ? (random = _, cloud) : random;
@@ -227,6 +232,9 @@ function cloudRotate() {
 
 function cloudPadding() {
   return 1;
+}
+function cloudAnchor(d) {
+  return [0, 0];
 }
 
 // Fetches a monochrome sprite bitmap for the specified text.

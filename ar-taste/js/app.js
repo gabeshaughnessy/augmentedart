@@ -1,3 +1,10 @@
+Requests = {
+	QueryString : function(item){
+	var svalue = location.search.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)","i"));
+	return svalue ? svalue[1] : svalue;
+	}
+}
+
 var ref = new Firebase("https://ar-taste.firebaseio.com/");
 
 	function createSurvey(ref, survey){
@@ -7,12 +14,16 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 		//add questions to the survey
 		if(typeof questions == 'undefined' || questions == ''){
 			var questions =  {
-				"How do it taste?" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0, 'other':''},
-				"Do I like it?" : { 'yes' : 0, 'no':0}
-			};
+		//fallback if no questions passed
+
+			  	"Sigil1" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0, 'other':''},
+				"Sigil2" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0, 'other':''},
+				"Sigil3" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0, 'other':''},
+				"Sigil4" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0, 'other':''}
+			}
 		}
 		
-		//surveyRef.update(questions);
+		surveyRef.update(questions);
 
 		return surveyRef;
 	}//end function newSurvey
@@ -26,15 +37,14 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 	var mySurvey;
 	$(document).ready(function(){
 		$('body .survey-wrapper').append('<div class="loading"><p>Loading...</p></div>');
-		var survey = {"surveyName" : "testSurvey",
-					  "questions" : {
-					  	"How does it taste?" : {'salty':0,'sweet':0,'bitter':0,'sour':0,'umami':0},
-					  	"Do you like it?" : {'yes' : 0, 'no':0}
-					  }
-					};
-
-		//load an existing survery. comment this out if you are creating a new survey.
-		mySurvey = loadSurvey(ref, survey);
+		var survey = {"surveyName" : "testSurvey3"};
+		if(Requests.QueryString("create") == 'true'){
+			//create a new instance in the db
+			mySurvey = createSurvey(ref, survey);
+		}else{
+			//load an existing survery. comment this out if you are creating a new survey.
+			mySurvey = loadSurvey(ref, survey);
+		}
 		
 		//creates the form markup from the survey questions and answer options
 		mySurvey.once('value', function(snapshot){
@@ -75,7 +85,16 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 			    var questionID = $("#other-text").data('question');
 			    answerRef = mySurvey.child(questionID).child('other');
 			    answerObj = {};
-			    answerObj[otherTextID] = otherText;
+
+			    currentValue = answerRef.child(otherTextID);
+
+			    if(currentValue){
+			    	answerObj[otherTextID] = otherText;
+			    }else{
+			    	answerObj[otherTextID] = otherText;
+			    }
+
+			    
 			    answerRef.update(answerObj); 
 			    if($(this).find('input[type="checkbox"]:checked').length == 0){
 			    	mySurvey.once('value', function(snapshot){
@@ -122,19 +141,22 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 
 
 				questionID = question.replace(/ /g, "-").replace("?", "");
+				if(Requests.QueryString(questionID)){
 			    
-			    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question"><label for="'+questionID+'"><h3>'+question+'</h3></label><div class="answers"></div></div>');
+				    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question"><label for="'+questionID+'"><h3>'+question+'</h3></label><div class="answers"></div></div>');
 
-			    $.each(answers, function(answer, answerCount){
-			    	if(answer != "other"){
-				    	answerID = answer.replace(/ /g, "-").replace("?", "");
-				    	jQuery("#question_"+questionID).find('.answers').append('<div class="answer"><input type="checkbox" placeholder="Type your answer here" data-question="'+questionID+'" name="'+questionID+answerID+'" value="'+answer+'">'+answer+' : <span class="answerCount">' +answerCount+'</span></div>');
-				    }
-				    else{
-				    	answerID = "other";
-				    	jQuery('#question_'+questionID).append('<input type="text" value="" name="other-text" id="other-text" data-question="'+question+'" placeholder="Something else entirely?">');
-				    }
-			    });
+				    $.each(answers, function(answer, answerCount){
+				    	if(answer != "other"){
+					    	answerID = answer.replace(/ /g, "-").replace("?", "");
+					    	jQuery("#question_"+questionID).find('.answers').append('<div class="answer"><input type="checkbox" placeholder="Type your answer here" data-question="'+questionID+'" name="'+questionID+answerID+'" value="'+answer+'">'+answer+' : <span class="answerCount">' +answerCount+'</span></div>');
+					    }
+					    else{
+					    	answerID = "other";
+					    	jQuery('#question_'+questionID).append('<input type="text" value="" name="other-text" id="other-text" data-question="'+question+'" placeholder="Something else entirely?">');
+					    }
+				    });
+				}
+				
 			});
 
 		}, function (errorObject) {
