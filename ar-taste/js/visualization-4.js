@@ -1,3 +1,11 @@
+/* TODO :
+ - [ ] make the click event reload the current vis, currently it just loads the words from the last one.
+ - [ ] whichever word is new should have a different style - ideas [outlined, color with everything else white]
+
+*/
+var redsAndBlues = ["#0065c3", "#004c97", "#ee3a43", "#004c97","#0065c3", "#004c97"];
+var shadesOfGray = [ "#888", "#999", "#aaa", "#bbb", "#ccc", "#ddd", "#eee", "#fff"];
+var reverseShadesOfGray = shadesOfGray.reverse();
 var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey3";
 //function to draw a visualization when the ref dataset gets updated
@@ -5,7 +13,7 @@ var surveyName = "testSurvey3";
 //github repo https://github.com/jasondavies/d3-cloud
 var wordArray = [''];
 var angles = [0,45,-45];
-var fill = d3.scale.ordinal().range(["#0065c3", "#004c97", "#ee3a43", "#004c97","#0065c3", "#004c97"]);
+var fill = d3.scale.ordinal().range(shadesOfGray);
 
 var i = 1;
 

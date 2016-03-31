@@ -119,7 +119,7 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 				    	
 			    	mySurvey.once('value', function(snapshot){
 			    		answerRef = snapshot.child(question).child(answer);
-			    		currentValue = answerRef.val();
+			    		currentValue = Number(answerRef.val());
 			    		if(checked.is(':checked')){
 				    		newValue = currentValue + stepSize;
 				    	}	else{
