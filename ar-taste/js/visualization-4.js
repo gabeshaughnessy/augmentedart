@@ -13,14 +13,34 @@ var surveyName = "testSurvey3";
 //github repo https://github.com/jasondavies/d3-cloud
 var wordArray = [''];
 var angles = [0,45,-45];
-var fill = d3.scale.ordinal().range(shadesOfGray);
+if(typeof Requests.QueryString("padding") !== 'undefined'){
+	var padding = Number(Requests.QueryString("padding"));
+}else{
+	padding = 0;
+}
+if(typeof Requests.QueryString("colors") !== 'undefined'){
+	switch(Requests.QueryString("colors")){
+		case "redsAndBlues" :
+		colorset = redsAndBlues;
+		break;
+		case "shadesOfGray" :
+		colorset = shadesOfGray;
+		break;
+		default :
+		colorset = reverseShadesOfGray;
+	}
+}else{
+	colorset = reverseShadesOfGray;
+}
+var fill = d3.scale.ordinal().range(colorset);
+
 
 var i = 1;
 
 var layout1 = d3.layout.cloud()
     .words(wordArray)
     //.text(function(d){ console.log(d.text);  return d.text;})
-    .padding(0)
+    .padding(padding)
     .rotate(function() {
     	 var angle = angles[Math.floor(Math.random() * angles.length)];
       return angle;
@@ -35,7 +55,7 @@ var layout1 = d3.layout.cloud()
 var layout2 = d3.layout.cloud()
     .words(wordArray)
     //.text(function(d){ console.log(d.text);  return d.text;})
-    .padding(0)
+    .padding(padding)
     .rotate(function() {
     	 var angle = 90;
       return angle;
@@ -49,7 +69,7 @@ var layout2 = d3.layout.cloud()
 var layout3 = d3.layout.cloud()
     .words(wordArray)
     //.text(function(d){ console.log(d.text);  return d.text;})
-    .padding(0)
+    .padding(padding)
     .rotate(function() {
     	 var angle = angles[Math.floor(Math.random() * angles.length)];
       return angle;
@@ -63,7 +83,7 @@ var layout3 = d3.layout.cloud()
 var layout4 = d3.layout.cloud()
     .words(wordArray)
     //.text(function(d){ console.log(d.text);  return d.text;})
-    .padding(0)
+    .padding(padding)
     .rotate(function() {
     	 var angle = angles[Math.floor(Math.random() * angles.length)];
       return angle;
