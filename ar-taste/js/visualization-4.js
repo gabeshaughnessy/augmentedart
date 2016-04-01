@@ -1,19 +1,16 @@
-/* TODO :
- - [ ] make the click event reload the current vis, currently it just loads the words from the last one.
- - [ ] whichever word is new should have a different style - ideas [outlined, color with everything else white]
+/* Lumenal Code Word Cloud Visualization */
 
-*/
+//Set up variables
 var redsAndBlues = ["#0065c3", "#004c97", "#ee3a43", "#004c97","#0065c3", "#004c97"];
 var shadesOfGray = [ "#888", "#999", "#aaa", "#bbb", "#ccc", "#ddd", "#eee", "#fff"];
-var strokeColor = '#0065c3';
+var strokeColor = '#0099d7';
 var reverseShadesOfGray = shadesOfGray.reverse();
 var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey3";
-//function to draw a visualization when the ref dataset gets updated
-//word cloud https://www.jasondavies.com/wordcloud/
-//github repo https://github.com/jasondavies/d3-cloud
 var wordArray = [''];
 var angles = [0,45,-45];
+
+//Handle the url parameters
 if(typeof Requests.QueryString("padding") !== 'undefined'){
 	var padding = Number(Requests.QueryString("padding"));
 }else{
@@ -33,9 +30,8 @@ if(typeof Requests.QueryString("colors") !== 'undefined'){
 }else{
 	colorset = reverseShadesOfGray;
 }
+
 var fill = d3.scale.ordinal().range(colorset);
-
-
 var i = 1;
 
 var layout1 = d3.layout.cloud()
@@ -213,32 +209,50 @@ function draw4(words) {
       .text(function(d) { return d.text; });
 }
 
-function checkForNewWords(layout, wordArray){
-	var currentWords = [];
-	if(layout.words().length > 1){
-		$.each(layout.words(), function(key, value){
+function checkForNewWords(layoutObj, newWordArray, defaultWordArray){
+	layoutObj.currentWords = [];
+	if(layoutObj.words().length > 1){
+		$.each(layoutObj.words(), function(key, value){
 			if(typeof value.text !== "undefined"){
-				currentWords.push(value.text);
+				layoutObj.currentWords.push(value.text);
 			}
 			
 		});
 	}
-	if(wordArray.length > 1){
-		$.each(wordArray, function(key, value){
 
-			if(typeof value.text !== "undefined" && currentWords.indexOf(value.text) == -1){
+
+	if(newWordArray.length > 1){
+		$.each(newWordArray, function(key, value){
+
+
+			if(typeof value.text !== "undefined" && layoutObj.currentWords.indexOf(value.text) == -1){
 				value.newWord = true;
+
+				
 			}else if(typeof value.text !== "undefined"){
 				value.newWord = false;
+				
+				for(item in defaultWordArray){
+				    if(defaultWordArray[item].text == value.text) {
+				    	//this is in the default set.
+				    	$.each(layoutObj.words(), function(key, word){
+				    		if(word.text == value.text && word.size < value.size){
+						    	value.newWord = true;
+						    }
+				    	});
+				    }
+				}
+
 			}
 			
 		});
 	}
 }
 
-function generate(wordsArray, angle, layout) {
+function generate(wordsArray, angle, layoutObj) {
+
 	words = [];
-    layout.stop().words(wordsArray).anchor(layout.anchor()).rotate(function(){return angle; }).start();
+    layoutObj.stop().words(wordsArray).anchor(layoutObj.anchor()).rotate(function(){return angle; }).start();
 }
 
 
@@ -271,6 +285,8 @@ $(document).ready(function(){
 			}
 			var answerTotal = 0;
 			var n = 1;
+			wordArray = [];
+			var defaultWords = [];
 			$.each(answers, function(answer, count){
 
 				if(answer == 'other'){
@@ -282,11 +298,11 @@ $(document).ready(function(){
 					}
 					
 				}else{
-
-					answerCount = snapshot.child(question).child(answer).val();
+					
+					answerCount = Number(snapshot.child(question).child(answer).val());
 					answerTotal = Number(answerCount) + Number(answerTotal);
-					wordArray.push({ text : answer, size : 2 * answerCount});
-
+					defaultWords.push({'text' : answer, 'size' : answerCount});
+					wordArray.push({ text : answer, size : answerCount});
 				}
 
 			n++;
@@ -294,31 +310,35 @@ $(document).ready(function(){
 			});//end each answer
 			switch(questionID){
 				case "Sigil1" :
-				
-				checkForNewWords(layout1, wordArray);
-			    generate(wordArray, 45, layout1);
+					checkForNewWords(layout1, wordArray, defaultWords);
+				    generate(wordArray, 45, layout1);
+					
+				    $('#vis-1').css({'background-size' :  answerTotal+'%'});
 
-			    $('#vis-1').css({'background-size' :  answerTotal+'%'});
 			    break;
 			    case "Sigil2" :
-			    generate(wordArray, -45, layout2);
+				    checkForNewWords(layout2, wordArray, defaultWords);
+				    generate(wordArray, -45, layout2);
 
-			    $('#vis-2').css({'background-size' : answerTotal+'%'});
+				    $('#vis-2').css({'background-size' : answerTotal+'%'});
 			    break;
 			    case "Sigil3" :
-			    generate(wordArray, -45, layout3);
-			    $('#vis-3').css({'background-size' :  answerTotal+'%'});
+					checkForNewWords(layout3, wordArray, defaultWords);
+				    generate(wordArray, -45, layout3);
+				    $('#vis-3').css({'background-size' :  answerTotal+'%'});
 			    break;
 			    case "Sigil4" :
-			    generate(wordArray, 45, layout4);
-			    $('#vis-4').css({'background-size' :  answerTotal+'%'});
+				    checkForNewWords(layout4, wordArray, defaultWords);
+				    generate(wordArray, 45, layout4);
+				    $('#vis-4').css({'background-size' :  answerTotal+'%'});
 			    break;
 			    default:
-			    generate(wordArray, -45, layout1);
+			    //generate(wordArray, -45, layout1);
 			}
 
 			allwords = typeof allwords !== 'undefined' ? allwords.concat(wordArray) : wordArray;
 			wordArray = [""];
+			defaultWords = [""];
 			answerCount = 0;
 			
 			i++;
@@ -350,31 +370,8 @@ $(document).ready(function(){
 		}
 
 		$(this).find('svg g').animate({'opacity' : 0}, 300, function(){
+			generate(layout.words(), angle, layout);
 
-			firebaseRef.child(surveyName).once('value', function(snapshot){
-			
-				$.each(snapshot.val(), function(question, answers) {
-					var wordArray = [];
-					$.each(answers, function(answer, count){
-						
-						if(answer == 'other'){
-							answerRef = snapshot.child(question).child(answer).val();
-							
-							for(word in answerRef){
-								wordArray.push({ text : answerRef[word], size : 18});
-							}
-							
-						}else{
-							answerCount = snapshot.child(question).child(answer).val();
-							wordArray.push({ text : answer, size : 2 * answerCount});
-
-						}
-					});
-					//var angle = angles[Math.floor(Math.random() * angles.length)];
-
-					generate(wordArray, angle, layout);
-				});
-			});
 		});
 	});
 

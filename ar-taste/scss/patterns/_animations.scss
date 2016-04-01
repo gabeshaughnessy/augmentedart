@@ -10,6 +10,16 @@
   }
 }
 
+@include keyframes(scale-in){
+	0% {
+    @include transform(scale(0));
+  }
+
+  100% {
+    @include transform(scale(1));
+  }
+}
+
 @include keyframes(fade-in) {
   0% {
     opacity: 0;

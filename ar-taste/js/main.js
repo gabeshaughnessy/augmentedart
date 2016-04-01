@@ -143,12 +143,12 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 				questionID = question.replace(/ /g, "-").replace("?", "");
 				if(Requests.QueryString(questionID)){
 			    
-				    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question"><label for="'+questionID+'"><h3>'+question+'</h3></label><div class="answers"></div></div>');
+				    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question" ><label style="background-image: url(images/'+questionID+'.png)" for="'+questionID+'"><h3>'+question+'</h3></label><div class="answers"></div></div>');
 
 				    $.each(answers, function(answer, answerCount){
 				    	if(answer != "other"){
 					    	answerID = answer.replace(/ /g, "-").replace("?", "");
-					    	jQuery("#question_"+questionID).find('.answers').append('<div class="answer"><input type="checkbox" placeholder="Type your answer here" data-question="'+questionID+'" name="'+questionID+answerID+'" value="'+answer+'">'+answer+' : <span class="answerCount">' +answerCount+'</span></div>');
+					    	jQuery("#question_"+questionID).find('.answers').append('<div class="answer-wrapper"><div class="answer slider-input vert"><input title="'+answerCount+'" type="checkbox" data-question="'+questionID+'" name="'+questionID+answerID+'" id="'+questionID+answerID+'" value="'+answer+'"><label for="'+questionID+answerID+'"></label></div><span class="input label">'+answer+'</span></div>');
 					    }
 					    else{
 					    	answerID = "other";

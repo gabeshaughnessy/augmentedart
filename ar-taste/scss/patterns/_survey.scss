@@ -2,40 +2,66 @@ body{
 	font-size: 2em;
 	margin: 0;
 	color: $second-blue;
-	background: $black;
+	background: #eee;
+	background-image: url('../images/noise.png');
 	border-top: 12px solid $second-blue;
+}
+.loading{
+	text-align: center;
 }
 .survey-wrapper{
 	max-width: 800px;
 	margin: 0 auto;
-	background: $black;
-	color: $white;
+	//@include linear-gradient(90deg, $white 0%, #eaeaea 100%);
+	background-image: url('../images/noise.png'), linear-gradient(90deg, $white 0%, #eaeaea 100%);
+	color: $blue;
 	padding: 1em;
-	margin-top: -12px;
 	border-top: 11px solid $blue;
 	
-	@include paperShadow(2, rgba(0,0,0,.5));
+	@include paperShadow(1, rgba(0,0,0,.5));
+
 	
 	.question{
 		font-size: 1.1rem;
-		color: $white;
+		color: $dark-gray;
+
+		> label{
+			background-repeat : no-repeat;
+			background-size: contain;
+			display: block;
+			width: 30%;
+			height: 30%;
+			margin: 0 auto;
+			@include animation(fade-in .8s ease-in-out);
+			*{
+				display: none;
+			}
+		}
 
 		}
 		.answers{
 			margin: 1em 0;
-			@include columns(3);
-			@media screen and (max-width: $tablet-break){
-				@include columns(2);
+			@include display(flex);
+
+			.answer-wrapper{
+				float: left;
+				@include flex(1);
+				$answers: 10;
+				@for $i from 1 to $answers {
+				  &:nth-child(#{$i}) {
+				     @include animation(fade-in #{3*$i/10}s ease-in-out);
+				  }
+				}
+				
+
 			}
-			@media screen and (max-width: $phone-break){
-				@include columns(1);
-			}
-			
 
 		}
 		.answer{
 			font-weight: bold;
 			margin: 1em 0;
+			
+			
 		}
 		.answer input{
 		    margin: .4em .65em 1em 0;
@@ -43,11 +69,93 @@ body{
 		}
 		input[type="text"]{
 			margin: 2em 0;
+			font-family: $base-font-family;
+			color: $dark-gray;
+			@include animation(fade-in .8s ease-in-out);
 		}
-
+		input[type="checkbox"]{
+			&+ label{
+				display: inline;
+				font-family: $base-font-family;
+			}
+			&:checked + label{
+				color: $blue;
+			}  
+		}
 		input[type="submit"]{
 			width: 100%;
 			font-size: 18px;
+			font-family: $base-font-family;
+			@include animation(fade-in 1s ease-in-out);
+			@include linear-gradient(to bottom right, lighten($blue, 20%), $blue 50%, $second-blue 100%);
 
+		}
+
+		.slider-input{
+			
+			&.vert{
+				@include transform(rotate(-90deg));
+				@include transform-origin(center);
+			}
+			width: 80px;
+			height: 30px;
+		  
+		  background: #333;
+		  margin: 20px auto;
+		  position: relative;
+		  border-radius: 50px;
+		  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+		  &:after {
+		    content: '';
+		    position: absolute;
+		    top: 14px;
+		    left: 14px;
+		    height: 2px;
+		    width: 52px;
+		    background: #111;
+		    border-radius: 50px;
+		    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+		  }
+		  label {
+		    display: block;
+		    width: 22px;
+		    height: 22px;
+		    cursor: pointer;
+		    position: absolute;
+		    top: 4px;
+		    z-index: 1;
+		    left: 4px;
+		    background: #fcfff4;
+		    border-radius: 50px;
+		    @include transition(all 0.2s ease);
+		    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+		    @include linear-gradient(to left, $white 0%, $gray 40%, $light-gray 100%);
+		    &:after {
+		      content: '';
+		      width: 10px;
+		      height: 10px;
+		      position: absolute;
+		      top: 6px;
+		      left: 6px;
+		      background: #333;
+		      border-radius: 50px;
+		      box-shadow: inset 0px 1px 1px rgba(0,0,0,1), 0px 1px 0px rgba(255,255,255,0.9);
+		    }
+		  }
+		  input[type=checkbox] {
+		    visibility: hidden;
+		    &:checked + label {
+		      left: 54px;
+		      &:after {
+		        background:$blue; /*activeColor*/
+		      }
+		    }
+		  } 
+		  & + .input.label{
+				text-align: center;
+				margin-top: 1.5em;
+				display: block;
+				font-family: $base-font-family;
+			}
 		}
 }
