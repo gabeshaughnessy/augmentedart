@@ -5,6 +5,7 @@
 */
 var redsAndBlues = ["#0065c3", "#004c97", "#ee3a43", "#004c97","#0065c3", "#004c97"];
 var shadesOfGray = [ "#888", "#999", "#aaa", "#bbb", "#ccc", "#ddd", "#eee", "#fff"];
+var strokeColor = '#0065c3';
 var reverseShadesOfGray = shadesOfGray.reverse();
 var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey3";
@@ -113,7 +114,8 @@ function draw1(words) {
     .enter().append("text")
 
       .style("font-size", function(d) { return d.size + "px"; })
-      .style("font-family", "AkkuratBold")	
+      .style("font-family", "AkkuratBold")
+      .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})
       .attr("text-anchor", "middle")
       .attr("text-align", "left")
       .transition().duration(1e3)
@@ -141,7 +143,8 @@ function draw2(words) {
     .enter().append("text")
 
       .style("font-size", function(d) { return d.size + "px"; })
-      .style("font-family", "AkkuratBold")	
+      .style("font-family", "AkkuratBold")
+      .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})	
       .attr("text-anchor", "middle")
       .attr("text-align", "left")
       .transition().duration(1e3)
@@ -170,6 +173,7 @@ function draw3(words) {
 
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")	
+      .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})
       .attr("text-anchor", "middle")
       .attr("text-align", "left")
       .transition().duration(1e3)
@@ -198,6 +202,7 @@ function draw4(words) {
 
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")	
+      .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})
       .attr("text-anchor", "middle")
       .attr("text-align", "left")
       .transition().duration(1e3)
@@ -206,6 +211,29 @@ function draw4(words) {
         return "translate(" + [d.x, d.y] + ")rotate(" +  d.rotate  + ")";
       })
       .text(function(d) { return d.text; });
+}
+
+function checkForNewWords(layout, wordArray){
+	var currentWords = [];
+	if(layout.words().length > 1){
+		$.each(layout.words(), function(key, value){
+			if(typeof value.text !== "undefined"){
+				currentWords.push(value.text);
+			}
+			
+		});
+	}
+	if(wordArray.length > 1){
+		$.each(wordArray, function(key, value){
+
+			if(typeof value.text !== "undefined" && currentWords.indexOf(value.text) == -1){
+				value.newWord = true;
+			}else if(typeof value.text !== "undefined"){
+				value.newWord = false;
+			}
+			
+		});
+	}
 }
 
 function generate(wordsArray, angle, layout) {
@@ -219,6 +247,7 @@ function generate(wordsArray, angle, layout) {
 $(document).ready(function(){
 	var outerWidth = $('.vis-wrapper-4').width();
 	var outerHeight = $('.vis-wrapper-4').height();
+
 	
 	layout1.size([outerWidth/2, outerHeight/2]).start();
 	layout2.size([outerWidth/2, outerHeight/2]).start();
@@ -265,6 +294,8 @@ $(document).ready(function(){
 			});//end each answer
 			switch(questionID){
 				case "Sigil1" :
+				
+				checkForNewWords(layout1, wordArray);
 			    generate(wordArray, 45, layout1);
 
 			    $('#vis-1').css({'background-size' :  answerTotal+'%'});
