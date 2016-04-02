@@ -1,0 +1,54 @@
+.content{
+
+	.image-wrapper{
+		@include animation(fade-in 1s ease-in-out);
+		margin: 1em auto;
+		text-align: center;
+		display: block;
+		width: 30%;
+		@media screen and (max-width: $tablet-break){
+			width: 60%;
+		}
+		@media screen and (orientation: portrait){ 
+			width: 60%;
+		}
+		@media screen and (max-width: $phone-break){
+			width: 80%;
+		}
+	}
+
+	h4, h5{
+		font-family : $bold-font-family;
+		font-size: 1.1em;
+		color: $gray;
+		margin-top: 1em;
+	}
+	button{
+		a{
+			color: #eee;
+		}
+		font-family: $base-font-family;
+		@include animation(fade-in 1s ease-in-out);
+		@include linear-gradient(to bottom right, lighten($blue, 20%), $blue 50%, $second-blue 100%);
+		@media screen and (orientation : portrait){
+		    display: inline-block;
+		    max-width: 80%;
+		    margin: 1em auto;
+		}
+
+	}
+	a.cta{
+		font-family: $bold-font-family;
+
+	}
+	.description {
+		@media screen and (orientation: portrait){
+			font-size: 1.3em;
+		}
+		@include animation(fade-in 1s ease-in-out);
+		p{
+			margin-right: 2em;
+		}
+	}
+	
+}

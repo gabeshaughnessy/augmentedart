@@ -1,0 +1,41 @@
+.flex-wrapper{
+	@include display(flex);
+	@media screen and (max-width: $phone-break){
+		@include flex-direction(column);
+	}
+	$grid-columns: 10;
+	&.tablet{
+  		@media screen and (min-width: $tablet-break){
+			@for $i from 1 to $grid-columns {
+			    .flex-#{$i} {
+				    @include flex($i);
+			  	}
+			}
+		}
+	}
+	&.phone{
+  		@media screen and (min-width: $phone-break){
+			@for $i from 1 to $grid-columns {
+			    .flex-#{$i} {
+				    @include flex($i);
+			  	}
+			}
+		}
+	}
+	&.orientation-landscape{
+		@include flex-direction(column);
+		@media screen and (orientation: landscape){
+			@include flex-direction(row);
+			@for $i from 1 to $grid-columns {
+			    .flex-#{$i} {
+				    @include flex($i);
+			  	}
+			}
+		}
+	}
+	  	
+	&.vert{
+		@include flex-direction(column);
+		@include justify-content(center);
+	}
+}

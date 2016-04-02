@@ -32,6 +32,9 @@ body{
 			width: 30%;
 			height: 30%;
 			margin: 0 auto;
+			@media screen and (orientation: portrait){
+				width: 60%;
+			}
 			@include animation(fade-in .8s ease-in-out);
 			*{
 				display: none;
