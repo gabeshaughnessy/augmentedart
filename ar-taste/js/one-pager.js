@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
 			<div class="flex-7"><h3 class="title">'+dishName+'</h3><p>'+description+'</p></div>
 			<div class="flex-3 orientation-landscape flex-wrapper vert">
 				<h5>'+cta_title+'</h5>
-				<button><a class="cta button" href="/ar-taste?'+sigil+'=true">'+cta_text+'</a></button>
+				<a class="cta button" href="/ar-taste?'+sigil+'=true">'+cta_text+'</a>
 			</div>
 		</div>
 		</div>';

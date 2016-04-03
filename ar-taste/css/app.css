@@ -137,7 +137,7 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
 .content button { font-family: "Akkurat", helvetica, sans-serif; -webkit-animation: fade-in 1s ease-in-out; -moz-animation: fade-in 1s ease-in-out; animation: fade-in 1s ease-in-out; background-color: #2a98ff; background-image: -webkit-linear-gradient(top left, #2a98ff, #0065c3 50%, #004C97 100%); background-image: linear-gradient(to bottom right,#2a98ff, #0065c3 50%, #004C97 100%); }
 .content button a { color: #eee; }
 @media screen and (orientation: portrait) { .content button { display: inline-block; max-width: 80%; margin: 1em auto; } }
-.content a.cta { font-family: "AkkuratBold", helvetica, sans-serif; }
+.content a.cta { font-family: "AkkuratBold", helvetica, sans-serif; font-size: 1rem; }
 .content .description { -webkit-animation: fade-in 1s ease-in-out; -moz-animation: fade-in 1s ease-in-out; animation: fade-in 1s ease-in-out; }
 @media screen and (orientation: portrait) { .content .description { font-size: 1.3em; } }
 .content .description p { margin-right: 2em; }
@@ -148,7 +148,7 @@ body { font-size: 2em; margin: 0; color: #004C97; background: #eee; background-i
 
 .survey-wrapper { max-width: 800px; margin: 0 auto; background-image: url("../images/noise.png"), linear-gradient(90deg, #fff 0%, #eaeaea 100%); color: #0065c3; padding: 1em; border-top: 11px solid #0065c3; -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), 1px 1px 5px 0 rgba(0, 0, 0, 0.12), 3px 3px 1px -2px rgba(0, 0, 0, 0.2); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), 1px 1px 5px 0 rgba(0, 0, 0, 0.12), 3px 3px 1px -2px rgba(0, 0, 0, 0.2); -o-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), 1px 1px 5px 0 rgba(0, 0, 0, 0.12), 3px 3px 1px -2px rgba(0, 0, 0, 0.2); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), 1px 1px 5px 0 rgba(0, 0, 0, 0.12), 3px 3px 1px -2px rgba(0, 0, 0, 0.2); }
 .survey-wrapper .question { font-size: 1.1rem; color: #6b6c6b; }
-.survey-wrapper .question > label { background-repeat: no-repeat; background-size: contain; display: block; width: 30%; height: 30%; margin: 0 auto; -webkit-animation: fade-in 0.8s ease-in-out; -moz-animation: fade-in 0.8s ease-in-out; animation: fade-in 0.8s ease-in-out; }
+.survey-wrapper .question > label { background-repeat: no-repeat; background-size: contain; background-position: center; display: block; width: 30%; height: 30%; margin: 0 auto; -webkit-animation: fade-in 0.8s ease-in-out; -moz-animation: fade-in 0.8s ease-in-out; animation: fade-in 0.8s ease-in-out; }
 @media screen and (orientation: portrait) { .survey-wrapper .question > label { width: 60%; } }
 .survey-wrapper .question > label * { display: none; }
 .survey-wrapper .answers { margin: 1em 0; display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; }
