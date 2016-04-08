@@ -56,6 +56,10 @@ function animationLoop(){
 		triggerAnimation(6000, 'close');
 		triggerAnimation(8000, 'open');
 	}
+	else if(sigil == "Sigil4"){
+		triggerAnimation(6000, 'close');
+		triggerAnimation(8000, 'open');
+	}
 	
 
 }

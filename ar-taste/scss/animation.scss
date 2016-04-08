@@ -38,6 +38,14 @@
 		background-position-x : -11400px;
 	}
 }
+@include keyframes(openSigilFour) {
+	from{
+		background-position-x : 0;
+	}
+	to {
+		background-position-x : -11400px;
+	}
+}
 html.layar-content{
 	margin-top: 0 !important;
 	background : transparent !important;
@@ -112,6 +120,19 @@ html.layar-content{
 		}
 		&.close{
 			@include animation(openSigilThree 2s steps(19) reverse);
+			@include animation-fill-mode(forwards);
+		}
+	}
+	&.Sigil4{
+		&.open{
+			@include animation(openSigilFour 2s steps(19));
+			@include animation-fill-mode(forwards);
+		}
+		&.pulse{
+			
+		}
+		&.close{
+			@include animation(openSigilFour 2s steps(19) reverse);
 			@include animation-fill-mode(forwards);
 		}
 	}
