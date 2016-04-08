@@ -42,7 +42,7 @@ function triggerAnimation(speed, animationType) {
     }, speed); 
 }
 function animationLoop(){
-	if(sigil == "Sigil3"){
+	if(sigil == "Sigil1"){
 		triggerAnimation(6000, 'close');
 		triggerAnimation(8000, 'open');
 	}
@@ -52,6 +52,11 @@ function animationLoop(){
 		triggerAnimation(8000, 'open');
 
 	}
+	else if(sigil == "Sigil3"){
+		triggerAnimation(6000, 'close');
+		triggerAnimation(8000, 'open');
+	}
+	
 
 }
 function stopAnimation() {

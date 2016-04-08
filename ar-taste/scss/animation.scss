@@ -5,7 +5,8 @@
 @import "fonts";
 @import "settings";
 
-@include keyframes(openSigilThree) {
+
+@include keyframes(openSigilOne) {
 	from{
 		background-position-x : 0;
 	}
@@ -13,7 +14,6 @@
 		background-position-x : -11400px;
 	}
 }
-
 @include keyframes(openSigilTwo) {
 	from{
 		background-position-x : 0;
@@ -28,6 +28,14 @@
 	}
 	to {
 	background-position-x : -11400px;
+	}
+}
+@include keyframes(openSigilThree) {
+	from{
+		background-position-x : 0;
+	}
+	to {
+		background-position-x : -11400px;
 	}
 }
 html.layar-content{

@@ -72,11 +72,11 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
 
 .bold, strong, h1, h2, h3 { font-family: "AkkuratBold", helvetica, sans-serif; }
 
-@-webkit-keyframes openSigilThree { from { background-position-x: 0; }
+@-webkit-keyframes openSigilOne { from { background-position-x: 0; }
   to { background-position-x: -11400px; } }
-@-moz-keyframes openSigilThree { from { background-position-x: 0; }
+@-moz-keyframes openSigilOne { from { background-position-x: 0; }
   to { background-position-x: -11400px; } }
-@keyframes openSigilThree { from { background-position-x: 0; }
+@keyframes openSigilOne { from { background-position-x: 0; }
   to { background-position-x: -11400px; } }
 @-webkit-keyframes openSigilTwo { from { background-position-x: 0; }
   to { background-position-x: -6000px; } }
@@ -89,6 +89,12 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
 @-moz-keyframes pulseSigilTwo { from { background-position-x: -6000px; }
   to { background-position-x: -11400px; } }
 @keyframes pulseSigilTwo { from { background-position-x: -6000px; }
+  to { background-position-x: -11400px; } }
+@-webkit-keyframes openSigilThree { from { background-position-x: 0; }
+  to { background-position-x: -11400px; } }
+@-moz-keyframes openSigilThree { from { background-position-x: 0; }
+  to { background-position-x: -11400px; } }
+@keyframes openSigilThree { from { background-position-x: 0; }
   to { background-position-x: -11400px; } }
 html.layar-content { margin-top: 0 !important; background: transparent !important; }
 html.layar-content body { background: transparent !important; }
