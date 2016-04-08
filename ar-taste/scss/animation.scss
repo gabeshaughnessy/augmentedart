@@ -1,0 +1,54 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+
+@include keyframes(open) {
+	from{
+		background-position-x : 0;
+	}
+	to {
+		background-position-x : -6000px;
+	}
+}
+@include keyframes(pulse) {
+	from{
+		background-position-x : -6000px;
+	}
+	to {
+	background-position-x : -11400px;
+	}
+}
+
+.sprite-wrapper{
+	width: 600px;
+	height: 600px;
+	background: transparent;
+	text-align: center;
+}
+.sprite{
+	display: block;
+	margin: auto;
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position-y :0;
+	width: 100%;
+	padding-bottom: 100%;
+	&.open{
+		@include animation(open 1s steps(10));
+		@include animation-fill-mode(forwards);
+	}
+	&.pulse{
+		@include animation(pulse 1s steps(9) 2 alternate );
+		@include animation-fill-mode(forwards);
+	}
+	&.close{
+		@include animation(open 1s steps(10) reverse);
+		@include animation-fill-mode(forwards);
+	}
+
+}
+

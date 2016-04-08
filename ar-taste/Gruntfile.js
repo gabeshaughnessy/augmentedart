@@ -31,6 +31,7 @@ module.exports = function(grunt) {
         },
         files: {
           'css/app.css': 'scss/app.scss',
+          'css/animation.css': 'scss/animation.scss',
         }
       }
   });
@@ -63,7 +64,8 @@ module.exports = function(grunt) {
           'js/visualization-2.min.js': ['js/visualization-2.js'],
           'js/visualization-3.min.js': ['js/visualization-3.js'],
           'js/visualization-4.min.js': ['js/visualization-4.js'],
-          'js/one-pager.min.js': ['js/one-pager.js']
+          'js/one-pager.min.js': ['js/one-pager.js'],
+          'js/animation.min.js': ['js/animation.js']
 
         }
       }
@@ -91,7 +93,7 @@ module.exports = function(grunt) {
     },
     grunt: { files: ['Gruntfile.js'] },
     scripts: {
-      files: ['js/main.js','js/d3.cloud.js', 'js/visualization-1.js', 'js/visualization-2.js','js/visualization-3.js','js/visualization-4.js', 'js/one-pager.js'],
+      files: ['js/main.js','js/d3.cloud.js', 'js/visualization-1.js', 'js/visualization-2.js','js/visualization-3.js','js/visualization-4.js', 'js/one-pager.js','js/animation.js'],
       tasks: ['concat']
     },
     compress: {

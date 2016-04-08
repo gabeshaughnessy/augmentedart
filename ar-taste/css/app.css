@@ -414,7 +414,7 @@ body { border-top: none; }
 
 .vis-wrapper-4 { width: 100vw; height: 100vh; background-color: #1a1919; color: #fff; }
 .vis-wrapper-4 .vis { float: left; width: 50%; height: 50vh; background-repeat: no-repeat; background-size: 80%; background-position: center; -webkit-animation: fade-in 2s 1; -moz-animation: fade-in 2s 1; animation: fade-in 2s 1; -webkit-transition: background-size 1s ease-out; -moz-transition: background-size 1s ease-out; transition: background-size 1s ease-out; }
-.vis-wrapper-4 #vis-1 { background-image: url("../images/sigil-01.svg"); background-position: bottom right; }
+.vis-wrapper-4 #vis-1 { background-image: url("../images/interface-01.svg"); background-position: bottom right; }
 .vis-wrapper-4 #vis-2 { background-image: url("../images/sigil-02.svg"); background-position: bottom left; }
 .vis-wrapper-4 #vis-3 { background-image: url("../images/sigil-03.svg"); background-position: top right; }
 .vis-wrapper-4 #vis-4 { background-image: url("../images/sigil-04.svg"); background-position: top left; }

@@ -274,15 +274,6 @@ $(document).ready(function(){
 			
 			
 			var questionID = question.replace(/ /g, "-").replace("?", "");
-			if(jQuery('#'+questionID).length > 0 ){
-				//question exists, update it
-
-			}
-			else{
-				//new question, create it.
-				var qEl = $('<div class="question-wrapper" id="'+questionID+'"></div>');
-				$(qEl).prependTo('.vis-wrapper-4 #vis-1');
-			}
 			var answerTotal = 0;
 			var n = 1;
 			wordArray = [];
@@ -313,24 +304,24 @@ $(document).ready(function(){
 					checkForNewWords(layout1, wordArray, defaultWords);
 				    generate(wordArray, 45, layout1);
 					
-				    $('#vis-1').css({'background-size' :  answerTotal+'%'});
+				    $('#vis-1').css({'background-size' :  answerTotal/2+'%'});
 
 			    break;
 			    case "Sigil2" :
 				    checkForNewWords(layout2, wordArray, defaultWords);
 				    generate(wordArray, -45, layout2);
 
-				    $('#vis-2').css({'background-size' : answerTotal+'%'});
+				    $('#vis-2').css({'background-size' : answerTotal/2+'%'});
 			    break;
 			    case "Sigil3" :
 					checkForNewWords(layout3, wordArray, defaultWords);
 				    generate(wordArray, -45, layout3);
-				    $('#vis-3').css({'background-size' :  answerTotal+'%'});
+				    $('#vis-3').css({'background-size' :  answerTotal/2+'%'});
 			    break;
 			    case "Sigil4" :
 				    checkForNewWords(layout4, wordArray, defaultWords);
 				    generate(wordArray, 45, layout4);
-				    $('#vis-4').css({'background-size' :  answerTotal+'%'});
+				    $('#vis-4').css({'background-size' :  answerTotal/2+'%'});
 			    break;
 			    default:
 			    //generate(wordArray, -45, layout1);
