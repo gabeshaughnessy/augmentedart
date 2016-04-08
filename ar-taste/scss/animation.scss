@@ -5,8 +5,16 @@
 @import "fonts";
 @import "settings";
 
+@include keyframes(openSigilThree) {
+	from{
+		background-position-x : 0;
+	}
+	to {
+		background-position-x : -11400px;
+	}
+}
 
-@include keyframes(open) {
+@include keyframes(openSigilTwo) {
 	from{
 		background-position-x : 0;
 	}
@@ -14,7 +22,7 @@
 		background-position-x : -6000px;
 	}
 }
-@include keyframes(pulse) {
+@include keyframes(pulseSigilTwo) {
 	from{
 		background-position-x : -6000px;
 	}
@@ -27,6 +35,9 @@ html.layar-content{
 	background : transparent !important;
 	body{
 		background : transparent !important;
+	}
+	p{
+	 	margin:0;
 	}
 }
 
@@ -55,19 +66,48 @@ html.layar-content{
 	background-position-y :0;
 	width: 100%;
 	padding-bottom: 100%;
+
+	&.Sigil1{
+		&.open{
+			@include animation(openSigilOne 2s steps(19));
+			@include animation-fill-mode(forwards);
+		}
+		&.pulse{
+			
+		}
+		&.close{
+			@include animation(openSigilOne 2s steps(19) reverse);
+			@include animation-fill-mode(forwards);
+		}
+	}
+	&.Sigil2{
+		&.open{
+			@include animation(openSigilTwo 1s steps(10));
+			@include animation-fill-mode(forwards);
+		}
+		&.pulse{
+			@include animation(pulseSigilTwo 1s steps(9) 2 alternate );
+			@include animation-fill-mode(forwards);
+		}
+		&.close{
+			@include animation(openSigilTwo 1s steps(10) reverse);
+			@include animation-fill-mode(forwards);
+		}
+	}
+	&.Sigil3{
+		&.open{
+			@include animation(openSigilThree 2s steps(19));
+			@include animation-fill-mode(forwards);
+		}
+		&.pulse{
+			
+		}
+		&.close{
+			@include animation(openSigilThree 2s steps(19) reverse);
+			@include animation-fill-mode(forwards);
+		}
+	}
 	
-	&.open{
-		@include animation(open 1s steps(10));
-		@include animation-fill-mode(forwards);
-	}
-	&.pulse{
-		@include animation(pulse 1s steps(9) 2 alternate );
-		@include animation-fill-mode(forwards);
-	}
-	&.close{
-		@include animation(open 1s steps(10) reverse);
-		@include animation-fill-mode(forwards);
-	}
 
 }
 

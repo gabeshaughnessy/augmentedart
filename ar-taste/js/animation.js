@@ -14,13 +14,13 @@ if(typeof Requests.QueryString("Sigil1") !== 'undefined' && Requests.QueryString
 	sigil = "Sigil3";
 }else if(typeof Requests.QueryString("Sigil4") !== 'undefined' && Requests.QueryString("Sigil4") == "true"){
 	sigil = "Sigil4";
+}else{
+	sigil = "Sigil1";//default
 }
-
-console.log(sigil);
 
 //load the sprite sheet
 var spriteSheet = new Image();
-spriteSheet.src = 'animations/spritesheets/spriteSheet.png';
+spriteSheet.src = 'animations/spritesheets/spriteSheet_'+sigil+'.png';
 var animation;
 var loop;
 spriteSheet.onload = function(){
@@ -33,7 +33,7 @@ $('.sprite').css('background-image' , 'url('+spriteSheet.src+')').addClass('open
 };
 function triggerAnimation(speed, animationType) {
     animation = setTimeout(function(){ 
-    	$('.sprite').attr('class', 'sprite');
+    	$('.sprite').attr('class', 'sprite'+ ' '+ sigil);
     	var el     = $('.sprite'),  
 		newone = el.clone(true);           
 		el.after(newone);
@@ -42,14 +42,22 @@ function triggerAnimation(speed, animationType) {
     }, speed); 
 }
 function animationLoop(){
-	triggerAnimation(3000, 'pulse');
-	triggerAnimation(6000, 'close');
-	triggerAnimation(8000, 'open');
+	if(sigil == "Sigil3"){
+		triggerAnimation(6000, 'close');
+		triggerAnimation(8000, 'open');
+	}
+	else if(sigil == "Sigil2"){
+		triggerAnimation(3000, 'pulse');
+		triggerAnimation(6000, 'close');
+		triggerAnimation(8000, 'open');
+
+	}
+
 }
 function stopAnimation() {
     clearTimeout(animation);
     clearInterval(loop);
 }
 $(document).ready(function(){
-	$('.sprite-wrapper').append('<a href="/ar-taste/one-pager.html?'+sigil+'=true" class="sprite loading"></a>');	
+	$('.sprite-wrapper').append('<a href="/ar-taste/one-pager.html?'+sigil+'=true" class="sprite loading '+sigil+'"></a>');	
 });
