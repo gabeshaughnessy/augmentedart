@@ -28,6 +28,17 @@
 	height: 600px;
 	background: transparent;
 	text-align: center;
+	&.loading{
+		&:before{
+			content : "Loading...";
+			display: block;
+			margin: 220px auto;
+			text-align: center;
+			color: $blue;
+			font-size: 2em;
+			font-family: $base-font-family;
+		}
+	}
 }
 .sprite{
 	display: block;
@@ -37,6 +48,7 @@
 	background-position-y :0;
 	width: 100%;
 	padding-bottom: 100%;
+	
 	&.open{
 		@include animation(open 1s steps(10));
 		@include animation-fill-mode(forwards);

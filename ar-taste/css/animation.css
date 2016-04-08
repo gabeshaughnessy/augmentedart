@@ -85,6 +85,7 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
 @keyframes pulse { from { background-position-x: -6000px; }
   to { background-position-x: -11400px; } }
 .sprite-wrapper { width: 600px; height: 600px; background: transparent; text-align: center; }
+.sprite-wrapper.loading:before { content: "Loading..."; display: block; margin: 220px auto; text-align: center; color: #0065c3; font-size: 2em; font-family: "Akkurat", helvetica, sans-serif; }
 
 .sprite { display: block; margin: auto; background-repeat: no-repeat; background-size: auto; background-position-y: 0; width: 100%; padding-bottom: 100%; }
 .sprite.open { -webkit-animation: open 1s steps(10); -moz-animation: open 1s steps(10); animation: open 1s steps(10); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }

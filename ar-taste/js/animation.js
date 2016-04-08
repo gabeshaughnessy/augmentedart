@@ -2,10 +2,12 @@
 var spriteSheet = new Image();
 spriteSheet.src = 'animations/spritesheets/spriteSheet.png';
 var animation;
+var loop;
 spriteSheet.onload = function(){
+$('.sprite-wrapper').removeClass('loading');
 $('.sprite').css('background-image' , 'url('+spriteSheet.src+')').addClass('open');
 	animationLoop();
-	setInterval(function(){
+	var loop = setInterval(function(){
 		animationLoop();
 	}, 10000);
 };
@@ -26,7 +28,8 @@ function animationLoop(){
 }
 function stopAnimation() {
     clearTimeout(animation);
+    clearInterval(loop);
 }
 $(document).ready(function(){
-	$('.sprite-wrapper').append('<div class="sprite"></div>');	
+	$('.sprite-wrapper').append('<div class="sprite loading"></div>');	
 });
