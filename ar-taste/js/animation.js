@@ -1,6 +1,14 @@
 //load the sprite sheet
-var spriteSheet = 'animations/spritesheets/spriteSheet.png';
+var spriteSheet = new Image();
+spriteSheet.src = 'animations/spritesheets/spriteSheet.png';
 var animation;
+spriteSheet.onload = function(){
+$('.sprite').css('background-image' , 'url('+spriteSheet.src+')').addClass('open');
+	animationLoop();
+	setInterval(function(){
+		animationLoop();
+	}, 10000);
+};
 function triggerAnimation(speed, animationType) {
     animation = setTimeout(function(){ 
     	$('.sprite').attr('class', 'sprite');
@@ -20,10 +28,5 @@ function stopAnimation() {
     clearTimeout(animation);
 }
 $(document).ready(function(){
-	$('.sprite-wrapper').append('<div class="sprite open" style="background-image: url('+spriteSheet+');"></div>');
-
-		animationLoop();
-		setInterval(function(){
-			animationLoop();
-		}, 10000)
+	$('.sprite-wrapper').append('<div class="sprite"></div>');	
 });
