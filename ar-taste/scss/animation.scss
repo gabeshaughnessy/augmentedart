@@ -19,15 +19,7 @@
 		background-position-x : 0;
 	}
 	to {
-		background-position-x : -6000px;
-	}
-}
-@include keyframes(pulseSigilTwo) {
-	from{
-		background-position-x : -6000px;
-	}
-	to {
-	background-position-x : -11400px;
+		background-position-x : -11400px;
 	}
 }
 @include keyframes(openSigilThree) {
@@ -98,7 +90,7 @@ html.layar-content{
 	}
 	&.Sigil2{
 		&.open{
-			@include animation(openSigilTwo 1s steps(10));
+			@include animation(openSigilTwo 2s steps(19));
 			@include animation-fill-mode(forwards);
 		}
 		&.pulse{
@@ -106,7 +98,7 @@ html.layar-content{
 			@include animation-fill-mode(forwards);
 		}
 		&.close{
-			@include animation(openSigilTwo 1s steps(10) reverse);
+			@include animation(openSigilTwo 2s steps(19) reverse);
 			@include animation-fill-mode(forwards);
 		}
 	}

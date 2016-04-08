@@ -79,16 +79,10 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
 @keyframes openSigilOne { from { background-position-x: 0; }
   to { background-position-x: -11400px; } }
 @-webkit-keyframes openSigilTwo { from { background-position-x: 0; }
-  to { background-position-x: -6000px; } }
+  to { background-position-x: -11400px; } }
 @-moz-keyframes openSigilTwo { from { background-position-x: 0; }
-  to { background-position-x: -6000px; } }
+  to { background-position-x: -11400px; } }
 @keyframes openSigilTwo { from { background-position-x: 0; }
-  to { background-position-x: -6000px; } }
-@-webkit-keyframes pulseSigilTwo { from { background-position-x: -6000px; }
-  to { background-position-x: -11400px; } }
-@-moz-keyframes pulseSigilTwo { from { background-position-x: -6000px; }
-  to { background-position-x: -11400px; } }
-@keyframes pulseSigilTwo { from { background-position-x: -6000px; }
   to { background-position-x: -11400px; } }
 @-webkit-keyframes openSigilThree { from { background-position-x: 0; }
   to { background-position-x: -11400px; } }
@@ -112,9 +106,9 @@ html.layar-content p { margin: 0; }
 .sprite { display: block; margin: auto; background-repeat: no-repeat; background-size: auto; background-position-y: 0; width: 100%; padding-bottom: 100%; }
 .sprite.Sigil1.open { -webkit-animation: openSigilOne 2s steps(19); -moz-animation: openSigilOne 2s steps(19); animation: openSigilOne 2s steps(19); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 .sprite.Sigil1.close { -webkit-animation: openSigilOne 2s steps(19) reverse; -moz-animation: openSigilOne 2s steps(19) reverse; animation: openSigilOne 2s steps(19) reverse; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
-.sprite.Sigil2.open { -webkit-animation: openSigilTwo 1s steps(10); -moz-animation: openSigilTwo 1s steps(10); animation: openSigilTwo 1s steps(10); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+.sprite.Sigil2.open { -webkit-animation: openSigilTwo 2s steps(19); -moz-animation: openSigilTwo 2s steps(19); animation: openSigilTwo 2s steps(19); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 .sprite.Sigil2.pulse { -webkit-animation: pulseSigilTwo 1s steps(9) 2 alternate; -moz-animation: pulseSigilTwo 1s steps(9) 2 alternate; animation: pulseSigilTwo 1s steps(9) 2 alternate; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
-.sprite.Sigil2.close { -webkit-animation: openSigilTwo 1s steps(10) reverse; -moz-animation: openSigilTwo 1s steps(10) reverse; animation: openSigilTwo 1s steps(10) reverse; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+.sprite.Sigil2.close { -webkit-animation: openSigilTwo 2s steps(19) reverse; -moz-animation: openSigilTwo 2s steps(19) reverse; animation: openSigilTwo 2s steps(19) reverse; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 .sprite.Sigil3.open { -webkit-animation: openSigilThree 2s steps(19); -moz-animation: openSigilThree 2s steps(19); animation: openSigilThree 2s steps(19); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 .sprite.Sigil3.close { -webkit-animation: openSigilThree 2s steps(19) reverse; -moz-animation: openSigilThree 2s steps(19) reverse; animation: openSigilThree 2s steps(19) reverse; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 .sprite.Sigil4.open { -webkit-animation: openSigilFour 2s steps(19); -moz-animation: openSigilFour 2s steps(19); animation: openSigilFour 2s steps(19); -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; }

@@ -47,7 +47,6 @@ function animationLoop(){
 		triggerAnimation(8000, 'open');
 	}
 	else if(sigil == "Sigil2"){
-		triggerAnimation(3000, 'pulse');
 		triggerAnimation(6000, 'close');
 		triggerAnimation(8000, 'open');
 
