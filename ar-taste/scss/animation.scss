@@ -22,6 +22,13 @@
 	background-position-x : -11400px;
 	}
 }
+html.layar-content{
+	margin-top: 0 !important;
+	background : transparent !important;
+	body{
+		background : transparent !important;
+	}
+}
 
 .sprite-wrapper{
 	width: 600px;

@@ -84,6 +84,9 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
   to { background-position-x: -11400px; } }
 @keyframes pulse { from { background-position-x: -6000px; }
   to { background-position-x: -11400px; } }
+html.layar-content { margin-top: 0 !important; background: transparent !important; }
+html.layar-content body { background: transparent !important; }
+
 .sprite-wrapper { width: 600px; height: 600px; background: transparent; text-align: center; }
 .sprite-wrapper.loading:before { content: "Loading..."; display: block; margin: 220px auto; text-align: center; color: #0065c3; font-size: 2em; font-family: "Akkurat", helvetica, sans-serif; }
 
