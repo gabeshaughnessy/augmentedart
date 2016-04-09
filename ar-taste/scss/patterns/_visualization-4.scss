@@ -41,7 +41,7 @@ body{
         @include filter(grayscale(100%) brightness(10%));
         
         &.active{
-            @include filter(grayscale(50%) brightness(50%));
+            @include filter(grayscale(50%) brightness(80%));
         }
 
     }
