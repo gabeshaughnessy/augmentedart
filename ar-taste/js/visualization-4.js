@@ -267,73 +267,72 @@ $(document).ready(function(){
 	layout2.size([outerWidth/2, outerHeight/2]).start();
 	layout3.size([outerWidth/2, outerHeight/2]).start();
 	layout4.size([outerWidth/2, outerHeight/2]).start();
-	
-	firebaseRef.child(surveyName).on('value', function(snapshot){
-		var i = 0;
-		$.each(snapshot.val(), function(question, answers) {
-			
-			
-			var questionID = question.replace(/ /g, "-").replace("?", "");
-			var answerTotal = 0;
-			var n = 1;
-			wordArray = [];
-			var defaultWords = [];
-			$.each(answers, function(answer, count){
 
-				if(answer == 'other'){
-					answerRef = snapshot.child(question).child(answer).val();
-					
-					for(word in answerRef){
-						answerTotal++;
-						wordArray.push({ text : answerRef[word], size : 18});
-					}
-					
-				}else{
-					
-					answerCount = Number(snapshot.child(question).child(answer).val());
-					answerTotal = Number(answerCount) + Number(answerTotal);
-					defaultWords.push({'text' : answer, 'size' : answerCount});
-					wordArray.push({ text : answer, size : answerCount});
+	firebaseRef.child(surveyName).on('child_changed', function(snapshot, prevChildKey){
+
+		question = snapshot.key();
+		answers = snapshot.val();
+		
+			
+		var questionID = question.replace(/ /g, "-").replace("?", "");
+		var answerTotal = 0;
+		var n = 1;
+		wordArray = [];
+		var defaultWords = [];
+		$.each(answers, function(answer, count){
+
+			if(answer == 'other'){
+				answerRef = snapshot.child(answer).val();
+				
+				for(word in answerRef){
+					answerTotal++;
+					wordArray.push({ text : answerRef[word], size : 18});
 				}
-
-			n++;
-
-			});//end each answer
-			switch(questionID){
-				case "Sigil1" :
-					checkForNewWords(layout1, wordArray, defaultWords);
-				    generate(wordArray, 45, layout1);
-					
-				    $('#vis-1').css({'background-size' :  answerTotal/2+'%'});
-
-			    break;
-			    case "Sigil2" :
-				    checkForNewWords(layout2, wordArray, defaultWords);
-				    generate(wordArray, -45, layout2);
-
-				    $('#vis-2').css({'background-size' : answerTotal/2+'%'});
-			    break;
-			    case "Sigil3" :
-					checkForNewWords(layout3, wordArray, defaultWords);
-				    generate(wordArray, -45, layout3);
-				    $('#vis-3').css({'background-size' :  answerTotal/2+'%'});
-			    break;
-			    case "Sigil4" :
-				    checkForNewWords(layout4, wordArray, defaultWords);
-				    generate(wordArray, 45, layout4);
-				    $('#vis-4').css({'background-size' :  answerTotal/2+'%'});
-			    break;
-			    default:
-			    //generate(wordArray, -45, layout1);
+				
+			}else{
+				
+				answerCount = Number(snapshot.child(answer).val());
+				answerTotal = Number(answerCount) + Number(answerTotal);
+				defaultWords.push({'text' : answer, 'size' : answerCount});
+				wordArray.push({ text : answer, size : answerCount});
 			}
 
-			allwords = typeof allwords !== 'undefined' ? allwords.concat(wordArray) : wordArray;
-			wordArray = [""];
-			defaultWords = [""];
-			answerCount = 0;
-			
-			i++;
-		});//end each question
+		n++;
+
+		});//end each answer
+		switch(questionID){
+			case "Sigil1" :
+				checkForNewWords(layout1, wordArray, defaultWords);
+			    generate(wordArray, 45, layout1);
+				
+			    $('#vis-1').css({'background-size' :  answerTotal/2+'%'});
+
+		    break;
+		    case "Sigil2" :
+			    checkForNewWords(layout2, wordArray, defaultWords);
+			    generate(wordArray, -45, layout2);
+
+			    $('#vis-2').css({'background-size' : answerTotal/2+'%'});
+		    break;
+		    case "Sigil3" :
+				checkForNewWords(layout3, wordArray, defaultWords);
+			    generate(wordArray, -45, layout3);
+			    $('#vis-3').css({'background-size' :  answerTotal/2+'%'});
+		    break;
+		    case "Sigil4" :
+			    checkForNewWords(layout4, wordArray, defaultWords);
+			    generate(wordArray, 45, layout4);
+			    $('#vis-4').css({'background-size' :  answerTotal/2+'%'});
+		    break;
+		    default:
+		    //generate(wordArray, -45, layout1);
+		}
+
+		allwords = typeof allwords !== 'undefined' ? allwords.concat(wordArray) : wordArray;
+		wordArray = [""];
+		defaultWords = [""];
+		answerCount = 0;
+
 		
 	});//end firebase listener
 
