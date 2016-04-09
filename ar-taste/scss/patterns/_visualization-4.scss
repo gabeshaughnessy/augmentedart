@@ -10,6 +10,8 @@ body{
     	float: left;
     	width: 50%;
     	height: 50vh;
+        position: relative;
+        overflow: hidden;
     	//border: 1px solid $blue;
     	background-repeat: no-repeat;
     	background-size: 80%;
@@ -18,22 +20,59 @@ body{
     	@include transition(background-size 1s ease-out);
 
     }
+    svg{
+        z-index: 2;
+        position: relative;
+    }
+    .sprite-wrapper{
+        position: absolute;
+        z-index: 1;
+        width: 600px;
+        height: 600px;
+        display: block;
+        float: left;
+        background-position: top left;
+        background-repeat: no-repeat;
+        @include animation(fade-in 2s 1);
+        @include animation('playVis' 2s steps(19) 3 alternate);
+        @include animation-fill-mode(forwards);
+        @include transform(scale(.5));
+        @include transition(-webkit-filter 1s, filter 1s, -moz-filter 1s, scale .5s ease);
+        @include filter(grayscale(100%) brightness(10%));
+        
+        &.active{
+            @include filter(grayscale(50%) brightness(50%));
+        }
 
-    #vis-1{
-    	background-image: url('../images/interface-01.svg');
-    	background-position: bottom right;
     }
-    #vis-2{
-    	background-image: url('../images/sigil-02.svg');
-    	background-position: bottom left;
+
+    #vis-1 .sprite-wrapper{
+    	background-image: url('../animations/spritesheets/spriteSheet_Sigil1.png');
+
+        @include transform-origin(bottom right);
+        bottom: 0;
+        right: 0;
     }
-    #vis-3{
-    	background-image: url('../images/sigil-03.svg');
-    	background-position: top right;
+    #vis-2 .sprite-wrapper{
+        @include animation-delay(.5s);
+    	background-image: url('../animations/spritesheets/spriteSheet_Sigil2.png');
+        @include transform-origin(bottom left);
+        bottom: 0;
+        left: 0;
     }
-    #vis-4{
-    	background-image: url('../images/sigil-04.svg');
-    	background-position: top left;
+    #vis-3 .sprite-wrapper{
+        @include animation-delay(1.5s);
+    	background-image: url('../animations/spritesheets/spriteSheet_Sigil3.png');
+        @include transform-origin(top right);
+        top: 0;
+        right: 0;
+    }
+    #vis-4 .sprite-wrapper{
+        @include animation-delay(1s);
+        background-image: url('../animations/spritesheets/spriteSheet_Sigil4.png');
+        @include transform-origin(top left);
+        top: 0;
+        left: 0;
     }
 
 	h3.question{

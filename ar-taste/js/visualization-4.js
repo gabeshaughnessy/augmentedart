@@ -9,7 +9,7 @@ var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey3";
 var wordArray = [''];
 var angles = [0,45,-45];
-
+var fontSizeMultiplier = 1.2;
 //Handle the url parameters
 if(typeof Requests.QueryString("padding") !== 'undefined'){
 	var padding = Number(Requests.QueryString("padding"));
@@ -44,7 +44,7 @@ var layout1 = d3.layout.cloud()
     })
     .spiral('archimedean')
     .font("AkkuratBold")
-    .fontSize(function(d) { return d.size; })
+    .fontSize(function(d) { return fontSizeMultiplier*d.size; })
     .anchor([outerWidth/2, outerHeight/2])
 
     .on("end", draw1);
@@ -59,7 +59,7 @@ var layout2 = d3.layout.cloud()
     })
     .spiral('archimedean')
     .font("AkkuratBold")
-    .fontSize(function(d) { return d.size; })
+    .fontSize(function(d) { return fontSizeMultiplier*d.size; })
     .anchor([0, outerHeight/2])
     .on("end", draw2);
 
@@ -73,7 +73,7 @@ var layout3 = d3.layout.cloud()
     })
     .spiral('archimedean')
     .font("AkkuratBold")
-    .fontSize(function(d) { return d.size; })
+    .fontSize(function(d) { return fontSizeMultiplier*d.size; })
     .anchor([outerWidth/2, 0])
 
     .on("end", draw3);
@@ -87,13 +87,14 @@ var layout4 = d3.layout.cloud()
     })
     .spiral('archimedean')
     .font("AkkuratBold")
-    .fontSize(function(d) { return d.size; })
+    .fontSize(function(d) { return fontSizeMultiplier*d.size; })
     .anchor([0,0])
 
     .on("end", draw4);
 
 
 function draw1(words) {
+	addSprite($('#vis-1'));
  var rotation = 1;
  var wordContainer = d3.select('#vis-1 svg');
 	 if(wordContainer.empty()){
@@ -112,7 +113,7 @@ function draw1(words) {
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")
       .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})
-      .attr("text-anchor", "middle")
+      .attr("text-anchor", "end")
       .attr("text-align", "left")
       .transition().duration(1e3)
       .style("fill", function(d, i) { return fill(i); })
@@ -123,6 +124,7 @@ function draw1(words) {
 }
 
 function draw2(words) {
+	addSprite($('#vis-2'));
  var rotation = 1;
  var wordContainer = d3.select('#vis-2 svg');
 	 if(wordContainer.empty()){
@@ -141,7 +143,7 @@ function draw2(words) {
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")
       .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})	
-      .attr("text-anchor", "middle")
+      .attr("text-anchor", "start")
       .attr("text-align", "left")
       .transition().duration(1e3)
       .style("fill", function(d, i) { return fill(i); })
@@ -152,6 +154,7 @@ function draw2(words) {
 }
 
 function draw3(words) {
+	addSprite($('#vis-3'));
  var rotation = 1;
  var wordContainer = d3.select('#vis-3 svg');
 	 if(wordContainer.empty()){
@@ -170,7 +173,7 @@ function draw3(words) {
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")	
       .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})
-      .attr("text-anchor", "middle")
+      .attr("text-anchor", "end")
       .attr("text-align", "left")
       .transition().duration(1e3)
       .style("fill", function(d, i) { return fill(i); })
@@ -181,10 +184,12 @@ function draw3(words) {
 }
 
 function draw4(words) {
+	addSprite($('#vis-4'));
+	
  var rotation = 1;
  var wordContainer = d3.select('#vis-4 svg');
 	 if(wordContainer.empty()){
-		 wordContainer = d3.select('#vis-4').append("svg");
+		wordContainer = d3.select('#vis-4').append("svg");
 	}else{
 		wordContainer.select('g').remove();
 	}
@@ -199,14 +204,37 @@ function draw4(words) {
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "AkkuratBold")	
       .style("stroke", function(d){ if(d.newWord == true){ return strokeColor;}})
-      .attr("text-anchor", "middle")
+      .attr("text-anchor", "start")
       .attr("text-align", "left")
       .transition().duration(1e3)
       .style("fill", function(d, i) { return fill(i); })
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" +  d.rotate  + ")";
       })
-      .text(function(d) { return d.text; });
+      .text(function(d) { return d.text; });   
+}
+
+function addSprite(object){
+	object.find('.sprite-wrapper').remove();
+	object.prepend('<div class="sprite-wrapper active"></div>');
+	setTimeout(function(){
+      	object.find('.sprite-wrapper').removeClass('active');
+      }, 3500);
+}
+
+function logScale(position) {
+  // position will be between 0 and 100
+  var minp = 0;
+  var maxp = 200;
+
+  // The result should be between 100 an 10000000
+  var minv = Math.log(.2);
+  var maxv = Math.log(1);
+
+  // calculate adjustment factor
+  var scale = (maxv-minv) / (maxp-minp);
+
+  return Math.exp(minv + scale*(position-minp));
 }
 
 function checkForNewWords(layoutObj, newWordArray, defaultWordArray){
@@ -236,7 +264,8 @@ function checkForNewWords(layoutObj, newWordArray, defaultWordArray){
 				    if(defaultWordArray[item].text == value.text) {
 				    	//this is in the default set.
 				    	$.each(layoutObj.words(), function(key, word){
-				    		if(word.text == value.text && word.size < value.size){
+				    		console.log(word.text + ' ' + word.size + ' ' + value.size);
+				    		if(word.text == value.text && word.size < fontSizeMultiplier*value.size){
 						    	value.newWord = true;
 						    }
 				    	});
@@ -276,6 +305,7 @@ $(document).ready(function(){
 			
 		var questionID = question.replace(/ /g, "-").replace("?", "");
 		var answerTotal = 0;
+		var answerCount = 0;
 		var n = 1;
 		wordArray = [];
 		var defaultWords = [];
@@ -290,7 +320,6 @@ $(document).ready(function(){
 				}
 				
 			}else{
-				
 				answerCount = Number(snapshot.child(answer).val());
 				answerTotal = Number(answerCount) + Number(answerTotal);
 				defaultWords.push({'text' : answer, 'size' : answerCount});
@@ -300,32 +329,33 @@ $(document).ready(function(){
 		n++;
 
 		});//end each answer
+
+		var scale = logScale(Number(answerTotal));
 		switch(questionID){
 			case "Sigil1" :
 				checkForNewWords(layout1, wordArray, defaultWords);
 			    generate(wordArray, 45, layout1);
 				
-			    $('#vis-1').css({'background-size' :  answerTotal/2+'%'});
+			    $('#vis-1 .sprite-wrapper').css({'transform' :  'scale('+scale+')'});
 
 		    break;
 		    case "Sigil2" :
 			    checkForNewWords(layout2, wordArray, defaultWords);
 			    generate(wordArray, -45, layout2);
 
-			    $('#vis-2').css({'background-size' : answerTotal/2+'%'});
+			    $('#vis-2 .sprite-wrapper').css({'transform' :  'scale('+scale+')'});
 		    break;
 		    case "Sigil3" :
 				checkForNewWords(layout3, wordArray, defaultWords);
 			    generate(wordArray, -45, layout3);
-			    $('#vis-3').css({'background-size' :  answerTotal/2+'%'});
+			    $('#vis-3 .sprite-wrapper').css({'transform' :  'scale('+scale+')'});
 		    break;
 		    case "Sigil4" :
 			    checkForNewWords(layout4, wordArray, defaultWords);
 			    generate(wordArray, 45, layout4);
-			    $('#vis-4').css({'background-size' :  answerTotal/2+'%'});
+			    $('#vis-4 .sprite-wrapper').css({'transform' :  'scale('+scale+')'});
 		    break;
 		    default:
-		    //generate(wordArray, -45, layout1);
 		}
 
 		allwords = typeof allwords !== 'undefined' ? allwords.concat(wordArray) : wordArray;

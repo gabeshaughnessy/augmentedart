@@ -129,6 +129,12 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
   100% { background-size: 80%; } }
 @keyframes bg-scale { 0% { background-size: 0%; }
   100% { background-size: 80%; } }
+@-webkit-keyframes playVis { from { background-position-x: 0; }
+  to { background-position-x: -11400px; } }
+@-moz-keyframes playVis { from { background-position-x: 0; }
+  to { background-position-x: -11400px; } }
+@keyframes playVis { from { background-position-x: 0; }
+  to { background-position-x: -11400px; } }
 .content .image-wrapper { -webkit-animation: fade-in 1s ease-in-out; -moz-animation: fade-in 1s ease-in-out; animation: fade-in 1s ease-in-out; margin: 1em auto; text-align: center; display: block; width: 30%; }
 @media screen and (max-width: 720px) { .content .image-wrapper { width: 60%; } }
 @media screen and (orientation: portrait) { .content .image-wrapper { width: 60%; } }
@@ -413,11 +419,14 @@ body { font-size: 2em; margin: 0; color: #004C97; background: #eee; background-i
 body { border-top: none; }
 
 .vis-wrapper-4 { width: 100vw; height: 100vh; background-color: #1a1919; color: #fff; }
-.vis-wrapper-4 .vis { float: left; width: 50%; height: 50vh; background-repeat: no-repeat; background-size: 80%; background-position: center; -webkit-animation: fade-in 2s 1; -moz-animation: fade-in 2s 1; animation: fade-in 2s 1; -webkit-transition: background-size 1s ease-out; -moz-transition: background-size 1s ease-out; transition: background-size 1s ease-out; }
-.vis-wrapper-4 #vis-1 { background-image: url("../images/interface-01.svg"); background-position: bottom right; }
-.vis-wrapper-4 #vis-2 { background-image: url("../images/sigil-02.svg"); background-position: bottom left; }
-.vis-wrapper-4 #vis-3 { background-image: url("../images/sigil-03.svg"); background-position: top right; }
-.vis-wrapper-4 #vis-4 { background-image: url("../images/sigil-04.svg"); background-position: top left; }
+.vis-wrapper-4 .vis { float: left; width: 50%; height: 50vh; position: relative; overflow: hidden; background-repeat: no-repeat; background-size: 80%; background-position: center; -webkit-animation: fade-in 2s 1; -moz-animation: fade-in 2s 1; animation: fade-in 2s 1; -webkit-transition: background-size 1s ease-out; -moz-transition: background-size 1s ease-out; transition: background-size 1s ease-out; }
+.vis-wrapper-4 svg { z-index: 2; position: relative; }
+.vis-wrapper-4 .sprite-wrapper { position: absolute; z-index: 1; width: 600px; height: 600px; display: block; float: left; background-position: top left; background-repeat: no-repeat; -webkit-animation: fade-in 2s 1; -moz-animation: fade-in 2s 1; animation: fade-in 2s 1; -webkit-animation: "playVis" 2s steps(19) 3 alternate; -moz-animation: "playVis" 2s steps(19) 3 alternate; animation: "playVis" 2s steps(19) 3 alternate; -webkit-animation-fill-mode: forwards; -moz-animation-fill-mode: forwards; animation-fill-mode: forwards; -webkit-transform: scale(0.5); -moz-transform: scale(0.5); -ms-transform: scale(0.5); -o-transform: scale(0.5); transform: scale(0.5); -webkit-transition: -webkit-filter 1s, filter 1s, -moz-filter 1s, scale 0.5s ease; -moz-transition: -webkit-filter 1s, filter 1s, -moz-filter 1s, scale 0.5s ease; transition: -webkit-filter 1s, filter 1s, -moz-filter 1s, scale 0.5s ease; -webkit-filter: grayscale(100%) brightness(10%); filter: grayscale(100%) brightness(10%); }
+.vis-wrapper-4 .sprite-wrapper.active { -webkit-filter: grayscale(50%) brightness(50%); filter: grayscale(50%) brightness(50%); }
+.vis-wrapper-4 #vis-1 .sprite-wrapper { background-image: url("../animations/spritesheets/spriteSheet_Sigil1.png"); -webkit-transform-origin: bottom right; -moz-transform-origin: bottom right; -ms-transform-origin: bottom right; -o-transform-origin: bottom right; transform-origin: bottom right; bottom: 0; right: 0; }
+.vis-wrapper-4 #vis-2 .sprite-wrapper { -webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s; background-image: url("../animations/spritesheets/spriteSheet_Sigil2.png"); -webkit-transform-origin: bottom left; -moz-transform-origin: bottom left; -ms-transform-origin: bottom left; -o-transform-origin: bottom left; transform-origin: bottom left; bottom: 0; left: 0; }
+.vis-wrapper-4 #vis-3 .sprite-wrapper { -webkit-animation-delay: 1.5s; -moz-animation-delay: 1.5s; animation-delay: 1.5s; background-image: url("../animations/spritesheets/spriteSheet_Sigil3.png"); -webkit-transform-origin: top right; -moz-transform-origin: top right; -ms-transform-origin: top right; -o-transform-origin: top right; transform-origin: top right; top: 0; right: 0; }
+.vis-wrapper-4 #vis-4 .sprite-wrapper { -webkit-animation-delay: 1s; -moz-animation-delay: 1s; animation-delay: 1s; background-image: url("../animations/spritesheets/spriteSheet_Sigil4.png"); -webkit-transform-origin: top left; -moz-transform-origin: top left; -ms-transform-origin: top left; -o-transform-origin: top left; transform-origin: top left; top: 0; left: 0; }
 .vis-wrapper-4 h3.question { text-align: left; padding-top: 0; }
 .vis-wrapper-4 svg text.fade-in { opacity: .5; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
 
