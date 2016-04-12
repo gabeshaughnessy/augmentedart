@@ -47,7 +47,7 @@ body{
     }
 
     #vis-1 .sprite-wrapper{
-    	background-image: url('../animations/spritesheets/spriteSheet_Sigil1.png');
+    	background-image: url('../animations/spritesheets/spriteSheet_Sigil1_fullrez.png');
 
         @include transform-origin(bottom right);
         bottom: 0;
@@ -55,21 +55,21 @@ body{
     }
     #vis-2 .sprite-wrapper{
         @include animation-delay(.5s);
-    	background-image: url('../animations/spritesheets/spriteSheet_Sigil2.png');
+    	background-image: url('../animations/spritesheets/spriteSheet_Sigil2_fullrez.png');
         @include transform-origin(bottom left);
         bottom: 0;
         left: 0;
     }
     #vis-3 .sprite-wrapper{
         @include animation-delay(1.5s);
-    	background-image: url('../animations/spritesheets/spriteSheet_Sigil3.png');
+    	background-image: url('../animations/spritesheets/spriteSheet_Sigil3_fullrez.png');
         @include transform-origin(top right);
         top: 0;
         right: 0;
     }
     #vis-4 .sprite-wrapper{
         @include animation-delay(1s);
-        background-image: url('../animations/spritesheets/spriteSheet_Sigil4.png');
+        background-image: url('../animations/spritesheets/spriteSheet_Sigil4_fullrez.png');
         @include transform-origin(top left);
         top: 0;
         left: 0;
