@@ -15,14 +15,14 @@ jQuery(document).ready(function($){
 	 description = "Black Garlic Wafer with Goat Cheese Mousse"
 	}else if(Requests.QueryString("Sigil2") == 'true'){
 	 var sigil = "Sigil2";
-	 dishName = "Ahuácatl";
+	 dishName = "Ahuacatl";
 	 var description = "Pear Compote and Blue Cheese on a Pecan Cracker"; 
 	}else if(Requests.QueryString("Sigil3") == 'true'){
 	 var sigil = "Sigil3";
-	 dishName = "Kwṓx̱weth";
+	 dishName = "Kul echx";
 	 //http://www.firstvoices.com/en/Halqemeylem/word/30acd4fd0fc3234a/Coho+Salmon
 	 //qél:éx̱ - salmon eggs
-	 description ="Truffle Pearls with Crème Fraiche on a Lays potato pancake"; 
+	 description ="Truffle Pearls with Creme Fraiche on a Lays potato pancake"; 
 	}else if(Requests.QueryString("Sigil4") == 'true'){
 	 var sigil = "Sigil4"; 
 	 dishName = "Quetzal";
