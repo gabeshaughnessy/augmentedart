@@ -75,6 +75,8 @@ html.layar-content{
 	background : transparent !important;
 	body{
 		background : transparent !important;
+		margin: 0;
+		width: 600px;
 	}
 	p{
 	 	margin:0;
@@ -221,5 +223,54 @@ html.layar-content{
 	padding-bottom: 100%;
 }
 
+
+//SIGIL 5 - has all four
+$duration : 10s;
+@include keyframes(animateSigil){
+  0% {
+    @include transform(scale(0));
+    opacity: 0;
+  }
+  10%{
+    @include transform(scale(1));
+    opacity: 1;
+  }
+  70%{
+    @include transform(scale(1));
+    opacity: 1;
+  }
+  75%{
+    @include transform(scale(0));
+    opacity: 0;
+  }
+  100%{
+    @include transform(scale(0));
+    opacity: 0;
+  }
+}
+.animate-sigil{
+	float: left;
+	width: 300px;
+	opacity: 0;
+	&.animate-1{
+		@include animation(animateSigil $duration infinite);
+	}
+	&.animate-2{
+		@include animation(animateSigil $duration infinite);
+		@include animation-delay(.5s);
+
+	}
+	&.animate-3{
+		
+		@include animation(animateSigil $duration infinite);
+		@include animation-delay(1.5s);
+
+	}
+	&.animate-4{
+		
+		@include animation(animateSigil $duration infinite);
+		@include animation-delay(1s);
+	}
+}
 
 

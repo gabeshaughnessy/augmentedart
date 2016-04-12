@@ -157,6 +157,7 @@ body { font-size: 2em; margin: 0; color: #004C97; background: #eee; background-i
 .survey-wrapper .question > label { background-repeat: no-repeat; background-size: contain; background-position: center; display: block; width: 30%; height: 30%; margin: 0 auto; -webkit-animation: fade-in 0.8s ease-in-out; -moz-animation: fade-in 0.8s ease-in-out; animation: fade-in 0.8s ease-in-out; }
 @media screen and (orientation: portrait) { .survey-wrapper .question > label { width: 60%; } }
 .survey-wrapper .question > label * { display: none; }
+.survey-wrapper h3 { color: #0065c3; text-align: center; margin: 2em 0; -webkit-animation: fade-in 1s ease-in-out; -moz-animation: fade-in 1s ease-in-out; animation: fade-in 1s ease-in-out; }
 .survey-wrapper .answers { margin: 1em 0; display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; }
 .survey-wrapper .answers .answer-wrapper { float: left; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; -webkit-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1; }
 .survey-wrapper .answers .answer-wrapper:nth-child(1) { -webkit-animation: fade-in 0.3s ease-in-out; -moz-animation: fade-in 0.3s ease-in-out; animation: fade-in 0.3s ease-in-out; }

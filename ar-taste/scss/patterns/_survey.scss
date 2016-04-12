@@ -43,6 +43,12 @@ body{
 		}
 
 		}
+		h3{
+			color: $blue;
+			text-align: center;
+			margin: 2em 0;
+			@include animation(fade-in 1s ease-in-out);
+		}
 		.answers{
 			margin: 1em 0;
 			@include display(flex);

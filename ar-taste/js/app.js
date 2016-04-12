@@ -143,7 +143,7 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 				questionID = question.replace(/ /g, "-").replace("?", "");
 				if(Requests.QueryString(questionID)){
 			    
-				    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question" ><label style="background-image: url(images/'+questionID+'.png)" for="'+questionID+'"><h3>'+question+'</h3></label><div class="answers"></div></div>');
+				    jQuery('#'+survey.surveyName).prepend('<div id="question_'+questionID+'" class="question" ><label style="background-image: url(images/'+questionID+'.png)" for="'+questionID+'"><h3>'+question+'</h3></label><h3>Tell me what this dish reminds you of:</h3><div class="answers"></div></div>');
 
 				    $.each(answers, function(answer, answerCount){
 				    	if(answer != "other"){
