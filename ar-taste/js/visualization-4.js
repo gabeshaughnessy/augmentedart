@@ -9,7 +9,7 @@ var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey3";
 var wordArray = [''];
 var angles = [0,45,-45];
-var fontSizeMultiplier = 1.2;
+var fontSizeMultiplier = 1;
 //Handle the url parameters
 if(typeof Requests.QueryString("padding") !== 'undefined'){
 	var padding = Number(Requests.QueryString("padding"));
@@ -225,7 +225,7 @@ function addSprite(object){
 function logScale(position) {
   // position will be between 0 and 100
   var minp = 0;
-  var maxp = 200;
+  var maxp = 300;
 
   // The result should be between 100 an 10000000
   var minv = Math.log(.2);

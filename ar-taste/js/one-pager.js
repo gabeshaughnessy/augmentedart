@@ -11,19 +11,26 @@ jQuery(document).ready(function($){
 	var description = "This is a paragraph or two about the dish they just ate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut ligula sed nisi semper vestibulum porta eu lectus. Pellentesque et lectus a sem maximus venenatis.";//override below
 	if(Requests.QueryString("Sigil1") == 'true'){
 	 var sigil = "Sigil1"; 
-	 var dishName = "This is the name of the first dish";
+	 var dishName = "Alliaceus Kuro";
+	 description = "Black Garlic Wafer with Goat Cheese Mousse"
 	}else if(Requests.QueryString("Sigil2") == 'true'){
 	 var sigil = "Sigil2";
-	 var dishName = "This is the name of the second dish"; 
+	 dishName = "Ahuácatl";
+	 var description = "Pear Compote and Blue Cheese on a Pecan Cracker"; 
 	}else if(Requests.QueryString("Sigil3") == 'true'){
-	 var sigil = "Sigil3"; 
+	 var sigil = "Sigil3";
+	 dishName = "Kwṓx̱weth";
+	 //http://www.firstvoices.com/en/Halqemeylem/word/30acd4fd0fc3234a/Coho+Salmon
+	 //qél:éx̱ - salmon eggs
+	 description ="Truffle Pearls with Crème Fraiche on a Lays potato pancake"; 
 	}else if(Requests.QueryString("Sigil4") == 'true'){
 	 var sigil = "Sigil4"; 
+	 dishName = "Quetzal";
+	 description = "Chili Chocolate Pot de Creme with Pepsi (caffeine free)";
 	}
-	console.log(sigil);
 	if(sigil !== false){
-		var cta_title = "Is this your favorite? ";
-		var cta_text = "Describe your experience > ";
+		var cta_title = "Did you enjoy this dish?";
+		var cta_text = "Translate your experience >";
 		
 		
 		var markup ='<div id="'+sigil+'" class="question" >

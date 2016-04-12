@@ -14,21 +14,13 @@ if(typeof Requests.QueryString("Sigil1") !== 'undefined' && Requests.QueryString
 	sigil = "Sigil3";
 }else if(typeof Requests.QueryString("Sigil4") !== 'undefined' && Requests.QueryString("Sigil4") == "true"){
 	sigil = "Sigil4";
-}
-else{
-	sigil = "Sigil1";//default
-}
-
-if(typeof Requests.QueryString("halfrez") !== 'undefined' && Requests.QueryString("halfrez") == "true"){
-	rez = 'halfrez';
 }else{
-	rez = 'fullrez';
+	sigil = "Sigil1";//default
 }
 
 //load the sprite sheet
 var spriteSheet = new Image();
-spriteSheet.src = 'animations/spritesheets/spriteSheet_'+sigil+'_'+rez+'.png';
-
+spriteSheet.src = 'animations/spritesheets/spriteSheet_'+sigil+'.png';
 var animation;
 var loop;
 spriteSheet.onload = function(){
@@ -75,6 +67,5 @@ function stopAnimation() {
     clearInterval(loop);
 }
 $(document).ready(function(){
-	$('.sprite-wrapper').addClass(rez);
 	$('.sprite-wrapper').append('<a href="/ar-taste/one-pager.html?'+sigil+'=true" class="sprite loading '+sigil+'"></a>');	
 });

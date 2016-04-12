@@ -152,7 +152,7 @@ var ref = new Firebase("https://ar-taste.firebaseio.com/");
 					    }
 					    else{
 					    	answerID = "other";
-					    	jQuery('#question_'+questionID).append('<input type="text" value="" name="other-text" id="other-text" data-question="'+question+'" placeholder="Something else entirely?">');
+					    	jQuery('#question_'+questionID).append('<input type="text" value="" name="other-text" id="other-text" data-question="'+question+'" placeholder="Choose your own words...">');
 					    }
 				    });
 				}
