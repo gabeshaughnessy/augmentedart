@@ -51,21 +51,21 @@ function triggerAnimation(speed, animationType) {
 }
 function animationLoop(){
 	if(sigil == "Sigil1"){
-		triggerAnimation(6000, 'close');
-		triggerAnimation(8000, 'open');
+		triggerAnimation(3000, 'close');
+		triggerAnimation(5000, 'open');
 	}
 	else if(sigil == "Sigil2"){
-		triggerAnimation(6000, 'close');
-		triggerAnimation(8000, 'open');
+		triggerAnimation(3000, 'close');
+		triggerAnimation(5000, 'open');
 
 	}
 	else if(sigil == "Sigil3"){
-		triggerAnimation(6000, 'close');
-		triggerAnimation(8000, 'open');
+		triggerAnimation(3000, 'close');
+		triggerAnimation(5000, 'open');
 	}
 	else if(sigil == "Sigil4"){
-		triggerAnimation(6000, 'close');
-		triggerAnimation(8000, 'open');
+		triggerAnimation(3000, 'close');
+		triggerAnimation(5000, 'open');
 	}
 	
 

@@ -9,7 +9,7 @@ var firebaseRef = new Firebase("https://ar-taste.firebaseio.com/");
 var surveyName = "testSurvey3";
 var wordArray = [''];
 var angles = [0,45,-45];
-var fontSizeMultiplier = 1;
+var fontSizeMultiplier = 1.3;
 //Handle the url parameters
 if(typeof Requests.QueryString("padding") !== 'undefined'){
 	var padding = Number(Requests.QueryString("padding"));
@@ -316,7 +316,7 @@ $(document).ready(function(){
 				
 				for(word in answerRef){
 					answerTotal++;
-					wordArray.push({ text : answerRef[word], size : 18});
+					wordArray.push({ text : answerRef[word], size : 26});
 				}
 				
 			}else{
