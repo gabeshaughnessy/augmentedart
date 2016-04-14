@@ -13,24 +13,34 @@ jQuery(document).ready(function($){
 	 var sigil = "Sigil1"; 
 	 var dishName = "Alliaceus Kuro";
 	 description = "Black Garlic Wafer with Goat Cheese Mousse"
+	 description = "Wafer di aglio nero con crema di formaggio di capra"
 	}else if(Requests.QueryString("Sigil2") == 'true'){
 	 var sigil = "Sigil2";
 	 dishName = "Ahuacatl";
 	 var description = "Pear Compote and Blue Cheese on a Pecan Cracker"; 
+	 var description = "Marmellata di pera e blu bheese su un cracker di pecan"; 
+
 	}else if(Requests.QueryString("Sigil3") == 'true'){
 	 var sigil = "Sigil3";
 	 dishName = "Kul echx";
 	 //http://www.firstvoices.com/en/Halqemeylem/word/30acd4fd0fc3234a/Coho+Salmon
 	 //qél:éx̱ - salmon eggs
 	 description ="Truffle Pearls with Creme Fraiche on a Lays potato pancake"; 
+	 description ="Perle di tartufo con Creme Fraiche su un letto di pancake di patate"; 
+
 	}else if(Requests.QueryString("Sigil4") == 'true'){
 	 var sigil = "Sigil4"; 
 	 dishName = "Quetzal";
 	 description = "Chili Chocolate Pot de Creme with Pepsi (caffeine free)";
+	 description = "Pot de Creme di cioccolato al chili con Pepsi (senza caffeine)";
+
 	}
 	if(sigil !== false){
 		var cta_title = "Did you enjoy this dish?";
+		var cta_title = "Ti è piaciuto questo piatto?";
+
 		var cta_text = "Translate your experience >";
+		var cta_text = "Traduci questa esperienza >";
 		
 		
 		var markup ='<div id="'+sigil+'" class="question" >
