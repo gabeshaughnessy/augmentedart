@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
 	 var sigil = "Sigil2";
 	 dishName = "Ahuacatl";
 	 var description = "Pear Compote and Blue Cheese on a Pecan Cracker"; 
-	 var description = "Marmellata di pera e blu bheese su un cracker di pecan"; 
+	 var description = "Marmellata di pera e blu cheese su un cracker di pecan"; 
 
 	}else if(Requests.QueryString("Sigil3") == 'true'){
 	 var sigil = "Sigil3";
