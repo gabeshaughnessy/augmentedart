@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
 	}
 	if(sigil !== false){
 		var cta_title = "Did you enjoy this dish?";
-		var cta_title = "Ti è piaciuto questo piatto?";
+		var cta_title = "Ti e piaciuto questo piatto?";
 
 		var cta_text = "Translate your experience >";
 		var cta_text = "Traduci questa esperienza >";
