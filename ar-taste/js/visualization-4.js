@@ -225,7 +225,7 @@ function addSprite(object){
 function logScale(position) {
   // position will be between 0 and 100
   var minp = 0;
-  var maxp = 150;
+  var maxp = 60;
 
   // The result should be between 100 an 10000000
   var minv = Math.log(.2);

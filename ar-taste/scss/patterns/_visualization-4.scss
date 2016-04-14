@@ -37,7 +37,7 @@ body{
         @include animation('playVis' 2s steps(19) 3 alternate);
         @include animation-fill-mode(forwards);
         @include transform(scale(.5));
-        @include transition(-webkit-filter 1s, filter 1s, -moz-filter 1s, scale .5s ease);
+        @include transition(-webkit-filter 1s, filter 1s, -moz-filter 1s, scale 1s ease);
         @include filter(grayscale(100%) brightness(10%));
         
         &.active{
