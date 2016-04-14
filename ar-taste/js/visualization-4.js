@@ -225,7 +225,7 @@ function addSprite(object){
 function logScale(position) {
   // position will be between 0 and 100
   var minp = 0;
-  var maxp = 300;
+  var maxp = 150;
 
   // The result should be between 100 an 10000000
   var minv = Math.log(.2);
@@ -316,14 +316,14 @@ $(document).ready(function(){
 				
 				for(word in answerRef){
 					answerTotal++;
-					wordArray.push({ text : answerRef[word], size : 26});
+					wordArray.push({ text : answerRef[word], size : 48});
 				}
 				
 			}else{
 				answerCount = Number(snapshot.child(answer).val());
 				answerTotal = Number(answerCount) + Number(answerTotal);
 				defaultWords.push({'text' : answer, 'size' : answerCount});
-				wordArray.push({ text : answer, size : answerCount});
+				wordArray.push({ text : answer, size : 2*answerCount});
 			}
 
 		n++;
