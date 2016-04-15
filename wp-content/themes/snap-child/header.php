@@ -21,8 +21,13 @@ global $noheader;
 		}?></title>
 	
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<?php if(is_page_template('layar-content-page.php') || is_page_template('nike_layar-content-page.php') || is_page_template('nike-fa15-page.php') || is_page_template('dh_layar-content-page.php')){
+	<?php if(is_page_template('layar-content-page.php')){
+			echo '<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">';
+		}else{
+			echo 	'<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
+
+		}
+if(is_page_template('layar-content-page.php') || is_page_template('nike_layar-content-page.php') || is_page_template('nike-fa15-page.php') || is_page_template('dh_layar-content-page.php')){
 echo '<meta name="robots" content="noindex, nofollow">';
 		}
 

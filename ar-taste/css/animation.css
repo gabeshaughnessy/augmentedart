@@ -121,7 +121,7 @@ body { font-family: "Akkurat", helvetica, sans-serif; }
 @keyframes openSigilFourSmall { from { background-position-x: 0; }
   to { background-position-x: -5700px; } }
 html.layar-content { margin-top: 0 !important; background: transparent !important; }
-html.layar-content body { background: rgba(255, 0, 0, 0.4) !important; margin: 0; width: 600px; }
+html.layar-content body { background: transparent !important; margin: 0; width: 600px; }
 html.layar-content p { margin: 0; }
 
 .sprite-wrapper { background: transparent; text-align: center; }

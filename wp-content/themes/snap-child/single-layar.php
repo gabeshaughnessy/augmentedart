@@ -74,7 +74,7 @@ if(have_posts()) : while(have_posts()) : the_post();
                                     'scrollable' => $scrollable
                                 ),
                                 'size' => $layarSize,
-                                "showLoadingIndicator" => false
+                                "showLoadingIndicator" => true
                             ),
                     'transform' => array(
                         'translate' => array(
@@ -116,7 +116,6 @@ if(!empty($hotspots_output) && isset($layar_name)){
     	'morePage' => false
     	
     );
-error_log(print_r($layar, true));
 echo json_encode($layar);
 }
 ?>
